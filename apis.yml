@@ -4,12 +4,13 @@ description: "Recipes, Food Products, and Meal Planning"
 url: https://spoonacular.com/food-api
 specificationVersion: '0.20'
 created: '2026-05-28'
-modified: '2026-05-28'
+modified: '2026-06-02'
 x-source: public-apis/public-apis
 x-category: "Food & Drink"
 x-tier: 3
 x-tier-reason: bulk-registered-from-public-apis
 tags:
+  - Restaurant
   - Food And Drink
   - Public APIs
 apis:
