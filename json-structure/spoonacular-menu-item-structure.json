@@ -1,0 +1,206 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/spoonacular/refs/heads/main/json-structure/spoonacular-menu-item-structure.json",
+  "name": "MenuItem",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "int32",
+      "example": 716429
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "example": "example"
+    },
+    "restaurantChain": {
+      "type": "string",
+      "minLength": 1,
+      "example": "example"
+    },
+    "nutrition": {
+      "type": "object",
+      "required": [
+        "nutrients",
+        "caloricBreakdown"
+      ],
+      "properties": {
+        "nutrients": {
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 0,
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "amount": {
+                "type": "double"
+              },
+              "unit": {
+                "type": "string",
+                "minLength": 1
+              },
+              "percentOfDailyNeeds": {
+                "type": "double"
+              }
+            },
+            "required": [
+              "name",
+              "amount",
+              "unit",
+              "percentOfDailyNeeds"
+            ]
+          }
+        },
+        "caloricBreakdown": {
+          "type": "object",
+          "required": [
+            "percentProtein",
+            "percentFat",
+            "percentCarbs"
+          ],
+          "properties": {
+            "percentProtein": {
+              "type": "double",
+              "example": 1.0
+            },
+            "percentFat": {
+              "type": "double",
+              "example": 1.0
+            },
+            "percentCarbs": {
+              "type": "double",
+              "example": 1.0
+            }
+          }
+        }
+      }
+    },
+    "badges": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "breadcrumbs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "generatedText": {
+      "type": "string",
+      "nullable": true,
+      "example": "example"
+    },
+    "imageType": {
+      "type": "string",
+      "minLength": 1,
+      "example": "example"
+    },
+    "likes": {
+      "type": "int32",
+      "example": 1
+    },
+    "servings": {
+      "type": "object",
+      "required": [
+        "number",
+        "size",
+        "unit"
+      ],
+      "properties": {
+        "number": {
+          "type": "double",
+          "example": 10
+        },
+        "size": {
+          "type": "double",
+          "nullable": true,
+          "example": 1.0
+        },
+        "unit": {
+          "type": "string",
+          "nullable": true,
+          "minLength": 1,
+          "example": "metric"
+        }
+      }
+    },
+    "price": {
+      "type": "double",
+      "nullable": true,
+      "example": 1.0
+    },
+    "spoonacularScore": {
+      "type": "double",
+      "nullable": true,
+      "example": 1.0
+    }
+  },
+  "required": [
+    "id",
+    "title",
+    "restaurantChain",
+    "price",
+    "spoonacularScore"
+  ],
+  "example": {
+    "id": 424571,
+    "title": "Bacon King Burger",
+    "restaurantChain": "Burger King",
+    "nutrition": {
+      "nutrients": [
+        {
+          "name": "Fat",
+          "amount": 69,
+          "unit": "g",
+          "percentOfDailyNeeds": 30
+        },
+        {
+          "name": "Protein",
+          "amount": 57,
+          "unit": "g",
+          "percentOfDailyNeeds": 35
+        },
+        {
+          "name": "Calories",
+          "amount": 1040,
+          "unit": "cal",
+          "percentOfDailyNeeds": 50
+        },
+        {
+          "name": "Carbohydrates",
+          "amount": 48,
+          "unit": "g",
+          "percentOfDailyNeeds": 35
+        }
+      ],
+      "caloricBreakdown": {
+        "percentProtein": 35,
+        "percentFat": 30,
+        "percentCarbs": 35
+      }
+    },
+    "badges": [],
+    "breadcrumbs": [
+      "burger",
+      "main course",
+      "food product category"
+    ],
+    "generatedText": "",
+    "imageType": "png",
+    "likes": 0,
+    "servings": {
+      "number": 1,
+      "size": 2,
+      "unit": "oz"
+    },
+    "price": 2.35,
+    "spoonacularScore": 12.5
+  }
+}

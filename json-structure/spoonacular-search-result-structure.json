@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/spoonacular/refs/heads/main/json-structure/spoonacular-search-result-structure.json",
+  "name": "SearchResult",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "image": {
+      "type": "string",
+      "example": "example"
+    },
+    "link": {
+      "type": "string",
+      "nullable": true,
+      "example": "example"
+    },
+    "name": {
+      "type": "string",
+      "example": "Spaghetti"
+    },
+    "type": {
+      "type": "string",
+      "example": "example"
+    },
+    "kvtable": {
+      "type": "string",
+      "example": "example"
+    },
+    "content": {
+      "type": "string",
+      "nullable": true,
+      "example": "example"
+    },
+    "id": {
+      "type": "int32",
+      "example": 716429
+    },
+    "relevance": {
+      "type": "double",
+      "example": 1.0
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

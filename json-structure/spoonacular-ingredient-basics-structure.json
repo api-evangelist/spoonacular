@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/spoonacular/refs/heads/main/json-structure/spoonacular-ingredient-basics-structure.json",
+  "name": "IngredientBasics",
+  "description": "IngredientBasics schema from spoonacular API",
+  "type": "object",
+  "properties": {
+    "description": {
+      "type": "string",
+      "nullable": true,
+      "example": "example"
+    },
+    "name": {
+      "type": "string",
+      "example": "Spaghetti"
+    },
+    "safety_level": {
+      "type": "string",
+      "nullable": true,
+      "example": "example"
+    }
+  },
+  "required": [
+    "name",
+    "description",
+    "safety_level"
+  ]
+}

@@ -1,0 +1,312 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/spoonacular/refs/heads/main/json-structure/spoonacular-product-information-structure.json",
+  "name": "ProductInformation",
+  "description": "",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "int32",
+      "example": 716429
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "example": "example"
+    },
+    "upc": {
+      "type": "string",
+      "nullable": true,
+      "example": "example"
+    },
+    "usdaCode": {
+      "type": "string",
+      "nullable": true,
+      "example": "example"
+    },
+    "breadcrumbs": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "imageType": {
+      "type": "string",
+      "minLength": 1,
+      "example": "example"
+    },
+    "badges": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "importantBadges": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "ingredientCount": {
+      "type": "int32",
+      "example": 1
+    },
+    "generatedText": {
+      "type": "string",
+      "nullable": true,
+      "example": "example"
+    },
+    "ingredientList": {
+      "type": "string",
+      "minLength": 1,
+      "example": "apples,flour,sugar"
+    },
+    "ingredients": {
+      "type": "array",
+      "uniqueItems": false,
+      "minItems": 0,
+      "items": {
+        "$ref": "#/components/schemas/IngredientBasics"
+      }
+    },
+    "likes": {
+      "type": "double",
+      "example": 1.0
+    },
+    "aisle": {
+      "type": "string",
+      "nullable": true,
+      "example": "example"
+    },
+    "credits": {
+      "type": "object",
+      "properties": {
+        "text": {
+          "type": "string",
+          "example": "example"
+        },
+        "link": {
+          "type": "string",
+          "example": "example"
+        },
+        "image": {
+          "type": "string",
+          "example": "example"
+        },
+        "imageLink": {
+          "type": "string",
+          "example": "example"
+        }
+      }
+    },
+    "nutrition": {
+      "type": "object",
+      "required": [
+        "nutrients",
+        "caloricBreakdown"
+      ],
+      "properties": {
+        "nutrients": {
+          "type": "array",
+          "uniqueItems": true,
+          "minItems": 0,
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "minLength": 1
+              },
+              "amount": {
+                "type": "double"
+              },
+              "unit": {
+                "type": "string",
+                "minLength": 1
+              },
+              "percentOfDailyNeeds": {
+                "type": "double"
+              }
+            },
+            "required": [
+              "name",
+              "amount",
+              "unit",
+              "percentOfDailyNeeds"
+            ]
+          }
+        },
+        "caloricBreakdown": {
+          "type": "object",
+          "required": [
+            "percentProtein",
+            "percentFat",
+            "percentCarbs"
+          ],
+          "properties": {
+            "percentProtein": {
+              "type": "double",
+              "example": 1.0
+            },
+            "percentFat": {
+              "type": "double",
+              "example": 1.0
+            },
+            "percentCarbs": {
+              "type": "double",
+              "example": 1.0
+            }
+          }
+        }
+      }
+    },
+    "price": {
+      "type": "double",
+      "example": 1.0
+    },
+    "servings": {
+      "type": "object",
+      "required": [
+        "number",
+        "size",
+        "unit"
+      ],
+      "properties": {
+        "number": {
+          "type": "double",
+          "example": 10
+        },
+        "size": {
+          "type": "double",
+          "example": 1.0
+        },
+        "unit": {
+          "type": "string",
+          "minLength": 1,
+          "example": "metric"
+        }
+      }
+    },
+    "spoonacularScore": {
+      "type": "double",
+      "example": 1.0
+    }
+  },
+  "required": [
+    "id",
+    "title",
+    "breadcrumbs",
+    "imageType",
+    "badges",
+    "importantBadges",
+    "ingredientCount",
+    "ingredientList",
+    "ingredients",
+    "likes",
+    "aisle",
+    "nutrition",
+    "price",
+    "servings",
+    "spoonacularScore"
+  ],
+  "example": {
+    "breadcrumbs": [
+      "bars"
+    ],
+    "category": "bars",
+    "usdaCode": null,
+    "id": 22347,
+    "title": "SNICKERS Minis Size Chocolate Candy Bars Variety Mix 10.5-oz. Bag",
+    "price": 324,
+    "likes": 0,
+    "badges": [
+      "msg_free",
+      "no_artificial_colors",
+      "no_artificial_flavors",
+      "no_artificial_ingredients",
+      "gluten_free"
+    ],
+    "importantBadges": [
+      "no_artificial_flavors",
+      "no_artificial_colors",
+      "no_artificial_ingredients",
+      "gluten_free",
+      "msg_free"
+    ],
+    "nutrition": {
+      "nutrients": [
+        {
+          "name": "Alcohol",
+          "amount": 0,
+          "unit": "g",
+          "percentOfDailyNeeds": 100
+        },
+        {
+          "name": "Caffeine",
+          "amount": 0,
+          "unit": "mg",
+          "percentOfDailyNeeds": 0
+        },
+        {
+          "name": "Net Carbohydrates",
+          "amount": 24,
+          "unit": "g",
+          "percentOfDailyNeeds": 8.73
+        }
+      ],
+      "caloricBreakdown": {
+        "percentProtein": 4.44,
+        "percentFat": 40,
+        "percentCarbs": 55.56
+      },
+      "calories": 180,
+      "fat": "8g",
+      "protein": "2g",
+      "carbs": "25g"
+    },
+    "servings": {
+      "number": 1,
+      "size": 4,
+      "unit": "pieces",
+      "raw": "4.0 pieces (38 g)"
+    },
+    "spoonacularScore": 0,
+    "aisle": null,
+    "description": "Snickers\u00c2\u00ae brand almond bar.What&#39;s inside... per minis piece.Calories 45, 2% DV.Total fat 2g, 3% DV.Sat fat 1g, 5% DV.Sugars 5g.Sodium 20mg, 1% DV.GDA&#39;s are based on a 2,000 calorie diet.To learn more visit www.marshealthyliving.com.*No DV defined.Snickers\u00c2\u00ae brand.What&#39;s inside... per minis piece.Calories 45, 2% DV.Total fat 2g, 3% DV.Sat fat 1g, 5% DV.Sugars 5g.Sodium 20mg, 1% DV.GDA&#39;s are based on a 2,000 calorie diet.To learn more visit www.marshealthyliving.com.*No DV defined.Snickers\u00c2\u00ae brand peanut butter squared bars.What&#39;s inside... per minis piece.Calories 50, 3% DV.Total fat 2.5g, 4% DV.Sat fat 1g, 5% DV.Sugars 4g.Sodium 30mg, 1% DV.GDA&#39;s are based on a 2,000 calorie diet.To learn more visit www.marshealthyliving.com.*No DV defined.snickers.com.Please save the unused product and wrapper.Mars Real Chocolate\u00c2\u00ae.We value your questions or comments. Call 1-800-551-0702 or visit us at www.snickers.com.Visit us at www.snickers.com.\u00c2\u00ae/TM trademarks.\u00c2\u00a9Mars, Incorporated.",
+    "image": "https://img.spoonacular.com/products/22347-312x231.jpeg",
+    "imageType": "jpeg",
+    "images": [
+      "https://img.spoonacular.com/products/22347-90x90.jpeg",
+      "https://img.spoonacular.com/products/22347-312x231.jpeg",
+      "https://img.spoonacular.com/products/22347-636x393.jpeg"
+    ],
+    "generatedText": null,
+    "upc": "040000421610",
+    "brand": "Snickers",
+    "ingredients": [
+      {
+        "name": "artificial flavor.snickers\u00e2\u00ae brand",
+        "safety_level": null,
+        "description": null
+      },
+      {
+        "name": "cocoa butter",
+        "safety_level": "high",
+        "description": null
+      },
+      {
+        "name": "soy lecithin",
+        "safety_level": "high",
+        "description": "Soy lecithin is <a href=\"http://farrp.unl.edu/resources/gi-fas/opinion-and-summaries/soy-lecithin\">not a concern</a> for most people allergic to soy."
+      }
+    ],
+    "ingredientCount": 32,
+    "ingredientList": "Snickers Brand Almond Bar: Milk Chocolate (Sugar, Cocoa Butter, Chocolate, Skim Milk, Lactose, Milkfat, Soy Lecithin, Artificial Flavor), Corn Syrup, Almonds, Sugar, Milkfat, Skim Milk, Less than 2% - Lactose, Salt, Hydrogenated Palm Kernel Oil and/or Palm Oil, Egg Whites, Chocolate, Artificial Flavor. Snickers Brand: Milk Chocolate (Sugar, Cocoa Butter, Chocolate, Skim Milk, Lactose, Milkfat, Soy Lecithin, Artificial Flavor), Peanuts, Corn Syrup, Sugar, Milkfat, Skim Milk, Partially Hydrogenated Soybean Oil, Lactose, Salt, Egg Whites, Chocolate, Artificial Flavor. Snickers Brand Peanut Butter Squared Bars: Milk Chocolate (Sugar, Cocoa Butter, Chocolate, Skim Milk, Lactose, Milkfat, Soy Lecithin, Artificial Flavor), Peanut Butter (Peanuts, Partially Hydrogenated Soybean Oil), Peanuts, Sugar, Corn Syrup, Vegetable Oil (Hydrogenated Palm Kernel Oil, Palm Oil, Rapeseed Oil and Cottonseed Oil and/or Partially Hydrogenated Palm Kernel Oil), Lactose, Corn Syrup Solids, Invert Sugar, Less than 2% - Glycerin, Dextrose, Skim Milk, Salt, Calcium Carbonate, Partially Hydrogenated Soybean Oil, Egg Whites, Artificial Flavor, TBHQ to Maintain Freshness",
+    "credits": {
+      "text": "openfoodfacts.org under (ODbL) v1.0",
+      "link": "https://opendatacommons.org/licenses/odbl/1-0/",
+      "image": "openfoodfacts.org under CC BY-SA 3.0 DEED",
+      "imageLink": "https://creativecommons.org/licenses/by-sa/3.0/deed.en"
+    }
+  }
+}

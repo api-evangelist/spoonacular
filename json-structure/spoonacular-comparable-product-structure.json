@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/spoonacular/refs/heads/main/json-structure/spoonacular-comparable-product-structure.json",
+  "name": "ComparableProduct",
+  "description": "ComparableProduct schema from spoonacular API",
+  "type": "object",
+  "properties": {
+    "difference": {
+      "type": "double",
+      "example": 1.0
+    },
+    "id": {
+      "type": "int32",
+      "example": 716429
+    },
+    "image": {
+      "type": "string",
+      "minLength": 1,
+      "example": "example"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "example": "example"
+    }
+  },
+  "required": [
+    "difference",
+    "id",
+    "image",
+    "title"
+  ]
+}

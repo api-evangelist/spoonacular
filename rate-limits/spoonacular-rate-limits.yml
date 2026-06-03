@@ -1,0 +1,80 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: Spoonacular
+providerId: spoonacular
+created: '2026-06-03'
+modified: '2026-06-03'
+reconciled: true
+tags:
+  - Rate Limiting
+  - Food And Drink
+  - Recipes
+  - Usage Based
+description: >-
+  Spoonacular enforces two layers of limiting, both scoped to the API key. A
+  request-rate / concurrency limit applies per second and is fixed by the
+  subscription tier (Free 1 req/s and 2 concurrent, up to Chef 20 req/s and 20
+  concurrent). Separately, a daily points quota meters total consumption: every
+  call costs points (typically 1 point + 0.01 per result, with surcharges for
+  nutrition, image generation, and video extraction). When the daily quota is
+  exhausted the Free tier returns HTTP 402; paid tiers continue and bill the
+  overage. Quotas reset at midnight UTC. Usage is reported back in response
+  headers on every call.
+sources:
+  - https://spoonacular.com/food-api/docs
+  - https://spoonacular.com/food-api/pricing
+headers:
+  quotaRequest: X-API-Quota-Request
+  quotaUsed: X-API-Quota-Used
+responseCodes:
+  quotaExceeded: 402
+limits:
+  - name: Request rate (Free tier)
+    scope: key
+    metric: requests_per_second
+    limit: 1
+    timeFrame: second
+    notes: Free tier also capped at 2 concurrent requests.
+  - name: Request rate (Cook tier)
+    scope: key
+    metric: requests_per_second
+    limit: 5
+    timeFrame: second
+    notes: 5 concurrent requests.
+  - name: Request rate (Culinarian tier)
+    scope: key
+    metric: requests_per_second
+    limit: 10
+    timeFrame: second
+    notes: 10 concurrent requests.
+  - name: Request rate (Chef tier)
+    scope: key
+    metric: requests_per_second
+    limit: 20
+    timeFrame: second
+    notes: 20 concurrent requests.
+  - name: Daily points quota (Free tier)
+    scope: key
+    metric: varies
+    limit: '50 points/day (point cost varies by endpoint)'
+    notes: Returns HTTP 402 once exhausted; resets at midnight UTC.
+  - name: Daily points quota (paid tiers)
+    scope: key
+    metric: varies
+    limit: '1,500 (Cook) / 4,500 (Culinarian) / 10,000 (Chef) points/day; Enterprise custom'
+    notes: Overage billed per additional point at the tier rate; resets at midnight UTC.
+policies:
+  - name: Points-based metering
+    description: >-
+      Each call costs points rather than counting flat requests — 1 point per
+      request plus 0.01 per result, +0.1 for nutrition data, +3 for image
+      generation, +50 for video extraction. Budget against points, not call count.
+  - name: Per-key scoping
+    description: Both request-rate and daily-quota limits are scoped to the API key, so each key has its own independent budget.
+  - name: Monitor usage headers
+    description: Read X-API-Quota-Request (cost of the call) and X-API-Quota-Used (cumulative daily usage) on every response to track remaining budget.
+  - name: Quota reset
+    description: The daily points quota resets at midnight UTC; schedule heavy batch workloads accordingly.
+  - name: Tier upgrade for higher throughput
+    description: Request-rate, concurrency, and daily quota all scale with the subscription tier; upgrade the plan rather than retrying against a hard cap.

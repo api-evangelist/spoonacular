@@ -1,0 +1,437 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "spoon": "https://spoonacular.com/food-api/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "SearchResult": "spoon:SearchResult",
+    "ProductInformation": "spoon:ProductInformation",
+    "ComparableProduct": "spoon:ComparableProduct",
+    "MenuItem": "spoon:MenuItem",
+    "IngredientBasics": "spoon:IngredientBasics",
+    "IngredientInformation": "spoon:IngredientInformation",
+    "TasteInformation": "spoon:TasteInformation",
+    "RecipeInformation": "spoon:RecipeInformation",
+    "image": {
+      "@id": "schema:image"
+    },
+    "link": {
+      "@id": "spoon:link",
+      "@type": "xsd:string"
+    },
+    "name": {
+      "@id": "schema:name"
+    },
+    "type": {
+      "@id": "spoon:type",
+      "@type": "xsd:string"
+    },
+    "kvtable": {
+      "@id": "spoon:kvtable",
+      "@type": "xsd:string"
+    },
+    "content": {
+      "@id": "spoon:content",
+      "@type": "xsd:string"
+    },
+    "id": {
+      "@id": "dcterms:identifier"
+    },
+    "relevance": {
+      "@id": "spoon:relevance",
+      "@type": "xsd:decimal"
+    },
+    "title": {
+      "@id": "schema:name"
+    },
+    "upc": {
+      "@id": "spoon:upc",
+      "@type": "xsd:string"
+    },
+    "usdaCode": {
+      "@id": "spoon:usdaCode",
+      "@type": "xsd:string"
+    },
+    "breadcrumbs": {
+      "@id": "spoon:breadcrumbs",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "imageType": {
+      "@id": "spoon:imageType",
+      "@type": "xsd:string"
+    },
+    "badges": {
+      "@id": "spoon:badges",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "importantBadges": {
+      "@id": "spoon:importantBadges",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "ingredientCount": {
+      "@id": "spoon:ingredientCount",
+      "@type": "xsd:integer"
+    },
+    "generatedText": {
+      "@id": "spoon:generatedText",
+      "@type": "xsd:string"
+    },
+    "ingredientList": {
+      "@id": "spoon:ingredientList",
+      "@type": "xsd:string"
+    },
+    "ingredients": {
+      "@id": "spoon:ingredients",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "likes": {
+      "@id": "spoon:likes",
+      "@type": "xsd:decimal"
+    },
+    "aisle": {
+      "@id": "spoon:aisle",
+      "@type": "xsd:string"
+    },
+    "credits": {
+      "@id": "spoon:credits",
+      "@type": "@id"
+    },
+    "text": {
+      "@id": "spoon:text",
+      "@type": "xsd:string"
+    },
+    "imageLink": {
+      "@id": "spoon:imageLink",
+      "@type": "xsd:string"
+    },
+    "nutrition": {
+      "@id": "spoon:nutrition",
+      "@type": "@id"
+    },
+    "nutrients": {
+      "@id": "spoon:nutrients",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "amount": {
+      "@id": "spoon:amount",
+      "@type": "xsd:decimal"
+    },
+    "unit": {
+      "@id": "spoon:unit",
+      "@type": "xsd:string"
+    },
+    "percentOfDailyNeeds": {
+      "@id": "spoon:percentOfDailyNeeds",
+      "@type": "xsd:decimal"
+    },
+    "caloricBreakdown": {
+      "@id": "spoon:caloricBreakdown",
+      "@type": "@id"
+    },
+    "percentProtein": {
+      "@id": "spoon:percentProtein",
+      "@type": "xsd:decimal"
+    },
+    "percentFat": {
+      "@id": "spoon:percentFat",
+      "@type": "xsd:decimal"
+    },
+    "percentCarbs": {
+      "@id": "spoon:percentCarbs",
+      "@type": "xsd:decimal"
+    },
+    "price": {
+      "@id": "spoon:price",
+      "@type": "xsd:decimal"
+    },
+    "servings": {
+      "@id": "spoon:servings",
+      "@type": "@id"
+    },
+    "number": {
+      "@id": "spoon:number",
+      "@type": "xsd:decimal"
+    },
+    "size": {
+      "@id": "spoon:size",
+      "@type": "xsd:decimal"
+    },
+    "spoonacularScore": {
+      "@id": "spoon:spoonacularScore",
+      "@type": "xsd:decimal"
+    },
+    "difference": {
+      "@id": "spoon:difference",
+      "@type": "xsd:decimal"
+    },
+    "restaurantChain": {
+      "@id": "spoon:restaurantChain",
+      "@type": "xsd:string"
+    },
+    "description": {
+      "@id": "schema:description"
+    },
+    "safetyLevel": {
+      "@id": "spoon:safety_level",
+      "@type": "xsd:string"
+    },
+    "original": {
+      "@id": "spoon:original",
+      "@type": "xsd:string"
+    },
+    "originalName": {
+      "@id": "spoon:originalName",
+      "@type": "xsd:string"
+    },
+    "unitShort": {
+      "@id": "spoon:unitShort",
+      "@type": "xsd:string"
+    },
+    "unitLong": {
+      "@id": "spoon:unitLong",
+      "@type": "xsd:string"
+    },
+    "possibleUnits": {
+      "@id": "spoon:possibleUnits",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "estimatedCost": {
+      "@id": "spoon:estimatedCost",
+      "@type": "@id"
+    },
+    "value": {
+      "@id": "spoon:value",
+      "@type": "xsd:decimal"
+    },
+    "consistency": {
+      "@id": "spoon:consistency",
+      "@type": "xsd:string"
+    },
+    "shoppingListUnits": {
+      "@id": "spoon:shoppingListUnits",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "meta": {
+      "@id": "spoon:meta",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "categoryPath": {
+      "@id": "spoon:categoryPath",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "sweetness": {
+      "@id": "spoon:sweetness",
+      "@type": "xsd:decimal"
+    },
+    "saltiness": {
+      "@id": "spoon:saltiness",
+      "@type": "xsd:decimal"
+    },
+    "sourness": {
+      "@id": "spoon:sourness",
+      "@type": "xsd:decimal"
+    },
+    "bitterness": {
+      "@id": "spoon:bitterness",
+      "@type": "xsd:decimal"
+    },
+    "savoriness": {
+      "@id": "spoon:savoriness",
+      "@type": "xsd:decimal"
+    },
+    "fattiness": {
+      "@id": "spoon:fattiness",
+      "@type": "xsd:decimal"
+    },
+    "spiciness": {
+      "@id": "spoon:spiciness",
+      "@type": "xsd:decimal"
+    },
+    "readyInMinutes": {
+      "@id": "spoon:readyInMinutes",
+      "@type": "xsd:integer"
+    },
+    "preparationMinutes": {
+      "@id": "spoon:preparationMinutes",
+      "@type": "xsd:integer"
+    },
+    "cookingMinutes": {
+      "@id": "spoon:cookingMinutes",
+      "@type": "xsd:integer"
+    },
+    "license": {
+      "@id": "spoon:license",
+      "@type": "xsd:string"
+    },
+    "sourceName": {
+      "@id": "spoon:sourceName",
+      "@type": "xsd:string"
+    },
+    "sourceUrl": {
+      "@id": "spoon:sourceUrl",
+      "@type": "xsd:string"
+    },
+    "spoonacularSourceUrl": {
+      "@id": "spoon:spoonacularSourceUrl",
+      "@type": "xsd:string"
+    },
+    "aggregateLikes": {
+      "@id": "spoon:aggregateLikes",
+      "@type": "xsd:integer"
+    },
+    "healthScore": {
+      "@id": "spoon:healthScore",
+      "@type": "xsd:decimal"
+    },
+    "pricePerServing": {
+      "@id": "spoon:pricePerServing",
+      "@type": "xsd:decimal"
+    },
+    "analyzedInstructions": {
+      "@id": "spoon:analyzedInstructions",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "cheap": {
+      "@id": "spoon:cheap",
+      "@type": "xsd:boolean"
+    },
+    "creditsText": {
+      "@id": "spoon:creditsText",
+      "@type": "xsd:string"
+    },
+    "cuisines": {
+      "@id": "spoon:cuisines",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "dairyFree": {
+      "@id": "spoon:dairyFree",
+      "@type": "xsd:boolean"
+    },
+    "diets": {
+      "@id": "spoon:diets",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "gaps": {
+      "@id": "spoon:gaps",
+      "@type": "xsd:string"
+    },
+    "glutenFree": {
+      "@id": "spoon:glutenFree",
+      "@type": "xsd:boolean"
+    },
+    "instructions": {
+      "@id": "spoon:instructions",
+      "@type": "xsd:string"
+    },
+    "lowFodmap": {
+      "@id": "spoon:lowFodmap",
+      "@type": "xsd:boolean"
+    },
+    "occasions": {
+      "@id": "spoon:occasions",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "sustainable": {
+      "@id": "spoon:sustainable",
+      "@type": "xsd:boolean"
+    },
+    "vegan": {
+      "@id": "spoon:vegan",
+      "@type": "xsd:boolean"
+    },
+    "vegetarian": {
+      "@id": "spoon:vegetarian",
+      "@type": "xsd:boolean"
+    },
+    "veryHealthy": {
+      "@id": "spoon:veryHealthy",
+      "@type": "xsd:boolean"
+    },
+    "veryPopular": {
+      "@id": "spoon:veryPopular",
+      "@type": "xsd:boolean"
+    },
+    "weightWatcherSmartPoints": {
+      "@id": "spoon:weightWatcherSmartPoints",
+      "@type": "xsd:decimal"
+    },
+    "dishTypes": {
+      "@id": "spoon:dishTypes",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "extendedIngredients": {
+      "@id": "spoon:extendedIngredients",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "measures": {
+      "@id": "spoon:measures",
+      "@type": "@id"
+    },
+    "metric": {
+      "@id": "spoon:metric",
+      "@type": "@id"
+    },
+    "us": {
+      "@id": "spoon:us",
+      "@type": "@id"
+    },
+    "summary": {
+      "@id": "spoon:summary",
+      "@type": "xsd:string"
+    },
+    "winePairing": {
+      "@id": "spoon:winePairing",
+      "@type": "@id"
+    },
+    "pairedWines": {
+      "@id": "spoon:pairedWines",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "pairingText": {
+      "@id": "spoon:pairingText",
+      "@type": "xsd:string"
+    },
+    "productMatches": {
+      "@id": "spoon:productMatches",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "imageUrl": {
+      "@id": "spoon:imageUrl",
+      "@type": "xsd:string"
+    },
+    "averageRating": {
+      "@id": "spoon:averageRating",
+      "@type": "xsd:decimal"
+    },
+    "ratingCount": {
+      "@id": "spoon:ratingCount",
+      "@type": "xsd:integer"
+    },
+    "score": {
+      "@id": "spoon:score",
+      "@type": "xsd:decimal"
+    },
+    "taste": {
+      "@id": "spoon:taste",
+      "@type": "xsd:string"
+    }
+  }
+}

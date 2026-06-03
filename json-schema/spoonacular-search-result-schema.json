@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SearchResult",
+  "description": "",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/spoonacular/refs/heads/main/json-schema/spoonacular-search-result-schema.json",
+  "type": "object",
+  "properties": {
+    "image": {
+      "type": "string",
+      "example": "example"
+    },
+    "link": {
+      "type": "string",
+      "nullable": true,
+      "example": "example"
+    },
+    "name": {
+      "type": "string",
+      "example": "Spaghetti"
+    },
+    "type": {
+      "type": "string",
+      "example": "example"
+    },
+    "kvtable": {
+      "type": "string",
+      "example": "example"
+    },
+    "content": {
+      "type": "string",
+      "nullable": true,
+      "example": "example"
+    },
+    "id": {
+      "type": "integer",
+      "example": 716429
+    },
+    "relevance": {
+      "type": "number",
+      "example": 1.0
+    }
+  },
+  "required": [
+    "name"
+  ]
+}

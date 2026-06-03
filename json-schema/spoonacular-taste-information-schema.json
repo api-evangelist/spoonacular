@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TasteInformation",
+  "description": "",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/spoonacular/refs/heads/main/json-schema/spoonacular-taste-information-schema.json",
+  "type": "object",
+  "properties": {
+    "sweetness": {
+      "type": "number",
+      "example": 1.0
+    },
+    "saltiness": {
+      "type": "number",
+      "example": 1.0
+    },
+    "sourness": {
+      "type": "number",
+      "example": 1.0
+    },
+    "bitterness": {
+      "type": "number",
+      "example": 1.0
+    },
+    "savoriness": {
+      "type": "number",
+      "example": 1.0
+    },
+    "fattiness": {
+      "type": "number",
+      "example": 1.0
+    },
+    "spiciness": {
+      "type": "number",
+      "example": 1.0
+    }
+  },
+  "required": [
+    "sweetness",
+    "saltiness",
+    "sourness",
+    "bitterness",
+    "savoriness",
+    "fattiness",
+    "spiciness"
+  ],
+  "example": {
+    "sweetness": 28.79,
+    "saltiness": 26.74,
+    "sourness": 6.22,
+    "bitterness": 12.38,
+    "savoriness": 11.8,
+    "fattiness": 100,
+    "spiciness": 0
+  }
+}

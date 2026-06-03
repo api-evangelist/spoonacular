@@ -1,0 +1,92 @@
+specification: FinOps Framework
+specificationVersion: '1.0'
+schema: https://www.finops.org/framework/
+provider: Spoonacular
+providerId: spoonacular
+created: '2026-06-03'
+modified: '2026-06-03'
+reconciled: true
+tags:
+  - FinOps
+  - FOCUS
+  - Food And Drink
+  - Recipes
+  - Usage Based
+description: >-
+  FOCUS-aligned FinOps for Spoonacular: a tiered monthly subscription with an
+  included daily points quota, plus per-point overage billing once the quota is
+  exceeded. Consumption is metered in points per API call, observable in real
+  time via response headers.
+sources:
+  - https://spoonacular.com/food-api/pricing
+  - https://spoonacular.com/food-api/docs
+alignedWith:
+  framework: FinOps Foundation Framework
+  frameworkUrl: https://www.finops.org/framework/
+  dataSpec: FOCUS
+  dataSpecVersion: '1.3'
+  dataSpecUrl: https://focus.finops.org/focus-specification/v1-3/
+publisherName: spoonacular GmbH
+serviceCategory: Food And Drink Data
+billingModel:
+  pricingCategory: Tiered Subscription + Pay-As-You-Go
+  billingFrequency: Monthly
+  billingCurrency: USD
+  chargeCategories:
+    - Purchase
+    - Usage
+focusColumns:
+  ServiceName: Spoonacular Recipe and Food API
+  ServiceCategory: Food And Drink Data
+  ProviderName: Spoonacular
+  PublisherName: spoonacular GmbH
+  InvoiceIssuerName: spoonacular GmbH
+  BillingCurrency: USD
+  ChargeCategory: Usage
+meters:
+  - name: subscription_month
+    unit: month
+    aggregation: sum
+    dimensions:
+      - plan_tier
+  - name: api_points
+    unit: point
+    aggregation: sum
+    dimensions:
+      - endpoint
+      - api_key
+  - name: api_requests
+    unit: request
+    aggregation: count
+    dimensions:
+      - endpoint
+      - api_key
+  - name: points_overage
+    unit: point
+    aggregation: sum
+    dimensions:
+      - plan_tier
+      - api_key
+principles:
+  - name: Visibility
+    description: >-
+      Every response returns X-API-Quota-Request (the point cost of that call)
+      and X-API-Quota-Used (cumulative points consumed today), giving real-time
+      per-call and per-day consumption without a separate billing API.
+  - name: Allocation
+    description: >-
+      Spend is attributable per API key. Issue a distinct key per team, product,
+      or environment to allocate the daily points quota and any overage charges
+      to the owning cost center.
+  - name: Optimization
+    description: >-
+      Reduce point cost by requesting fewer results (the 0.01-per-result charge),
+      avoiding nutrition (+0.1), image (+3), and video-extraction (+50)
+      surcharges unless needed, caching stable recipe/ingredient lookups, and
+      using bulk endpoints (informationBulk) instead of many single calls.
+  - name: Accountability
+    description: >-
+      Pick the tier whose included daily quota matches steady-state demand so
+      overage is the exception; watch the quota headers to alert before the Free
+      tier 402 or before paid-tier overage accrues, and review the points-per-day
+      trend monthly against the tier's included quota.

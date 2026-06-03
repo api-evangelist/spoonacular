@@ -1,0 +1,197 @@
+specification: API Commons Plans
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/Plans
+provider: Spoonacular
+providerId: spoonacular
+created: '2026-06-03'
+modified: '2026-06-03'
+reconciled: true
+tags:
+  - Food And Drink
+  - Recipes
+  - Nutrition
+  - Meal Planning
+  - Usage Based
+description: >-
+  Spoonacular prices the Recipe and Food API as a set of monthly subscription
+  tiers built on a points-based usage model. Every API call costs points
+  (typically 1 point per request plus 0.01 points per result, with surcharges
+  for nutrition data, image generation, and video extraction). Each tier
+  includes a daily points quota; once exhausted, the Free tier returns HTTP 402
+  while paid tiers bill overage per additional point at the tier's overage rate.
+  Daily quotas reset at midnight UTC. Plans above $250/month qualify for an SLA.
+sources:
+  - https://spoonacular.com/food-api/pricing
+  - https://spoonacular.com/food-api/docs
+plans:
+  - id: spoonacular-free
+    name: Free
+    type: freemium
+    description: No-cost tier for evaluation and small projects, hard-capped at the daily quota.
+    entries:
+      - label: Daily points quota
+        name: daily_points
+        type: quota
+        metric: point
+        limit: 50
+        timeFrame: day
+        geo: global
+        unit: '1'
+        price: '$0'
+        userMultiplied: false
+      - label: Overage
+        name: overage
+        type: metered
+        metric: point
+        limit: 0
+        timeFrame: day
+        geo: global
+        unit: '1'
+        price: 'none (returns 402 at limit)'
+        userMultiplied: false
+    elements:
+      - name: All recipe, ingredient, product, menu item, meal planning, and wine endpoints
+      - name: 1 request/second, 2 concurrent requests
+  - id: spoonacular-cook
+    name: Cook
+    type: subscription
+    description: Entry paid tier for production apps with modest volume.
+    entries:
+      - label: Monthly subscription
+        name: subscription
+        type: subscription
+        metric: month
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: '1'
+        price: '$29'
+        userMultiplied: false
+      - label: Daily points quota
+        name: daily_points
+        type: quota
+        metric: point
+        limit: 1500
+        timeFrame: day
+        geo: global
+        unit: '1'
+        price: 'included'
+        userMultiplied: false
+      - label: Overage
+        name: overage
+        type: metered
+        metric: point
+        limit: -1
+        timeFrame: day
+        geo: global
+        unit: '1'
+        price: '$0.005'
+        userMultiplied: false
+    elements:
+      - name: All endpoints
+      - name: 5 requests/second, 5 concurrent requests
+  - id: spoonacular-culinarian
+    name: Culinarian
+    type: subscription
+    description: Mid paid tier with a higher daily quota and lower overage cost.
+    entries:
+      - label: Monthly subscription
+        name: subscription
+        type: subscription
+        metric: month
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: '1'
+        price: '$79'
+        userMultiplied: false
+      - label: Daily points quota
+        name: daily_points
+        type: quota
+        metric: point
+        limit: 4500
+        timeFrame: day
+        geo: global
+        unit: '1'
+        price: 'included'
+        userMultiplied: false
+      - label: Overage
+        name: overage
+        type: metered
+        metric: point
+        limit: -1
+        timeFrame: day
+        geo: global
+        unit: '1'
+        price: '$0.004'
+        userMultiplied: false
+    elements:
+      - name: All endpoints
+      - name: 10 requests/second, 10 concurrent requests
+  - id: spoonacular-chef
+    name: Chef
+    type: subscription
+    description: High-volume paid tier with the largest published daily quota and lowest overage cost.
+    entries:
+      - label: Monthly subscription
+        name: subscription
+        type: subscription
+        metric: month
+        limit: 1
+        timeFrame: month
+        geo: global
+        unit: '1'
+        price: '$149'
+        userMultiplied: false
+      - label: Daily points quota
+        name: daily_points
+        type: quota
+        metric: point
+        limit: 10000
+        timeFrame: day
+        geo: global
+        unit: '1'
+        price: 'included'
+        userMultiplied: false
+      - label: Overage
+        name: overage
+        type: metered
+        metric: point
+        limit: -1
+        timeFrame: day
+        geo: global
+        unit: '1'
+        price: '$0.002'
+        userMultiplied: false
+    elements:
+      - name: All endpoints
+      - name: 20 requests/second, 20 concurrent requests
+  - id: spoonacular-enterprise
+    name: Enterprise
+    type: enterprise
+    description: Custom-negotiated tier with custom quotas, rate limits, and an SLA (99%-99.9% uptime).
+    entries:
+      - label: Custom contract
+        name: custom
+        type: subscription
+        metric: month
+        limit: -1
+        timeFrame: month
+        geo: global
+        unit: '1'
+        price: '$300+'
+        userMultiplied: false
+      - label: Daily points quota
+        name: daily_points
+        type: quota
+        metric: point
+        limit: -1
+        timeFrame: day
+        geo: global
+        unit: '1'
+        price: 'custom'
+        userMultiplied: false
+    elements:
+      - name: Custom quota, rate limits, and concurrency
+      - name: SLA 99%-99.9% uptime
+      - name: Priority support

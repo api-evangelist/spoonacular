@@ -1,0 +1,396 @@
+vocabulary: 1.0.0
+info:
+  provider: Spoonacular
+  description: Unified operational (OpenAPI) and capability (Naftiko) vocabulary for the Spoonacular Recipe and Food API.
+  created: '2026-06-03'
+  modified: '2026-06-03'
+operational:
+  apis:
+  - name: Spoonacular
+    namespace: spoonacular
+    version: 2.0.2
+    baseUrl: https://api.spoonacular.com
+    status: active
+  resources:
+  - name: Recipes
+    api: Spoonacular
+    operationCount: 42
+    actions:
+    - analyze
+    - autocomplete
+    - classify
+    - compute
+    - convert
+    - create
+    - equipment
+    - extract
+    - get
+    - guess
+    - parse
+    - price
+    - quick
+    - recipe
+    - search
+    - summarize
+    - visualize
+  - name: Ingredients
+    api: Spoonacular
+    operationCount: 9
+    actions:
+    - autocomplete
+    - compute
+    - get
+    - ingredient
+    - ingredients
+    - map
+    - visualize
+  - name: Products
+    api: Spoonacular
+    operationCount: 11
+    actions:
+    - autocomplete
+    - classify
+    - get
+    - product
+    - search
+    - visualize
+  - name: Misc
+    api: Spoonacular
+    operationCount: 11
+    actions:
+    - detect
+    - get
+    - image
+    - search
+    - talk
+  - name: Menu Items
+    api: Spoonacular
+    operationCount: 8
+    actions:
+    - autocomplete
+    - get
+    - menu
+    - search
+    - visualize
+  - name: Meal Planning
+    api: Spoonacular
+    operationCount: 14
+    actions:
+    - add
+    - clear
+    - connect
+    - delete
+    - generate
+    - get
+  - name: Wine
+    api: Spoonacular
+    operationCount: 4
+    actions:
+    - get
+  actions:
+  - verb: add
+    httpMethod: POST
+    pattern: write
+  - verb: analyze
+    httpMethod: POST
+    pattern: query
+  - verb: autocomplete
+    httpMethod: GET
+    pattern: query
+  - verb: classify
+    httpMethod: POST
+    pattern: query
+  - verb: clear
+    httpMethod: DELETE
+    pattern: read
+  - verb: compute
+    httpMethod: GET
+    pattern: read
+  - verb: connect
+    httpMethod: POST
+    pattern: write
+  - verb: convert
+    httpMethod: GET
+    pattern: read
+  - verb: create
+    httpMethod: GET
+    pattern: write
+  - verb: delete
+    httpMethod: DELETE
+    pattern: destructive
+  - verb: detect
+    httpMethod: POST
+    pattern: query
+  - verb: equipment
+    httpMethod: GET
+    pattern: read
+  - verb: extract
+    httpMethod: GET
+    pattern: query
+  - verb: generate
+    httpMethod: GET
+    pattern: write
+  - verb: get
+    httpMethod: GET
+    pattern: read
+  - verb: guess
+    httpMethod: GET
+    pattern: query
+  - verb: image
+    httpMethod: GET
+    pattern: read
+  - verb: ingredient
+    httpMethod: GET
+    pattern: read
+  - verb: ingredients
+    httpMethod: GET
+    pattern: read
+  - verb: map
+    httpMethod: POST
+    pattern: query
+  - verb: menu
+    httpMethod: GET
+    pattern: read
+  - verb: parse
+    httpMethod: POST
+    pattern: query
+  - verb: price
+    httpMethod: GET
+    pattern: read
+  - verb: product
+    httpMethod: GET
+    pattern: read
+  - verb: quick
+    httpMethod: GET
+    pattern: query
+  - verb: recipe
+    httpMethod: GET
+    pattern: read
+  - verb: search
+    httpMethod: GET
+    pattern: query
+  - verb: summarize
+    httpMethod: GET
+    pattern: read
+  - verb: talk
+    httpMethod: GET
+    pattern: write
+  - verb: visualize
+    httpMethod: GET
+    pattern: read
+  schemas:
+    core:
+    - SearchResult
+    - ProductInformation
+    - ComparableProduct
+    - MenuItem
+    - IngredientBasics
+    - IngredientInformation
+    - TasteInformation
+    - RecipeInformation
+  parameters:
+    pagination:
+    - offset
+    - number
+    identifiers:
+    - id
+    - ids
+    - ingredients
+    filters:
+    - query
+    - cuisine
+    - diet
+    - intolerances
+    - type
+    - sort
+    measurement:
+    - unit
+    - metric
+    - us
+    - amount
+  enums:
+    diets:
+    - vegetarian
+    - vegan
+    - gluten free
+    - ketogenic
+    - paleo
+    - pescetarian
+    - whole30
+    cuisines:
+    - Italian
+    - Mexican
+    - Chinese
+    - Indian
+    - American
+    - Thai
+    - French
+    - Japanese
+    measurement:
+    - us
+    - metric
+  authentication:
+    scheme: apiKey
+    in: header
+    name: x-api-key
+    appliesTo:
+    - Spoonacular
+capability:
+  workflows:
+  - name: spoonacular API — Ingredients
+    file: capabilities/spoonacular-ingredients.yaml
+    description: 'Ingredients surface of the Spoonacular Food API. 9 operations. Lead operation: Ingredients by ID Image. Self-contained Naftiko capability covering one Spoonacular business surface.'
+    api: Spoonacular
+    toolCount: 9
+    domains:
+    - Ingredients
+  - name: spoonacular API — Meal Planning
+    file: capabilities/spoonacular-meal-planning.yaml
+    description: 'Meal Planning surface of the Spoonacular Food API. 14 operations. Lead operation: Generate Meal Plan. Self-contained Naftiko capability covering one Spoonacular business surface.'
+    api: Spoonacular
+    toolCount: 14
+    domains:
+    - Meal Planning
+  - name: spoonacular API — Menu Items
+    file: capabilities/spoonacular-menu-items.yaml
+    description: 'Menu Items surface of the Spoonacular Food API. 8 operations. Lead operation: Autocomplete Menu Item Search. Self-contained Naftiko capability covering one Spoonacular business surface.'
+    api: Spoonacular
+    toolCount: 8
+    domains:
+    - Menu Items
+  - name: spoonacular API — Misc
+    file: capabilities/spoonacular-misc.yaml
+    description: 'Misc surface of the Spoonacular Food API. 11 operations. Lead operation: Search Custom Foods. Self-contained Naftiko capability covering one Spoonacular business surface.'
+    api: Spoonacular
+    toolCount: 11
+    domains:
+    - Misc
+  - name: spoonacular API — Products
+    file: capabilities/spoonacular-products.yaml
+    description: 'Products surface of the Spoonacular Food API. 11 operations. Lead operation: Search Grocery Products. Self-contained Naftiko capability covering one Spoonacular business surface.'
+    api: Spoonacular
+    toolCount: 11
+    domains:
+    - Products
+  - name: spoonacular API — Recipes
+    file: capabilities/spoonacular-recipes.yaml
+    description: 'Recipes surface of the Spoonacular Food API. 42 operations. Lead operation: Search Recipes. Self-contained Naftiko capability covering one Spoonacular business surface.'
+    api: Spoonacular
+    toolCount: 42
+    domains:
+    - Recipes
+  - name: spoonacular API — Wine
+    file: capabilities/spoonacular-wine.yaml
+    description: 'Wine surface of the Spoonacular Food API. 4 operations. Lead operation: Dish Pairing for Wine. Self-contained Naftiko capability covering one Spoonacular business surface.'
+    api: Spoonacular
+    toolCount: 4
+    domains:
+    - Wine
+  personas:
+  - id: app-developer
+    name: Application Developer
+    description: Builds recipe, nutrition, and meal-planning features into consumer apps.
+    workflows:
+    - spoonacular API — Meal Planning
+    - spoonacular API — Recipes
+  - id: nutrition-analyst
+    name: Nutrition Analyst
+    description: Analyzes ingredients, products, and menu items for nutritional data.
+    workflows:
+    - spoonacular API — Ingredients
+    - spoonacular API — Menu Items
+    - spoonacular API — Products
+  - id: ai-agent
+    name: AI Agent
+    description: Calls Spoonacular through MCP tools to answer food and recipe questions.
+    workflows:
+    - spoonacular API — Ingredients
+    - spoonacular API — Meal Planning
+    - spoonacular API — Menu Items
+    - spoonacular API — Misc
+    - spoonacular API — Products
+    - spoonacular API — Recipes
+    - spoonacular API — Wine
+  domains:
+  - Ingredients
+  - Meal Planning
+  - Menu Items
+  - Misc
+  - Products
+  - Recipes
+  - Wine
+  namespaces:
+  - consumed: spoonacular-ingredients
+    rest: spoonacular-ingredients-rest
+    mcp: spoonacular-ingredients-mcp
+  - consumed: spoonacular-meal-planning
+    rest: spoonacular-meal-planning-rest
+    mcp: spoonacular-meal-planning-mcp
+  - consumed: spoonacular-menu-items
+    rest: spoonacular-menu-items-rest
+    mcp: spoonacular-menu-items-mcp
+  - consumed: spoonacular-misc
+    rest: spoonacular-misc-rest
+    mcp: spoonacular-misc-mcp
+  - consumed: spoonacular-products
+    rest: spoonacular-products-rest
+    mcp: spoonacular-products-mcp
+  - consumed: spoonacular-recipes
+    rest: spoonacular-recipes-rest
+    mcp: spoonacular-recipes-mcp
+  - consumed: spoonacular-wine
+    rest: spoonacular-wine-rest
+    mcp: spoonacular-wine-mcp
+  binds:
+  - env: SPOONACULAR_API_KEY
+    workflows:
+    - spoonacular API — Ingredients
+    - spoonacular API — Meal Planning
+    - spoonacular API — Menu Items
+    - spoonacular API — Misc
+    - spoonacular API — Products
+    - spoonacular API — Recipes
+    - spoonacular API — Wine
+crossReference:
+- resource: Recipes
+  operations: 42
+  workflow: Spoonacular API — Recipes
+  personas:
+  - app-developer
+  - ai-agent
+- resource: Ingredients
+  operations: 9
+  workflow: Spoonacular API — Ingredients
+  personas:
+  - app-developer
+  - ai-agent
+- resource: Products
+  operations: 11
+  workflow: Spoonacular API — Products
+  personas:
+  - app-developer
+  - ai-agent
+- resource: Misc
+  operations: 11
+  workflow: Spoonacular API — Misc
+  personas:
+  - app-developer
+  - ai-agent
+- resource: Menu Items
+  operations: 8
+  workflow: Spoonacular API — Menu Items
+  personas:
+  - app-developer
+  - ai-agent
+- resource: Meal Planning
+  operations: 14
+  workflow: Spoonacular API — Meal Planning
+  personas:
+  - app-developer
+  - ai-agent
+- resource: Wine
+  operations: 4
+  workflow: Spoonacular API — Wine
+  personas:
+  - app-developer
+  - ai-agent

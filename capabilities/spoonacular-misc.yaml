@@ -1,0 +1,595 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: spoonacular API — Misc
+  description: 'Misc surface of the Spoonacular Food API. 11 operations. Lead operation: Search Custom Foods. Self-contained Naftiko capability covering one Spoonacular business surface.'
+  tags:
+  - Spoonacular
+  - Food
+  - Misc
+  created: '2026-06-03'
+  modified: '2026-06-03'
+binds:
+- namespace: env
+  keys:
+    SPOONACULAR_API_KEY: SPOONACULAR_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: spoonacular-misc
+    baseUri: https://api.spoonacular.com
+    description: spoonacular API — Misc business capability. Self-contained, no shared references.
+    authentication:
+      type: apikey
+      key: x-api-key
+      value: '{{env.SPOONACULAR_API_KEY}}'
+      placement: header
+    resources:
+    - name: food-customfoods-search
+      path: /food/customFoods/search
+      operations:
+      - name: searchCustomFoods
+        method: GET
+        description: Search Custom Foods
+        inputParameters:
+        - name: null
+          in: null
+          type: string
+          required: false
+          description: null
+        - name: username
+          in: query
+          type: string
+          required: true
+          description: The username.
+        - name: hash
+          in: query
+          type: string
+          required: true
+          description: The private hash for the username.
+        - name: null
+          in: null
+          type: string
+          required: false
+          description: null
+        - name: null
+          in: null
+          type: string
+          required: false
+          description: null
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: food-images-classify
+      path: /food/images/classify
+      operations:
+      - name: imageClassificationByURL
+        method: GET
+        description: Image Classification by URL
+        inputParameters:
+        - name: imageUrl
+          in: query
+          type: string
+          required: true
+          description: The URL of the image to be classified.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: food-images-analyze
+      path: /food/images/analyze
+      operations:
+      - name: imageAnalysisByURL
+        method: GET
+        description: Image Analysis by URL
+        inputParameters:
+        - name: imageUrl
+          in: query
+          type: string
+          required: true
+          description: The URL of the image to be analyzed.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: food-detect
+      path: /food/detect
+      operations:
+      - name: detectFoodInText
+        method: POST
+        description: Detect Food in Text
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          required: true
+          description: Request body payload.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: food-site-search
+      path: /food/site/search
+      operations:
+      - name: searchSiteContent
+        method: GET
+        description: Search Site Content
+        inputParameters:
+        - name: query
+          in: query
+          type: string
+          required: true
+          description: The query to search for. You can also use partial queries such as "spagh" to already find spaghetti recipes, articles, grocery products, and other content.
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: food-search
+      path: /food/search
+      operations:
+      - name: searchAllFood
+        method: GET
+        description: Search All Food
+        inputParameters:
+        - name: query
+          in: query
+          type: string
+          required: true
+          description: The search query.
+        - name: null
+          in: null
+          type: string
+          required: false
+          description: null
+        - name: null
+          in: null
+          type: string
+          required: false
+          description: null
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: food-videos-search
+      path: /food/videos/search
+      operations:
+      - name: searchFoodVideos
+        method: GET
+        description: Search Food Videos
+        inputParameters:
+        - name: null
+          in: null
+          type: string
+          required: false
+          description: null
+        - name: type
+          in: query
+          type: string
+          required: false
+          description: The type of the recipes. See a full list of supported meal types.
+        - name: cuisine
+          in: query
+          type: string
+          required: false
+          description: The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines.
+        - name: diet
+          in: query
+          type: string
+          required: false
+          description: The diet for which the recipes must be suitable. See a full list of supported diets.
+        - name: includeIngredients
+          in: query
+          type: string
+          required: false
+          description: A comma-separated list of ingredients that the recipes should contain.
+        - name: excludeIngredients
+          in: query
+          type: string
+          required: false
+          description: A comma-separated list of ingredients or ingredient types that the recipes must not contain.
+        - name: minLength
+          in: query
+          type: number
+          required: false
+          description: Minimum video length in seconds.
+        - name: maxLength
+          in: query
+          type: number
+          required: false
+          description: Maximum video length in seconds.
+        - name: null
+          in: null
+          type: string
+          required: false
+          description: null
+        - name: null
+          in: null
+          type: string
+          required: false
+          description: null
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: food-jokes-random
+      path: /food/jokes/random
+      operations:
+      - name: getARandomFoodJoke
+        method: GET
+        description: Random Food Joke
+        inputParameters: []
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: food-trivia-random
+      path: /food/trivia/random
+      operations:
+      - name: getRandomFoodTrivia
+        method: GET
+        description: Random Food Trivia
+        inputParameters: []
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: food-converse
+      path: /food/converse
+      operations:
+      - name: talkToChatbot
+        method: GET
+        description: Talk to Chatbot
+        inputParameters:
+        - name: text
+          in: query
+          type: string
+          required: true
+          description: The request / question / answer from the user to the chatbot.
+        - name: contextId
+          in: query
+          type: string
+          required: false
+          description: 'An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to '
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    - name: food-converse-suggest
+      path: /food/converse/suggest
+      operations:
+      - name: getConversationSuggests
+        method: GET
+        description: Conversation Suggests
+        inputParameters:
+        - name: query
+          in: query
+          type: string
+          required: true
+          description: A (partial) query from the user. The endpoint will return if it matches topics it can talk about.
+        - name: number
+          in: query
+          type: number
+          required: false
+          description: The number of suggestions to return (between 1 and 25).
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+  exposes:
+  - type: rest
+    namespace: spoonacular-misc-rest
+    port: 8080
+    description: REST adapter for spoonacular API — Misc. One Spectral-compliant resource per consumed operation, prefixed with /v1.
+    resources:
+    - path: /v1/food/custom-foods/search
+      name: food-customfoods-search
+      description: REST surface for food-customfoods-search.
+      operations:
+      - method: GET
+        name: searchCustomFoods
+        description: Search Custom Foods
+        call: spoonacular-misc.searchCustomFoods
+        with:
+          null: rest.None
+          username: rest.username
+          hash: rest.hash
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/food/images/classify
+      name: food-images-classify
+      description: REST surface for food-images-classify.
+      operations:
+      - method: GET
+        name: imageClassificationByURL
+        description: Image Classification by URL
+        call: spoonacular-misc.imageClassificationByURL
+        with:
+          imageUrl: rest.imageUrl
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/food/images/analyze
+      name: food-images-analyze
+      description: REST surface for food-images-analyze.
+      operations:
+      - method: GET
+        name: imageAnalysisByURL
+        description: Image Analysis by URL
+        call: spoonacular-misc.imageAnalysisByURL
+        with:
+          imageUrl: rest.imageUrl
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/food/detect
+      name: food-detect
+      description: REST surface for food-detect.
+      operations:
+      - method: POST
+        name: detectFoodInText
+        description: Detect Food in Text
+        call: spoonacular-misc.detectFoodInText
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/food/site/search
+      name: food-site-search
+      description: REST surface for food-site-search.
+      operations:
+      - method: GET
+        name: searchSiteContent
+        description: Search Site Content
+        call: spoonacular-misc.searchSiteContent
+        with:
+          query: rest.query
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/food/search
+      name: food-search
+      description: REST surface for food-search.
+      operations:
+      - method: GET
+        name: searchAllFood
+        description: Search All Food
+        call: spoonacular-misc.searchAllFood
+        with:
+          query: rest.query
+          null: rest.None
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/food/videos/search
+      name: food-videos-search
+      description: REST surface for food-videos-search.
+      operations:
+      - method: GET
+        name: searchFoodVideos
+        description: Search Food Videos
+        call: spoonacular-misc.searchFoodVideos
+        with:
+          null: rest.None
+          type: rest.type
+          cuisine: rest.cuisine
+          diet: rest.diet
+          includeIngredients: rest.includeIngredients
+          excludeIngredients: rest.excludeIngredients
+          minLength: rest.minLength
+          maxLength: rest.maxLength
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/food/jokes/random
+      name: food-jokes-random
+      description: REST surface for food-jokes-random.
+      operations:
+      - method: GET
+        name: getARandomFoodJoke
+        description: Random Food Joke
+        call: spoonacular-misc.getARandomFoodJoke
+        with: {}
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/food/trivia/random
+      name: food-trivia-random
+      description: REST surface for food-trivia-random.
+      operations:
+      - method: GET
+        name: getRandomFoodTrivia
+        description: Random Food Trivia
+        call: spoonacular-misc.getRandomFoodTrivia
+        with: {}
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/food/converse
+      name: food-converse
+      description: REST surface for food-converse.
+      operations:
+      - method: GET
+        name: talkToChatbot
+        description: Talk to Chatbot
+        call: spoonacular-misc.talkToChatbot
+        with:
+          text: rest.text
+          contextId: rest.contextId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/food/converse/suggest
+      name: food-converse-suggest
+      description: REST surface for food-converse-suggest.
+      operations:
+      - method: GET
+        name: getConversationSuggests
+        description: Conversation Suggests
+        call: spoonacular-misc.getConversationSuggests
+        with:
+          query: rest.query
+          number: rest.number
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: spoonacular-misc-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for spoonacular API — Misc. One tool per consumed operation, routed inline through this capability's consumes block.
+    tools:
+    - name: search-custom-foods
+      description: Search Custom Foods
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: spoonacular-misc.searchCustomFoods
+      with:
+        null: tools.None
+        username: tools.username
+        hash: tools.hash
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: image-classification-url
+      description: Image Classification by URL
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: spoonacular-misc.imageClassificationByURL
+      with:
+        imageUrl: tools.imageUrl
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: image-analysis-url
+      description: Image Analysis by URL
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: spoonacular-misc.imageAnalysisByURL
+      with:
+        imageUrl: tools.imageUrl
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: detect-food-text
+      description: Detect Food in Text
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: spoonacular-misc.detectFoodInText
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: search-site-content
+      description: Search Site Content
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: spoonacular-misc.searchSiteContent
+      with:
+        query: tools.query
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: search-all-food
+      description: Search All Food
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: spoonacular-misc.searchAllFood
+      with:
+        query: tools.query
+        null: tools.None
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: search-food-videos
+      description: Search Food Videos
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: spoonacular-misc.searchFoodVideos
+      with:
+        null: tools.None
+        type: tools.type
+        cuisine: tools.cuisine
+        diet: tools.diet
+        includeIngredients: tools.includeIngredients
+        excludeIngredients: tools.excludeIngredients
+        minLength: tools.minLength
+        maxLength: tools.maxLength
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: random-food-joke
+      description: Random Food Joke
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: spoonacular-misc.getARandomFoodJoke
+      with: {}
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: random-food-trivia
+      description: Random Food Trivia
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: spoonacular-misc.getRandomFoodTrivia
+      with: {}
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: talk-chatbot
+      description: Talk to Chatbot
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: spoonacular-misc.talkToChatbot
+      with:
+        text: tools.text
+        contextId: tools.contextId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: conversation-suggests
+      description: Conversation Suggests
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: spoonacular-misc.getConversationSuggests
+      with:
+        query: tools.query
+        number: tools.number
+      outputParameters:
+      - type: object
+        mapping: $.
