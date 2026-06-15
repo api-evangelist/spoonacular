@@ -1,16 +1,15 @@
 aid: spoonacular
 name: Spoonacular
 description: >-
-  The Spoonacular Recipe and Food API provides programmatic access to thousands
-  of recipes, thousands of ingredients, 800,000+ food products, and 100,000+
-  menu items, plus nutrition analysis, meal planning, wine pairing, and food
+  The Spoonacular Recipe and Food API provides programmatic access to thousands of recipes, thousands of ingredients,
+  800,000+ food products, and 100,000+ menu items, plus nutrition analysis, meal planning, wine pairing, and food
   classification. Authentication is via an API key sent in the x-api-key header.
 url: https://spoonacular.com/food-api
 specificationVersion: '0.20'
 created: '2026-05-28'
 modified: '2026-06-03'
 x-source: public-apis/public-apis
-x-category: "Food & Drink"
+x-category: Food & Drink
 x-tier: 3
 x-tier-reason: bulk-registered-from-public-apis
 tags:
@@ -23,10 +22,9 @@ tags:
 apis:
   - name: Spoonacular
     description: >-
-      The Spoonacular Recipe and Food API — recipes, ingredients, grocery
-      products, menu items, meal planning, wine pairing, and food classification
-      across 97 endpoints. OpenAPI 3 sourced from the official ddsky client
-      generator spec. API key auth via the x-api-key header.
+      The Spoonacular Recipe and Food API — recipes, ingredients, grocery products, menu items, meal planning, wine
+      pairing, and food classification across 97 endpoints. OpenAPI 3 sourced from the official ddsky client generator
+      spec. API key auth via the x-api-key header.
     humanURL: https://spoonacular.com/food-api
     baseURL: https://api.spoonacular.com
     tags:
@@ -63,20 +61,6 @@ apis:
       - type: SDK
         title: Go SDK
         url: https://github.com/ddsky/spoonacular-api-clients/tree/master/go
-      - type: NaftikoCapability
-        url: capabilities/spoonacular-recipes.yaml
-      - type: NaftikoCapability
-        url: capabilities/spoonacular-ingredients.yaml
-      - type: NaftikoCapability
-        url: capabilities/spoonacular-products.yaml
-      - type: NaftikoCapability
-        url: capabilities/spoonacular-menu-items.yaml
-      - type: NaftikoCapability
-        url: capabilities/spoonacular-meal-planning.yaml
-      - type: NaftikoCapability
-        url: capabilities/spoonacular-wine.yaml
-      - type: NaftikoCapability
-        url: capabilities/spoonacular-misc.yaml
       - type: JSONSchema
         url: json-schema/spoonacular-recipe-information-schema.json
       - type: JSONSchema
@@ -140,13 +124,21 @@ common:
   - type: Features
     data:
       - name: Recipe Search and Information
-        description: Complex multi-filter search, search by ingredients or nutrients, full recipe information, similar/random recipes, autocomplete, and analyzed instructions.
+        description: >-
+          Complex multi-filter search, search by ingredients or nutrients, full recipe information, similar/random
+          recipes, autocomplete, and analyzed instructions.
       - name: Nutrition Analysis
-        description: Compute and visualize nutrition for recipes, ingredients, products, and menu items including macro- and micronutrient breakdowns.
+        description: >-
+          Compute and visualize nutrition for recipes, ingredients, products, and menu items including macro- and
+          micronutrient breakdowns.
       - name: Ingredient Intelligence
-        description: Search ingredients, get information and substitutes, parse ingredient strings, compute conversions, and look up glycemic load.
+        description: >-
+          Search ingredients, get information and substitutes, parse ingredient strings, compute conversions, and look
+          up glycemic load.
       - name: Grocery Products
-        description: Search 800,000+ packaged food products by name or UPC, retrieve product information, compare products, and classify them.
+        description: >-
+          Search 800,000+ packaged food products by name or UPC, retrieve product information, compare products, and
+          classify them.
       - name: Menu Items
         description: Search and retrieve 100,000+ restaurant menu items with nutrition and autocomplete.
       - name: Meal Planning
@@ -154,11 +146,15 @@ common:
       - name: Wine Pairing
         description: Recommend wine pairings for dishes and recipes and return wine descriptions and recommendations.
       - name: Food Classification and Media
-        description: Classify food in images, search recipe videos, extract recipes from web pages, and return food jokes and trivia.
+        description: >-
+          Classify food in images, search recipe videos, extract recipes from web pages, and return food jokes and
+          trivia.
   - type: UseCases
     data:
       - name: Recipe and Cooking Apps
-        description: Power consumer cooking apps with searchable recipes, step-by-step instructions, and ingredient-based discovery.
+        description: >-
+          Power consumer cooking apps with searchable recipes, step-by-step instructions, and ingredient-based
+          discovery.
       - name: Diet and Nutrition Tracking
         description: Analyze meals and products for calories and nutrients to drive diet, fitness, and health applications.
       - name: Grocery and Shopping List Tools
