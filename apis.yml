@@ -41,24 +41,24 @@ apis:
         url: openapi/spoonacular-openapi.yml
       - type: Authentication
         url: https://spoonacular.com/food-api/docs#Authentication
-      - type: Quickstart
+      - type: GettingStarted
         url: https://spoonacular.com/food-api/docs#Getting-Started
-      - type: SDK
+      - type: SDKs
         title: Python SDK
         url: https://github.com/ddsky/spoonacular-api-clients/tree/master/python
-      - type: SDK
+      - type: SDKs
         title: JavaScript SDK
         url: https://github.com/ddsky/spoonacular-api-clients/tree/master/javascript
-      - type: SDK
+      - type: SDKs
         title: Java SDK
         url: https://github.com/ddsky/spoonacular-api-clients/tree/master/java
-      - type: SDK
+      - type: SDKs
         title: PHP SDK
         url: https://github.com/ddsky/spoonacular-api-clients/tree/master/php
-      - type: SDK
+      - type: SDKs
         title: Ruby SDK
         url: https://github.com/ddsky/spoonacular-api-clients/tree/master/ruby
-      - type: SDK
+      - type: SDKs
         title: Go SDK
         url: https://github.com/ddsky/spoonacular-api-clients/tree/master/go
       - type: JSONSchema
@@ -84,11 +84,11 @@ common:
     url: https://spoonacular.com/food-api
   - type: Console
     url: https://spoonacular.com/food-api/console
-  - type: SignUp
+  - type: Signup
     url: https://spoonacular.com/food-api/console#Dashboard
   - type: Pricing
     url: https://spoonacular.com/food-api/pricing
-  - type: SDK
+  - type: SDKs
     title: API Clients (22 languages)
     url: https://spoonacular.com/food-api/sdk
   - type: GitHubOrganization
