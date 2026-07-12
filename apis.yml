@@ -78,10 +78,16 @@ apis:
       - type: JSONSchema
         url: json-schema/spoonacular-taste-information-schema.json
 common:
+  - type: DomainSecurity
+    url: security/spoonacular-domain-security.yml
+  - type: Authentication
+    url: authentication/spoonacular-authentication.yml
   - type: Website
     url: https://spoonacular.com/food-api
   - type: DeveloperPortal
     url: https://spoonacular.com/food-api
+  - url: https://spoonacular.com/blog/feed/
+    type: Blog
   - type: Console
     url: https://spoonacular.com/food-api/console
   - type: Signup
