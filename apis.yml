@@ -78,6 +78,8 @@ apis:
       - type: JSONSchema
         url: json-schema/spoonacular-taste-information-schema.json
 common:
+  - type: AgenticAccess
+    url: agentic-access/spoonacular-agentic-access.yml
   - type: DomainSecurity
     url: security/spoonacular-domain-security.yml
   - type: Authentication
