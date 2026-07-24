@@ -1,0 +1,1562 @@
+openapi: 3.0.0
+info:
+  title: spoonacular Ingredients Products API
+  description: 'The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as "gluten free brownies without sugar" or "low fat vegan cupcakes." You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what''s in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.
+
+
+    Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.'
+  contact:
+    name: David Urbansky
+    email: mail@spoonacular.com
+    url: https://spoonacular.com/contact
+  version: 2.0.2
+  x-codegen-settings:
+    Nullify404: false
+    GenerateAsyncCode: true
+    UseMethodPrefix: true
+    UseModelPostfix: false
+    UseControllerPrefix: true
+    UseEnumPostfix: true
+    CollectParameters: false
+    UseConstructorsForConfig: true
+    UseCommonSDKLibrary: false
+    iOSUseAppInfoPlist: true
+    AndroidUseAppManifest: true
+    BodySerialization: 0
+    EnableAdditionalModelProperties: false
+    PreserveParameterOrder: false
+    AppendContentHeaders: true
+    iOSGenerateCoreData: false
+    GenerateInterfaces: false
+    NodeHttpClient: NODE_REQUEST
+    ValidateRequiredParameters: false
+    JavaUsePropertiesConfig: false
+    Timeout: 0
+    StoreTimezoneInformation: false
+    EnablePHPComposerVersionString: false
+    EnableLogging: false
+    ArraySerialization: Indexed
+    ModelSerializationScheme: Json
+    UseExceptionPrefix: true
+    RunscopeEnabled: false
+    JavaHttpClient: JAVA_OK
+    ParameterArrayFormat: ParamArrayWithIndex
+    SecurityProtocols:
+    - Ssl3
+    - Tls
+    GenerateTravisConfig: false
+    GenerateCircleConfig: false
+    GenerateAppveyorConfig: false
+    GenerateJenkinsConfig: false
+    EnableHttpCache: false
+    Retries: 0
+    RetryInterval: 1
+    GenerateAdvancedDocs: false
+    UnderscoreNumbers: true
+    UseSingletonPattern: true
+    DisableLinting: false
+    ApplyCustomizations: []
+    SortResources: false
+    AllowSkippingSSLCertVerification: false
+    DoNotSplitWords: []
+    EnableGlobalUserAgent: true
+    ReturnCompleteHttpResponse: false
+    GenerateModels: true
+    GenerateExceptions: true
+    IgnoreIfNullJson: false
+    DisableDocs: false
+    LiftParameterDescriptionFromCustomType: false
+    ThrowForHttpErrorStatusCodes: true
+    ResponseMapping:
+      Type: Simple
+    ForceKeywordArgsInRuby: false
+    SymbolizeHashKeysInRuby: false
+  x-server-configuration:
+    default-environment: production
+    default-server: default
+    environments:
+    - name: production
+      servers:
+      - name: default
+        url: https://api.spoonacular.com
+    parameters: []
+  license:
+    name: spoonacular API Terms
+    url: https://spoonacular.com/food-api/terms
+  termsOfService: https://spoonacular.com/food-api/terms
+  x-apis-json-aid: spoonacular
+  x-spec-source: https://github.com/ddsky/spoonacular-api-clients/blob/master/spoonacular-openapi-3.json
+  x-last-validated: '2026-06-03'
+  x-providerName: spoonacular.com
+servers:
+- url: https://api.spoonacular.com
+  variables: {}
+security:
+- apiKeyScheme: []
+tags:
+- name: Products
+paths:
+  /food/products/search:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  products:
+                    type: array
+                    uniqueItems: true
+                    minItems: 0
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        title:
+                          type: string
+                          minLength: 1
+                        imageType:
+                          type: string
+                          minLength: 1
+                      required:
+                      - id
+                      - title
+                      - imageType
+                  totalProducts:
+                    type: integer
+                  type:
+                    type: string
+                    minLength: 1
+                  offset:
+                    type: integer
+                  number:
+                    type: integer
+                required:
+                - products
+                - totalProducts
+                - type
+                - offset
+                - number
+              examples:
+                example-1:
+                  value:
+                    products:
+                    - id: 192386
+                      title: 'Pizza Buddy: Frozen Pizza Dough, 16 Oz'
+                      imageType: jpg
+                    - id: 27693
+                      title: Uno Pizza
+                      imageType: jpg
+                    totalProducts: 1258
+                    type: product
+                    offset: 0
+                    number: 2
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - $ref: '#/components/parameters/query'
+        example: example
+      - name: minCalories
+        description: The minimum amount of calories the product must have.
+        schema:
+          type: number
+          example: 50
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: 50
+      - name: maxCalories
+        description: The maximum amount of calories the product can have.
+        schema:
+          type: number
+          example: 800
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: 800
+      - name: minCarbs
+        description: The minimum amount of carbohydrates in grams the product must have.
+        schema:
+          type: number
+          example: 10
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: 10
+      - name: maxCarbs
+        description: The maximum amount of carbohydrates in grams the product can have.
+        schema:
+          type: number
+          example: 100
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: 100
+      - name: minProtein
+        description: The minimum amount of protein in grams the product must have.
+        schema:
+          type: number
+          example: 10
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: 10
+      - name: maxProtein
+        description: The maximum amount of protein in grams the product can have.
+        schema:
+          type: number
+          example: 100
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: 100
+      - name: minFat
+        description: The minimum amount of fat in grams the product must have.
+        schema:
+          type: number
+          example: 1
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: 1
+      - name: maxFat
+        description: The maximum amount of fat in grams the product can have.
+        schema:
+          type: number
+          example: 100
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: 100
+      - schema:
+          type: boolean
+          example: true
+          enum:
+          - false
+          - true
+        required: false
+        in: query
+        name: addProductInformation
+        description: If set to true, you get more information about the products returned.
+        example: true
+      - $ref: '#/components/parameters/offset'
+        example: example
+      - $ref: '#/components/parameters/number'
+        example: example
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Search-Grocery-Products
+      summary: Search Grocery Products
+      description: Search packaged food products, such as frozen pizza or Greek yogurt.
+      operationId: searchGroceryProducts
+      deprecated: false
+      tags:
+      - Products
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /food/products/upc/{upc}:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  title:
+                    type: string
+                  badges:
+                    type: array
+                    items:
+                      type: string
+                  importantBadges:
+                    type: array
+                    items:
+                      type: string
+                  breadcrumbs:
+                    type: array
+                    items:
+                      type: string
+                  generatedText:
+                    type: string
+                    nullable: true
+                  imageType:
+                    type: string
+                  ingredientCount:
+                    type: integer
+                  ingredientList:
+                    type: string
+                  ingredients:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/IngredientBasics'
+                  likes:
+                    type: number
+                  nutrition:
+                    type: object
+                    required:
+                    - nutrients
+                    - caloricBreakdown
+                    properties:
+                      nutrients:
+                        type: array
+                        uniqueItems: true
+                        minItems: 0
+                        items:
+                          type: object
+                          properties:
+                            name:
+                              type: string
+                              minLength: 1
+                            amount:
+                              type: number
+                            unit:
+                              type: string
+                              minLength: 1
+                            percentOfDailyNeeds:
+                              type: number
+                          required:
+                          - name
+                          - amount
+                          - unit
+                          - percentOfDailyNeeds
+                      caloricBreakdown:
+                        type: object
+                        required:
+                        - percentProtein
+                        - percentFat
+                        - percentCarbs
+                        properties:
+                          percentProtein:
+                            type: number
+                          percentFat:
+                            type: number
+                          percentCarbs:
+                            type: number
+                  price:
+                    type: number
+                  servings:
+                    type: object
+                    required:
+                    - number
+                    - size
+                    - unit
+                    properties:
+                      number:
+                        type: number
+                      size:
+                        type: number
+                      unit:
+                        type: string
+                        minLength: 1
+                  spoonacularScore:
+                    type: number
+                required:
+                - id
+                - title
+                - badges
+                - importantBadges
+                - breadcrumbs
+                - generatedText
+                - imageType
+                - ingredientList
+                - ingredients
+                - likes
+                - nutrition
+                - price
+                - servings
+                - spoonacularScore
+              examples:
+                example-1:
+                  value:
+                    id: 30004
+                    title: Swan Flour
+                    badges:
+                    - egg_free
+                    - wheat_free
+                    - grain_free
+                    - peanut_free
+                    - primal
+                    - vegetarian
+                    - nut_free
+                    - vegan
+                    - pescetarian
+                    - dairy_free
+                    - paleo
+                    - gluten_free
+                    importantBadges:
+                    - gluten_free
+                    - paleo
+                    - primal
+                    - wheat_free
+                    - grain_free
+                    breadcrumbs:
+                    - flour
+                    generatedText: 'Swan Flour: This product is an awesome fit if you are searching for a healthy flour. This product has 1 ingredient (in our experience: the fewer ingredients, the better!) This product contains no ingredients that some research suggests you should avoid. One serving of this product provides 30 calories, 0g grams of fat, 0g grams of protein, and 8g grams of carbs.'
+                    imageType: jpg
+                    ingredientCount: 1
+                    ingredientList: Potato Starch
+                    ingredients:
+                    - description: null
+                      name: ''
+                      safety_level: null
+                    - description: null
+                      name: starch
+                      safety_level: null
+                    - description: null
+                      name: potato starch
+                      safety_level: null
+                    likes: 0
+                    nutrition:
+                      nutrients:
+                      - name: Fat
+                        amount: 0
+                        unit: g
+                        percentOfDailyNeeds: 0
+                      - name: Protein
+                        amount: 0
+                        unit: g
+                        percentOfDailyNeeds: 0
+                      - name: Calories
+                        amount: 30
+                        unit: cal
+                        percentOfDailyNeeds: 10
+                      - name: Carbohydrates
+                        amount: 8
+                        unit: g
+                        percentOfDailyNeeds: 9.45
+                      caloricBreakdown:
+                        percentProtein: 22.22
+                        percentFat: 20
+                        percentCarbs: 57.78
+                    price: 0
+                    servings:
+                      number: 34
+                      size: 1
+                      unit: tbsp
+                    spoonacularScore: 99
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: upc
+        description: The product's UPC.
+        schema:
+          type: string
+          example: '041631000564'
+        required: true
+        style: simple
+        explode: false
+        in: path
+        example: '041631000564'
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Search-Grocery-Products-by-UPC
+      summary: Search Grocery Products by UPC
+      description: Get information about a packaged food using its UPC.
+      operationId: searchGroceryProductsByUPC
+      deprecated: false
+      tags:
+      - Products
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /food/products/{id}:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ProductInformation'
+              examples:
+                GetProductInformation200Example:
+                  summary: Default getProductInformation 200 response
+                  x-microcks-default: true
+                  value:
+                    breadcrumbs:
+                    - bars
+                    category: bars
+                    usdaCode: null
+                    id: 22347
+                    title: SNICKERS Minis Size Chocolate Candy Bars Variety Mix 10.5-oz. Bag
+                    price: 324
+                    likes: 0
+                    badges:
+                    - msg_free
+                    - no_artificial_colors
+                    - no_artificial_flavors
+                    - no_artificial_ingredients
+                    - gluten_free
+                    importantBadges:
+                    - no_artificial_flavors
+                    - no_artificial_colors
+                    - no_artificial_ingredients
+                    - gluten_free
+                    - msg_free
+                    nutrition:
+                      nutrients:
+                      - name: Alcohol
+                        amount: 0
+                        unit: g
+                        percentOfDailyNeeds: 100
+                      - name: Caffeine
+                        amount: 0
+                        unit: mg
+                        percentOfDailyNeeds: 0
+                      - name: Net Carbohydrates
+                        amount: 24
+                        unit: g
+                        percentOfDailyNeeds: 8.73
+                      caloricBreakdown:
+                        percentProtein: 4.44
+                        percentFat: 40
+                        percentCarbs: 55.56
+                      calories: 180
+                      fat: 8g
+                      protein: 2g
+                      carbs: 25g
+                    servings:
+                      number: 1
+                      size: 4
+                      unit: pieces
+                      raw: 4.0 pieces (38 g)
+                    spoonacularScore: 0
+                    aisle: null
+                    description: SnickersÂ® brand almond bar.What&#39;s inside... per minis piece.Calories 45, 2% DV.Total fat 2g, 3% DV.Sat fat 1g, 5% DV.Sugars 5g.Sodium 20mg, 1% DV.GDA&#39;s are based on a 2,000 calorie diet.To learn more visit www.marshealthyliving.com.*No DV defined.SnickersÂ® brand.What&#39;s inside... per minis piece.Calories 45, 2% DV.Total fat 2g, 3% DV.Sat fat 1g, 5% DV.Sugars 5g.Sodium 20mg, 1% DV.GDA&#39;s are based on a 2,000 calorie diet.To learn more visit www.marshealthyliving.com.*No DV defined.SnickersÂ® brand peanut butter squared bars.What&#39;s inside... per minis piece.Calories 50, 3% DV.Total fat 2.5g, 4% DV.Sat fat 1g, 5% DV.Sugars 4g.Sodium 30mg, 1% DV.GDA&#39;s are based on a 2,000 calorie diet.To learn more visit www.marshealthyliving.com.*No DV defined.snickers.com.Please save the unused product and wrapper.Mars Real ChocolateÂ®.We value your questions or comments. Call 1-800-551-0702 or visit us at www.snickers.com.Visit us at www.snickers.com.Â®/TM trademarks.Â©Mars, Incorporated.
+                    image: https://img.spoonacular.com/products/22347-312x231.jpeg
+                    imageType: jpeg
+                    images:
+                    - https://img.spoonacular.com/products/22347-90x90.jpeg
+                    - https://img.spoonacular.com/products/22347-312x231.jpeg
+                    - https://img.spoonacular.com/products/22347-636x393.jpeg
+                    generatedText: null
+                    upc: '040000421610'
+                    brand: Snickers
+                    ingredients:
+                    - name: artificial flavor.snickersâ® brand
+                      safety_level: null
+                      description: null
+                    - name: cocoa butter
+                      safety_level: high
+                      description: null
+                    - name: soy lecithin
+                      safety_level: high
+                      description: Soy lecithin is <a href="http://farrp.unl.edu/resources/gi-fas/opinion-and-summaries/soy-lecithin">not a concern</a> for most people allergic to soy.
+                    ingredientCount: 32
+                    ingredientList: 'Snickers Brand Almond Bar: Milk Chocolate (Sugar, Cocoa Butter, Chocolate, Skim Milk, Lactose, Milkfat, Soy Lecithin, Artificial Flavor), Corn Syrup, Almonds, Sugar, Milkfat, Skim Milk, Less than 2% - Lactose, Salt, Hydrogenated Palm Kernel Oil and/or Palm Oil, Egg Whites, Chocolate, Artificial Flavor. Snickers Brand: Milk Chocolate (Sugar, Cocoa Butter, Chocolate, Skim Milk, Lactose, Milkfat, Soy Lecithin, Artificial Flavor), Peanuts, Corn Syrup, Sugar, Milkfat, Skim Milk, Partially Hydrogenated Soybean Oil, Lactose, Salt, Egg Whites, Chocolate, Artificial Flavor. Snickers Brand Peanut Butter Squared Bars: Milk Chocolate (Sugar, Cocoa Butter, Chocolate, Skim Milk, Lactose, Milkfat, Soy Lecithin, Artificial Flavor), Peanut Butter (Peanuts, Partially Hydrogenated Soybean Oil), Peanuts, Sugar, Corn Syrup, Vegetable Oil (Hydrogenated Palm Kernel Oil, Palm Oil, Rapeseed Oil and Cottonseed Oil and/or Partially Hydrogenated Palm Kernel Oil), Lactose, Corn Syrup Solids, Invert Sugar, Less than 2% - Glycerin, Dextrose, Skim Milk, Salt, Calcium Carbonate, Partially Hydrogenated Soybean Oil, Egg Whites, Artificial Flavor, TBHQ to Maintain Freshness'
+                    credits:
+                      text: openfoodfacts.org under (ODbL) v1.0
+                      link: https://opendatacommons.org/licenses/odbl/1-0/
+                      image: openfoodfacts.org under CC BY-SA 3.0 DEED
+                      imageLink: https://creativecommons.org/licenses/by-sa/3.0/deed.en
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: id
+        description: The id of the packaged food.
+        schema:
+          type: integer
+          example: 22347
+        required: true
+        style: simple
+        explode: false
+        in: path
+        example: 22347
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Get-Product-Information
+      summary: Get Product Information
+      description: Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.
+      operationId: getProductInformation
+      deprecated: false
+      tags:
+      - Products
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /food/products/upc/{upc}/comparable:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  comparableProducts:
+                    type: object
+                    required:
+                    - calories
+                    - likes
+                    - price
+                    - protein
+                    - spoonacular_score
+                    - sugar
+                    properties:
+                      calories:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ComparableProduct'
+                      likes:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ComparableProduct'
+                      price:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ComparableProduct'
+                      protein:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ComparableProduct'
+                      spoonacular_score:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ComparableProduct'
+                      sugar:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/ComparableProduct'
+                required:
+                - comparableProducts
+              examples:
+                example-1:
+                  value:
+                    comparableProducts:
+                      calories: []
+                      likes: []
+                      price: []
+                      protein:
+                      - difference: 3
+                        id: 11797
+                        image: https://webknox.com/productImages/11797.jpg
+                        title: Casa Visco Capers
+                      - difference: 1
+                        id: 90962
+                        image: https://webknox.com/productImages/90962.jpg
+                        title: Colavita Capers
+                      - difference: 1
+                        id: 88139
+                        image: https://webknox.com/productImages/88139.jpg
+                        title: Mezzetta Capers
+                      - difference: 1
+                        id: 152832
+                        image: https://webknox.com/productImages/152832.jpg
+                        title: Victoria Imported Capers
+                      spoonacular_score:
+                      - difference: 7
+                        id: 125354
+                        image: https://webknox.com/productImages/125354.jpg
+                        title: DeLallo Capers
+                      - difference: 7
+                        id: 118361
+                        image: https://webknox.com/productImages/118361.jpg
+                        title: Haddon House Non Pareil Capers
+                      - difference: 7
+                        id: 113686
+                        image: https://webknox.com/productImages/113686.jpg
+                        title: Dell Alpe Capers
+                      - difference: 7
+                        id: 112078
+                        image: https://webknox.com/productImages/112078.jpg
+                        title: Paesana Imported Capers
+                      sugar: []
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: upc
+        description: The UPC of the product for which you want to find comparable products.
+        schema:
+          type: string
+          example: 033698816271
+        required: true
+        style: simple
+        explode: false
+        in: path
+        example: 033698816271
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Get-Comparable-Products
+      summary: Get Comparable Products
+      description: Find comparable products to the given one.
+      operationId: getComparableProducts
+      deprecated: false
+      tags:
+      - Products
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /food/products/suggest:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  results:
+                    type: array
+                    uniqueItems: true
+                    minItems: 0
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        title:
+                          type: string
+                          minLength: 1
+                      required:
+                      - id
+                      - title
+                required:
+                - results
+              examples:
+                example-1:
+                  value:
+                    results:
+                    - id: 208698
+                      title: buddig premium deli chicken breast - rotisserie flavored
+                    - id: 41291
+                      title: tyson all natural chicken breasts tenderloins
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: query
+        description: The (partial) search query.
+        schema:
+          type: string
+          example: chicke
+        required: true
+        style: form
+        explode: false
+        in: query
+        example: chicke
+      - name: number
+        description: The number of results to return (between 1 and 25).
+        schema:
+          type: integer
+          example: 10
+          minimum: 1
+          maximum: 25
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: 10
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Autocomplete-Product-Search
+      summary: Autocomplete Product Search
+      description: Generate suggestions for grocery products based on a (partial) query. The matches will be found by looking in the title only.
+      operationId: autocompleteProductSearch
+      deprecated: false
+      tags:
+      - Products
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /food/products/{id}/nutritionWidget:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            text/html:
+              schema:
+                type: string
+              examples:
+                example-1:
+                  value: string
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: id
+        description: The id of the product.
+        schema:
+          type: integer
+          example: 7657
+        required: true
+        style: simple
+        explode: false
+        in: path
+        example: 7657
+      - $ref: '#/components/parameters/defaultCss'
+        example: example
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Product-Nutrition-by-ID-Widget
+      summary: Product Nutrition by ID Widget
+      description: Visualize a product's nutritional information as HTML including CSS.
+      operationId: visualizeProductNutritionByID
+      deprecated: false
+      tags:
+      - Products
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /food/products/{id}/nutritionWidget.png:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            image/png:
+              schema:
+                type: string
+                format: binary
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: id
+        description: The id of the product.
+        schema:
+          type: integer
+          example: 7657
+        required: true
+        style: simple
+        explode: false
+        in: path
+        example: 7657
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Product-Nutrition-by-ID-Image
+      summary: Product Nutrition by ID Image
+      description: Visualize a product's nutritional information as an image.
+      operationId: productNutritionByIDImage
+      deprecated: false
+      tags:
+      - Products
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /food/products/{id}/nutritionLabel:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            text/html:
+              schema:
+                type: string
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: id
+        description: The product id.
+        schema:
+          type: integer
+          example: 22347
+        required: true
+        style: simple
+        explode: false
+        in: path
+        example: 22347
+      - $ref: '#/components/parameters/defaultCss'
+        example: example
+      - name: showOptionalNutrients
+        description: Whether to show optional nutrients.
+        schema:
+          type: boolean
+          example: false
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: false
+      - name: showZeroValues
+        description: Whether to show zero values.
+        schema:
+          type: boolean
+          example: false
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: false
+      - name: showIngredients
+        description: Whether to show a list of ingredients.
+        schema:
+          type: boolean
+          example: false
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: false
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Product-Nutrition-Label-Widget
+      summary: Product Nutrition Label Widget
+      description: Get a product's nutrition label as an HTML widget.
+      operationId: productNutritionLabelWidget
+      deprecated: false
+      tags:
+      - Products
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /food/products/{id}/nutritionLabel.png:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            image/png:
+              schema:
+                type: string
+                format: binary
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: id
+        description: The product id.
+        schema:
+          type: integer
+          example: 22347
+        required: true
+        style: simple
+        explode: false
+        in: path
+        example: 22347
+      - name: showOptionalNutrients
+        description: Whether to show optional nutrients.
+        schema:
+          type: boolean
+          example: false
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: false
+      - name: showZeroValues
+        description: Whether to show zero values.
+        schema:
+          type: boolean
+          example: false
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: false
+      - name: showIngredients
+        description: Whether to show a list of ingredients.
+        schema:
+          type: boolean
+          example: false
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: false
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Product-Nutrition-Label-Image
+      summary: Product Nutrition Label Image
+      description: Get a product's nutrition label as an image.
+      operationId: productNutritionLabelImage
+      deprecated: false
+      tags:
+      - Products
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /food/products/classify:
+    post:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  cleanTitle:
+                    type: string
+                    minLength: 1
+                  image:
+                    type: string
+                    minLength: 1
+                  category:
+                    type: string
+                    minLength: 1
+                  breadcrumbs:
+                    type: array
+                    items:
+                      type: string
+                  usdaCode:
+                    type: integer
+                required:
+                - cleanTitle
+                - image
+                - category
+                - breadcrumbs
+                - usdaCode
+              examples:
+                example-1:
+                  value:
+                    cleanTitle: Kroger Vitamin A & D Reduced Fat 2% Milk
+                    image: https://spoonacular.com/cdn/ingredients_100x100/milk.png
+                    category: 2 percent milk
+                    breadcrumbs:
+                    - 2 percent milk
+                    - milk
+                    - drink
+                    - ingredient
+                    usdaCode: 1174
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              description: ''
+              type: object
+              properties:
+                title:
+                  type: string
+                  minLength: 1
+                upc:
+                  type: string
+                plu_code:
+                  type: string
+              required:
+              - title
+              - upc
+              - plu_code
+            examples:
+              example-1:
+                value:
+                  title: Kroger Vitamin A & D Reduced Fat 2% Milk
+                  upc: ''
+                  plu_code: ''
+      parameters:
+      - name: locale
+        description: The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
+        schema:
+          type: string
+          example: en_US
+          enum:
+          - en_US
+          - en_GB
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: en_US
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Classify-Grocery-Product
+      summary: Classify Grocery Product
+      description: This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.
+      operationId: classifyGroceryProduct
+      deprecated: false
+      tags:
+      - Products
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /food/products/classifyBatch:
+    post:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: array
+                description: ''
+                minItems: 0
+                uniqueItems: true
+                items:
+                  type: object
+                  properties:
+                    cleanTitle:
+                      type: string
+                      minLength: 1
+                    image:
+                      type: string
+                      minLength: 1
+                    category:
+                      type: string
+                      minLength: 1
+                    breadcrumbs:
+                      type: array
+                      items:
+                        type: string
+                    usdaCode:
+                      type: integer
+                  required:
+                  - cleanTitle
+                  - image
+                  - category
+                  - breadcrumbs
+                  - usdaCode
+              examples:
+                example-1:
+                  value:
+                  - cleanTitle: Kroger Vitamin A & D Reduced Fat 2% Milk
+                    image: https://spoonacular.com/cdn/ingredients_100x100/milk.png
+                    category: 2 percent milk
+                    breadcrumbs:
+                    - 2 percent milk
+                    - milk
+                    - drink
+                    - ingredient
+                    usdaCode: 1174
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              description: ''
+              minItems: 0
+              uniqueItems: true
+              items:
+                type: object
+                required:
+                - title
+                - upc
+                - plu_code
+                properties:
+                  title:
+                    type: string
+                    minLength: 1
+                  upc:
+                    type: string
+                  plu_code:
+                    type: string
+            examples:
+              example-1:
+                value:
+                - title: Kroger Vitamin A & D Reduced Fat 2% Milk
+                  upc: ''
+                  plu_code: ''
+      parameters:
+      - name: locale
+        description: The display name of the returned category, supported is en_US (for American English) and en_GB (for British English).
+        schema:
+          type: string
+          example: en_US
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: en_US
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Classify-Grocery-Product-Bulk
+      summary: Classify Grocery Product Bulk
+      description: Provide a set of product jsons, get back classified products.
+      operationId: classifyGroceryProductBulk
+      deprecated: false
+      tags:
+      - Products
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    ComparableProduct:
+      type: object
+      properties:
+        difference:
+          type: number
+          example: 1.0
+        id:
+          type: integer
+          example: 716429
+        image:
+          type: string
+          minLength: 1
+          example: example
+        title:
+          type: string
+          minLength: 1
+          example: example
+      required:
+      - difference
+      - id
+      - image
+      - title
+    IngredientBasics:
+      type: object
+      properties:
+        description:
+          type: string
+          nullable: true
+          example: example
+        name:
+          type: string
+          example: Spaghetti
+        safety_level:
+          type: string
+          nullable: true
+          example: example
+      required:
+      - name
+      - description
+      - safety_level
+    ProductInformation:
+      description: ''
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 716429
+        title:
+          type: string
+          minLength: 1
+          example: example
+        upc:
+          type: string
+          nullable: true
+          example: example
+        usdaCode:
+          type: string
+          nullable: true
+          example: example
+        breadcrumbs:
+          type: array
+          items:
+            type: string
+        imageType:
+          type: string
+          minLength: 1
+          example: example
+        badges:
+          type: array
+          items:
+            type: string
+        importantBadges:
+          type: array
+          items:
+            type: string
+        ingredientCount:
+          type: integer
+          example: 1
+        generatedText:
+          type: string
+          nullable: true
+          example: example
+        ingredientList:
+          type: string
+          minLength: 1
+          example: apples,flour,sugar
+        ingredients:
+          type: array
+          uniqueItems: false
+          minItems: 0
+          items:
+            $ref: '#/components/schemas/IngredientBasics'
+        likes:
+          type: number
+          example: 1.0
+        aisle:
+          type: string
+          nullable: true
+          example: example
+        credits:
+          type: object
+          properties:
+            text:
+              type: string
+              example: example
+            link:
+              type: string
+              example: example
+            image:
+              type: string
+              example: example
+            imageLink:
+              type: string
+              example: example
+        nutrition:
+          type: object
+          required:
+          - nutrients
+          - caloricBreakdown
+          properties:
+            nutrients:
+              type: array
+              uniqueItems: true
+              minItems: 0
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    minLength: 1
+                  amount:
+                    type: number
+                  unit:
+                    type: string
+                    minLength: 1
+                  percentOfDailyNeeds:
+                    type: number
+                required:
+                - name
+                - amount
+                - unit
+                - percentOfDailyNeeds
+            caloricBreakdown:
+              type: object
+              required:
+              - percentProtein
+              - percentFat
+              - percentCarbs
+              properties:
+                percentProtein:
+                  type: number
+                  example: 1.0
+                percentFat:
+                  type: number
+                  example: 1.0
+                percentCarbs:
+                  type: number
+                  example: 1.0
+        price:
+          type: number
+          example: 1.0
+        servings:
+          type: object
+          required:
+          - number
+          - size
+          - unit
+          properties:
+            number:
+              type: number
+              example: 10
+            size:
+              type: number
+              example: 1.0
+            unit:
+              type: string
+              minLength: 1
+              example: metric
+        spoonacularScore:
+          type: number
+          example: 1.0
+      required:
+      - id
+      - title
+      - breadcrumbs
+      - imageType
+      - badges
+      - importantBadges
+      - ingredientCount
+      - ingredientList
+      - ingredients
+      - likes
+      - aisle
+      - nutrition
+      - price
+      - servings
+      - spoonacularScore
+      example:
+        breadcrumbs:
+        - bars
+        category: bars
+        usdaCode: null
+        id: 22347
+        title: SNICKERS Minis Size Chocolate Candy Bars Variety Mix 10.5-oz. Bag
+        price: 324
+        likes: 0
+        badges:
+        - msg_free
+        - no_artificial_colors
+        - no_artificial_flavors
+        - no_artificial_ingredients
+        - gluten_free
+        importantBadges:
+        - no_artificial_flavors
+        - no_artificial_colors
+        - no_artificial_ingredients
+        - gluten_free
+        - msg_free
+        nutrition:
+          nutrients:
+          - name: Alcohol
+            amount: 0
+            unit: g
+            percentOfDailyNeeds: 100
+          - name: Caffeine
+            amount: 0
+            unit: mg
+            percentOfDailyNeeds: 0
+          - name: Net Carbohydrates
+            amount: 24
+            unit: g
+            percentOfDailyNeeds: 8.73
+          caloricBreakdown:
+            percentProtein: 4.44
+            percentFat: 40
+            percentCarbs: 55.56
+          calories: 180
+          fat: 8g
+          protein: 2g
+          carbs: 25g
+        servings:
+          number: 1
+          size: 4
+          unit: pieces
+          raw: 4.0 pieces (38 g)
+        spoonacularScore: 0
+        aisle: null
+        description: SnickersÂ® brand almond bar.What&#39;s inside... per minis piece.Calories 45, 2% DV.Total fat 2g, 3% DV.Sat fat 1g, 5% DV.Sugars 5g.Sodium 20mg, 1% DV.GDA&#39;s are based on a 2,000 calorie diet.To learn more visit www.marshealthyliving.com.*No DV defined.SnickersÂ® brand.What&#39;s inside... per minis piece.Calories 45, 2% DV.Total fat 2g, 3% DV.Sat fat 1g, 5% DV.Sugars 5g.Sodium 20mg, 1% DV.GDA&#39;s are based on a 2,000 calorie diet.To learn more visit www.marshealthyliving.com.*No DV defined.SnickersÂ® brand peanut butter squared bars.What&#39;s inside... per minis piece.Calories 50, 3% DV.Total fat 2.5g, 4% DV.Sat fat 1g, 5% DV.Sugars 4g.Sodium 30mg, 1% DV.GDA&#39;s are based on a 2,000 calorie diet.To learn more visit www.marshealthyliving.com.*No DV defined.snickers.com.Please save the unused product and wrapper.Mars Real ChocolateÂ®.We value your questions or comments. Call 1-800-551-0702 or visit us at www.snickers.com.Visit us at www.snickers.com.Â®/TM trademarks.Â©Mars, Incorporated.
+        image: https://img.spoonacular.com/products/22347-312x231.jpeg
+        imageType: jpeg
+        images:
+        - https://img.spoonacular.com/products/22347-90x90.jpeg
+        - https://img.spoonacular.com/products/22347-312x231.jpeg
+        - https://img.spoonacular.com/products/22347-636x393.jpeg
+        generatedText: null
+        upc: '040000421610'
+        brand: Snickers
+        ingredients:
+        - name: artificial flavor.snickersâ® brand
+          safety_level: null
+          description: null
+        - name: cocoa butter
+          safety_level: high
+          description: null
+        - name: soy lecithin
+          safety_level: high
+          description: Soy lecithin is <a href="http://farrp.unl.edu/resources/gi-fas/opinion-and-summaries/soy-lecithin">not a concern</a> for most people allergic to soy.
+        ingredientCount: 32
+        ingredientList: 'Snickers Brand Almond Bar: Milk Chocolate (Sugar, Cocoa Butter, Chocolate, Skim Milk, Lactose, Milkfat, Soy Lecithin, Artificial Flavor), Corn Syrup, Almonds, Sugar, Milkfat, Skim Milk, Less than 2% - Lactose, Salt, Hydrogenated Palm Kernel Oil and/or Palm Oil, Egg Whites, Chocolate, Artificial Flavor. Snickers Brand: Milk Chocolate (Sugar, Cocoa Butter, Chocolate, Skim Milk, Lactose, Milkfat, Soy Lecithin, Artificial Flavor), Peanuts, Corn Syrup, Sugar, Milkfat, Skim Milk, Partially Hydrogenated Soybean Oil, Lactose, Salt, Egg Whites, Chocolate, Artificial Flavor. Snickers Brand Peanut Butter Squared Bars: Milk Chocolate (Sugar, Cocoa Butter, Chocolate, Skim Milk, Lactose, Milkfat, Soy Lecithin, Artificial Flavor), Peanut Butter (Peanuts, Partially Hydrogenated Soybean Oil), Peanuts, Sugar, Corn Syrup, Vegetable Oil (Hydrogenated Palm Kernel Oil, Palm Oil, Rapeseed Oil and Cottonseed Oil and/or Partially Hydrogenated Palm Kernel Oil), Lactose, Corn Syrup Solids, Invert Sugar, Less than 2% - Glycerin, Dextrose, Skim Milk, Salt, Calcium Carbonate, Partially Hydrogenated Soybean Oil, Egg Whites, Artificial Flavor, TBHQ to Maintain Freshness'
+        credits:
+          text: openfoodfacts.org under (ODbL) v1.0
+          link: https://opendatacommons.org/licenses/odbl/1-0/
+          image: openfoodfacts.org under CC BY-SA 3.0 DEED
+          imageLink: https://creativecommons.org/licenses/by-sa/3.0/deed.en
+  parameters:
+    query:
+      name: query
+      in: query
+      required: true
+      schema:
+        type: string
+        example: burger
+      description: The (natural language) search query.
+    number:
+      name: number
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 10
+        example: 10
+      description: The maximum number of items to return (between 1 and 100). Defaults to 10.
+    defaultCss:
+      name: defaultCss
+      in: query
+      required: false
+      schema:
+        type: boolean
+        default: true
+        example: false
+      description: Whether the default CSS should be added to the response.
+    offset:
+      name: offset
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+        maximum: 900
+      description: The number of results to skip (between 0 and 900).
+  securitySchemes:
+    apiKeyScheme:
+      type: apiKey
+      name: x-api-key
+      in: header
+externalDocs:
+  description: The official documentation.
+  url: https://spoonacular.com/food-api/docs

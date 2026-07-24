@@ -1,0 +1,477 @@
+openapi: 3.0.0
+info:
+  title: spoonacular Ingredients Wine API
+  description: 'The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as "gluten free brownies without sugar" or "low fat vegan cupcakes." You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what''s in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.
+
+
+    Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.'
+  contact:
+    name: David Urbansky
+    email: mail@spoonacular.com
+    url: https://spoonacular.com/contact
+  version: 2.0.2
+  x-codegen-settings:
+    Nullify404: false
+    GenerateAsyncCode: true
+    UseMethodPrefix: true
+    UseModelPostfix: false
+    UseControllerPrefix: true
+    UseEnumPostfix: true
+    CollectParameters: false
+    UseConstructorsForConfig: true
+    UseCommonSDKLibrary: false
+    iOSUseAppInfoPlist: true
+    AndroidUseAppManifest: true
+    BodySerialization: 0
+    EnableAdditionalModelProperties: false
+    PreserveParameterOrder: false
+    AppendContentHeaders: true
+    iOSGenerateCoreData: false
+    GenerateInterfaces: false
+    NodeHttpClient: NODE_REQUEST
+    ValidateRequiredParameters: false
+    JavaUsePropertiesConfig: false
+    Timeout: 0
+    StoreTimezoneInformation: false
+    EnablePHPComposerVersionString: false
+    EnableLogging: false
+    ArraySerialization: Indexed
+    ModelSerializationScheme: Json
+    UseExceptionPrefix: true
+    RunscopeEnabled: false
+    JavaHttpClient: JAVA_OK
+    ParameterArrayFormat: ParamArrayWithIndex
+    SecurityProtocols:
+    - Ssl3
+    - Tls
+    GenerateTravisConfig: false
+    GenerateCircleConfig: false
+    GenerateAppveyorConfig: false
+    GenerateJenkinsConfig: false
+    EnableHttpCache: false
+    Retries: 0
+    RetryInterval: 1
+    GenerateAdvancedDocs: false
+    UnderscoreNumbers: true
+    UseSingletonPattern: true
+    DisableLinting: false
+    ApplyCustomizations: []
+    SortResources: false
+    AllowSkippingSSLCertVerification: false
+    DoNotSplitWords: []
+    EnableGlobalUserAgent: true
+    ReturnCompleteHttpResponse: false
+    GenerateModels: true
+    GenerateExceptions: true
+    IgnoreIfNullJson: false
+    DisableDocs: false
+    LiftParameterDescriptionFromCustomType: false
+    ThrowForHttpErrorStatusCodes: true
+    ResponseMapping:
+      Type: Simple
+    ForceKeywordArgsInRuby: false
+    SymbolizeHashKeysInRuby: false
+  x-server-configuration:
+    default-environment: production
+    default-server: default
+    environments:
+    - name: production
+      servers:
+      - name: default
+        url: https://api.spoonacular.com
+    parameters: []
+  license:
+    name: spoonacular API Terms
+    url: https://spoonacular.com/food-api/terms
+  termsOfService: https://spoonacular.com/food-api/terms
+  x-apis-json-aid: spoonacular
+  x-spec-source: https://github.com/ddsky/spoonacular-api-clients/blob/master/spoonacular-openapi-3.json
+  x-last-validated: '2026-06-03'
+  x-providerName: spoonacular.com
+servers:
+- url: https://api.spoonacular.com
+  variables: {}
+security:
+- apiKeyScheme: []
+tags:
+- name: Wine
+paths:
+  /food/wine/dishes:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  pairings:
+                    type: array
+                    items:
+                      type: string
+                  text:
+                    type: string
+                    minLength: 1
+                required:
+                - pairings
+                - text
+              examples:
+                example-1:
+                  value:
+                    pairings:
+                    - stew
+                    - steak
+                    - chili
+                    - burger
+                    text: Malbec is a dry red wine which is bold and full bodied. It goes especially well with round steak, tri tip steak, steak, boneless pork chops, and pizza burger.
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: wine
+        description: The type of wine that should be paired, e.g. "merlot", "riesling", or "malbec".
+        schema:
+          type: string
+          example: malbec
+        required: true
+        style: form
+        explode: false
+        in: query
+        example: malbec
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Dish-Pairing-for-Wine
+      summary: Dish Pairing for Wine
+      description: Find a dish that goes well with a given wine.
+      operationId: getDishPairingForWine
+      deprecated: false
+      tags:
+      - Wine
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /food/wine/pairing:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  pairedWines:
+                    type: array
+                    items:
+                      type: string
+                  pairingText:
+                    type: string
+                    minLength: 1
+                  productMatches:
+                    type: array
+                    uniqueItems: true
+                    minItems: 0
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        title:
+                          type: string
+                          minLength: 1
+                        averageRating:
+                          type: number
+                        description:
+                          type: string
+                        imageUrl:
+                          type: string
+                          minLength: 1
+                        link:
+                          type: string
+                          minLength: 1
+                        price:
+                          type: string
+                          minLength: 1
+                        ratingCount:
+                          type: integer
+                        score:
+                          type: number
+                      required:
+                      - id
+                      - title
+                      - averageRating
+                      - imageUrl
+                      - link
+                      - price
+                      - ratingCount
+                      - score
+                required:
+                - pairedWines
+                - pairingText
+                - productMatches
+              examples:
+                example-1:
+                  value:
+                    pairedWines:
+                    - merlot
+                    - cabernet sauvignon
+                    - pinot noir
+                    pairingText: Merlot, Cabernet Sauvignon, and Pinot Noir are my top picks for Steak. After all, beef and red wine are a classic combination. Generally, leaner steaks go well with light or medium-bodied reds, such as pinot noir or merlot, while fattier steaks can handle a bold red, such as cabernet sauvingnon. The Sterling Vineyards Merlot with a 5 out of 5 star rating seems like a good match. It costs about 29 dollars per bottle.
+                    productMatches:
+                    - id: 428278
+                      title: Sterling Vineyards Merlot
+                      averageRating: 1
+                      description: null
+                      imageUrl: https://spoonacular.com/productImages/428278-312x231.jpg
+                      link: https://www.amazon.com/2014-Sterling-Vineyards-Valley-Merlot/dp/B071FP8NPG?tag=spoonacular-20
+                      price: $28.99
+                      ratingCount: 1
+                      score: 0.75
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: food
+        description: The food to get a pairing for. This can be a dish ("steak"), an ingredient ("salmon"), or a cuisine ("italian").
+        schema:
+          type: string
+          example: steak
+        required: true
+        style: form
+        explode: false
+        in: query
+        example: steak
+      - name: maxPrice
+        description: The maximum price for the specific wine recommendation in USD.
+        schema:
+          type: number
+          example: 50
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: 50
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Wine-Pairing
+      summary: Wine Pairing
+      description: Find a wine that goes well with a food. Food can be a dish name ("steak"), an ingredient name ("salmon"), or a cuisine ("italian").
+      operationId: getWinePairing
+      deprecated: false
+      tags:
+      - Wine
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /food/wine/description:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  wineDescription:
+                    type: string
+                    minLength: 1
+                required:
+                - wineDescription
+              examples:
+                example-1:
+                  value:
+                    wineDescription: Merlot is a dry red wine which is smooth and medium bodied.
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: wine
+        description: The name of the wine that should be paired, e.g. "merlot", "riesling", or "malbec".
+        schema:
+          type: string
+          example: merlot
+        required: true
+        style: form
+        explode: false
+        in: query
+        example: merlot
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Wine-Description
+      summary: Wine Description
+      description: Get a simple description of a certain wine, e.g. "malbec", "riesling", or "merlot".
+      operationId: getWineDescription
+      deprecated: false
+      tags:
+      - Wine
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /food/wine/recommendation:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  recommendedWines:
+                    type: array
+                    uniqueItems: true
+                    minItems: 0
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        title:
+                          type: string
+                          minLength: 1
+                        averageRating:
+                          type: number
+                        description:
+                          type: string
+                          minLength: 1
+                        imageUrl:
+                          type: string
+                          minLength: 1
+                        link:
+                          type: string
+                          minLength: 1
+                        price:
+                          type: string
+                          minLength: 1
+                        ratingCount:
+                          type: integer
+                        score:
+                          type: number
+                      required:
+                      - id
+                      - title
+                      - averageRating
+                      - description
+                      - imageUrl
+                      - link
+                      - price
+                      - ratingCount
+                      - score
+                  totalFound:
+                    type: integer
+                required:
+                - recommendedWines
+                - totalFound
+              examples:
+                example-1:
+                  value:
+                    recommendedWines:
+                    - id: 447938
+                      title: Rombauer Merlot
+                      averageRating: 0.96
+                      description: Enticing and lively red color; beautifully aromatic with black cherry and ripe plum. On the palate a purity of blackcurrant, cedar and mint flavors blend together seamlessly. Soft and supple, this wine has a medium-bodied mouth-feel with plush tannins that integrate with the generous finish.Our favorite pairings for this wine include chicken parmesan, cedar-planked salmon over wild rice, and mushroom pizza.
+                      imageUrl: https://spoonacular.com/productImages/447938-312x231.jpg
+                      link: https://click.linksynergy.com/deeplink?id=*QCiIS6t4gA&mid=2025&murl=https%3A%2F%2Fwww.wine.com%2Fproduct%2Frombauer-merlot-2008%2F116883
+                      price: $25.59
+                      ratingCount: 5
+                      score: 0.8975
+                    - id: 430475
+                      title: NV The Big Kahuna Merlot
+                      averageRating: 0.9
+                      description: A ripe and rounded Merlot with notes of plum, blackberry, and hint of spice.
+                      imageUrl: https://spoonacular.com/productImages/430475-312x231.jpg
+                      link: https://www.amazon.com/Big-Kahuna-Merlot-Red-Wine/dp/B01F5XPTUW?tag=spoonacular-20
+                      price: $6.99
+                      ratingCount: 4
+                      score: 0.823076923076923
+                    totalFound: 21
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: wine
+        description: The type of wine to get a specific product recommendation for.
+        schema:
+          type: string
+          example: merlot
+        required: true
+        style: form
+        explode: false
+        in: query
+        example: merlot
+      - name: maxPrice
+        description: The maximum price for the specific wine recommendation in USD.
+        schema:
+          type: number
+          example: 50
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: 50
+      - name: minRating
+        description: The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars.
+        schema:
+          type: number
+          example: 0.7
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: 0.7
+      - name: number
+        description: The number of wine recommendations expected (between 1 and 100).
+        schema:
+          type: number
+          example: 3
+          minimum: 1
+          maximum: 100
+          default: 10
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: 3
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Wine-Recommendation
+      summary: Wine Recommendation
+      description: Get a specific wine recommendation (concrete product) for a given wine type, e.g. "merlot".
+      operationId: getWineRecommendation
+      deprecated: false
+      tags:
+      - Wine
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    apiKeyScheme:
+      type: apiKey
+      name: x-api-key
+      in: header
+externalDocs:
+  description: The official documentation.
+  url: https://spoonacular.com/food-api/docs

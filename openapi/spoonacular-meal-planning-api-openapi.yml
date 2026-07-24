@@ -1,0 +1,3031 @@
+openapi: 3.0.0
+info:
+  title: spoonacular Ingredients Meal Planning API
+  description: 'The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as "gluten free brownies without sugar" or "low fat vegan cupcakes." You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what''s in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.
+
+
+    Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.'
+  contact:
+    name: David Urbansky
+    email: mail@spoonacular.com
+    url: https://spoonacular.com/contact
+  version: 2.0.2
+  x-codegen-settings:
+    Nullify404: false
+    GenerateAsyncCode: true
+    UseMethodPrefix: true
+    UseModelPostfix: false
+    UseControllerPrefix: true
+    UseEnumPostfix: true
+    CollectParameters: false
+    UseConstructorsForConfig: true
+    UseCommonSDKLibrary: false
+    iOSUseAppInfoPlist: true
+    AndroidUseAppManifest: true
+    BodySerialization: 0
+    EnableAdditionalModelProperties: false
+    PreserveParameterOrder: false
+    AppendContentHeaders: true
+    iOSGenerateCoreData: false
+    GenerateInterfaces: false
+    NodeHttpClient: NODE_REQUEST
+    ValidateRequiredParameters: false
+    JavaUsePropertiesConfig: false
+    Timeout: 0
+    StoreTimezoneInformation: false
+    EnablePHPComposerVersionString: false
+    EnableLogging: false
+    ArraySerialization: Indexed
+    ModelSerializationScheme: Json
+    UseExceptionPrefix: true
+    RunscopeEnabled: false
+    JavaHttpClient: JAVA_OK
+    ParameterArrayFormat: ParamArrayWithIndex
+    SecurityProtocols:
+    - Ssl3
+    - Tls
+    GenerateTravisConfig: false
+    GenerateCircleConfig: false
+    GenerateAppveyorConfig: false
+    GenerateJenkinsConfig: false
+    EnableHttpCache: false
+    Retries: 0
+    RetryInterval: 1
+    GenerateAdvancedDocs: false
+    UnderscoreNumbers: true
+    UseSingletonPattern: true
+    DisableLinting: false
+    ApplyCustomizations: []
+    SortResources: false
+    AllowSkippingSSLCertVerification: false
+    DoNotSplitWords: []
+    EnableGlobalUserAgent: true
+    ReturnCompleteHttpResponse: false
+    GenerateModels: true
+    GenerateExceptions: true
+    IgnoreIfNullJson: false
+    DisableDocs: false
+    LiftParameterDescriptionFromCustomType: false
+    ThrowForHttpErrorStatusCodes: true
+    ResponseMapping:
+      Type: Simple
+    ForceKeywordArgsInRuby: false
+    SymbolizeHashKeysInRuby: false
+  x-server-configuration:
+    default-environment: production
+    default-server: default
+    environments:
+    - name: production
+      servers:
+      - name: default
+        url: https://api.spoonacular.com
+    parameters: []
+  license:
+    name: spoonacular API Terms
+    url: https://spoonacular.com/food-api/terms
+  termsOfService: https://spoonacular.com/food-api/terms
+  x-apis-json-aid: spoonacular
+  x-spec-source: https://github.com/ddsky/spoonacular-api-clients/blob/master/spoonacular-openapi-3.json
+  x-last-validated: '2026-06-03'
+  x-providerName: spoonacular.com
+servers:
+- url: https://api.spoonacular.com
+  variables: {}
+security:
+- apiKeyScheme: []
+tags:
+- name: Meal Planning
+paths:
+  /mealplanner/generate:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  meals:
+                    type: array
+                    uniqueItems: true
+                    minItems: 0
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        title:
+                          type: string
+                          minLength: 1
+                        imageType:
+                          type: string
+                          minLength: 1
+                        readyInMinutes:
+                          type: integer
+                        servings:
+                          type: number
+                        sourceUrl:
+                          type: string
+                          minLength: 1
+                      required:
+                      - id
+                      - title
+                      - imageType
+                      - readyInMinutes
+                      - servings
+                      - sourceUrl
+                  nutrients:
+                    type: object
+                    required:
+                    - calories
+                    - carbohydrates
+                    - fat
+                    - protein
+                    properties:
+                      calories:
+                        type: number
+                      carbohydrates:
+                        type: number
+                      fat:
+                        type: number
+                      protein:
+                        type: number
+                required:
+                - meals
+                - nutrients
+              examples:
+                example-1:
+                  value:
+                    meals:
+                    - id: 655219
+                      title: Peanut Butter And Chocolate Oatmeal
+                      imageType: jpg
+                      readyInMinutes: 45
+                      servings: 1
+                      sourceUrl: https://spoonacular.com/recipes/peanut-butter-and-chocolate-oatmeal-655219
+                    - id: 649931
+                      title: Lentil Salad With Vegetables
+                      imageType: jpg
+                      readyInMinutes: 45
+                      servings: 4
+                      sourceUrl: https://spoonacular.com/recipes/lentil-salad-with-vegetables-649931
+                    - id: 632854
+                      title: Asian Noodles
+                      imageType: jpg
+                      readyInMinutes: 45
+                      servings: 4
+                      sourceUrl: https://spoonacular.com/recipes/asian-noodles-632854
+                    nutrients:
+                      calories: 1735.81
+                      carbohydrates: 235.17
+                      fat: 69.22
+                      protein: 55.43
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: timeFrame
+        description: Either for one "day" or an entire "week".
+        schema:
+          type: string
+          example: day
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: day
+      - name: targetCalories
+        description: What is the caloric target for one day? The meal plan generator will try to get as close as possible to that goal.
+        schema:
+          type: number
+          example: 2000
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: 2000
+      - name: diet
+        description: Enter a diet that the meal plan has to adhere to. See a full list of supported diets.
+        schema:
+          type: string
+          example: vegetarian
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: vegetarian
+      - name: exclude
+        description: A comma-separated list of allergens or ingredients that must be excluded.
+        schema:
+          type: string
+          example: shellfish, olives
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: shellfish, olives
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Generate-Meal-Plan
+      summary: Generate Meal Plan
+      description: Generate a meal plan with three meals per day (breakfast, lunch, and dinner).
+      operationId: generateMealPlan
+      deprecated: false
+      tags:
+      - Meal Planning
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /mealplanner/{username}/week/{start_date}:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  days:
+                    type: array
+                    uniqueItems: true
+                    minItems: 0
+                    items:
+                      type: object
+                      properties:
+                        nutritionSummary:
+                          type: object
+                          properties:
+                            nutrients:
+                              type: array
+                              uniqueItems: true
+                              minItems: 0
+                              items:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                                    minLength: 1
+                                  amount:
+                                    type: number
+                                  unit:
+                                    type: string
+                                    minLength: 1
+                                  percentDailyNeeds:
+                                    type: number
+                                required:
+                                - name
+                                - amount
+                                - unit
+                                - percentDailyNeeds
+                          required:
+                          - nutrients
+                        nutritionSummaryBreakfast:
+                          type: object
+                          properties:
+                            nutrients:
+                              type: array
+                              uniqueItems: true
+                              minItems: 0
+                              items:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                                    minLength: 1
+                                  amount:
+                                    type: number
+                                  unit:
+                                    type: string
+                                    minLength: 1
+                                  percentDailyNeeds:
+                                    type: number
+                                required:
+                                - name
+                                - amount
+                                - unit
+                                - percentDailyNeeds
+                          required:
+                          - nutrients
+                        nutritionSummaryLunch:
+                          type: object
+                          properties:
+                            nutrients:
+                              type: array
+                              uniqueItems: true
+                              minItems: 0
+                              items:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                                    minLength: 1
+                                  amount:
+                                    type: number
+                                  unit:
+                                    type: string
+                                    minLength: 1
+                                  percentDailyNeeds:
+                                    type: number
+                                required:
+                                - name
+                                - amount
+                                - unit
+                                - percentDailyNeeds
+                          required:
+                          - nutrients
+                        nutritionSummaryDinner:
+                          type: object
+                          properties:
+                            nutrients:
+                              type: array
+                              uniqueItems: true
+                              minItems: 0
+                              items:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                                    minLength: 1
+                                  amount:
+                                    type: number
+                                  unit:
+                                    type: string
+                                    minLength: 1
+                                  percentDailyNeeds:
+                                    type: number
+                                required:
+                                - name
+                                - amount
+                                - unit
+                                - percentDailyNeeds
+                          required:
+                          - nutrients
+                        date:
+                          type: number
+                        day:
+                          type: string
+                          minLength: 1
+                        items:
+                          type: array
+                          uniqueItems: true
+                          minItems: 0
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: integer
+                              slot:
+                                type: integer
+                              position:
+                                type: integer
+                              type:
+                                type: string
+                                minLength: 1
+                              value:
+                                type: object
+                                properties:
+                                  servings:
+                                    type: number
+                                  id:
+                                    type: number
+                                  title:
+                                    type: string
+                                    minLength: 1
+                                  imageType:
+                                    type: string
+                                required:
+                                - servings
+                                - id
+                                - title
+                                - imageType
+                            required:
+                            - id
+                            - slot
+                            - position
+                            - type
+                      required:
+                      - date
+                      - day
+                required:
+                - days
+              examples:
+                example-1:
+                  value:
+                    days:
+                    - nutritionSummary:
+                        nutrients:
+                        - name: Calories
+                          amount: 310
+                          unit: cal
+                          percentDailyNeeds: 16
+                        - name: Fat
+                          amount: 25
+                          unit: g
+                          percentDailyNeeds: 38
+                        - name: Carbohydrates
+                          amount: 1
+                          unit: g
+                          percentDailyNeeds: 0
+                        - name: Protein
+                          amount: 20
+                          unit: g
+                          percentDailyNeeds: 40
+                      nutritionSummaryBreakfast:
+                        nutrients:
+                        - name: Calories
+                          amount: 0
+                          unit: cal
+                          percentDailyNeeds: 0
+                        - name: Fat
+                          amount: 0
+                          unit: g
+                          percentDailyNeeds: 0
+                        - name: Carbohydrates
+                          amount: 0
+                          unit: g
+                          percentDailyNeeds: 0
+                        - name: Protein
+                          amount: 0
+                          unit: g
+                          percentDailyNeeds: 0
+                      nutritionSummaryLunch:
+                        nutrients:
+                        - name: Calories
+                          amount: 310
+                          unit: cal
+                          percentDailyNeeds: 16
+                        - name: Fat
+                          amount: 25
+                          unit: g
+                          percentDailyNeeds: 38
+                        - name: Carbohydrates
+                          amount: 1
+                          unit: g
+                          percentDailyNeeds: 0
+                        - name: Protein
+                          amount: 20
+                          unit: g
+                          percentDailyNeeds: 40
+                      nutritionSummaryDinner:
+                        nutrients:
+                        - name: Calories
+                          amount: 0
+                          unit: cal
+                          percentDailyNeeds: 0
+                        - name: Fat
+                          amount: 0
+                          unit: g
+                          percentDailyNeeds: 0
+                        - name: Carbohydrates
+                          amount: 0
+                          unit: g
+                          percentDailyNeeds: 0
+                        - name: Protein
+                          amount: 0
+                          unit: g
+                          percentDailyNeeds: 0
+                      date: 1589155200
+                      day: Monday
+                      items:
+                      - id: 1976489
+                        slot: 1
+                        position: 1
+                        type: RECIPE
+                        value:
+                          servings: 2
+                          id: 1023004
+                          title: Foolproof Meatloaf
+                          imageType: ''
+                      - id: 1976490
+                        slot: 2
+                        position: 2
+                        type: CUSTOM_FOOD
+                        value:
+                          servings: 1
+                          id: 345
+                          title: Denn's Lamb Bratwurst - 1/2 Pkg
+                          image: https://spoonacular.com/cdn/ingredients_100x100/bratwurst.jpg
+                          imageType: jpg
+                    - nutritionSummary:
+                        nutrients:
+                        - name: Calories
+                          amount: 200
+                          unit: cal
+                          percentDailyNeeds: 10
+                        - name: Fat
+                          amount: 1
+                          unit: g
+                          percentDailyNeeds: 1
+                        - name: Carbohydrates
+                          amount: 52
+                          unit: g
+                          percentDailyNeeds: 17
+                        - name: Protein
+                          amount: 2
+                          unit: g
+                          percentDailyNeeds: 4
+                      nutritionSummaryBreakfast:
+                        nutrients:
+                        - name: Calories
+                          amount: 200
+                          unit: cal
+                          percentDailyNeeds: 10
+                        - name: Fat
+                          amount: 1
+                          unit: g
+                          percentDailyNeeds: 1
+                        - name: Carbohydrates
+                          amount: 52
+                          unit: g
+                          percentDailyNeeds: 17
+                        - name: Protein
+                          amount: 2
+                          unit: g
+                          percentDailyNeeds: 4
+                      nutritionSummaryLunch:
+                        nutrients:
+                        - name: Calories
+                          amount: 0
+                          unit: cal
+                          percentDailyNeeds: 0
+                        - name: Fat
+                          amount: 0
+                          unit: g
+                          percentDailyNeeds: 0
+                        - name: Carbohydrates
+                          amount: 0
+                          unit: g
+                          percentDailyNeeds: 0
+                        - name: Protein
+                          amount: 0
+                          unit: g
+                          percentDailyNeeds: 0
+                      nutritionSummaryDinner:
+                        nutrients:
+                        - name: Calories
+                          amount: 0
+                          unit: cal
+                          percentDailyNeeds: 0
+                        - name: Fat
+                          amount: 0
+                          unit: g
+                          percentDailyNeeds: 0
+                        - name: Carbohydrates
+                          amount: 0
+                          unit: g
+                          percentDailyNeeds: 0
+                        - name: Protein
+                          amount: 0
+                          unit: g
+                          percentDailyNeeds: 0
+                      date: 1589241600
+                      day: Tuesday
+                      items:
+                      - id: 1976491
+                        slot: 1
+                        position: 3
+                        type: INGREDIENTS
+                        value:
+                          id: 877
+                          name: ''
+                          title: apple and banana
+                          servings: 1
+                          imageType: jpg
+                          ingredients:
+                          - name: apple
+                            unit: ''
+                            amount: '1'
+                            image: https://spoonacular.com/cdn/ingredients_100x100/apple.jpg
+                          - name: banana
+                            unit: ''
+                            amount: '1'
+                            image: https://spoonacular.com/cdn/ingredients_100x100/bananas.jpg
+                    - nutritionSummary:
+                        nutrients:
+                        - name: Calories
+                          amount: 180
+                          unit: cal
+                          percentDailyNeeds: 9
+                        - name: Fat
+                          amount: 6
+                          unit: g
+                          percentDailyNeeds: 9
+                        - name: Carbohydrates
+                          amount: 22
+                          unit: g
+                          percentDailyNeeds: 7
+                        - name: Protein
+                          amount: 10
+                          unit: g
+                          percentDailyNeeds: 20
+                      nutritionSummaryBreakfast:
+                        nutrients:
+                        - name: Calories
+                          amount: 180
+                          unit: cal
+                          percentDailyNeeds: 9
+                        - name: Fat
+                          amount: 6
+                          unit: g
+                          percentDailyNeeds: 9
+                        - name: Carbohydrates
+                          amount: 22
+                          unit: g
+                          percentDailyNeeds: 7
+                        - name: Protein
+                          amount: 10
+                          unit: g
+                          percentDailyNeeds: 20
+                      nutritionSummaryLunch:
+                        nutrients:
+                        - name: Calories
+                          amount: 0
+                          unit: cal
+                          percentDailyNeeds: 0
+                        - name: Fat
+                          amount: 0
+                          unit: g
+                          percentDailyNeeds: 0
+                        - name: Carbohydrates
+                          amount: 0
+                          unit: g
+                          percentDailyNeeds: 0
+                        - name: Protein
+                          amount: 0
+                          unit: g
+                          percentDailyNeeds: 0
+                      nutritionSummaryDinner:
+                        nutrients:
+                        - name: Calories
+                          amount: 0
+                          unit: cal
+                          percentDailyNeeds: 0
+                        - name: Fat
+                          amount: 0
+                          unit: g
+                          percentDailyNeeds: 0
+                        - name: Carbohydrates
+                          amount: 0
+                          unit: g
+                          percentDailyNeeds: 0
+                        - name: Protein
+                          amount: 0
+                          unit: g
+                          percentDailyNeeds: 0
+                      date: 1589328000
+                      day: Wednesday
+                      items:
+                      - id: 1976492
+                        slot: 1
+                        position: 4
+                        type: MENU_ITEM
+                        value:
+                          servings: 1
+                          id: 378557
+                          title: BBQ Steak Pizza, 9
+                          image: https://images.spoonacular.com/file/wximages/378557-312x231.png
+                          imageType: png
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: username
+        description: The username.
+        schema:
+          type: string
+          example: dsky
+        required: true
+        style: simple
+        explode: false
+        in: path
+        example: dsky
+      - name: start_date
+        description: The start date of the meal planned week in the format yyyy-mm-dd.
+        schema:
+          type: string
+          example: '2020-06-01'
+        required: true
+        style: simple
+        explode: false
+        in: path
+        example: '2020-06-01'
+      - $ref: '#/components/parameters/hash'
+        example: example
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Get-Meal-Plan-Week
+      summary: Get Meal Plan Week
+      description: Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user's hash that can be found in his/her account.
+      operationId: getMealPlanWeek
+      deprecated: false
+      tags:
+      - Meal Planning
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /mealplanner/{username}/day/{date}:
+    delete:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                ClearMealPlanDay200Example:
+                  summary: Default clearMealPlanDay 200 response
+                  x-microcks-default: true
+                  value: {}
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: username
+        description: The username.
+        schema:
+          type: string
+          example: dsky
+        required: true
+        style: simple
+        explode: false
+        in: path
+        example: dsky
+      - name: date
+        description: The date in the format yyyy-mm-dd.
+        schema:
+          type: string
+          example: '2020-06-01'
+        required: true
+        style: simple
+        explode: false
+        in: path
+        example: '2020-06-01'
+      - $ref: '#/components/parameters/hash'
+        example: example
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Clear-Meal-Plan-Day
+      summary: Clear Meal Plan Day
+      description: Delete all planned items from the user's meal plan for a specific day.
+      operationId: clearMealPlanDay
+      deprecated: false
+      tags:
+      - Meal Planning
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /mealplanner/{username}/items:
+    post:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+              examples:
+                example-1:
+                  value:
+                    date: 1589500800
+                    slot: 1
+                    position: 0
+                    type: INGREDIENTS
+                    value:
+                      ingredients:
+                      - name: 1 banana
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              description: ''
+              type: object
+              properties:
+                date:
+                  type: number
+                slot:
+                  type: integer
+                position:
+                  type: integer
+                type:
+                  type: string
+                  minLength: 1
+                value:
+                  type: object
+                  required:
+                  - ingredients
+                  properties:
+                    ingredients:
+                      type: array
+                      uniqueItems: true
+                      minItems: 0
+                      items:
+                        type: object
+                        properties:
+                          name:
+                            type: string
+                            minLength: 1
+                        required:
+                        - name
+              required:
+              - date
+              - slot
+              - position
+              - type
+              - value
+            examples:
+              example-1:
+                value:
+                  date: 1589500800
+                  slot: 1
+                  position: 0
+                  type: INGREDIENTS
+                  value:
+                    ingredients:
+                    - name: 1 banana
+      parameters:
+      - name: username
+        description: The username.
+        schema:
+          type: string
+          example: dsky
+        required: true
+        style: simple
+        explode: false
+        in: path
+        example: dsky
+      - $ref: '#/components/parameters/hash'
+        example: example
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Add-to-Meal-Plan
+      summary: Add to Meal Plan
+      description: Add an item to the user's meal plan.
+      operationId: addToMealPlan
+      deprecated: false
+      tags:
+      - Meal Planning
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /mealplanner/{username}/items/{id}:
+    delete:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                DeleteFromMealPlan200Example:
+                  summary: Default deleteFromMealPlan 200 response
+                  x-microcks-default: true
+                  value: {}
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: username
+        description: The username.
+        schema:
+          type: string
+          example: dsky
+        required: true
+        style: simple
+        explode: false
+        in: path
+        example: dsky
+      - name: id
+        description: The shopping list item id.
+        schema:
+          type: integer
+          example: 15678
+        required: true
+        style: simple
+        explode: false
+        in: path
+        example: 15678
+      - $ref: '#/components/parameters/hash'
+        example: example
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Delete-from-Meal-Plan
+      summary: Delete from Meal Plan
+      description: Delete an item from the user's meal plan.
+      operationId: deleteFromMealPlan
+      deprecated: false
+      tags:
+      - Meal Planning
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /mealplanner/{username}/templates:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  templates:
+                    type: array
+                    uniqueItems: true
+                    minItems: 0
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        name:
+                          type: string
+                          minLength: 1
+                      required:
+                      - id
+                      - name
+                required:
+                - templates
+              examples:
+                example-1:
+                  value:
+                    templates:
+                    - id: 37
+                      name: Busy Work Week
+                    - id: 480
+                      name: Keto Meal Plan
+                    - id: 120
+                      name: Not-So-Strict Paleo Meal Plan
+                    - id: 451
+                      name: Week 1 Meal Plan
+                    - id: 581
+                      name: Whole30 Meal Plan
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: username
+        description: The username.
+        schema:
+          type: string
+          example: dsky
+        required: true
+        style: simple
+        explode: false
+        in: path
+        example: dsky
+      - $ref: '#/components/parameters/hash'
+        example: example
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Get-Meal-Plan-Templates
+      summary: Get Meal Plan Templates
+      description: Get meal plan templates from user or public ones.
+      operationId: getMealPlanTemplates
+      deprecated: false
+      tags:
+      - Meal Planning
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    post:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  name:
+                    type: string
+                    minLength: 1
+                  items:
+                    type: array
+                    uniqueItems: true
+                    minItems: 1
+                    items:
+                      type: object
+                      properties:
+                        day:
+                          type: integer
+                        slot:
+                          type: integer
+                        position:
+                          type: integer
+                        type:
+                          type: string
+                          minLength: 1
+                        value:
+                          type: object
+                          properties:
+                            id:
+                              type: integer
+                            servings:
+                              type: number
+                            title:
+                              type: string
+                              minLength: 1
+                            imageType:
+                              type: string
+                              minLength: 1
+                      required:
+                      - day
+                      - slot
+                      - position
+                      - type
+                  publishAsPublic:
+                    type: boolean
+                required:
+                - name
+                - items
+                - publishAsPublic
+              examples:
+                example-1:
+                  value:
+                    name: My new meal plan template
+                    items:
+                    - day: 1
+                      slot: 1
+                      position: 0
+                      type: RECIPE
+                      value:
+                        id: 296213
+                        servings: 2
+                        title: Spinach Salad with Roasted Vegetables and Spiced Chickpea
+                        imageType: jpg
+                    - day: 2
+                      slot: 1
+                      position: 0
+                      type: PRODUCT
+                      value:
+                        id: 183433
+                        servings: 1
+                        title: Ahold Lasagna with Meat Sauce
+                        imageType: jpg
+                    - day: 3
+                      slot: 1
+                      position: 0
+                      type: MENU_ITEM
+                      value:
+                        id: 378557
+                        servings: 1
+                        title: Pizza 73 BBQ Steak Pizza, 9
+                        imageType: png
+                    - day: 4
+                      slot: 1
+                      position: 0
+                      type: CUSTOM_FOOD
+                      value:
+                        id: 348
+                        servings: 1
+                        title: Aldi Spicy Cashews - 30g
+                        image: https://spoonacular.com/cdn/ingredients_100x100/cashews.jpg
+                    - day: 5
+                      slot: 1
+                      position: 0
+                      type: INGREDIENTS
+                      value:
+                        ingredients:
+                        - name: 1 banana
+                        - name: coffee
+                          unit: cup
+                          amount: '1'
+                          image: https://spoonacular.com/cdn/ingredients_100x100/brewed-coffee.jpg
+                    publishAsPublic: false
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: username
+        description: The username.
+        schema:
+          type: string
+          example: dsky
+        required: true
+        style: simple
+        explode: false
+        in: path
+        example: dsky
+      - name: hash
+        description: The private hash for the username.
+        schema:
+          type: string
+          example: 4b5v4398573406
+        required: true
+        style: form
+        explode: false
+        in: query
+        example: 4b5v4398573406
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Add-Meal-Plan-Template
+      summary: Add Meal Plan Template
+      description: Add a meal plan template for a user.
+      operationId: addMealPlanTemplate
+      deprecated: false
+      tags:
+      - Meal Planning
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /mealplanner/{username}/templates/{id}:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                    minLength: 1
+                  days:
+                    type: array
+                    uniqueItems: true
+                    minItems: 0
+                    items:
+                      type: object
+                      properties:
+                        nutritionSummary:
+                          type: object
+                          properties:
+                            nutrients:
+                              type: array
+                              uniqueItems: true
+                              minItems: 0
+                              items:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                                    minLength: 1
+                                  amount:
+                                    type: number
+                                  unit:
+                                    type: string
+                                    minLength: 1
+                                  percentDailyNeeds:
+                                    type: number
+                                required:
+                                - name
+                                - amount
+                                - unit
+                                - percentDailyNeeds
+                          required:
+                          - nutrients
+                        nutritionSummaryBreakfast:
+                          type: object
+                          properties:
+                            nutrients:
+                              type: array
+                              uniqueItems: true
+                              minItems: 0
+                              items:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                                    minLength: 1
+                                  amount:
+                                    type: number
+                                  unit:
+                                    type: string
+                                    minLength: 1
+                                  percentDailyNeeds:
+                                    type: number
+                                required:
+                                - name
+                                - amount
+                                - unit
+                                - percentDailyNeeds
+                          required:
+                          - nutrients
+                        nutritionSummaryLunch:
+                          type: object
+                          properties:
+                            nutrients:
+                              type: array
+                              uniqueItems: true
+                              minItems: 0
+                              items:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                                    minLength: 1
+                                  amount:
+                                    type: number
+                                  unit:
+                                    type: string
+                                    minLength: 1
+                                  percentDailyNeeds:
+                                    type: number
+                                required:
+                                - name
+                                - amount
+                                - unit
+                                - percentDailyNeeds
+                          required:
+                          - nutrients
+                        nutritionSummaryDinner:
+                          type: object
+                          properties:
+                            nutrients:
+                              type: array
+                              uniqueItems: true
+                              minItems: 0
+                              items:
+                                type: object
+                                properties:
+                                  name:
+                                    type: string
+                                    minLength: 1
+                                  amount:
+                                    type: number
+                                  unit:
+                                    type: string
+                                    minLength: 1
+                                  percentDailyNeeds:
+                                    type: number
+                                required:
+                                - name
+                                - amount
+                                - unit
+                                - percentDailyNeeds
+                          required:
+                          - nutrients
+                        day:
+                          type: string
+                          minLength: 1
+                        items:
+                          type: array
+                          uniqueItems: true
+                          minItems: 0
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: integer
+                              slot:
+                                type: integer
+                              position:
+                                type: integer
+                              type:
+                                type: string
+                                minLength: 1
+                              value:
+                                type: object
+                                properties:
+                                  id:
+                                    type: number
+                                  title:
+                                    type: string
+                                    minLength: 1
+                                  imageType:
+                                    type: string
+                                    minLength: 1
+                                required:
+                                - id
+                                - title
+                                - imageType
+                            required:
+                            - id
+                            - slot
+                            - position
+                            - type
+                      required:
+                      - day
+                required:
+                - id
+                - name
+                - days
+              examples:
+                example-1:
+                  value:
+                    id: 128
+                    name: 1500 Calorie Meal Plan
+                    days:
+                    - nutritionSummary:
+                        nutrients:
+                        - name: Calories
+                          amount: 1293
+                          unit: cal
+                          percentDailyNeeds: 65
+                        - name: Fat
+                          amount: 65
+                          unit: g
+                          percentDailyNeeds: 100
+                        - name: Carbohydrates
+                          amount: 102
+                          unit: g
+                          percentDailyNeeds: 34
+                        - name: Protein
+                          amount: 83
+                          unit: g
+                          percentDailyNeeds: 166
+                      nutritionSummaryBreakfast:
+                        nutrients:
+                        - name: Calories
+                          amount: 132
+                          unit: cal
+                          percentDailyNeeds: 7
+                        - name: Fat
+                          amount: 3
+                          unit: g
+                          percentDailyNeeds: 4
+                        - name: Carbohydrates
+                          amount: 25
+                          unit: g
+                          percentDailyNeeds: 8
+                        - name: Protein
+                          amount: 3
+                          unit: g
+                          percentDailyNeeds: 5
+                      nutritionSummaryLunch:
+                        nutrients:
+                        - name: Calories
+                          amount: 455
+                          unit: cal
+                          percentDailyNeeds: 23
+                        - name: Fat
+                          amount: 34
+                          unit: g
+                          percentDailyNeeds: 52
+                        - name: Carbohydrates
+                          amount: 1
+                          unit: g
+                          percentDailyNeeds: 0
+                        - name: Protein
+                          amount: 35
+                          unit: g
+                          percentDailyNeeds: 70
+                      nutritionSummaryDinner:
+                        nutrients:
+                        - name: Calories
+                          amount: 706
+                          unit: cal
+                          percentDailyNeeds: 35
+                        - name: Fat
+                          amount: 29
+                          unit: g
+                          percentDailyNeeds: 45
+                        - name: Carbohydrates
+                          amount: 76
+                          unit: g
+                          percentDailyNeeds: 25
+                        - name: Protein
+                          amount: 46
+                          unit: g
+                          percentDailyNeeds: 91
+                      day: '1'
+                      items:
+                      - id: 2403
+                        slot: 1
+                        position: 0
+                        type: RECIPE
+                        value:
+                          id: 630657
+                          title: Double Chocolate Protein Cookies
+                          imageType: jpg
+                      - id: 2404
+                        slot: 1
+                        position: 0
+                        type: INGREDIENTS
+                        value:
+                          id: 785
+                          name: ''
+                          title: orange
+                          servings: '1'
+                          imageType: jpg
+                          ingredients:
+                          - name: orange
+                            image: https://spoonacular.com/cdn/ingredients_100x100/orange.jpg
+                            amount: 1
+                            unit: ''
+                      - id: 2405
+                        slot: 2
+                        position: 0
+                        type: RECIPE
+                        value:
+                          id: 296213
+                          title: Spinach Salad with Roasted Vegetables and Spiced Chickpea
+                          imageType: jpg
+                      - id: 2406
+                        slot: 3
+                        position: 0
+                        type: RECIPE
+                        value:
+                          id: 237677
+                          title: Chicken Parmesan with Spaghetti
+                          imageType: jpg
+                      - id: 2407
+                        slot: 3
+                        position: 0
+                        type: INGREDIENTS
+                        value:
+                          id: 787
+                          title: broccoli
+                          name: ''
+                          servings: '1'
+                          imageType: jpg
+                          ingredients:
+                          - name: broccoli
+                            image: https://spoonacular.com/cdn/ingredients_100x100/broccoli.jpg
+                            amount: 1
+                            unit: cup
+                      - id: 2408
+                        slot: 3
+                        position: 0
+                        type: PRODUCT
+                        value:
+                          id: 146191
+                          title: Lindt Dark Chocolate
+                          imageType: jpg
+                    - nutritionSummary:
+                        nutrients:
+                        - name: Calories
+                          amount: 1386
+                          unit: cal
+                          percentDailyNeeds: 69
+                        - name: Fat
+                          amount: 66
+                          unit: g
+                          percentDailyNeeds: 102
+                        - name: Carbohydrates
+                          amount: 162
+                          unit: g
+                          percentDailyNeeds: 54
+                        - name: Protein
+                          amount: 48
+                          unit: g
+                          percentDailyNeeds: 96
+                      nutritionSummaryBreakfast:
+                        nutrients:
+                        - name: Calories
+                          amount: 239
+                          unit: cal
+                          percentDailyNeeds: 12
+                        - name: Fat
+                          amount: 11
+                          unit: g
+                          percentDailyNeeds: 17
+                        - name: Carbohydrates
+                          amount: 34
+                          unit: g
+                          percentDailyNeeds: 11
+                        - name: Protein
+                          amount: 5
+                          unit: g
+                          percentDailyNeeds: 9
+                      nutritionSummaryLunch:
+                        nutrients:
+                        - name: Calories
+                          amount: 732
+                          unit: cal
+                          percentDailyNeeds: 37
+                        - name: Fat
+                          amount: 33
+                          unit: g
+                          percentDailyNeeds: 51
+                        - name: Carbohydrates
+                          amount: 91
+                          unit: g
+                          percentDailyNeeds: 30
+                        - name: Protein
+                          amount: 22
+                          unit: g
+                          percentDailyNeeds: 44
+                      nutritionSummaryDinner:
+                        nutrients:
+                        - name: Calories
+                          amount: 414
+                          unit: cal
+                          percentDailyNeeds: 21
+                        - name: Fat
+                          amount: 22
+                          unit: g
+                          percentDailyNeeds: 33
+                        - name: Carbohydrates
+                          amount: 37
+                          unit: g
+                          percentDailyNeeds: 12
+                        - name: Protein
+                          amount: 21
+                          unit: g
+                          percentDailyNeeds: 43
+                      day: '2'
+                      items:
+                      - id: 2409
+                        slot: 1
+                        position: 0
+                        type: PRODUCT
+                        value:
+                          id: 101999
+                          title: Greek Gods Yogurt
+                          imageType: jpg
+                      - id: 2410
+                        slot: 1
+                        position: 0
+                        type: INGREDIENTS
+                        value:
+                          id: 457
+                          name: ''
+                          title: berries
+                          servings: '1'
+                          imageType: jpg
+                          ingredients:
+                          - name: berries
+                            image: https://spoonacular.com/cdn/ingredients_100x100/berries-mixed.jpg
+                            amount: 1
+                            unit: cup
+                      - id: 2411
+                        slot: 2
+                        position: 0
+                        type: RECIPE
+                        value:
+                          id: 516377
+                          title: Southwest Quinoa Salad
+                          imageType: jpg
+                      - id: 2412
+                        slot: 3
+                        position: 0
+                        type: RECIPE
+                        value:
+                          id: 247683
+                          title: Pesto Caprese Omelette
+                          imageType: jpg
+                      - id: 2413
+                        slot: 3
+                        position: 0
+                        type: RECIPE
+                        value:
+                          id: 484337
+                          title: One Ingredient Banana Ice Cream
+                          imageType: jpg
+                    - nutritionSummary:
+                        nutrients:
+                        - name: Calories
+                          amount: 1589
+                          unit: cal
+                          percentDailyNeeds: 79
+                        - name: Fat
+                          amount: 77
+                          unit: g
+                          percentDailyNeeds: 118
+                        - name: Carbohydrates
+                          amount: 158
+                          unit: g
+                          percentDailyNeeds: 53
+                        - name: Protein
+                          amount: 84
+                          unit: g
+                          percentDailyNeeds: 168
+                      nutritionSummaryBreakfast:
+                        nutrients:
+                        - name: Calories
+                          amount: 472
+                          unit: cal
+                          percentDailyNeeds: 24
+                        - name: Fat
+                          amount: 14
+                          unit: g
+                          percentDailyNeeds: 21
+                        - name: Carbohydrates
+                          amount: 62
+                          unit: g
+                          percentDailyNeeds: 21
+                        - name: Protein
+                          amount: 27
+                          unit: g
+                          percentDailyNeeds: 54
+                      nutritionSummaryLunch:
+                        nutrients:
+                        - name: Calories
+                          amount: 568
+                          unit: cal
+                          percentDailyNeeds: 28
+                        - name: Fat
+                          amount: 45
+                          unit: g
+                          percentDailyNeeds: 69
+                        - name: Carbohydrates
+                          amount: 31
+                          unit: g
+                          percentDailyNeeds: 10
+                        - name: Protein
+                          amount: 18
+                          unit: g
+                          percentDailyNeeds: 36
+                      nutritionSummaryDinner:
+                        nutrients:
+                        - name: Calories
+                          amount: 549
+                          unit: cal
+                          percentDailyNeeds: 27
+                        - name: Fat
+                          amount: 18
+                          unit: g
+                          percentDailyNeeds: 27
+                        - name: Carbohydrates
+                          amount: 65
+                          unit: g
+                          percentDailyNeeds: 22
+                        - name: Protein
+                          amount: 39
+                          unit: g
+                          percentDailyNeeds: 78
+                      day: '3'
+                      items:
+                      - id: 2414
+                        slot: 1
+                        position: 0
+                        type: RECIPE
+                        value:
+                          id: 157259
+                          title: Cocoa Protein Pancakes
+                          imageType: jpg
+                      - id: 2415
+                        slot: 1
+                        position: 0
+                        type: INGREDIENTS
+                        value:
+                          id: 878
+                          name: ''
+                          title: orange
+                          servings: '1'
+                          imageType: jpg
+                          ingredients:
+                          - name: orange
+                            image: https://spoonacular.com/cdn/ingredients_100x100/orange.jpg
+                            amount: 1
+                            unit: ''
+                      - id: 2416
+                        slot: 2
+                        position: 0
+                        type: RECIPE
+                        value:
+                          id: 535856
+                          title: BLT Chopped Salad
+                          imageType: jpg
+                      - id: 2417
+                        slot: 2
+                        position: 0
+                        type: PRODUCT
+                        value:
+                          id: 71144
+                          title: Kind Plus Fruit & Nut Bar - Almond Walnut Macadamia with Peanuts Plus Protein
+                          imageType: jpg
+                      - id: 2418
+                        slot: 3
+                        position: 0
+                        type: RECIPE
+                        value:
+                          id: 519197
+                          title: Zesty Sriracha Shrimp and Quinoa
+                          imageType: png
+                      - id: 2419
+                        slot: 3
+                        position: 0
+                        type: PRODUCT
+                        value:
+                          id: 163427
+                          title: Green Giant Valley Fresh Steamers - Select Sugar Snap Peas
+                          imageType: jpg
+                      - id: 2420
+                        slot: 3
+                        position: 0
+                        type: PRODUCT
+                        value:
+                          id: 146191
+                          title: Lindt Dark Chocolate
+                          imageType: jpg
+                    - nutritionSummary:
+                        nutrients:
+                        - name: Calories
+                          amount: 1343
+                          unit: cal
+                          percentDailyNeeds: 67
+                        - name: Fat
+                          amount: 70
+                          unit: g
+                          percentDailyNeeds: 108
+                        - name: Carbohydrates
+                          amount: 123
+                          unit: g
+                          percentDailyNeeds: 41
+                        - name: Protein
+                          amount: 61
+                          unit: g
+                          percentDailyNeeds: 122
+                      nutritionSummaryBreakfast:
+                        nutrients:
+                        - name: Calories
+                          amount: 239
+                          unit: cal
+                          percentDailyNeeds: 12
+                        - name: Fat
+                          amount: 11
+                          unit: g
+                          percentDailyNeeds: 17
+                        - name: Carbohydrates
+                          amount: 34
+                          unit: g
+                          percentDailyNeeds: 11
+                        - name: Protein
+                          amount: 5
+                          unit: g
+                          percentDailyNeeds: 9
+                      nutritionSummaryLunch:
+                        nutrients:
+                        - name: Calories
+                          amount: 406
+                          unit: cal
+                          percentDailyNeeds: 20
+                        - name: Fat
+                          amount: 17
+                          unit: g
+                          percentDailyNeeds: 26
+                        - name: Carbohydrates
+                          amount: 56
+                          unit: g
+                          percentDailyNeeds: 19
+                        - name: Protein
+                          amount: 10
+                          unit: g
+                          percentDailyNeeds: 21
+                      nutritionSummaryDinner:
+                        nutrients:
+                        - name: Calories
+                          amount: 698
+                          unit: cal
+                          percentDailyNeeds: 35
+                        - name: Fat
+                          amount: 43
+                          unit: g
+                          percentDailyNeeds: 66
+                        - name: Carbohydrates
+                          amount: 34
+                          unit: g
+                          percentDailyNeeds: 11
+                        - name: Protein
+                          amount: 46
+                          unit: g
+                          percentDailyNeeds: 92
+                      day: '4'
+                      items:
+                      - id: 2421
+                        slot: 1
+                        position: 0
+                        type: PRODUCT
+                        value:
+                          id: 101999
+                          title: Greek Gods Yogurt
+                          imageType: jpg
+                      - id: 2422
+                        slot: 1
+                        position: 0
+                        type: INGREDIENTS
+                        value:
+                          id: 877
+                          name: ''
+                          title: berries
+                          servings: '1'
+                          imageType: jpg
+                          ingredients:
+                          - name: berries
+                            image: https://spoonacular.com/cdn/ingredients_100x100/berries-mixed.jpg
+                            amount: 1
+                            unit: cup
+                      - id: 2423
+                        slot: 2
+                        position: 0
+                        type: RECIPE
+                        value:
+                          id: 535563
+                          title: Black Bean Quinoa Salad
+                          imageType: jpg
+                      - id: 2424
+                        slot: 3
+                        position: 0
+                        type: RECIPE
+                        value:
+                          id: 622598
+                          title: Pittata - Pizza Frittata
+                          imageType: jpg
+                      - id: 2425
+                        slot: 3
+                        position: 0
+                        type: RECIPE
+                        value:
+                          id: 484337
+                          title: One Ingredient Banana Ice Cream
+                          imageType: jpg
+                    - nutritionSummary:
+                        nutrients:
+                        - name: Calories
+                          amount: 1247
+                          unit: cal
+                          percentDailyNeeds: 62
+                        - name: Fat
+                          amount: 61
+                          unit: g
+                          percentDailyNeeds: 95
+                        - name: Carbohydrates
+                          amount: 103
+                          unit: g
+                          percentDailyNeeds: 34
+                        - name: Protein
+                          amount: 78
+                          unit: g
+                          percentDailyNeeds: 156
+                      nutritionSummaryBreakfast:
+                        nutrients:
+                        - name: Calories
+                          amount: 295
+                          unit: cal
+                          percentDailyNeeds: 15
+                        - name: Fat
+                          amount: 12
+                          unit: g
+                          percentDailyNeeds: 19
+                        - name: Carbohydrates
+                          amount: 42
+                          unit: g
+                          percentDailyNeeds: 14
+                        - name: Protein
+                          amount: 11
+                          unit: g
+                          percentDailyNeeds: 23
+                      nutritionSummaryLunch:
+                        nutrients:
+                        - name: Calories
+                          amount: 455
+                          unit: cal
+                          percentDailyNeeds: 23
+                        - name: Fat
+                          amount: 34
+                          unit: g
+                          percentDailyNeeds: 52
+                        - name: Carbohydrates
+                          amount: 1
+                          unit: g
+                          percentDailyNeeds: 0
+                        - name: Protein
+                          amount: 35
+                          unit: g
+                          percentDailyNeeds: 70
+                      nutritionSummaryDinner:
+                        nutrients:
+                        - name: Calories
+                          amount: 497
+                          unit: cal
+                          percentDailyNeeds: 25
+                        - name: Fat
+                          amount: 15
+                          unit: g
+                          percentDailyNeeds: 24
+                        - name: Carbohydrates
+                          amount: 60
+                          unit: g
+                          percentDailyNeeds: 20
+                        - name: Protein
+                          amount: 32
+                          unit: g
+                          percentDailyNeeds: 63
+                      day: '5'
+                      items:
+                      - id: 2426
+                        slot: 1
+                        position: 0
+                        type: PRODUCT
+                        value:
+                          id: 71144
+                          title: Kind Plus Fruit & Nut Bar - Almond Walnut Macadamia with Peanuts Plus Protein
+                          imageType: jpg
+                      - id: 2427
+                        slot: 1
+                        position: 0
+                        type: INGREDIENTS
+                        value:
+                          id: 877
+                          name: ''
+                          title: banana
+                          servings: '1'
+                          imageType: jpg
+                          ingredients:
+                          - name: banana
+                            image: https://spoonacular.com/cdn/ingredients_100x100/bananas.jpg
+                            amount: 1
+                            unit: ''
+                      - id: 2428
+                        slot: 2
+                        position: 0
+                        type: RECIPE
+                        value:
+                          id: 296213
+                          title: Spinach Salad with Roasted Vegetables and Spiced Chickpea
+                          imageType: jpg
+                      - id: 2429
+                        slot: 3
+                        position: 0
+                        type: RECIPE
+                        value:
+                          id: 497301
+                          title: Shrimp Scampi
+                          imageType: jpg
+                      - id: 2430
+                        slot: 3
+                        position: 0
+                        type: RECIPE
+                        value:
+                          id: 581021
+                          title: 'Black Bean Brownies: Fudgy Fun'
+                          imageType: jpg
+                    - nutritionSummary:
+                        nutrients:
+                        - name: Calories
+                          amount: 1683
+                          unit: cal
+                          percentDailyNeeds: 84
+                        - name: Fat
+                          amount: 68
+                          unit: g
+                          percentDailyNeeds: 105
+                        - name: Carbohydrates
+                          amount: 139
+                          unit: g
+                          percentDailyNeeds: 46
+                        - name: Protein
+                          amount: 106
+                          unit: g
+                          percentDailyNeeds: 212
+                      nutritionSummaryBreakfast:
+                        nutrients:
+                        - name: Calories
+                          amount: 490
+                          unit: cal
+                          percentDailyNeeds: 24
+                        - name: Fat
+                          amount: 15
+                          unit: g
+                          percentDailyNeeds: 23
+                        - name: Carbohydrates
+                          amount: 65
+                          unit: g
+                          percentDailyNeeds: 22
+                        - name: Protein
+                          amount: 26
+                          unit: g
+                          percentDailyNeeds: 53
+                      nutritionSummaryLunch:
+                        nutrients:
+                        - name: Calories
+                          amount: 378
+                          unit: cal
+                          percentDailyNeeds: 19
+                        - name: Fat
+                          amount: 33
+                          unit: g
+                          percentDailyNeeds: 51
+                        - name: Carbohydrates
+                          amount: 16
+                          unit: g
+                          percentDailyNeeds: 5
+                        - name: Protein
+                          amount: 8
+                          unit: g
+                          percentDailyNeeds: 16
+                      nutritionSummaryDinner:
+                        nutrients:
+                        - name: Calories
+                          amount: 816
+                          unit: cal
+                          percentDailyNeeds: 41
+                        - name: Fat
+                          amount: 21
+                          unit: g
+                          percentDailyNeeds: 32
+                        - name: Carbohydrates
+                          amount: 58
+                          unit: g
+                          percentDailyNeeds: 19
+                        - name: Protein
+                          amount: 72
+                          unit: g
+                          percentDailyNeeds: 144
+                      day: '6'
+                      items:
+                      - id: 2431
+                        slot: 1
+                        position: 0
+                        type: RECIPE
+                        value:
+                          id: 157259
+                          title: Cocoa Protein Pancakes
+                          imageType: jpg
+                      - id: 2432
+                        slot: 1
+                        position: 0
+                        type: INGREDIENTS
+                        value:
+                          id: 877
+                          name: ''
+                          title: berries
+                          servings: '1'
+                          imageType: jpg
+                          ingredients:
+                          - name: berries
+                            image: https://spoonacular.com/cdn/ingredients_100x100/berries-mixed.jpg
+                            amount: 1
+                            unit: cup
+                      - id: 2433
+                        slot: 2
+                        position: 0
+                        type: RECIPE
+                        value:
+                          id: 535856
+                          title: BLT Chopped Salad
+                          imageType: jpg
+                      - id: 2434
+                        slot: 3
+                        position: 0
+                        type: RECIPE
+                        value:
+                          id: 149425
+                          title: Herb and Cheddar Cordon Bleu
+                          imageType: jpg
+                      - id: 2435
+                        slot: 3
+                        position: 0
+                        type: INGREDIENTS
+                        value:
+                          id: 877
+                          name: ''
+                          title: sprouts
+                          servings: '1'
+                          imageType: jpg
+                          ingredients:
+                          - name: brussels sprouts
+                            image: https://spoonacular.com/cdn/ingredients_100x100/brussels-sprouts.jpg
+                            amount: 1
+                            unit: cup
+                      - id: 2436
+                        slot: 3
+                        position: 0
+                        type: INGREDIENTS
+                        value:
+                          id: 877
+                          name: ''
+                          title: wine
+                          servings: '1'
+                          imageType: jpg
+                          ingredients:
+                          - name: wine
+                            image: https://spoonacular.com/cdn/ingredients_100x100/white-wine.jpg
+                            amount: 5
+                            unit: ounces
+                    - nutritionSummary:
+                        nutrients:
+                        - name: Calories
+                          amount: 1442
+                          unit: cal
+                          percentDailyNeeds: 72
+                        - name: Fat
+                          amount: 69
+                          unit: g
+                          percentDailyNeeds: 106
+                        - name: Carbohydrates
+                          amount: 147
+                          unit: g
+                          percentDailyNeeds: 49
+                        - name: Protein
+                          amount: 73
+                          unit: g
+                          percentDailyNeeds: 147
+                      nutritionSummaryBreakfast:
+                        nutrients:
+                        - name: Calories
+                          amount: 444
+                          unit: cal
+                          percentDailyNeeds: 22
+                        - name: Fat
+                          amount: 12
+                          unit: g
+                          percentDailyNeeds: 19
+                        - name: Carbohydrates
+                          amount: 51
+                          unit: g
+                          percentDailyNeeds: 17
+                        - name: Protein
+                          amount: 38
+                          unit: g
+                          percentDailyNeeds: 76
+                      nutritionSummaryLunch:
+                        nutrients:
+                        - name: Calories
+                          amount: 406
+                          unit: cal
+                          percentDailyNeeds: 20
+                        - name: Fat
+                          amount: 17
+                          unit: g
+                          percentDailyNeeds: 26
+                        - name: Carbohydrates
+                          amount: 56
+                          unit: g
+                          percentDailyNeeds: 19
+                        - name: Protein
+                          amount: 10
+                          unit: g
+                          percentDailyNeeds: 21
+                      nutritionSummaryDinner:
+                        nutrients:
+                        - name: Calories
+                          amount: 593
+                          unit: cal
+                          percentDailyNeeds: 30
+                        - name: Fat
+                          amount: 40
+                          unit: g
+                          percentDailyNeeds: 62
+                        - name: Carbohydrates
+                          amount: 41
+                          unit: g
+                          percentDailyNeeds: 14
+                        - name: Protein
+                          amount: 25
+                          unit: g
+                          percentDailyNeeds: 50
+                      day: '7'
+                      items:
+                      - id: 2437
+                        slot: 1
+                        position: 0
+                        type: RECIPE
+                        value:
+                          id: 619085
+                          title: Protein Packed Healthy French Toast with Chocolate and Peanut Butter {Super Simple, Whole Wheat}
+                          imageType: jpg
+                      - id: 2438
+                        slot: 1
+                        position: 0
+                        type: INGREDIENTS
+                        value:
+                          id: 877
+                          name: ''
+                          title: orange
+                          servings: '1'
+                          imageType: jpg
+                          ingredients:
+                          - name: orange
+                            image: https://spoonacular.com/cdn/ingredients_100x100/orange.jpg
+                            amount: 1
+                            unit: ''
+                      - id: 2439
+                        slot: 2
+                        position: 0
+                        type: RECIPE
+                        value:
+                          id: 535563
+                          title: Black Bean Quinoa Salad
+                          imageType: jpg
+                      - id: 2440
+                        slot: 3
+                        position: 0
+                        type: RECIPE
+                        value:
+                          id: 590570
+                          title: Asian Beef Lettuce Wraps
+                          imageType: jpg
+                      - id: 2441
+                        slot: 3
+                        position: 0
+                        type: PRODUCT
+                        value:
+                          id: 146191
+                          title: Lindt Dark Chocolate
+                          imageType: jpg
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: username
+        description: The username.
+        schema:
+          type: string
+          example: dsky
+        required: true
+        style: simple
+        explode: false
+        in: path
+        example: dsky
+      - name: id
+        description: The shopping list item id.
+        schema:
+          type: integer
+          example: 15678
+        required: true
+        style: simple
+        explode: false
+        in: path
+        example: 15678
+      - $ref: '#/components/parameters/hash'
+        example: example
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Get-Meal-Plan-Template
+      summary: Get Meal Plan Template
+      description: Get information about a meal plan template.
+      operationId: getMealPlanTemplate
+      deprecated: false
+      tags:
+      - Meal Planning
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+    delete:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                DeleteMealPlanTemplate200Example:
+                  summary: Default deleteMealPlanTemplate 200 response
+                  x-microcks-default: true
+                  value: {}
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: username
+        description: The username.
+        schema:
+          type: string
+          example: dsky
+        required: true
+        style: simple
+        explode: false
+        in: path
+        example: dsky
+      - name: id
+        description: The shopping list item id.
+        schema:
+          type: integer
+          example: 15678
+        required: true
+        style: simple
+        explode: false
+        in: path
+        example: 15678
+      - name: hash
+        description: The private hash for the username.
+        schema:
+          type: string
+          example: 4b5v4398573406
+        required: true
+        style: form
+        explode: false
+        in: query
+        example: 4b5v4398573406
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Delete-Meal-Plan-Template
+      summary: Delete Meal Plan Template
+      description: Delete a meal plan template for a user.
+      operationId: deleteMealPlanTemplate
+      deprecated: false
+      tags:
+      - Meal Planning
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /mealplanner/{username}/shopping-list:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  aisles:
+                    type: array
+                    uniqueItems: true
+                    minItems: 0
+                    items:
+                      type: object
+                      properties:
+                        aisle:
+                          type: string
+                          minLength: 1
+                        items:
+                          type: array
+                          uniqueItems: true
+                          minItems: 0
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: integer
+                              name:
+                                type: string
+                                minLength: 1
+                              measures:
+                                type: object
+                                properties:
+                                  original:
+                                    type: object
+                                    required:
+                                    - amount
+                                    - unit
+                                    properties:
+                                      amount:
+                                        type: number
+                                      unit:
+                                        type: string
+                                        minLength: 1
+                                  metric:
+                                    type: object
+                                    required:
+                                    - amount
+                                    - unit
+                                    properties:
+                                      amount:
+                                        type: number
+                                      unit:
+                                        type: string
+                                        minLength: 1
+                                  us:
+                                    type: object
+                                    required:
+                                    - amount
+                                    - unit
+                                    properties:
+                                      amount:
+                                        type: number
+                                      unit:
+                                        type: string
+                                        minLength: 1
+                                required:
+                                - original
+                                - metric
+                                - us
+                              pantryItem:
+                                type: boolean
+                              aisle:
+                                type: string
+                                minLength: 1
+                              cost:
+                                type: number
+                              ingredientId:
+                                type: integer
+                            required:
+                            - id
+                            - name
+                            - pantryItem
+                            - aisle
+                            - cost
+                            - ingredientId
+                      required:
+                      - aisle
+                  cost:
+                    type: number
+                  startDate:
+                    type: number
+                  endDate:
+                    type: number
+                required:
+                - aisles
+                - cost
+                - startDate
+                - endDate
+              examples:
+                example-1:
+                  value:
+                    aisles:
+                    - aisle: Baking
+                      items:
+                      - id: 115388
+                        name: baking powder
+                        measures:
+                          original:
+                            amount: 1
+                            unit: package
+                          metric:
+                            amount: 1
+                            unit: pkg
+                          us:
+                            amount: 1
+                            unit: pkg
+                        pantryItem: false
+                        aisle: Baking
+                        cost: 0.71
+                        ingredientId: 18369
+                    cost: 1.43
+                    startDate: 1588291200
+                    endDate: 1588896000
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: username
+        description: The username.
+        schema:
+          type: string
+          example: dsky
+        required: true
+        style: simple
+        explode: false
+        in: path
+        example: dsky
+      - $ref: '#/components/parameters/hash'
+        example: example
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Get-Shopping-List
+      summary: Get Shopping List
+      description: Get the current shopping list for the given user.
+      operationId: getShoppingList
+      deprecated: false
+      tags:
+      - Meal Planning
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /mealplanner/{username}/shopping-list/{start_date}/{end_date}:
+    post:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  aisles:
+                    type: array
+                    uniqueItems: true
+                    minItems: 0
+                    items:
+                      type: object
+                      properties:
+                        aisle:
+                          type: string
+                          minLength: 1
+                        items:
+                          type: array
+                          uniqueItems: true
+                          minItems: 0
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: integer
+                              name:
+                                type: string
+                                minLength: 1
+                              measures:
+                                type: object
+                                properties:
+                                  original:
+                                    type: object
+                                    required:
+                                    - amount
+                                    - unit
+                                    properties:
+                                      amount:
+                                        type: number
+                                      unit:
+                                        type: string
+                                        minLength: 1
+                                  metric:
+                                    type: object
+                                    required:
+                                    - amount
+                                    - unit
+                                    properties:
+                                      amount:
+                                        type: number
+                                      unit:
+                                        type: string
+                                        minLength: 1
+                                  us:
+                                    type: object
+                                    required:
+                                    - amount
+                                    - unit
+                                    properties:
+                                      amount:
+                                        type: number
+                                      unit:
+                                        type: string
+                                        minLength: 1
+                                required:
+                                - original
+                                - metric
+                                - us
+                              pantryItem:
+                                type: boolean
+                              aisle:
+                                type: string
+                                minLength: 1
+                              cost:
+                                type: number
+                              ingredientId:
+                                type: integer
+                            required:
+                            - id
+                            - name
+                            - pantryItem
+                            - aisle
+                            - cost
+                            - ingredientId
+                      required:
+                      - aisle
+                  cost:
+                    type: number
+                  startDate:
+                    type: number
+                  endDate:
+                    type: number
+                required:
+                - aisles
+                - cost
+                - startDate
+                - endDate
+              examples:
+                example-1:
+                  value:
+                    aisles:
+                    - aisle: Baking
+                      items:
+                      - id: 115388
+                        name: baking powder
+                        measures:
+                          original:
+                            amount: 1
+                            unit: package
+                          metric:
+                            amount: 1
+                            unit: pkg
+                          us:
+                            amount: 1
+                            unit: pkg
+                        pantryItem: false
+                        aisle: Baking
+                        cost: 0.71
+                        ingredientId: 18369
+                    cost: 0.71
+                    startDate: 1588291200
+                    endDate: 1588896000
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: username
+        description: The username.
+        schema:
+          type: string
+          example: dsky
+        required: true
+        style: simple
+        explode: false
+        in: path
+        example: dsky
+      - name: start_date
+        description: The start date in the format yyyy-mm-dd.
+        schema:
+          type: string
+          example: '2020-06-01'
+        required: true
+        style: simple
+        explode: false
+        in: path
+        example: '2020-06-01'
+      - name: end_date
+        description: The end date in the format yyyy-mm-dd.
+        schema:
+          type: string
+          example: '2020-06-07'
+        required: true
+        style: simple
+        explode: false
+        in: path
+        example: '2020-06-07'
+      - $ref: '#/components/parameters/hash'
+        example: example
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Generate-Shopping-List
+      summary: Generate Shopping List
+      description: Generate the shopping list for a user from the meal planner in a given time frame.
+      operationId: generateShoppingList
+      deprecated: false
+      tags:
+      - Meal Planning
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /users/connect:
+    post:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  username:
+                    type: string
+                    minLength: 1
+                  hash:
+                    type: string
+                    minLength: 1
+                required:
+                - username
+                - hash
+              examples:
+                example-1:
+                  value:
+                    username: api_123_user
+                    hash: q572587bq2405724q05
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              description: ''
+              type: object
+              properties:
+                username:
+                  type: string
+                  minLength: 1
+                firstName:
+                  type: string
+                  minLength: 1
+                lastName:
+                  type: string
+                  minLength: 1
+                email:
+                  type: string
+                  minLength: 1
+              required:
+              - username
+              - firstName
+              - lastName
+              - email
+            examples:
+              example-1:
+                value:
+                  username: your user's name
+                  firstName: your user's first name
+                  lastName: your user's last name
+                  email: your user's email
+      parameters: []
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Connect-User
+      summary: Connect User
+      description: In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.
+      operationId: connectUser
+      deprecated: false
+      tags:
+      - Meal Planning
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /mealplanner/{username}/shopping-list/items:
+    post:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  aisles:
+                    type: array
+                    uniqueItems: true
+                    minItems: 0
+                    items:
+                      type: object
+                      properties:
+                        aisle:
+                          type: string
+                          minLength: 1
+                        items:
+                          type: array
+                          uniqueItems: true
+                          minItems: 0
+                          items:
+                            type: object
+                            properties:
+                              id:
+                                type: integer
+                              name:
+                                type: string
+                                minLength: 1
+                              measures:
+                                type: object
+                                properties:
+                                  original:
+                                    type: object
+                                    required:
+                                    - amount
+                                    - unit
+                                    properties:
+                                      amount:
+                                        type: number
+                                      unit:
+                                        type: string
+                                        minLength: 1
+                                  metric:
+                                    type: object
+                                    required:
+                                    - amount
+                                    - unit
+                                    properties:
+                                      amount:
+                                        type: number
+                                      unit:
+                                        type: string
+                                        minLength: 1
+                                  us:
+                                    type: object
+                                    required:
+                                    - amount
+                                    - unit
+                                    properties:
+                                      amount:
+                                        type: number
+                                      unit:
+                                        type: string
+                                        minLength: 1
+                                required:
+                                - original
+                                - metric
+                                - us
+                              pantryItem:
+                                type: boolean
+                              aisle:
+                                type: string
+                                minLength: 1
+                              cost:
+                                type: number
+                              ingredientId:
+                                type: integer
+                            required:
+                            - id
+                            - name
+                            - pantryItem
+                            - aisle
+                            - cost
+                            - ingredientId
+                      required:
+                      - aisle
+                  cost:
+                    type: number
+                  startDate:
+                    type: number
+                  endDate:
+                    type: number
+                required:
+                - aisles
+                - cost
+                - startDate
+                - endDate
+              examples:
+                example-1:
+                  value:
+                    aisles:
+                    - aisle: Baking
+                      items:
+                      - id: 115388
+                        name: baking powder
+                        measures:
+                          original:
+                            amount: 1
+                            unit: package
+                          metric:
+                            amount: 1
+                            unit: pkg
+                          us:
+                            amount: 1
+                            unit: pkg
+                        pantryItem: false
+                        aisle: Baking
+                        cost: 0.71
+                        ingredientId: 18369
+                    cost: 0.71
+                    startDate: 1588291200
+                    endDate: 1588896000
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              description: ''
+              type: object
+              properties:
+                item:
+                  type: string
+                  minLength: 1
+                aisle:
+                  type: string
+                  minLength: 1
+                parse:
+                  type: boolean
+              required:
+              - item
+              - aisle
+              - parse
+            examples:
+              example-1:
+                value:
+                  item: 1 package baking powder
+                  aisle: Baking
+                  parse: true
+      parameters:
+      - name: username
+        description: The username.
+        schema:
+          type: string
+          example: dsky
+        required: true
+        style: simple
+        explode: false
+        in: path
+        example: dsky
+      - $ref: '#/components/parameters/hash'
+        example: example
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Add-to-Shopping-List
+      summary: Add to Shopping List
+      description: Add an item to the current shopping list of a user.
+      operationId: addToShoppingList
+      deprecated: false
+      tags:
+      - Meal Planning
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /mealplanner/{username}/shopping-list/items/{id}:
+    delete:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+              examples:
+                DeleteFromShoppingList200Example:
+                  summary: Default deleteFromShoppingList 200 response
+                  x-microcks-default: true
+                  value: {}
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: username
+        description: The username.
+        schema:
+          type: string
+          example: dsky
+        required: true
+        style: simple
+        explode: false
+        in: path
+        example: dsky
+      - name: id
+        description: The shopping list item id.
+        schema:
+          type: integer
+          example: 15678
+        required: true
+        style: simple
+        explode: false
+        in: path
+        example: 15678
+      - $ref: '#/components/parameters/hash'
+        example: example
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Delete-from-Shopping-List
+      summary: Delete from Shopping List
+      description: Delete an item from the current shopping list of the user.
+      operationId: deleteFromShoppingList
+      deprecated: false
+      tags:
+      - Meal Planning
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  parameters:
+    hash:
+      name: hash
+      in: query
+      required: true
+      schema:
+        type: string
+      description: The private hash for the username.
+  securitySchemes:
+    apiKeyScheme:
+      type: apiKey
+      name: x-api-key
+      in: header
+externalDocs:
+  description: The official documentation.
+  url: https://spoonacular.com/food-api/docs

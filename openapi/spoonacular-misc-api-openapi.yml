@@ -1,0 +1,1448 @@
+openapi: 3.0.0
+info:
+  title: spoonacular Ingredients Misc API
+  description: 'The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as "gluten free brownies without sugar" or "low fat vegan cupcakes." You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what''s in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.
+
+
+    Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.'
+  contact:
+    name: David Urbansky
+    email: mail@spoonacular.com
+    url: https://spoonacular.com/contact
+  version: 2.0.2
+  x-codegen-settings:
+    Nullify404: false
+    GenerateAsyncCode: true
+    UseMethodPrefix: true
+    UseModelPostfix: false
+    UseControllerPrefix: true
+    UseEnumPostfix: true
+    CollectParameters: false
+    UseConstructorsForConfig: true
+    UseCommonSDKLibrary: false
+    iOSUseAppInfoPlist: true
+    AndroidUseAppManifest: true
+    BodySerialization: 0
+    EnableAdditionalModelProperties: false
+    PreserveParameterOrder: false
+    AppendContentHeaders: true
+    iOSGenerateCoreData: false
+    GenerateInterfaces: false
+    NodeHttpClient: NODE_REQUEST
+    ValidateRequiredParameters: false
+    JavaUsePropertiesConfig: false
+    Timeout: 0
+    StoreTimezoneInformation: false
+    EnablePHPComposerVersionString: false
+    EnableLogging: false
+    ArraySerialization: Indexed
+    ModelSerializationScheme: Json
+    UseExceptionPrefix: true
+    RunscopeEnabled: false
+    JavaHttpClient: JAVA_OK
+    ParameterArrayFormat: ParamArrayWithIndex
+    SecurityProtocols:
+    - Ssl3
+    - Tls
+    GenerateTravisConfig: false
+    GenerateCircleConfig: false
+    GenerateAppveyorConfig: false
+    GenerateJenkinsConfig: false
+    EnableHttpCache: false
+    Retries: 0
+    RetryInterval: 1
+    GenerateAdvancedDocs: false
+    UnderscoreNumbers: true
+    UseSingletonPattern: true
+    DisableLinting: false
+    ApplyCustomizations: []
+    SortResources: false
+    AllowSkippingSSLCertVerification: false
+    DoNotSplitWords: []
+    EnableGlobalUserAgent: true
+    ReturnCompleteHttpResponse: false
+    GenerateModels: true
+    GenerateExceptions: true
+    IgnoreIfNullJson: false
+    DisableDocs: false
+    LiftParameterDescriptionFromCustomType: false
+    ThrowForHttpErrorStatusCodes: true
+    ResponseMapping:
+      Type: Simple
+    ForceKeywordArgsInRuby: false
+    SymbolizeHashKeysInRuby: false
+  x-server-configuration:
+    default-environment: production
+    default-server: default
+    environments:
+    - name: production
+      servers:
+      - name: default
+        url: https://api.spoonacular.com
+    parameters: []
+  license:
+    name: spoonacular API Terms
+    url: https://spoonacular.com/food-api/terms
+  termsOfService: https://spoonacular.com/food-api/terms
+  x-apis-json-aid: spoonacular
+  x-spec-source: https://github.com/ddsky/spoonacular-api-clients/blob/master/spoonacular-openapi-3.json
+  x-last-validated: '2026-06-03'
+  x-providerName: spoonacular.com
+servers:
+- url: https://api.spoonacular.com
+  variables: {}
+security:
+- apiKeyScheme: []
+tags:
+- name: Misc
+paths:
+  /food/customFoods/search:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  customFoods:
+                    type: array
+                    uniqueItems: true
+                    minItems: 0
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        title:
+                          type: string
+                          minLength: 1
+                        servings:
+                          type: number
+                        imageUrl:
+                          type: string
+                          minLength: 1
+                        price:
+                          type: number
+                      required:
+                      - id
+                      - title
+                      - servings
+                      - imageUrl
+                      - price
+                  type:
+                    type: string
+                    minLength: 1
+                  offset:
+                    type: integer
+                  number:
+                    type: integer
+                required:
+                - customFoods
+                - type
+                - offset
+                - number
+              examples:
+                example-1:
+                  value:
+                    customFoods:
+                    - id: 15
+                      title: Max Cafe Curry Bratwurst
+                      servings: 1
+                      imageUrl: https://spoonacular.com/cdn/ingredients_100x100/bratwurst.jpg
+                      price: 6.9
+                    type: customFood
+                    offset: 0
+                    number: 10
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - $ref: '#/components/parameters/query'
+        example: example
+      - name: username
+        description: The username.
+        schema:
+          type: string
+          example: dsky
+        required: true
+        style: form
+        explode: false
+        in: query
+        example: dsky
+      - name: hash
+        description: The private hash for the username.
+        schema:
+          type: string
+          example: 4b5v4398573406
+        required: true
+        style: form
+        explode: false
+        in: query
+        example: 4b5v4398573406
+      - $ref: '#/components/parameters/offset'
+        example: example
+      - $ref: '#/components/parameters/number'
+        example: example
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Search-Custom-Foods
+      summary: Search Custom Foods
+      description: Search custom foods in a user's account.
+      operationId: searchCustomFoods
+      deprecated: false
+      tags:
+      - Misc
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /food/images/classify:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  category:
+                    type: string
+                    minLength: 1
+                  probability:
+                    type: number
+                required:
+                - category
+                - probability
+              examples:
+                example-1:
+                  value:
+                    category: burger
+                    probability: 0.91354
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: imageUrl
+        description: The URL of the image to be classified.
+        schema:
+          type: string
+          example: https://spoonacular.com/recipeImages/635350-240x150.jpg
+        required: true
+        style: form
+        explode: false
+        in: query
+        example: https://spoonacular.com/recipeImages/635350-240x150.jpg
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Image-Classification-by-URL
+      summary: Image Classification by URL
+      description: Classify a food image.
+      operationId: imageClassificationByURL
+      deprecated: false
+      tags:
+      - Misc
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /food/images/analyze:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  nutrition:
+                    type: object
+                    required:
+                    - recipesUsed
+                    - calories
+                    - fat
+                    - protein
+                    - carbs
+                    properties:
+                      recipesUsed:
+                        type: integer
+                      calories:
+                        type: object
+                        required:
+                        - value
+                        - unit
+                        - confidenceRange95Percent
+                        - standardDeviation
+                        properties:
+                          value:
+                            type: number
+                          unit:
+                            type: string
+                            minLength: 1
+                          confidenceRange95Percent:
+                            type: object
+                            required:
+                            - min
+                            - max
+                            properties:
+                              min:
+                                type: number
+                              max:
+                                type: number
+                          standardDeviation:
+                            type: number
+                      fat:
+                        type: object
+                        required:
+                        - value
+                        - unit
+                        - confidenceRange95Percent
+                        - standardDeviation
+                        properties:
+                          value:
+                            type: number
+                          unit:
+                            type: string
+                            minLength: 1
+                          confidenceRange95Percent:
+                            type: object
+                            required:
+                            - min
+                            - max
+                            properties:
+                              min:
+                                type: number
+                              max:
+                                type: number
+                          standardDeviation:
+                            type: number
+                      protein:
+                        type: object
+                        required:
+                        - value
+                        - unit
+                        - confidenceRange95Percent
+                        - standardDeviation
+                        properties:
+                          value:
+                            type: number
+                          unit:
+                            type: string
+                            minLength: 1
+                          confidenceRange95Percent:
+                            type: object
+                            required:
+                            - min
+                            - max
+                            properties:
+                              min:
+                                type: number
+                              max:
+                                type: number
+                          standardDeviation:
+                            type: number
+                      carbs:
+                        type: object
+                        required:
+                        - value
+                        - unit
+                        - confidenceRange95Percent
+                        - standardDeviation
+                        properties:
+                          value:
+                            type: number
+                          unit:
+                            type: string
+                            minLength: 1
+                          confidenceRange95Percent:
+                            type: object
+                            required:
+                            - min
+                            - max
+                            properties:
+                              min:
+                                type: number
+                              max:
+                                type: number
+                          standardDeviation:
+                            type: number
+                  category:
+                    type: object
+                    required:
+                    - name
+                    - probability
+                    properties:
+                      name:
+                        type: string
+                        minLength: 1
+                      probability:
+                        type: number
+                  recipes:
+                    type: array
+                    uniqueItems: true
+                    minItems: 0
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        title:
+                          type: string
+                          minLength: 1
+                        imageType:
+                          type: string
+                          minLength: 1
+                        url:
+                          type: string
+                          minLength: 1
+                      required:
+                      - id
+                      - title
+                      - imageType
+                      - url
+                required:
+                - nutrition
+                - category
+                - recipes
+              examples:
+                example-1:
+                  value:
+                    nutrition:
+                      recipesUsed: 25
+                      calories:
+                        value: 508
+                        unit: calories
+                        confidenceRange95Percent:
+                          min: 428.97
+                          max: 571.98
+                        standardDeviation: 182.4
+                      fat:
+                        value: 21
+                        unit: g
+                        confidenceRange95Percent:
+                          min: 21.29
+                          max: 32.95
+                        standardDeviation: 14.88
+                      protein:
+                        value: 29
+                        unit: g
+                        confidenceRange95Percent:
+                          min: 22.58
+                          max: 33.7
+                        standardDeviation: 14.19
+                      carbs:
+                        value: 40
+                        unit: g
+                        confidenceRange95Percent:
+                          min: 29.74
+                          max: 44.96
+                        standardDeviation: 19.42
+                    category:
+                      name: burger
+                      probability: 0.9998999999999999
+                    recipes:
+                    - id: 477749
+                      title: 'Burger Club: Award-Winning Logan County Burger Patty Melt'
+                      imageType: jpg
+                      url: http://www.barbarabakes.com/2010/05/burger-club-award-winning-logan-county/
+                    - id: 493632
+                      title: 'New York Burger Week: Pretzel Burger with Beer Cheese'
+                      imageType: jpg
+                      url: http://www.foodrepublic.com/2013/09/23/new-york-burger-week-pretzel-burger-beer-cheese
+                    - id: 23359
+                      title: Beef Burger Recipe (elvis Burger With Salad & Gherkin)
+                      imageType: jpg
+                      url: http://www.jamieoliver.com/recipes/beef-recipes/elvis-burger-with-pickled-gherkin
+                    - id: 149115
+                      title: Surf N' Turf Burger (Grilled Burger with Lobster and Bacon)
+                      imageType: jpg
+                      url: http://www.seriouseats.com/recipes/2013/06/lobster-bacon-burger-recipe.html
+                    - id: 861442
+                      title: Istanbul-Style Wet Burger (Islak Burger)
+                      imageType: jpg
+                      url: http://www.epicurious.com/recipes/food/views/istanbul-style-wet-burger-islak-burger?mbid=nl_02272017_Daily_CTN_PM+(1)
+                    - id: 600423
+                      title: Rajma Burger (Red Kidney Beans Burger)
+                      imageType: jpg
+                      url: http://www.spiceupthecurry.com/rajma-burger-red-kidney-beans-burger/
+                    - id: 493634
+                      title: 'Chicago Burger Week: The Chicago Deep Dish Pizza Burger'
+                      imageType: jpg
+                      url: http://www.foodrepublic.com/2013/09/30/chicago-burger-week-chicago-deep-dish-pizza-burger
+                    - id: 487346
+                      title: aloo tikki burger , north indian style aloo tikki burger
+                      imageType: jpg
+                      url: http://www.vegrecipesofindia.com/aloo-tikki-burger/
+                    - id: 607330
+                      title: Aloo Tikki Burger | How to make aloo tikki burger at home
+                      imageType: jpg
+                      url: http://www.spiceupthecurry.com/aloo-tikki-burger-recipe/
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: imageUrl
+        description: The URL of the image to be analyzed.
+        schema:
+          type: string
+          example: https://spoonacular.com/recipeImages/635350-240x150.jpg
+        required: true
+        style: form
+        explode: false
+        in: query
+        example: https://spoonacular.com/recipeImages/635350-240x150.jpg
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Image-Analysis-by-URL
+      summary: Image Analysis by URL
+      description: Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes.
+      operationId: imageAnalysisByURL
+      deprecated: false
+      tags:
+      - Misc
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /food/detect:
+    post:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  annotations:
+                    type: array
+                    uniqueItems: true
+                    minItems: 0
+                    items:
+                      required:
+                      - annotation
+                      - image
+                      - tag
+                      properties:
+                        annotation:
+                          type: string
+                          minLength: 1
+                        image:
+                          type: string
+                          minLength: 1
+                        tag:
+                          type: string
+                          minLength: 1
+                required:
+                - annotations
+              examples:
+                example-1:
+                  value:
+                    annotations:
+                    - annotation: cheeseburger
+                      image: https://spoonacular.com/menuItemImages/cheeseburger.jpg
+                      tag: dish
+                    - annotation: mushrooms
+                      image: https://spoonacular.com/cdn/ingredients_100x100/mushrooms.png
+                      tag: ingredient
+                    - annotation: pepperoni
+                      image: https://spoonacular.com/cdn/ingredients_100x100/pepperoni.png
+                      tag: ingredient
+                    - annotation: tomatoes
+                      image: https://spoonacular.com/cdn/ingredients_100x100/tomato.png
+                      tag: ingredient
+                    - annotation: cheddar
+                      image: https://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png
+                      tag: ingredient
+                    - annotation: tacos
+                      image: https://spoonacular.com/menuItemImages/taco-isolated.jpg
+                      tag: dish
+                    - annotation: pizza
+                      image: https://spoonacular.com/menuItemImages/cheese-pizza.png
+                      tag: dish
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required:
+              - text
+              properties:
+                text:
+                  type: string
+            example:
+              text: I like to eat delicious tacos. The only thing better is a cheeseburger with cheddar. But then again, pizza with pepperoni, mushrooms, and tomatoes is so good too!
+      parameters: []
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Detect-Food-in-Text
+      summary: Detect Food in Text
+      description: Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.
+      operationId: detectFoodInText
+      deprecated: false
+      tags:
+      - Misc
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /food/site/search:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  Articles:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchResult'
+                  Grocery Products:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchResult'
+                  Menu Items:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchResult'
+                  Recipes:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SearchResult'
+                required:
+                - Articles
+                - Grocery Products
+                - Menu Items
+                - Recipes
+              examples:
+                example-1:
+                  value:
+                    Articles:
+                    - dataPoints: []
+                      image: https://spoonacular.com/application/frontend/images/academy/vietnamese-cuisine.jpg
+                      link: https://spoonacular.com/academy/vietnamese
+                      name: Traditional Vietnamese Recipes
+                    - dataPoints: []
+                      image: https://spoonacular.com/application/frontend/images/academy/thai-cuisine.jpg
+                      link: https://spoonacular.com/academy/thai
+                      name: Authentic Thai Recipes
+                    - dataPoints: []
+                      image: https://spoonacular.com/application/frontend/images/academy/korean-food.jpg
+                      link: https://spoonacular.com/academy/korean
+                      name: Typical Korean Recipes
+                    Grocery Products:
+                    - dataPoints:
+                      - key: Calories
+                        value: 30 Calories
+                      - key: Protein
+                        value: 2g Protein
+                      - key: Fat
+                        value: 0.0g Total Fat
+                      - key: Carbs
+                        value: 6g Carbs
+                      image: https://spoonacular.com/productImages/218909-312x231.jpg
+                      link: https://spoonacular.com/products/vine-ripe-tomato-paste-218909
+                      name: Vine-ripe Tomato Paste
+                    - dataPoints:
+                      - key: Calories
+                        value: 30 Calories
+                      - key: Protein
+                        value: 2g Protein
+                      - key: Fat
+                        value: 0.0g Total Fat
+                      - key: Carbs
+                        value: 6g Carbs
+                      image: https://spoonacular.com/productImages/178883-312x231.jpg
+                      link: https://spoonacular.com/products/contadina-tomato-paste-178883
+                      name: Contadina Tomato Paste
+                    - dataPoints:
+                      - key: Calories
+                        value: 30 Calories
+                      - key: Protein
+                        value: 2g Protein
+                      - key: Fat
+                        value: 0.0g Total Fat
+                      - key: Carbs
+                        value: 6g Carbs
+                      image: https://spoonacular.com/productImages/137031-312x231.jpg
+                      link: https://spoonacular.com/products/cento-tomato-paste-137031
+                      name: Cento Tomato Paste
+                    Menu Items:
+                    - dataPoints:
+                      - key: Calories
+                        value: 230 Calories
+                      - key: Protein
+                        value: 1g Protein
+                      - key: Fat
+                        value: 15g Total Fat
+                      - key: Carbs
+                        value: 23g Carbs
+                      image: https://spoonacular.com/menuItemImages/stir-fry.jpg
+                      link: https://spoonacular.com/menu-items/thai-express-stir-fry-chilli-paste-401670
+                      name: Thai Express Stir-Fry, Chilli Paste
+                    Recipes:
+                    - dataPoints:
+                      - key: Cost
+                        value: $10.51 per serving
+                      - key: Calories
+                        value: 400 Calories
+                      - key: Protein
+                        value: 9g Protein
+                      - key: Fat
+                        value: 32g Total Fat
+                      - key: Carbs
+                        value: 26g Carbs
+                      image: https://webknox.com/recipeImages/224844-556x370.jpg
+                      link: https://spoonacular.com/recipes/chermoula-paste-224844
+                      name: Chermoula Paste
+                    - dataPoints:
+                      - key: Cost
+                        value: $8.37 per serving
+                      - key: Calories
+                        value: 3560 Calories
+                      - key: Protein
+                        value: 119g Protein
+                      - key: Fat
+                        value: 319g Total Fat
+                      - key: Carbs
+                        value: 54g Carbs
+                      image: https://webknox.com/recipeImages/146847-556x370.jpg
+                      link: https://spoonacular.com/recipes/lulu-paste-146847
+                      name: Lulu Paste
+                    - dataPoints:
+                      - key: Cost
+                        value: $6.68 per serving
+                      - key: Calories
+                        value: 990 Calories
+                      - key: Protein
+                        value: 53g Protein
+                      - key: Fat
+                        value: 86g Total Fat
+                      - key: Carbs
+                        value: 0.82g Carbs
+                      image: https://webknox.com/recipeImages/84670-556x370.jpg
+                      link: https://spoonacular.com/recipes/steak-paste-84670
+                      name: Steak Paste
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: query
+        description: The query to search for. You can also use partial queries such as "spagh" to already find spaghetti recipes, articles, grocery products, and other content.
+        schema:
+          type: string
+          example: past
+        required: true
+        style: form
+        explode: false
+        in: query
+        example: past
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Search-Site-Content
+      summary: Search Site Content
+      description: Search spoonacular's site content. You'll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.
+      operationId: searchSiteContent
+      deprecated: false
+      tags:
+      - Misc
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /food/search:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  query:
+                    type: string
+                    minLength: 1
+                  totalResults:
+                    type: integer
+                  limit:
+                    type: integer
+                  offset:
+                    type: integer
+                  searchResults:
+                    type: array
+                    uniqueItems: true
+                    minItems: 0
+                    items:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          minLength: 1
+                        totalResults:
+                          type: integer
+                        results:
+                          type: array
+                          uniqueItems: true
+                          minItems: 0
+                          items:
+                            $ref: '#/components/schemas/SearchResult'
+                      required:
+                      - name
+                      - totalResults
+                required:
+                - query
+                - totalResults
+                - limit
+                - offset
+                - searchResults
+              examples:
+                example-1:
+                  value:
+                    query: apple
+                    totalResults: 5826
+                    limit: 2
+                    offset: 0
+                    searchResults:
+                    - name: Recipes
+                      totalResults: 167
+                      results:
+                      - id: '632485'
+                        name: Apple Cake
+                        image: https://spoonacular.com/recipeImages/632485-312x231.jpg
+                        link: https://spoonacular.com/recipes/apple-cake-632485
+                        type: HTML
+                        relevance: 10000
+                        content: Apple Cake might be just the dessert you are searching for...
+                      - id: '632522'
+                        name: Apple Crumble
+                        image: https://spoonacular.com/recipeImages/632522-312x231.jpg
+                        link: https://spoonacular.com/recipes/apple-crumble-632522
+                        type: HTML
+                        relevance: 9999
+                        content: Apple Crumble might be just the dessert you are searching for...
+                    - name: Products
+                      totalResults: 3219
+                      results:
+                      - id: '5487'
+                        name: Pleasant Valley Apple Wine
+                        content: null
+                        image: https://spoonacular.com/productImages/469604-312x231.jpg
+                        link: https://spoonacular.com/products/pleasant-valley-apple-wine-469604
+                        type: HTML
+                        relevance: 10000
+                      - id: '428573'
+                        name: NV Georgetown Vineyards Apple Wine
+                        content: null
+                        image: https://spoonacular.com/productImages/428573-312x231.jpg
+                        link: https://spoonacular.com/products/nv-georgetown-vineyards-apple-wine-428573
+                        type: HTML
+                        relevance: 9999
+                    - name: Menu Items
+                      totalResults: 2410
+                      results:
+                      - id: '334550'
+                        name: Old Chicago Applewood Spiced BBQ Chicken Pizza, Chicago Thick, 12 Inch (Slice)
+                        image: null
+                        link: https://spoonacular.com/menu-items/old-chicago-applewood-spiced-bbq-chicken-pizza-chicago-thick-12-inch--334550
+                        type: HTML
+                        content: null
+                        relevance: 10000
+                      - id: '422013'
+                        name: Huddle House Apple Cobbler a la mode
+                        image: null
+                        link: https://spoonacular.com/menu-items/huddle-house-apple-cobbler-a-la-mode-422013
+                        type: HTML
+                        content: null
+                        relevance: 9999
+                    - name: Articles
+                      totalResults: 28
+                      results:
+                      - id: '578'
+                        name: Apples
+                        image: https://spoonacular.com/cdn/ingredients_100x100/braeburn-apples.jpg
+                        link: https://spoonacular.com/academy/apples
+                        type: HTML
+                        content: null
+                        relevance: 90.46
+                      - id: '252'
+                        name: Vinegar
+                        image: https://spoonacular.com/cdn/ingredients_100x100/red-wine-vinegar.jpg
+                        link: https://spoonacular.com/academy/vinegar
+                        type: HTML
+                        content: null
+                        relevance: 23.8
+                    - name: Videos
+                      totalResults: 2
+                      results:
+                      - id: G0HENy59YkE
+                        name: Pineapple Bundt Cake
+                        image: https://i.ytimg.com/vi/G0HENy59YkE/hqdefault.jpg
+                        link: https://www.youtube.com/watch?v=G0HENy59YkE
+                        type: YOUTUBE_VIDEO
+                        relevance: 10000
+                        content: 'FULL RECIPE HERE: https://tatyanaseverydayfood.com/recipe-items/pineapple-bundt-cake/...'
+                      - id: xEENgO5Z5To
+                        name: Pineapple Shrimp Tacos
+                        image: https://i.ytimg.com/vi/xEENgO5Z5To/mqdefault.jpg
+                        link: null
+                        type: YOUTUBE_VIDEO
+                        relevance: 9999
+                        content: 'RECIPE: Below in description.
+
+                          These Pineapple Shrimp Tacos cook in 5 minutes and assembly is a breeze...'
+                    - name: Simple Foods
+                      totalResults: 2
+                      results:
+                      - id: '78541'
+                        name: apple
+                        image: apple.jpg
+                        type: HTML
+                        content: null
+                        link: null
+                        relevance: 10000
+                      - id: '8782'
+                        name: applesauce
+                        image: applesauce.png
+                        type: HTML
+                        content: null
+                        link: null
+                        relevance: 9999
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: query
+        description: The search query.
+        schema:
+          type: string
+          example: apple
+        required: true
+        style: form
+        explode: false
+        in: query
+        example: apple
+      - $ref: '#/components/parameters/offset'
+        example: example
+      - $ref: '#/components/parameters/number'
+        example: example
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Search-All-Food
+      summary: Search All Food
+      description: Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.
+      operationId: searchAllFood
+      deprecated: false
+      tags:
+      - Misc
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /food/videos/search:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  videos:
+                    type: array
+                    uniqueItems: true
+                    minItems: 0
+                    items:
+                      type: object
+                      properties:
+                        title:
+                          type: string
+                          minLength: 1
+                        length:
+                          type: integer
+                        rating:
+                          type: number
+                        shortTitle:
+                          type: string
+                          minLength: 1
+                        thumbnail:
+                          type: string
+                          minLength: 1
+                        views:
+                          type: integer
+                        youTubeId:
+                          type: string
+                          minLength: 1
+                      required:
+                      - title
+                      - length
+                      - rating
+                      - shortTitle
+                      - thumbnail
+                      - views
+                      - youTubeId
+                  totalResults:
+                    type: integer
+                required:
+                - videos
+                - totalResults
+              examples:
+                example-1:
+                  value:
+                    videos:
+                    - title: 8 One-Pot Pastas
+                      length: 370
+                      rating: 0.985984219269103
+                      shortTitle: 8 One-Pot Pastas
+                      thumbnail: https://i.ytimg.com/vi/YTZGPCCB2FU/mqdefault.jpg
+                      views: 550467
+                      youTubeId: YTZGPCCB2FU
+                    - title: Macaroni salad - pasta salad recipes - healthy recipe channel - quick tasty recipe - cooking channel
+                      length: 333
+                      rating: 1
+                      shortTitle: Macaroni salad
+                      thumbnail: https://i.ytimg.com/vi/81bn4p8H3Kg/mqdefault.jpg
+                      views: 307
+                      youTubeId: 81bn4p8H3Kg
+                    totalResults: 172
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - $ref: '#/components/parameters/query'
+        example: example
+      - name: type
+        description: The type of the recipes. See a full list of supported meal types.
+        schema:
+          type: string
+          example: main course
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: main course
+      - name: cuisine
+        description: The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines.
+        schema:
+          type: string
+          example: italian
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: italian
+      - name: diet
+        description: The diet for which the recipes must be suitable. See a full list of supported diets.
+        schema:
+          type: string
+          example: vegetarian
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: vegetarian
+      - name: includeIngredients
+        description: A comma-separated list of ingredients that the recipes should contain.
+        schema:
+          type: string
+          example: tomato,cheese
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: tomato,cheese
+      - name: excludeIngredients
+        description: A comma-separated list of ingredients or ingredient types that the recipes must not contain.
+        schema:
+          type: string
+          example: eggs
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: eggs
+      - name: minLength
+        description: Minimum video length in seconds.
+        schema:
+          type: number
+          example: 0
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: 0
+      - name: maxLength
+        description: Maximum video length in seconds.
+        schema:
+          type: number
+          example: 999
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: 999
+      - $ref: '#/components/parameters/offset'
+        example: example
+      - $ref: '#/components/parameters/number'
+        example: example
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Search-Food-Videos
+      summary: Search Food Videos
+      description: Find recipe and other food related videos.
+      operationId: searchFoodVideos
+      deprecated: false
+      tags:
+      - Misc
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /food/jokes/random:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  text:
+                    type: string
+                    minLength: 1
+                required:
+                - text
+              examples:
+                example-1:
+                  value:
+                    text: Any salad can be a Caesar salad if you stab it enough.
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters: []
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Random-Food-Joke
+      summary: Random Food Joke
+      description: 'Get a random joke that is related to food. Caution: this is an endpoint for adults!'
+      operationId: getARandomFoodJoke
+      deprecated: false
+      tags:
+      - Misc
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /food/trivia/random:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  text:
+                    type: string
+                    minLength: 1
+                required:
+                - text
+              examples:
+                example-1:
+                  value:
+                    text: The red food-coloring carmine used in Skittles and other candies is made from boiled cochineal bugs, a type of beetle.
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters: []
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Random-Food-Trivia
+      summary: Random Food Trivia
+      description: Returns random food trivia.
+      operationId: getRandomFoodTrivia
+      deprecated: false
+      tags:
+      - Misc
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /food/converse:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  answerText:
+                    type: string
+                    minLength: 1
+                  media:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        title:
+                          type: string
+                        image:
+                          type: string
+                        link:
+                          type: string
+                required:
+                - answerText
+                - media
+              examples:
+                example-1:
+                  value:
+                    answerText: Baby, if you were a fruit you'd be a fineapple.
+                    media: []
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: text
+        description: The request / question / answer from the user to the chatbot.
+        schema:
+          type: string
+          example: donut recipes
+        required: true
+        style: form
+        explode: false
+        in: query
+        example: donut recipes
+      - name: contextId
+        description: An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation.
+        schema:
+          type: string
+          example: '342938'
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: '342938'
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Talk-to-Chatbot
+      summary: Talk to Chatbot
+      description: This endpoint can be used to have a conversation about food with the spoonacular chatbot. Use the "Get Conversation Suggests" endpoint to show your user what he or she can say.
+      operationId: talkToChatbot
+      deprecated: false
+      tags:
+      - Misc
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /food/converse/suggest:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  suggests:
+                    type: object
+                    properties:
+                      _:
+                        type: array
+                        uniqueItems: true
+                        minItems: 0
+                        items:
+                          required:
+                          - name
+                          properties:
+                            name:
+                              type: string
+                              minLength: 1
+                    required:
+                    - _
+                  words:
+                    type: array
+                    items:
+                      type: string
+                required:
+                - suggests
+                - words
+              examples:
+                example-1:
+                  value:
+                    suggests:
+                      _:
+                      - name: Tell me something funny
+                      - name: Tell me a food fact
+                      - name: Tell me a joke
+                      - name: Tell me food trivia
+                      - name: Tell me a fact about food
+                    words: []
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: query
+        description: A (partial) query from the user. The endpoint will return if it matches topics it can talk about.
+        schema:
+          type: string
+          example: tell
+        required: true
+        style: form
+        explode: false
+        in: query
+        example: tell
+      - name: number
+        description: The number of suggestions to return (between 1 and 25).
+        schema:
+          type: number
+          example: 5
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: 5
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Conversation-Suggests
+      summary: Conversation Suggests
+      description: This endpoint returns suggestions for things the user can say or ask the chatbot.
+      operationId: getConversationSuggests
+      deprecated: false
+      tags:
+      - Misc
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    SearchResult:
+      description: ''
+      type: object
+      properties:
+        image:
+          type: string
+          example: example
+        link:
+          type: string
+          nullable: true
+          example: example
+        name:
+          type: string
+          example: Spaghetti
+        type:
+          type: string
+          example: example
+        kvtable:
+          type: string
+          example: example
+        content:
+          type: string
+          nullable: true
+          example: example
+        id:
+          type: integer
+          example: 716429
+        relevance:
+          type: number
+          example: 1.0
+      required:
+      - name
+  parameters:
+    query:
+      name: query
+      in: query
+      required: true
+      schema:
+        type: string
+        example: burger
+      description: The (natural language) search query.
+    number:
+      name: number
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 10
+        example: 10
+      description: The maximum number of items to return (between 1 and 100). Defaults to 10.
+    offset:
+      name: offset
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+        maximum: 900
+      description: The number of results to skip (between 0 and 900).
+  securitySchemes:
+    apiKeyScheme:
+      type: apiKey
+      name: x-api-key
+      in: header
+externalDocs:
+  description: The official documentation.
+  url: https://spoonacular.com/food-api/docs

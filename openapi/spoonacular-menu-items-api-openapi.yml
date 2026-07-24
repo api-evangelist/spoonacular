@@ -1,0 +1,1206 @@
+openapi: 3.0.0
+info:
+  title: spoonacular Ingredients Menu Items API
+  description: 'The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as "gluten free brownies without sugar" or "low fat vegan cupcakes." You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what''s in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.
+
+
+    Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.'
+  contact:
+    name: David Urbansky
+    email: mail@spoonacular.com
+    url: https://spoonacular.com/contact
+  version: 2.0.2
+  x-codegen-settings:
+    Nullify404: false
+    GenerateAsyncCode: true
+    UseMethodPrefix: true
+    UseModelPostfix: false
+    UseControllerPrefix: true
+    UseEnumPostfix: true
+    CollectParameters: false
+    UseConstructorsForConfig: true
+    UseCommonSDKLibrary: false
+    iOSUseAppInfoPlist: true
+    AndroidUseAppManifest: true
+    BodySerialization: 0
+    EnableAdditionalModelProperties: false
+    PreserveParameterOrder: false
+    AppendContentHeaders: true
+    iOSGenerateCoreData: false
+    GenerateInterfaces: false
+    NodeHttpClient: NODE_REQUEST
+    ValidateRequiredParameters: false
+    JavaUsePropertiesConfig: false
+    Timeout: 0
+    StoreTimezoneInformation: false
+    EnablePHPComposerVersionString: false
+    EnableLogging: false
+    ArraySerialization: Indexed
+    ModelSerializationScheme: Json
+    UseExceptionPrefix: true
+    RunscopeEnabled: false
+    JavaHttpClient: JAVA_OK
+    ParameterArrayFormat: ParamArrayWithIndex
+    SecurityProtocols:
+    - Ssl3
+    - Tls
+    GenerateTravisConfig: false
+    GenerateCircleConfig: false
+    GenerateAppveyorConfig: false
+    GenerateJenkinsConfig: false
+    EnableHttpCache: false
+    Retries: 0
+    RetryInterval: 1
+    GenerateAdvancedDocs: false
+    UnderscoreNumbers: true
+    UseSingletonPattern: true
+    DisableLinting: false
+    ApplyCustomizations: []
+    SortResources: false
+    AllowSkippingSSLCertVerification: false
+    DoNotSplitWords: []
+    EnableGlobalUserAgent: true
+    ReturnCompleteHttpResponse: false
+    GenerateModels: true
+    GenerateExceptions: true
+    IgnoreIfNullJson: false
+    DisableDocs: false
+    LiftParameterDescriptionFromCustomType: false
+    ThrowForHttpErrorStatusCodes: true
+    ResponseMapping:
+      Type: Simple
+    ForceKeywordArgsInRuby: false
+    SymbolizeHashKeysInRuby: false
+  x-server-configuration:
+    default-environment: production
+    default-server: default
+    environments:
+    - name: production
+      servers:
+      - name: default
+        url: https://api.spoonacular.com
+    parameters: []
+  license:
+    name: spoonacular API Terms
+    url: https://spoonacular.com/food-api/terms
+  termsOfService: https://spoonacular.com/food-api/terms
+  x-apis-json-aid: spoonacular
+  x-spec-source: https://github.com/ddsky/spoonacular-api-clients/blob/master/spoonacular-openapi-3.json
+  x-last-validated: '2026-06-03'
+  x-providerName: spoonacular.com
+servers:
+- url: https://api.spoonacular.com
+  variables: {}
+security:
+- apiKeyScheme: []
+tags:
+- name: Menu Items
+paths:
+  /food/menuItems/suggest:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  results:
+                    type: array
+                    uniqueItems: true
+                    minItems: 0
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: integer
+                        title:
+                          type: string
+                          minLength: 1
+                      required:
+                      - id
+                      - title
+                required:
+                - results
+              examples:
+                example-1:
+                  value:
+                    results:
+                    - id: 253419
+                      title: pei wei asian diner thai chicken lettuce wraps
+                    - id: 380722
+                      title: camille's chicken caesar salad includes 2 oz. caesar dressing
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: query
+        description: The (partial) search query.
+        schema:
+          type: string
+          example: chicke
+        required: true
+        style: form
+        explode: false
+        in: query
+        example: chicke
+      - name: number
+        description: The number of results to return (between 1 and 25).
+        schema:
+          type: integer
+          example: 10
+          minimum: 1
+          maximum: 25
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: 10
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Autocomplete-Menu-Item-Search
+      summary: Autocomplete Menu Item Search
+      description: Generate suggestions for menu items based on a (partial) query. The matches will be found by looking in the title only.
+      operationId: autocompleteMenuItemSearch
+      deprecated: false
+      tags:
+      - Menu Items
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /food/menuItems/search:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                description: ''
+                type: object
+                properties:
+                  menuItems:
+                    type: array
+                    uniqueItems: true
+                    minItems: 0
+                    items:
+                      $ref: '#/components/schemas/MenuItem'
+                  totalMenuItems:
+                    type: integer
+                  type:
+                    type: string
+                    minLength: 1
+                  offset:
+                    type: integer
+                  number:
+                    type: integer
+                required:
+                - menuItems
+                - totalMenuItems
+                - type
+                - offset
+                - number
+              examples:
+                example-1:
+                  value:
+                    menuItems:
+                    - id: 419357
+                      title: Burger Sliders
+                      restaurantChain: Hooters
+                      image: https://images.spoonacular.com/file/wximages/419357-312x231.png
+                      imageType: png
+                      servings:
+                        number: 1
+                        size: 2
+                        unit: oz
+                    - id: 424571
+                      title: Bacon King Burger
+                      restaurantChain: Burger King
+                      image: https://images.spoonacular.com/file/wximages/424571-312x231.png
+                      imageType: png
+                      servings:
+                        number: 1
+                        size: 2
+                        unit: oz
+                    totalMenuItems: 6749
+                    type: menuItem
+                    offset: 0
+                    number: 2
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - $ref: '#/components/parameters/query'
+        example: example
+      - name: minCalories
+        description: The minimum amount of calories the menu item must have.
+        schema:
+          type: number
+          example: 50
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: 50
+      - name: maxCalories
+        description: The maximum amount of calories the menu item can have.
+        schema:
+          type: number
+          example: 800
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: 800
+      - name: minCarbs
+        description: The minimum amount of carbohydrates in grams the menu item must have.
+        schema:
+          type: number
+          example: 10
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: 10
+      - name: maxCarbs
+        description: The maximum amount of carbohydrates in grams the menu item can have.
+        schema:
+          type: number
+          example: 100
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: 100
+      - name: minProtein
+        description: The minimum amount of protein in grams the menu item must have.
+        schema:
+          type: number
+          example: 10
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: 10
+      - name: maxProtein
+        description: The maximum amount of protein in grams the menu item can have.
+        schema:
+          type: number
+          example: 100
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: 100
+      - name: minFat
+        description: The minimum amount of fat in grams the menu item must have.
+        schema:
+          type: number
+          example: 1
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: 1
+      - name: maxFat
+        description: The maximum amount of fat in grams the menu item can have.
+        schema:
+          type: number
+          example: 100
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: 100
+      - schema:
+          type: boolean
+          example: true
+          enum:
+          - false
+          - true
+        required: false
+        in: query
+        name: addMenuItemInformation
+        description: If set to true, you get more information about the menu items returned.
+        example: true
+      - $ref: '#/components/parameters/offset'
+        example: example
+      - $ref: '#/components/parameters/number'
+        example: example
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Search-Menu-Items
+      summary: Search Menu Items
+      description: Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald's Big Mac or Starbucks Mocha.
+      operationId: searchMenuItems
+      deprecated: false
+      tags:
+      - Menu Items
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /food/menuItems/{id}:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MenuItem'
+              examples:
+                GetMenuItemInformation200Example:
+                  summary: Default getMenuItemInformation 200 response
+                  x-microcks-default: true
+                  value:
+                    id: 424571
+                    title: Bacon King Burger
+                    restaurantChain: Burger King
+                    nutrition:
+                      nutrients:
+                      - name: Fat
+                        amount: 69
+                        unit: g
+                        percentOfDailyNeeds: 30
+                      - name: Protein
+                        amount: 57
+                        unit: g
+                        percentOfDailyNeeds: 35
+                      - name: Calories
+                        amount: 1040
+                        unit: cal
+                        percentOfDailyNeeds: 50
+                      - name: Carbohydrates
+                        amount: 48
+                        unit: g
+                        percentOfDailyNeeds: 35
+                      caloricBreakdown:
+                        percentProtein: 35
+                        percentFat: 30
+                        percentCarbs: 35
+                    badges: []
+                    breadcrumbs:
+                    - burger
+                    - main course
+                    - food product category
+                    generatedText: ''
+                    imageType: png
+                    likes: 0
+                    servings:
+                      number: 1
+                      size: 2
+                      unit: oz
+                    price: 2.35
+                    spoonacularScore: 12.5
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: id
+        description: The menu item id.
+        schema:
+          type: integer
+          example: 424571
+        required: true
+        style: simple
+        explode: false
+        in: path
+        example: 424571
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Get-Menu-Item-Information
+      summary: Get Menu Item Information
+      description: Use a menu item id to get all available information about a menu item, such as nutrition.
+      operationId: getMenuItemInformation
+      deprecated: false
+      tags:
+      - Menu Items
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /food/menuItems/{id}/nutritionWidget:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            text/html:
+              schema:
+                type: string
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: id
+        description: The menu item id.
+        schema:
+          type: integer
+          example: 1003464
+        required: true
+        style: simple
+        explode: false
+        in: path
+        example: 1003464
+      - $ref: '#/components/parameters/defaultCss'
+        example: example
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Menu-Item-Nutrition-by-ID-Widget
+      summary: Menu Item Nutrition by ID Widget
+      description: Visualize a menu item's nutritional information as HTML including CSS.
+      operationId: visualizeMenuItemNutritionByID
+      deprecated: false
+      tags:
+      - Menu Items
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /food/menuItems/{id}/nutritionWidget.png:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            image/png:
+              schema:
+                type: string
+                format: binary
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: id
+        description: The menu item id.
+        schema:
+          type: integer
+          example: 424571
+        required: true
+        style: simple
+        explode: false
+        in: path
+        example: 424571
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Menu-Item-Nutrition-by-ID-Image
+      summary: Menu Item Nutrition by ID Image
+      description: Visualize a menu item's nutritional information as HTML including CSS.
+      operationId: menuItemNutritionByIDImage
+      deprecated: false
+      tags:
+      - Menu Items
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /food/menuItems/{id}/nutritionLabel:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            text/html:
+              schema:
+                type: string
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: id
+        description: The menu item id.
+        schema:
+          type: integer
+          example: 342313
+        required: true
+        style: simple
+        explode: false
+        in: path
+        example: 342313
+      - $ref: '#/components/parameters/defaultCss'
+        example: example
+      - name: showOptionalNutrients
+        description: Whether to show optional nutrients.
+        schema:
+          type: boolean
+          example: false
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: false
+      - name: showZeroValues
+        description: Whether to show zero values.
+        schema:
+          type: boolean
+          example: false
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: false
+      - name: showIngredients
+        description: Whether to show a list of ingredients.
+        schema:
+          type: boolean
+          example: false
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: false
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Menu-Item-Nutrition-Label-Widget
+      summary: Menu Item Nutrition Label Widget
+      description: Visualize a menu item's nutritional label information as HTML including CSS.
+      operationId: menuItemNutritionLabelWidget
+      deprecated: false
+      tags:
+      - Menu Items
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /food/menuItems/{id}/nutritionLabel.png:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            image/png:
+              schema:
+                type: string
+                format: binary
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: id
+        description: The menu item id.
+        schema:
+          type: integer
+          example: 342313
+        required: true
+        style: simple
+        explode: false
+        in: path
+        example: 342313
+      - name: showOptionalNutrients
+        description: Whether to show optional nutrients.
+        schema:
+          type: boolean
+          example: false
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: false
+      - name: showZeroValues
+        description: Whether to show zero values.
+        schema:
+          type: boolean
+          example: false
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: false
+      - name: showIngredients
+        description: Whether to show a list of ingredients.
+        schema:
+          type: boolean
+          example: false
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: false
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Menu-Item-Nutrition-Label-Image
+      summary: Menu Item Nutrition Label Image
+      description: Visualize a menu item's nutritional label information as an image.
+      operationId: menuItemNutritionLabelImage
+      deprecated: false
+      tags:
+      - Menu Items
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /food/restaurants/search:
+    get:
+      responses:
+        '200':
+          description: Success
+          headers: {}
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  restaurants:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        _id:
+                          type: string
+                        name:
+                          type: string
+                        phone_number:
+                          type: integer
+                        address:
+                          type: object
+                          properties:
+                            street_addr:
+                              type: string
+                            city:
+                              type: string
+                            state:
+                              type: string
+                            zipcode:
+                              type: string
+                            country:
+                              type: string
+                            lat:
+                              type: number
+                            lon:
+                              type: number
+                            street_addr_2:
+                              type: string
+                            latitude:
+                              type: number
+                            longitude:
+                              type: number
+                        type:
+                          type: string
+                        description:
+                          type: string
+                        local_hours:
+                          type: object
+                          properties:
+                            operational:
+                              type: object
+                              properties:
+                                Monday:
+                                  type: string
+                                Tuesday:
+                                  type: string
+                                Wednesday:
+                                  type: string
+                                Thursday:
+                                  type: string
+                                Friday:
+                                  type: string
+                                Saturday:
+                                  type: string
+                                Sunday:
+                                  type: string
+                            delivery:
+                              type: object
+                              properties:
+                                Monday:
+                                  type: string
+                                Tuesday:
+                                  type: string
+                                Wednesday:
+                                  type: string
+                                Thursday:
+                                  type: string
+                                Friday:
+                                  type: string
+                                Saturday:
+                                  type: string
+                                Sunday:
+                                  type: string
+                            pickup:
+                              type: object
+                              properties:
+                                Monday:
+                                  type: string
+                                Tuesday:
+                                  type: string
+                                Wednesday:
+                                  type: string
+                                Thursday:
+                                  type: string
+                                Friday:
+                                  type: string
+                                Saturday:
+                                  type: string
+                                Sunday:
+                                  type: string
+                            dine_in:
+                              type: object
+                              properties:
+                                Monday:
+                                  type: string
+                                Tuesday:
+                                  type: string
+                                Wednesday:
+                                  type: string
+                                Thursday:
+                                  type: string
+                                Friday:
+                                  type: string
+                                Saturday:
+                                  type: string
+                                Sunday:
+                                  type: string
+                        cuisines:
+                          type: array
+                          items:
+                            type: string
+                        food_photos:
+                          type: array
+                          items:
+                            type: string
+                        logo_photos:
+                          type: array
+                          items:
+                            type: string
+                        store_photos:
+                          type: array
+                          items:
+                            type: string
+                        dollar_signs:
+                          type: integer
+                        pickup_enabled:
+                          type: boolean
+                        delivery_enabled:
+                          type: boolean
+                        is_open:
+                          type: boolean
+                        offers_first_party_delivery:
+                          type: boolean
+                        offers_third_party_delivery:
+                          type: boolean
+                        miles:
+                          type: number
+                        weighted_rating_value:
+                          type: number
+                        aggregated_rating_count:
+                          type: integer
+              examples:
+                Example 1:
+                  value:
+                    restaurants:
+                    - _id: a8b49c84-a92d-4f06-802e-467af49feaf0
+                      name: South Beach Cafe
+                      phone_number: 14159741115
+                      address:
+                        street_addr: 800 The Embarcadero
+                        city: San Francisco
+                        state: CA
+                        zipcode: '94107'
+                        country: US
+                        lat: 37.78129959
+                        lon: -122.38869477
+                        street_addr_2: ''
+                        latitude: 37.78129959
+                        longitude: -122.38869477
+                      type: restaurant
+                      description: Italian, Pizza
+                      local_hours:
+                        operational:
+                          Monday: 07:00AM - 09:00PM
+                          Tuesday: 07:00AM - 09:00PM
+                          Wednesday: 07:00AM - 09:00PM
+                          Thursday: 07:00AM - 09:00PM
+                          Friday: 07:00AM - 09:00PM
+                          Saturday: 08:00AM - 09:00PM
+                          Sunday: 08:00AM - 09:00PM
+                        delivery:
+                          Monday: 07:00AM - 09:00PM
+                          Tuesday: 07:00AM - 09:00PM
+                          Wednesday: 07:00AM - 09:00PM
+                          Thursday: 07:00AM - 09:00PM
+                          Friday: 07:00AM - 09:00PM
+                          Saturday: 08:00AM - 09:00PM
+                          Sunday: 08:00AM - 09:00PM
+                        pickup:
+                          Monday: 07:00AM - 09:00PM
+                          Tuesday: 07:00AM - 09:00PM
+                          Wednesday: 07:00AM - 09:00PM
+                          Thursday: 07:00AM - 09:00PM
+                          Friday: 07:00AM - 09:00PM
+                          Saturday: 08:00AM - 09:00PM
+                          Sunday: 08:00AM - 09:00PM
+                        dine_in:
+                          Monday: 07:00AM - 09:00PM
+                          Tuesday: 07:00AM - 09:00PM
+                          Wednesday: 07:00AM - 09:00PM
+                          Thursday: 07:00AM - 09:00PM
+                          Friday: 07:00AM - 09:00PM
+                          Saturday: 08:00AM - 09:00PM
+                          Sunday: 08:00AM - 09:00PM
+                      cuisines:
+                      - Breakfast
+                      - Dinner
+                      - Italian
+                      - Lunch
+                      - Pickup
+                      - Pizza
+                      - Salads
+                      - Sandwich
+                      - Sandwiches
+                      - Takeout
+                      food_photos:
+                      - https://cdn-img.mealme.ai/f3d0e396f1b552927092bafa65ef2cc4e8b57c22/68747470733a2f2f6d656469612d63646e2e677275626875622e636f6d2f696d6167652f75706c6f61642f62657462706b3570747a37756a306279616b6a672e6a7067
+                      logo_photos:
+                      - https://cdn-img.mealme.ai/25b450d4e72eea47dccd744c326e49e23343bd0d/68747470733a2f2f7265732e636c6f7564696e6172792e636f6d2f677275626875622f696d6167652f75706c6f61642f76313531383830323236382f63686a6a356173716f6766696e726f7671376f732e706e67
+                      store_photos: []
+                      dollar_signs: 2
+                      pickup_enabled: true
+                      delivery_enabled: true
+                      is_open: false
+                      offers_first_party_delivery: false
+                      offers_third_party_delivery: true
+                      miles: 0.2508434381960197
+                      weighted_rating_value: 4.725654450261779
+                      aggregated_rating_count: 191
+        '401':
+          description: Unauthorized
+        '403':
+          description: Forbidden
+        '404':
+          description: Not Found
+      parameters:
+      - name: query
+        description: The search query.
+        schema:
+          type: string
+          example: beach cafe
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: beach cafe
+      - name: lat
+        description: The latitude of the user's location.
+        schema:
+          type: number
+          example: 37.7786357
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: 37.7786357
+      - name: lng
+        description: The longitude of the user's location.".
+        schema:
+          type: number
+          example: -122.3918135
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: -122.3918135
+      - name: distance
+        description: The distance around the location in miles.
+        schema:
+          type: number
+          example: 2
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: 2
+      - name: budget
+        description: The user's budget for a meal in USD.
+        schema:
+          type: number
+          example: 20
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: 20
+      - name: cuisine
+        description: The cuisine of the restaurant.
+        schema:
+          type: string
+          example: italian
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: italian
+      - name: min-rating
+        description: The minimum rating of the restaurant between 0 and 5.
+        schema:
+          type: number
+          example: 4.4
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: 4.4
+      - name: is-open
+        description: Whether the restaurant must be open at the time of search.
+        schema:
+          type: boolean
+          example: true
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: true
+      - name: sort
+        description: How to sort the results, one of the following 'cheapest', 'fastest', 'rating', 'distance' or the default 'relevance'.
+        schema:
+          type: string
+          example: distance
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: distance
+      - name: page
+        description: The page number of results.
+        schema:
+          type: number
+          example: 0
+        required: false
+        style: form
+        explode: false
+        in: query
+        example: 0
+      externalDocs:
+        description: Read entire docs
+        url: https://spoonacular.com/food-api/docs#Search-Restaurants
+      summary: Search Restaurants
+      description: Search through thousands of restaurants (in North America) by location, cuisine, budget, and more.
+      operationId: searchRestaurants
+      deprecated: false
+      tags:
+      - Menu Items
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  parameters:
+    query:
+      name: query
+      in: query
+      required: true
+      schema:
+        type: string
+        example: burger
+      description: The (natural language) search query.
+    number:
+      name: number
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 10
+        example: 10
+      description: The maximum number of items to return (between 1 and 100). Defaults to 10.
+    defaultCss:
+      name: defaultCss
+      in: query
+      required: false
+      schema:
+        type: boolean
+        default: true
+        example: false
+      description: Whether the default CSS should be added to the response.
+    offset:
+      name: offset
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+        maximum: 900
+      description: The number of results to skip (between 0 and 900).
+  schemas:
+    MenuItem:
+      description: ''
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 716429
+        title:
+          type: string
+          minLength: 1
+          example: example
+        restaurantChain:
+          type: string
+          minLength: 1
+          example: example
+        nutrition:
+          type: object
+          required:
+          - nutrients
+          - caloricBreakdown
+          properties:
+            nutrients:
+              type: array
+              uniqueItems: true
+              minItems: 0
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    minLength: 1
+                  amount:
+                    type: number
+                  unit:
+                    type: string
+                    minLength: 1
+                  percentOfDailyNeeds:
+                    type: number
+                required:
+                - name
+                - amount
+                - unit
+                - percentOfDailyNeeds
+            caloricBreakdown:
+              type: object
+              required:
+              - percentProtein
+              - percentFat
+              - percentCarbs
+              properties:
+                percentProtein:
+                  type: number
+                  example: 1.0
+                percentFat:
+                  type: number
+                  example: 1.0
+                percentCarbs:
+                  type: number
+                  example: 1.0
+        badges:
+          type: array
+          items:
+            type: string
+        breadcrumbs:
+          type: array
+          items:
+            type: string
+        generatedText:
+          type: string
+          nullable: true
+          example: example
+        imageType:
+          type: string
+          minLength: 1
+          example: example
+        likes:
+          type: integer
+          example: 1
+        servings:
+          type: object
+          required:
+          - number
+          - size
+          - unit
+          properties:
+            number:
+              type: number
+              example: 10
+            size:
+              type: number
+              nullable: true
+              example: 1.0
+            unit:
+              type: string
+              nullable: true
+              minLength: 1
+              example: metric
+        price:
+          type: number
+          nullable: true
+          example: 1.0
+        spoonacularScore:
+          type: number
+          nullable: true
+          example: 1.0
+      required:
+      - id
+      - title
+      - restaurantChain
+      - price
+      - spoonacularScore
+      example:
+        id: 424571
+        title: Bacon King Burger
+        restaurantChain: Burger King
+        nutrition:
+          nutrients:
+          - name: Fat
+            amount: 69
+            unit: g
+            percentOfDailyNeeds: 30
+          - name: Protein
+            amount: 57
+            unit: g
+            percentOfDailyNeeds: 35
+          - name: Calories
+            amount: 1040
+            unit: cal
+            percentOfDailyNeeds: 50
+          - name: Carbohydrates
+            amount: 48
+            unit: g
+            percentOfDailyNeeds: 35
+          caloricBreakdown:
+            percentProtein: 35
+            percentFat: 30
+            percentCarbs: 35
+        badges: []
+        breadcrumbs:
+        - burger
+        - main course
+        - food product category
+        generatedText: ''
+        imageType: png
+        likes: 0
+        servings:
+          number: 1
+          size: 2
+          unit: oz
+        price: 2.35
+        spoonacularScore: 12.5
+  securitySchemes:
+    apiKeyScheme:
+      type: apiKey
+      name: x-api-key
+      in: header
+externalDocs:
+  description: The official documentation.
+  url: https://spoonacular.com/food-api/docs
