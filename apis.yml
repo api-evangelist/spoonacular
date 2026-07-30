@@ -1,4 +1,18 @@
 aid: spoonacular
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/spoonacular.png
 name: Spoonacular
 description: >-
   The Spoonacular Recipe and Food API provides programmatic access to thousands of recipes, thousands of ingredients,
@@ -20,64 +34,331 @@ tags:
   - Meal Planning
   - Public APIs
 apis:
-  - name: Spoonacular
-    description: >-
-      The Spoonacular Recipe and Food API — recipes, ingredients, grocery products, menu items, meal planning, wine
-      pairing, and food classification across 97 endpoints. OpenAPI 3 sourced from the official ddsky client generator
-      spec. API key auth via the x-api-key header.
-    humanURL: https://spoonacular.com/food-api
-    baseURL: https://api.spoonacular.com
-    tags:
-      - Food And Drink
-      - Recipes
-      - Nutrition
-      - Meal Planning
-    properties:
-      - type: Documentation
-        url: https://spoonacular.com/food-api/docs
-      - type: APIReference
-        url: https://spoonacular.com/food-api/docs
-      - type: OpenAPI
-        url: openapi/spoonacular-openapi.yml
-      - type: Authentication
-        url: https://spoonacular.com/food-api/docs#Authentication
-      - type: GettingStarted
-        url: https://spoonacular.com/food-api/docs#Getting-Started
-      - type: SDKs
-        title: Python SDK
-        url: https://github.com/ddsky/spoonacular-api-clients/tree/master/python
-      - type: SDKs
-        title: JavaScript SDK
-        url: https://github.com/ddsky/spoonacular-api-clients/tree/master/javascript
-      - type: SDKs
-        title: Java SDK
-        url: https://github.com/ddsky/spoonacular-api-clients/tree/master/java
-      - type: SDKs
-        title: PHP SDK
-        url: https://github.com/ddsky/spoonacular-api-clients/tree/master/php
-      - type: SDKs
-        title: Ruby SDK
-        url: https://github.com/ddsky/spoonacular-api-clients/tree/master/ruby
-      - type: SDKs
-        title: Go SDK
-        url: https://github.com/ddsky/spoonacular-api-clients/tree/master/go
-      - type: JSONSchema
-        url: json-schema/spoonacular-recipe-information-schema.json
-      - type: JSONSchema
-        url: json-schema/spoonacular-search-result-schema.json
-      - type: JSONSchema
-        url: json-schema/spoonacular-ingredient-information-schema.json
-      - type: JSONSchema
-        url: json-schema/spoonacular-product-information-schema.json
-      - type: JSONSchema
-        url: json-schema/spoonacular-menu-item-schema.json
-      - type: JSONSchema
-        url: json-schema/spoonacular-comparable-product-schema.json
-      - type: JSONSchema
-        url: json-schema/spoonacular-ingredient-basics-schema.json
-      - type: JSONSchema
-        url: json-schema/spoonacular-taste-information-schema.json
+- aid: spoonacular:spoonacular-ingredients-api
+  name: Spoonacular Ingredients API
+  description: The Ingredients API from Spoonacular — 9 operation(s) for ingredients.
+  humanURL: https://spoonacular.com/food-api
+  baseURL: https://api.spoonacular.com
+  tags:
+  - Ingredients
+  properties:
+  - type: OpenAPI
+    url: openapi/spoonacular-ingredients-api-openapi.yml
+  - type: Documentation
+    url: https://spoonacular.com/food-api/docs
+  - type: APIReference
+    url: https://spoonacular.com/food-api/docs
+  - type: Authentication
+    url: https://spoonacular.com/food-api/docs#Authentication
+  - type: GettingStarted
+    url: https://spoonacular.com/food-api/docs#Getting-Started
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/python
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/javascript
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/java
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/php
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/ruby
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/go
+  - type: JSONSchema
+    url: json-schema/spoonacular-recipe-information-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-search-result-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-ingredient-information-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-product-information-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-menu-item-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-comparable-product-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-ingredient-basics-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-taste-information-schema.json
+- aid: spoonacular:spoonacular-meal-planning-api
+  name: Spoonacular Meal Planning API
+  description: The Meal Planning API from Spoonacular — 12 operation(s) for meal planning.
+  humanURL: https://spoonacular.com/food-api
+  baseURL: https://api.spoonacular.com
+  tags:
+  - Meal Planning
+  properties:
+  - type: OpenAPI
+    url: openapi/spoonacular-meal-planning-api-openapi.yml
+  - type: Documentation
+    url: https://spoonacular.com/food-api/docs
+  - type: APIReference
+    url: https://spoonacular.com/food-api/docs
+  - type: Authentication
+    url: https://spoonacular.com/food-api/docs#Authentication
+  - type: GettingStarted
+    url: https://spoonacular.com/food-api/docs#Getting-Started
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/python
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/javascript
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/java
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/php
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/ruby
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/go
+  - type: JSONSchema
+    url: json-schema/spoonacular-recipe-information-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-search-result-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-ingredient-information-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-product-information-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-menu-item-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-comparable-product-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-ingredient-basics-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-taste-information-schema.json
+- aid: spoonacular:spoonacular-menu-items-api
+  name: Spoonacular Menu Items API
+  description: The Menu Items API from Spoonacular — 8 operation(s) for menu items.
+  humanURL: https://spoonacular.com/food-api
+  baseURL: https://api.spoonacular.com
+  tags:
+  - Menu Items
+  properties:
+  - type: OpenAPI
+    url: openapi/spoonacular-menu-items-api-openapi.yml
+  - type: Documentation
+    url: https://spoonacular.com/food-api/docs
+  - type: APIReference
+    url: https://spoonacular.com/food-api/docs
+  - type: Authentication
+    url: https://spoonacular.com/food-api/docs#Authentication
+  - type: GettingStarted
+    url: https://spoonacular.com/food-api/docs#Getting-Started
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/python
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/javascript
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/java
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/php
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/ruby
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/go
+  - type: JSONSchema
+    url: json-schema/spoonacular-recipe-information-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-search-result-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-ingredient-information-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-product-information-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-menu-item-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-comparable-product-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-ingredient-basics-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-taste-information-schema.json
+- aid: spoonacular:spoonacular-misc-api
+  name: Spoonacular Misc API
+  description: The Misc API from Spoonacular — 11 operation(s) for misc.
+  humanURL: https://spoonacular.com/food-api
+  baseURL: https://api.spoonacular.com
+  tags:
+  - Misc
+  properties:
+  - type: OpenAPI
+    url: openapi/spoonacular-misc-api-openapi.yml
+  - type: Documentation
+    url: https://spoonacular.com/food-api/docs
+  - type: APIReference
+    url: https://spoonacular.com/food-api/docs
+  - type: Authentication
+    url: https://spoonacular.com/food-api/docs#Authentication
+  - type: GettingStarted
+    url: https://spoonacular.com/food-api/docs#Getting-Started
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/python
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/javascript
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/java
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/php
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/ruby
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/go
+  - type: JSONSchema
+    url: json-schema/spoonacular-recipe-information-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-search-result-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-ingredient-information-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-product-information-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-menu-item-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-comparable-product-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-ingredient-basics-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-taste-information-schema.json
+- aid: spoonacular:spoonacular-products-api
+  name: Spoonacular Products API
+  description: The Products API from Spoonacular — 11 operation(s) for products.
+  humanURL: https://spoonacular.com/food-api
+  baseURL: https://api.spoonacular.com
+  tags:
+  - Products
+  properties:
+  - type: OpenAPI
+    url: openapi/spoonacular-products-api-openapi.yml
+  - type: Documentation
+    url: https://spoonacular.com/food-api/docs
+  - type: APIReference
+    url: https://spoonacular.com/food-api/docs
+  - type: Authentication
+    url: https://spoonacular.com/food-api/docs#Authentication
+  - type: GettingStarted
+    url: https://spoonacular.com/food-api/docs#Getting-Started
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/python
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/javascript
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/java
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/php
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/ruby
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/go
+  - type: JSONSchema
+    url: json-schema/spoonacular-recipe-information-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-search-result-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-ingredient-information-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-product-information-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-menu-item-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-comparable-product-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-ingredient-basics-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-taste-information-schema.json
+- aid: spoonacular:spoonacular-recipes-api
+  name: Spoonacular Recipes API
+  description: The Recipes API from Spoonacular — 42 operation(s) for recipes.
+  humanURL: https://spoonacular.com/food-api
+  baseURL: https://api.spoonacular.com
+  tags:
+  - Recipes
+  properties:
+  - type: OpenAPI
+    url: openapi/spoonacular-recipes-api-openapi.yml
+  - type: Documentation
+    url: https://spoonacular.com/food-api/docs
+  - type: APIReference
+    url: https://spoonacular.com/food-api/docs
+  - type: Authentication
+    url: https://spoonacular.com/food-api/docs#Authentication
+  - type: GettingStarted
+    url: https://spoonacular.com/food-api/docs#Getting-Started
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/python
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/javascript
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/java
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/php
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/ruby
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/go
+  - type: JSONSchema
+    url: json-schema/spoonacular-recipe-information-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-search-result-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-ingredient-information-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-product-information-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-menu-item-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-comparable-product-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-ingredient-basics-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-taste-information-schema.json
+- aid: spoonacular:spoonacular-wine-api
+  name: Spoonacular Wine API
+  description: The Wine API from Spoonacular — 4 operation(s) for wine.
+  humanURL: https://spoonacular.com/food-api
+  baseURL: https://api.spoonacular.com
+  tags:
+  - Wine
+  properties:
+  - type: OpenAPI
+    url: openapi/spoonacular-wine-api-openapi.yml
+  - type: Documentation
+    url: https://spoonacular.com/food-api/docs
+  - type: APIReference
+    url: https://spoonacular.com/food-api/docs
+  - type: Authentication
+    url: https://spoonacular.com/food-api/docs#Authentication
+  - type: GettingStarted
+    url: https://spoonacular.com/food-api/docs#Getting-Started
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/python
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/javascript
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/java
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/php
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/ruby
+  - type: SDKs
+    url: https://github.com/ddsky/spoonacular-api-clients/tree/master/go
+  - type: JSONSchema
+    url: json-schema/spoonacular-recipe-information-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-search-result-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-ingredient-information-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-product-information-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-menu-item-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-comparable-product-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-ingredient-basics-schema.json
+  - type: JSONSchema
+    url: json-schema/spoonacular-taste-information-schema.json
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/spoonacular/overview
   - type: AgenticAccess
     url: agentic-access/spoonacular-agentic-access.yml
   - type: DomainSecurity
