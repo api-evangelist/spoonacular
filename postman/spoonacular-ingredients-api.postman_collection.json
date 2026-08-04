@@ -1,0 +1,2961 @@
+{
+  "info": {
+    "_postman_id": "3cb9e0c8-e80a-4d8d-a9d6-3a32d5c6a13f",
+    "name": "spoonacular Ingredients API",
+    "description": "The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.\n\nSpecial diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.\n\nContact Support:\n Name: David Urbansky\n Email: mail@spoonacular.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:59:56.000Z",
+    "updatedAt": "2026-07-28T02:59:56.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-3cb9e0c8-e80a-4d8d-a9d6-3a32d5c6a13f"
+  },
+  "item": [
+    {
+      "name": "recipes",
+      "item": [
+        {
+          "name": "{id}",
+          "item": [
+            {
+              "name": "ingredientWidget.png",
+              "item": [
+                {
+                  "name": "Ingredients by ID Image",
+                  "id": "7f0ec72e-ef35-4fd2-8610-7f2a45124cc8",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "image/png"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/recipes/:id/ingredientWidget.png?measure=us",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "recipes",
+                        ":id",
+                        "ingredientWidget.png"
+                      ],
+                      "query": [
+                        {
+                          "description": "Whether the the measures should be 'us' or 'metric'.",
+                          "key": "measure",
+                          "value": "us"
+                        }
+                      ],
+                      "variable": [
+                        {
+                          "id": "5806e49c-1f47-499a-9fe6-d95f390041d2",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) The recipe id."
+                        }
+                      ]
+                    },
+                    "description": "Visualize a recipe's ingredient list."
+                  },
+                  "response": [
+                    {
+                      "id": "b682ed9e-786b-40fd-b906-d1203529ff29",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "image/png"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/recipes/:id/ingredientWidget.png?measure=us",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "recipes",
+                            ":id",
+                            "ingredientWidget.png"
+                          ],
+                          "query": [
+                            {
+                              "description": "Whether the the measures should be 'us' or 'metric'.",
+                              "key": "measure",
+                              "value": "us"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "image/png"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "<binary>",
+                      "createdAt": "2026-07-28T02:59:56.000Z",
+                      "updatedAt": "2026-07-28T02:59:56.000Z",
+                      "uid": "35240-b682ed9e-786b-40fd-b906-d1203529ff29"
+                    },
+                    {
+                      "id": "1af257b9-4fee-4072-a076-d25592d0d3f7",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/recipes/:id/ingredientWidget.png?measure=us",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "recipes",
+                            ":id",
+                            "ingredientWidget.png"
+                          ],
+                          "query": [
+                            {
+                              "description": "Whether the the measures should be 'us' or 'metric'.",
+                              "key": "measure",
+                              "value": "us"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:59:56.000Z",
+                      "updatedAt": "2026-07-28T02:59:56.000Z",
+                      "uid": "35240-1af257b9-4fee-4072-a076-d25592d0d3f7"
+                    },
+                    {
+                      "id": "7f2a9bf8-ff60-4083-9523-4a27a3d42d56",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/recipes/:id/ingredientWidget.png?measure=us",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "recipes",
+                            ":id",
+                            "ingredientWidget.png"
+                          ],
+                          "query": [
+                            {
+                              "description": "Whether the the measures should be 'us' or 'metric'.",
+                              "key": "measure",
+                              "value": "us"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:59:56.000Z",
+                      "updatedAt": "2026-07-28T02:59:56.000Z",
+                      "uid": "35240-7f2a9bf8-ff60-4083-9523-4a27a3d42d56"
+                    },
+                    {
+                      "id": "9f7b4f20-21d7-4fbd-b95a-fe3e3dc63a97",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/recipes/:id/ingredientWidget.png?measure=us",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "recipes",
+                            ":id",
+                            "ingredientWidget.png"
+                          ],
+                          "query": [
+                            {
+                              "description": "Whether the the measures should be 'us' or 'metric'.",
+                              "key": "measure",
+                              "value": "us"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:59:56.000Z",
+                      "updatedAt": "2026-07-28T02:59:56.000Z",
+                      "uid": "35240-9f7b4f20-21d7-4fbd-b95a-fe3e3dc63a97"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:59:56.000Z",
+                  "updatedAt": "2026-07-28T02:59:56.000Z",
+                  "uid": "35240-7f0ec72e-ef35-4fd2-8610-7f2a45124cc8"
+                }
+              ],
+              "id": "bc124e54-2115-4219-8306-7db5f3bdc546",
+              "createdAt": "2026-07-28T02:59:56.000Z",
+              "updatedAt": "2026-07-28T02:59:56.000Z",
+              "uid": "35240-bc124e54-2115-4219-8306-7db5f3bdc546"
+            }
+          ],
+          "id": "4ea19d5e-fddf-4b97-a419-9b8552aa7001",
+          "createdAt": "2026-07-28T02:59:56.000Z",
+          "updatedAt": "2026-07-28T02:59:56.000Z",
+          "uid": "35240-4ea19d5e-fddf-4b97-a419-9b8552aa7001"
+        },
+        {
+          "name": "visualizeIngredients",
+          "item": [
+            {
+              "name": "Ingredients Widget",
+              "id": "7ad45030-aa70-43fb-9a23-c7ff2ab09fab",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/html"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) The ingredient list of the recipe, one ingredient per line (separate lines with \\n).",
+                      "key": "ingredientList",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The number of servings.",
+                      "key": "servings",
+                      "value": "<number>"
+                    },
+                    {
+                      "description": "The original system of measurement, either 'metric' or 'us'.",
+                      "key": "measure",
+                      "value": "us"
+                    },
+                    {
+                      "description": "How to visualize the ingredients, either 'grid' or 'list'.",
+                      "key": "view",
+                      "value": "grid"
+                    },
+                    {
+                      "description": "Whether the default CSS should be added to the response.",
+                      "key": "defaultCss",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Whether to show a backlink to spoonacular. If set false, this call counts against your quota.",
+                      "key": "showBacklink",
+                      "value": "<boolean>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/recipes/visualizeIngredients?language=en",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "recipes",
+                    "visualizeIngredients"
+                  ],
+                  "query": [
+                    {
+                      "description": "The language of the input. Either 'en' or 'de'.",
+                      "key": "language",
+                      "value": "en"
+                    }
+                  ]
+                },
+                "description": "Visualize ingredients of a recipe. You can play around with that endpoint!"
+              },
+              "response": [
+                {
+                  "id": "270ec622-e649-44df-be7e-c2f5ee933c42",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "text/html"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) The ingredient list of the recipe, one ingredient per line (separate lines with \\n).",
+                          "key": "ingredientList",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The number of servings.",
+                          "key": "servings",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The original system of measurement, either 'metric' or 'us'.",
+                          "key": "measure",
+                          "value": "us"
+                        },
+                        {
+                          "description": "How to visualize the ingredients, either 'grid' or 'list'.",
+                          "key": "view",
+                          "value": "grid"
+                        },
+                        {
+                          "description": "Whether the default CSS should be added to the response.",
+                          "key": "defaultCss",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Whether to show a backlink to spoonacular. If set false, this call counts against your quota.",
+                          "key": "showBacklink",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/recipes/visualizeIngredients?language=en",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "recipes",
+                        "visualizeIngredients"
+                      ],
+                      "query": [
+                        {
+                          "description": "The language of the input. Either 'en' or 'de'.",
+                          "key": "language",
+                          "value": "en"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "text/html"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "<string>",
+                  "createdAt": "2026-07-28T02:59:56.000Z",
+                  "updatedAt": "2026-07-28T02:59:56.000Z",
+                  "uid": "35240-270ec622-e649-44df-be7e-c2f5ee933c42"
+                },
+                {
+                  "id": "8275003c-a140-4599-a2ec-ce5cd925ab40",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) The ingredient list of the recipe, one ingredient per line (separate lines with \\n).",
+                          "key": "ingredientList",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The number of servings.",
+                          "key": "servings",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The original system of measurement, either 'metric' or 'us'.",
+                          "key": "measure",
+                          "value": "us"
+                        },
+                        {
+                          "description": "How to visualize the ingredients, either 'grid' or 'list'.",
+                          "key": "view",
+                          "value": "grid"
+                        },
+                        {
+                          "description": "Whether the default CSS should be added to the response.",
+                          "key": "defaultCss",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Whether to show a backlink to spoonacular. If set false, this call counts against your quota.",
+                          "key": "showBacklink",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/recipes/visualizeIngredients?language=en",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "recipes",
+                        "visualizeIngredients"
+                      ],
+                      "query": [
+                        {
+                          "description": "The language of the input. Either 'en' or 'de'.",
+                          "key": "language",
+                          "value": "en"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:59:56.000Z",
+                  "updatedAt": "2026-07-28T02:59:56.000Z",
+                  "uid": "35240-8275003c-a140-4599-a2ec-ce5cd925ab40"
+                },
+                {
+                  "id": "a87f8d9a-d97b-4ba0-ab17-553e4240cdf9",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) The ingredient list of the recipe, one ingredient per line (separate lines with \\n).",
+                          "key": "ingredientList",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The number of servings.",
+                          "key": "servings",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The original system of measurement, either 'metric' or 'us'.",
+                          "key": "measure",
+                          "value": "us"
+                        },
+                        {
+                          "description": "How to visualize the ingredients, either 'grid' or 'list'.",
+                          "key": "view",
+                          "value": "grid"
+                        },
+                        {
+                          "description": "Whether the default CSS should be added to the response.",
+                          "key": "defaultCss",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Whether to show a backlink to spoonacular. If set false, this call counts against your quota.",
+                          "key": "showBacklink",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/recipes/visualizeIngredients?language=en",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "recipes",
+                        "visualizeIngredients"
+                      ],
+                      "query": [
+                        {
+                          "description": "The language of the input. Either 'en' or 'de'.",
+                          "key": "language",
+                          "value": "en"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:59:56.000Z",
+                  "updatedAt": "2026-07-28T02:59:56.000Z",
+                  "uid": "35240-a87f8d9a-d97b-4ba0-ab17-553e4240cdf9"
+                },
+                {
+                  "id": "04f9f9a8-751b-4dda-a8cf-4427521b4f7a",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) The ingredient list of the recipe, one ingredient per line (separate lines with \\n).",
+                          "key": "ingredientList",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The number of servings.",
+                          "key": "servings",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The original system of measurement, either 'metric' or 'us'.",
+                          "key": "measure",
+                          "value": "us"
+                        },
+                        {
+                          "description": "How to visualize the ingredients, either 'grid' or 'list'.",
+                          "key": "view",
+                          "value": "grid"
+                        },
+                        {
+                          "description": "Whether the default CSS should be added to the response.",
+                          "key": "defaultCss",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "Whether to show a backlink to spoonacular. If set false, this call counts against your quota.",
+                          "key": "showBacklink",
+                          "value": "<boolean>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/recipes/visualizeIngredients?language=en",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "recipes",
+                        "visualizeIngredients"
+                      ],
+                      "query": [
+                        {
+                          "description": "The language of the input. Either 'en' or 'de'.",
+                          "key": "language",
+                          "value": "en"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T02:59:56.000Z",
+                  "updatedAt": "2026-07-28T02:59:56.000Z",
+                  "uid": "35240-04f9f9a8-751b-4dda-a8cf-4427521b4f7a"
+                }
+              ],
+              "createdAt": "2026-07-28T02:59:56.000Z",
+              "updatedAt": "2026-07-28T02:59:56.000Z",
+              "uid": "35240-7ad45030-aa70-43fb-9a23-c7ff2ab09fab"
+            }
+          ],
+          "id": "b760e176-40e8-4f0b-b652-3fa9072a4b7f",
+          "createdAt": "2026-07-28T02:59:56.000Z",
+          "updatedAt": "2026-07-28T02:59:56.000Z",
+          "uid": "35240-b760e176-40e8-4f0b-b652-3fa9072a4b7f"
+        }
+      ],
+      "id": "24770ac8-60ae-40aa-b043-615e266371f0",
+      "createdAt": "2026-07-28T02:59:56.000Z",
+      "updatedAt": "2026-07-28T02:59:56.000Z",
+      "uid": "35240-24770ac8-60ae-40aa-b043-615e266371f0"
+    },
+    {
+      "name": "food",
+      "item": [
+        {
+          "name": "ingredients",
+          "item": [
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "information",
+                  "item": [
+                    {
+                      "name": "Get Ingredient Information",
+                      "id": "4a6e61a2-f3f7-44fe-ad11-ae1d9e20c00f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/ingredients/:id/information?amount=<number>&unit=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "ingredients",
+                            ":id",
+                            "information"
+                          ],
+                          "query": [
+                            {
+                              "description": "The amount of this ingredient.",
+                              "key": "amount",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The unit for the given amount.",
+                              "key": "unit",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "2dac4a61-7fd6-4ca0-822a-e99421bb3d07",
+                              "key": "id",
+                              "value": "<integer>",
+                              "description": "(Required) The ingredient id."
+                            }
+                          ]
+                        },
+                        "description": "Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle."
+                      },
+                      "response": [
+                        {
+                          "id": "e38e6609-6f3d-4587-9c6c-ba1495e3e5fc",
+                          "name": "Success",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/food/ingredients/:id/information?amount=<number>&unit=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "food",
+                                "ingredients",
+                                ":id",
+                                "information"
+                              ],
+                              "query": [
+                                {
+                                  "description": "The amount of this ingredient.",
+                                  "key": "amount",
+                                  "value": "<number>"
+                                },
+                                {
+                                  "description": "The unit for the given amount.",
+                                  "key": "unit",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"id\": \"<integer>\",\n  \"original\": \"<string>\",\n  \"originalName\": \"<string>\",\n  \"name\": \"<string>\",\n  \"amount\": \"<number>\",\n  \"unit\": \"<string>\",\n  \"unitShort\": \"<string>\",\n  \"unitLong\": \"<string>\",\n  \"possibleUnits\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"estimatedCost\": {\n    \"value\": \"<number>\",\n    \"unit\": \"<string>\"\n  },\n  \"consistency\": \"<string>\",\n  \"aisle\": \"<string>\",\n  \"image\": \"<string>\",\n  \"meta\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"shoppingListUnits\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"nutrition\": {\n    \"nutrients\": [\n      {\n        \"name\": \"<string>\",\n        \"amount\": \"<number>\",\n        \"unit\": \"<string>\",\n        \"percentOfDailyNeeds\": \"<number>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"amount\": \"<number>\",\n        \"unit\": \"<string>\",\n        \"percentOfDailyNeeds\": \"<number>\"\n      }\n    ],\n    \"properties\": [\n      {\n        \"name\": \"<string>\",\n        \"amount\": \"<number>\",\n        \"unit\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"amount\": \"<number>\",\n        \"unit\": \"<string>\"\n      }\n    ],\n    \"caloricBreakdown\": {\n      \"percentProtein\": \"<number>\",\n      \"percentFat\": \"<number>\",\n      \"percentCarbs\": \"<number>\"\n    },\n    \"weightPerServing\": {\n      \"amount\": \"<number>\",\n      \"unit\": \"<string>\"\n    }\n  },\n  \"categoryPath\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                          "createdAt": "2026-07-28T02:59:56.000Z",
+                          "updatedAt": "2026-07-28T02:59:56.000Z",
+                          "uid": "35240-e38e6609-6f3d-4587-9c6c-ba1495e3e5fc"
+                        },
+                        {
+                          "id": "7e2e0cda-3210-4ba2-8ee3-b7372a49f600",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/food/ingredients/:id/information?amount=<number>&unit=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "food",
+                                "ingredients",
+                                ":id",
+                                "information"
+                              ],
+                              "query": [
+                                {
+                                  "description": "The amount of this ingredient.",
+                                  "key": "amount",
+                                  "value": "<number>"
+                                },
+                                {
+                                  "description": "The unit for the given amount.",
+                                  "key": "unit",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:59:56.000Z",
+                          "updatedAt": "2026-07-28T02:59:56.000Z",
+                          "uid": "35240-7e2e0cda-3210-4ba2-8ee3-b7372a49f600"
+                        },
+                        {
+                          "id": "b289ade5-bb18-4a0f-8e8c-07d6038096a2",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/food/ingredients/:id/information?amount=<number>&unit=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "food",
+                                "ingredients",
+                                ":id",
+                                "information"
+                              ],
+                              "query": [
+                                {
+                                  "description": "The amount of this ingredient.",
+                                  "key": "amount",
+                                  "value": "<number>"
+                                },
+                                {
+                                  "description": "The unit for the given amount.",
+                                  "key": "unit",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:59:56.000Z",
+                          "updatedAt": "2026-07-28T02:59:56.000Z",
+                          "uid": "35240-b289ade5-bb18-4a0f-8e8c-07d6038096a2"
+                        },
+                        {
+                          "id": "739fb7f8-9080-4a7c-9f7a-995a5900253e",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/food/ingredients/:id/information?amount=<number>&unit=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "food",
+                                "ingredients",
+                                ":id",
+                                "information"
+                              ],
+                              "query": [
+                                {
+                                  "description": "The amount of this ingredient.",
+                                  "key": "amount",
+                                  "value": "<number>"
+                                },
+                                {
+                                  "description": "The unit for the given amount.",
+                                  "key": "unit",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:59:56.000Z",
+                          "updatedAt": "2026-07-28T02:59:56.000Z",
+                          "uid": "35240-739fb7f8-9080-4a7c-9f7a-995a5900253e"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:59:56.000Z",
+                      "updatedAt": "2026-07-28T02:59:56.000Z",
+                      "uid": "35240-4a6e61a2-f3f7-44fe-ad11-ae1d9e20c00f"
+                    }
+                  ],
+                  "id": "8630d52f-ba38-4f91-a689-14ea6437443d",
+                  "createdAt": "2026-07-28T02:59:56.000Z",
+                  "updatedAt": "2026-07-28T02:59:56.000Z",
+                  "uid": "35240-8630d52f-ba38-4f91-a689-14ea6437443d"
+                },
+                {
+                  "name": "amount",
+                  "item": [
+                    {
+                      "name": "Compute Ingredient Amount",
+                      "id": "ed3bcd2c-09aa-4e60-9c9f-832e82b47573",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/ingredients/:id/amount?nutrient=<string>&target=<integer>&unit=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "ingredients",
+                            ":id",
+                            "amount"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The target nutrient. See a list of supported nutrients.",
+                              "key": "nutrient",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The target number of the given nutrient.",
+                              "key": "target",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "The target unit.",
+                              "key": "unit",
+                              "value": "<string>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "2e0ef0cd-8009-4e0c-a875-777620c11535",
+                              "key": "id",
+                              "value": "<integer>",
+                              "description": "(Required) The id of the ingredient you want the amount for."
+                            }
+                          ]
+                        },
+                        "description": "Compute the amount you need of a certain ingredient for a certain nutritional goal. For example, how much pineapple do you have to eat to get 10 grams of protein?"
+                      },
+                      "response": [
+                        {
+                          "id": "1fcb5771-d649-47f8-9d6c-8fb83705d67d",
+                          "name": "Success",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/food/ingredients/:id/amount?nutrient=<string>&target=<integer>&unit=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "food",
+                                "ingredients",
+                                ":id",
+                                "amount"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The target nutrient. See a list of supported nutrients.",
+                                  "key": "nutrient",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) The target number of the given nutrient.",
+                                  "key": "target",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "The target unit.",
+                                  "key": "unit",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"amount\": \"<number>\",\n  \"unit\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:59:56.000Z",
+                          "updatedAt": "2026-07-28T02:59:56.000Z",
+                          "uid": "35240-1fcb5771-d649-47f8-9d6c-8fb83705d67d"
+                        },
+                        {
+                          "id": "db8bb962-8e3c-4ca8-999f-59965cee3c07",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/food/ingredients/:id/amount?nutrient=<string>&target=<integer>&unit=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "food",
+                                "ingredients",
+                                ":id",
+                                "amount"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The target nutrient. See a list of supported nutrients.",
+                                  "key": "nutrient",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) The target number of the given nutrient.",
+                                  "key": "target",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "The target unit.",
+                                  "key": "unit",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:59:56.000Z",
+                          "updatedAt": "2026-07-28T02:59:56.000Z",
+                          "uid": "35240-db8bb962-8e3c-4ca8-999f-59965cee3c07"
+                        },
+                        {
+                          "id": "4b3b02d8-0a8a-4df2-82da-c84c3d800eb7",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/food/ingredients/:id/amount?nutrient=<string>&target=<integer>&unit=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "food",
+                                "ingredients",
+                                ":id",
+                                "amount"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The target nutrient. See a list of supported nutrients.",
+                                  "key": "nutrient",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) The target number of the given nutrient.",
+                                  "key": "target",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "The target unit.",
+                                  "key": "unit",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:59:56.000Z",
+                          "updatedAt": "2026-07-28T02:59:56.000Z",
+                          "uid": "35240-4b3b02d8-0a8a-4df2-82da-c84c3d800eb7"
+                        },
+                        {
+                          "id": "60ce65d8-7795-43f0-aa8f-666a28cfb659",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/food/ingredients/:id/amount?nutrient=<string>&target=<integer>&unit=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "food",
+                                "ingredients",
+                                ":id",
+                                "amount"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) The target nutrient. See a list of supported nutrients.",
+                                  "key": "nutrient",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "(Required) The target number of the given nutrient.",
+                                  "key": "target",
+                                  "value": "<integer>"
+                                },
+                                {
+                                  "description": "The target unit.",
+                                  "key": "unit",
+                                  "value": "<string>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:59:56.000Z",
+                          "updatedAt": "2026-07-28T02:59:56.000Z",
+                          "uid": "35240-60ce65d8-7795-43f0-aa8f-666a28cfb659"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:59:56.000Z",
+                      "updatedAt": "2026-07-28T02:59:56.000Z",
+                      "uid": "35240-ed3bcd2c-09aa-4e60-9c9f-832e82b47573"
+                    }
+                  ],
+                  "id": "d9058494-16af-40f0-a05b-ce4ff35a9b3d",
+                  "createdAt": "2026-07-28T02:59:56.000Z",
+                  "updatedAt": "2026-07-28T02:59:56.000Z",
+                  "uid": "35240-d9058494-16af-40f0-a05b-ce4ff35a9b3d"
+                },
+                {
+                  "name": "substitutes",
+                  "item": [
+                    {
+                      "name": "Get Ingredient Substitutes by ID",
+                      "id": "d94feb1d-327c-4c4d-89c1-2af1ca8060af",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/ingredients/:id/substitutes",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "ingredients",
+                            ":id",
+                            "substitutes"
+                          ],
+                          "variable": [
+                            {
+                              "id": "8f3eb7ff-85b5-4ccc-b052-9824dbe51041",
+                              "key": "id",
+                              "value": "<integer>",
+                              "description": "(Required) The id of the ingredient you want substitutes for."
+                            }
+                          ]
+                        },
+                        "description": "Search for substitutes for a given ingredient."
+                      },
+                      "response": [
+                        {
+                          "id": "48dd4b0c-e040-4b74-8c59-6fd61584b5ed",
+                          "name": "Success",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/food/ingredients/:id/substitutes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "food",
+                                "ingredients",
+                                ":id",
+                                "substitutes"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"ingredient\": \"<string>\",\n  \"substitutes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"message\": \"<string>\"\n}",
+                          "createdAt": "2026-07-28T02:59:56.000Z",
+                          "updatedAt": "2026-07-28T02:59:56.000Z",
+                          "uid": "35240-48dd4b0c-e040-4b74-8c59-6fd61584b5ed"
+                        },
+                        {
+                          "id": "3ae5ab30-040a-4f0f-a3e4-aff8f532c30e",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/food/ingredients/:id/substitutes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "food",
+                                "ingredients",
+                                ":id",
+                                "substitutes"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:59:56.000Z",
+                          "updatedAt": "2026-07-28T02:59:56.000Z",
+                          "uid": "35240-3ae5ab30-040a-4f0f-a3e4-aff8f532c30e"
+                        },
+                        {
+                          "id": "aa17aa57-3843-48d1-bd03-c6bab6a34461",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/food/ingredients/:id/substitutes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "food",
+                                "ingredients",
+                                ":id",
+                                "substitutes"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:59:56.000Z",
+                          "updatedAt": "2026-07-28T02:59:56.000Z",
+                          "uid": "35240-aa17aa57-3843-48d1-bd03-c6bab6a34461"
+                        },
+                        {
+                          "id": "bddd77de-1b53-484a-98b5-920134549add",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/food/ingredients/:id/substitutes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "food",
+                                "ingredients",
+                                ":id",
+                                "substitutes"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:59:56.000Z",
+                          "updatedAt": "2026-07-28T02:59:56.000Z",
+                          "uid": "35240-bddd77de-1b53-484a-98b5-920134549add"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:59:56.000Z",
+                      "updatedAt": "2026-07-28T02:59:56.000Z",
+                      "uid": "35240-d94feb1d-327c-4c4d-89c1-2af1ca8060af"
+                    }
+                  ],
+                  "id": "53516b20-4094-4638-8caf-d891db476804",
+                  "createdAt": "2026-07-28T02:59:56.000Z",
+                  "updatedAt": "2026-07-28T02:59:56.000Z",
+                  "uid": "35240-53516b20-4094-4638-8caf-d891db476804"
+                }
+              ],
+              "id": "2013c8c6-46b3-4a98-83a2-e9f424259067",
+              "createdAt": "2026-07-28T02:59:56.000Z",
+              "updatedAt": "2026-07-28T02:59:56.000Z",
+              "uid": "35240-2013c8c6-46b3-4a98-83a2-e9f424259067"
+            },
+            {
+              "name": "autocomplete",
+              "item": [
+                {
+                  "name": "Autocomplete Ingredient Search",
+                  "id": "44f8c5e2-fd8a-48b7-bcbb-3869e6f3c680",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/food/ingredients/autocomplete?query=<string>&number=10&metaInformation=<boolean>&intolerances=<string>&language=en",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "food",
+                        "ingredients",
+                        "autocomplete"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The (natural language) search query.",
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The maximum number of items to return (between 1 and 100). Defaults to 10.",
+                          "key": "number",
+                          "value": "10"
+                        },
+                        {
+                          "description": "Whether to return more meta information about the ingredients.",
+                          "key": "metaInformation",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.",
+                          "key": "intolerances",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The language of the input. Either 'en' or 'de'.",
+                          "key": "language",
+                          "value": "en"
+                        }
+                      ]
+                    },
+                    "description": "Autocomplete the entry of an ingredient."
+                  },
+                  "response": [
+                    {
+                      "id": "d5d31925-806c-46ca-acef-4a40dd15fa74",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/ingredients/autocomplete?query=<string>&number=10&metaInformation=<boolean>&intolerances=<string>&language=en",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "ingredients",
+                            "autocomplete"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The (natural language) search query.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The maximum number of items to return (between 1 and 100). Defaults to 10.",
+                              "key": "number",
+                              "value": "10"
+                            },
+                            {
+                              "description": "Whether to return more meta information about the ingredients.",
+                              "key": "metaInformation",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.",
+                              "key": "intolerances",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The language of the input. Either 'en' or 'de'.",
+                              "key": "language",
+                              "value": "en"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"name\": \"<string>\",\n    \"image\": \"<string>\",\n    \"id\": \"<integer>\",\n    \"aisle\": \"<string>\",\n    \"possibleUnits\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  },\n  {\n    \"name\": \"<string>\",\n    \"image\": \"<string>\",\n    \"id\": \"<integer>\",\n    \"aisle\": \"<string>\",\n    \"possibleUnits\": [\n      \"<string>\",\n      \"<string>\"\n    ]\n  }\n]",
+                      "createdAt": "2026-07-28T02:59:56.000Z",
+                      "updatedAt": "2026-07-28T02:59:56.000Z",
+                      "uid": "35240-d5d31925-806c-46ca-acef-4a40dd15fa74"
+                    },
+                    {
+                      "id": "076b0073-13a7-470a-98af-70d687ec0328",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/ingredients/autocomplete?query=<string>&number=10&metaInformation=<boolean>&intolerances=<string>&language=en",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "ingredients",
+                            "autocomplete"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The (natural language) search query.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The maximum number of items to return (between 1 and 100). Defaults to 10.",
+                              "key": "number",
+                              "value": "10"
+                            },
+                            {
+                              "description": "Whether to return more meta information about the ingredients.",
+                              "key": "metaInformation",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.",
+                              "key": "intolerances",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The language of the input. Either 'en' or 'de'.",
+                              "key": "language",
+                              "value": "en"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:59:56.000Z",
+                      "updatedAt": "2026-07-28T02:59:56.000Z",
+                      "uid": "35240-076b0073-13a7-470a-98af-70d687ec0328"
+                    },
+                    {
+                      "id": "bda378a7-55e2-457b-b0c0-f7849f35bd0b",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/ingredients/autocomplete?query=<string>&number=10&metaInformation=<boolean>&intolerances=<string>&language=en",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "ingredients",
+                            "autocomplete"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The (natural language) search query.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The maximum number of items to return (between 1 and 100). Defaults to 10.",
+                              "key": "number",
+                              "value": "10"
+                            },
+                            {
+                              "description": "Whether to return more meta information about the ingredients.",
+                              "key": "metaInformation",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.",
+                              "key": "intolerances",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The language of the input. Either 'en' or 'de'.",
+                              "key": "language",
+                              "value": "en"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:59:56.000Z",
+                      "updatedAt": "2026-07-28T02:59:56.000Z",
+                      "uid": "35240-bda378a7-55e2-457b-b0c0-f7849f35bd0b"
+                    },
+                    {
+                      "id": "b600a68c-96d6-4fcb-979e-37d136cc9760",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/ingredients/autocomplete?query=<string>&number=10&metaInformation=<boolean>&intolerances=<string>&language=en",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "ingredients",
+                            "autocomplete"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The (natural language) search query.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The maximum number of items to return (between 1 and 100). Defaults to 10.",
+                              "key": "number",
+                              "value": "10"
+                            },
+                            {
+                              "description": "Whether to return more meta information about the ingredients.",
+                              "key": "metaInformation",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.",
+                              "key": "intolerances",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The language of the input. Either 'en' or 'de'.",
+                              "key": "language",
+                              "value": "en"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:59:56.000Z",
+                      "updatedAt": "2026-07-28T02:59:56.000Z",
+                      "uid": "35240-b600a68c-96d6-4fcb-979e-37d136cc9760"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:59:56.000Z",
+                  "updatedAt": "2026-07-28T02:59:56.000Z",
+                  "uid": "35240-44f8c5e2-fd8a-48b7-bcbb-3869e6f3c680"
+                }
+              ],
+              "id": "fa1b54e2-ba0d-4a1a-b86d-cea023ed44ff",
+              "createdAt": "2026-07-28T02:59:56.000Z",
+              "updatedAt": "2026-07-28T02:59:56.000Z",
+              "uid": "35240-fa1b54e2-ba0d-4a1a-b86d-cea023ed44ff"
+            },
+            {
+              "name": "search",
+              "item": [
+                {
+                  "name": "Ingredient Search",
+                  "id": "73c93a1f-8485-4e4f-bfb7-d4fa50389acb",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/food/ingredients/search?query=<string>&addChildren=<boolean>&minProteinPercent=<number>&maxProteinPercent=<number>&minFatPercent=<number>&maxFatPercent=<number>&minCarbsPercent=<number>&maxCarbsPercent=<number>&metaInformation=<boolean>&intolerances=<string>&sort=<string>&sortDirection=<string>&offset=<integer>&number=10&language=en",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "food",
+                        "ingredients",
+                        "search"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The (natural language) search query.",
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Whether to add children of found foods.",
+                          "key": "addChildren",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "The minimum percentage of protein the food must have (between 0 and 100).",
+                          "key": "minProteinPercent",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The maximum percentage of protein the food can have (between 0 and 100).",
+                          "key": "maxProteinPercent",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The minimum percentage of fat the food must have (between 0 and 100).",
+                          "key": "minFatPercent",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The maximum percentage of fat the food can have (between 0 and 100).",
+                          "key": "maxFatPercent",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The minimum percentage of carbs the food must have (between 0 and 100).",
+                          "key": "minCarbsPercent",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The maximum percentage of carbs the food can have (between 0 and 100).",
+                          "key": "maxCarbsPercent",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "Whether to return more meta information about the ingredients.",
+                          "key": "metaInformation",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.",
+                          "key": "intolerances",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The strategy to sort recipes by. See a full list of supported sorting options.",
+                          "key": "sort",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).",
+                          "key": "sortDirection",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The number of results to skip (between 0 and 900).",
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The maximum number of items to return (between 1 and 100). Defaults to 10.",
+                          "key": "number",
+                          "value": "10"
+                        },
+                        {
+                          "description": "The language of the input. Either 'en' or 'de'.",
+                          "key": "language",
+                          "value": "en"
+                        }
+                      ]
+                    },
+                    "description": "Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.)."
+                  },
+                  "response": [
+                    {
+                      "id": "1030459e-83e0-4b03-8691-876c03747847",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/ingredients/search?query=<string>&addChildren=<boolean>&minProteinPercent=<number>&maxProteinPercent=<number>&minFatPercent=<number>&maxFatPercent=<number>&minCarbsPercent=<number>&maxCarbsPercent=<number>&metaInformation=<boolean>&intolerances=<string>&sort=<string>&sortDirection=<string>&offset=<integer>&number=10&language=en",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "ingredients",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The (natural language) search query.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Whether to add children of found foods.",
+                              "key": "addChildren",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "The minimum percentage of protein the food must have (between 0 and 100).",
+                              "key": "minProteinPercent",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The maximum percentage of protein the food can have (between 0 and 100).",
+                              "key": "maxProteinPercent",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The minimum percentage of fat the food must have (between 0 and 100).",
+                              "key": "minFatPercent",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The maximum percentage of fat the food can have (between 0 and 100).",
+                              "key": "maxFatPercent",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The minimum percentage of carbs the food must have (between 0 and 100).",
+                              "key": "minCarbsPercent",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The maximum percentage of carbs the food can have (between 0 and 100).",
+                              "key": "maxCarbsPercent",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "Whether to return more meta information about the ingredients.",
+                              "key": "metaInformation",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.",
+                              "key": "intolerances",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The strategy to sort recipes by. See a full list of supported sorting options.",
+                              "key": "sort",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).",
+                              "key": "sortDirection",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The number of results to skip (between 0 and 900).",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "The maximum number of items to return (between 1 and 100). Defaults to 10.",
+                              "key": "number",
+                              "value": "10"
+                            },
+                            {
+                              "description": "The language of the input. Either 'en' or 'de'.",
+                              "key": "language",
+                              "value": "en"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"results\": [\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"image\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"image\": \"<string>\"\n    }\n  ],\n  \"offset\": \"<integer>\",\n  \"number\": \"<integer>\",\n  \"totalResults\": \"<integer>\"\n}",
+                      "createdAt": "2026-07-28T02:59:56.000Z",
+                      "updatedAt": "2026-07-28T02:59:56.000Z",
+                      "uid": "35240-1030459e-83e0-4b03-8691-876c03747847"
+                    },
+                    {
+                      "id": "bf93c2a9-e61a-4615-b5ba-d06a78246727",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/ingredients/search?query=<string>&addChildren=<boolean>&minProteinPercent=<number>&maxProteinPercent=<number>&minFatPercent=<number>&maxFatPercent=<number>&minCarbsPercent=<number>&maxCarbsPercent=<number>&metaInformation=<boolean>&intolerances=<string>&sort=<string>&sortDirection=<string>&offset=<integer>&number=10&language=en",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "ingredients",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The (natural language) search query.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Whether to add children of found foods.",
+                              "key": "addChildren",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "The minimum percentage of protein the food must have (between 0 and 100).",
+                              "key": "minProteinPercent",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The maximum percentage of protein the food can have (between 0 and 100).",
+                              "key": "maxProteinPercent",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The minimum percentage of fat the food must have (between 0 and 100).",
+                              "key": "minFatPercent",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The maximum percentage of fat the food can have (between 0 and 100).",
+                              "key": "maxFatPercent",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The minimum percentage of carbs the food must have (between 0 and 100).",
+                              "key": "minCarbsPercent",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The maximum percentage of carbs the food can have (between 0 and 100).",
+                              "key": "maxCarbsPercent",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "Whether to return more meta information about the ingredients.",
+                              "key": "metaInformation",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.",
+                              "key": "intolerances",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The strategy to sort recipes by. See a full list of supported sorting options.",
+                              "key": "sort",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).",
+                              "key": "sortDirection",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The number of results to skip (between 0 and 900).",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "The maximum number of items to return (between 1 and 100). Defaults to 10.",
+                              "key": "number",
+                              "value": "10"
+                            },
+                            {
+                              "description": "The language of the input. Either 'en' or 'de'.",
+                              "key": "language",
+                              "value": "en"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:59:56.000Z",
+                      "updatedAt": "2026-07-28T02:59:56.000Z",
+                      "uid": "35240-bf93c2a9-e61a-4615-b5ba-d06a78246727"
+                    },
+                    {
+                      "id": "7f18ffb4-8fef-4e77-bdfd-2b721af599bb",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/ingredients/search?query=<string>&addChildren=<boolean>&minProteinPercent=<number>&maxProteinPercent=<number>&minFatPercent=<number>&maxFatPercent=<number>&minCarbsPercent=<number>&maxCarbsPercent=<number>&metaInformation=<boolean>&intolerances=<string>&sort=<string>&sortDirection=<string>&offset=<integer>&number=10&language=en",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "ingredients",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The (natural language) search query.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Whether to add children of found foods.",
+                              "key": "addChildren",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "The minimum percentage of protein the food must have (between 0 and 100).",
+                              "key": "minProteinPercent",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The maximum percentage of protein the food can have (between 0 and 100).",
+                              "key": "maxProteinPercent",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The minimum percentage of fat the food must have (between 0 and 100).",
+                              "key": "minFatPercent",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The maximum percentage of fat the food can have (between 0 and 100).",
+                              "key": "maxFatPercent",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The minimum percentage of carbs the food must have (between 0 and 100).",
+                              "key": "minCarbsPercent",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The maximum percentage of carbs the food can have (between 0 and 100).",
+                              "key": "maxCarbsPercent",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "Whether to return more meta information about the ingredients.",
+                              "key": "metaInformation",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.",
+                              "key": "intolerances",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The strategy to sort recipes by. See a full list of supported sorting options.",
+                              "key": "sort",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).",
+                              "key": "sortDirection",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The number of results to skip (between 0 and 900).",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "The maximum number of items to return (between 1 and 100). Defaults to 10.",
+                              "key": "number",
+                              "value": "10"
+                            },
+                            {
+                              "description": "The language of the input. Either 'en' or 'de'.",
+                              "key": "language",
+                              "value": "en"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:59:56.000Z",
+                      "updatedAt": "2026-07-28T02:59:56.000Z",
+                      "uid": "35240-7f18ffb4-8fef-4e77-bdfd-2b721af599bb"
+                    },
+                    {
+                      "id": "cbf6322e-e156-4f62-86d5-29fb14c801f6",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/ingredients/search?query=<string>&addChildren=<boolean>&minProteinPercent=<number>&maxProteinPercent=<number>&minFatPercent=<number>&maxFatPercent=<number>&minCarbsPercent=<number>&maxCarbsPercent=<number>&metaInformation=<boolean>&intolerances=<string>&sort=<string>&sortDirection=<string>&offset=<integer>&number=10&language=en",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "ingredients",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The (natural language) search query.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Whether to add children of found foods.",
+                              "key": "addChildren",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "The minimum percentage of protein the food must have (between 0 and 100).",
+                              "key": "minProteinPercent",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The maximum percentage of protein the food can have (between 0 and 100).",
+                              "key": "maxProteinPercent",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The minimum percentage of fat the food must have (between 0 and 100).",
+                              "key": "minFatPercent",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The maximum percentage of fat the food can have (between 0 and 100).",
+                              "key": "maxFatPercent",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The minimum percentage of carbs the food must have (between 0 and 100).",
+                              "key": "minCarbsPercent",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The maximum percentage of carbs the food can have (between 0 and 100).",
+                              "key": "maxCarbsPercent",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "Whether to return more meta information about the ingredients.",
+                              "key": "metaInformation",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances.",
+                              "key": "intolerances",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The strategy to sort recipes by. See a full list of supported sorting options.",
+                              "key": "sort",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending).",
+                              "key": "sortDirection",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The number of results to skip (between 0 and 900).",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "The maximum number of items to return (between 1 and 100). Defaults to 10.",
+                              "key": "number",
+                              "value": "10"
+                            },
+                            {
+                              "description": "The language of the input. Either 'en' or 'de'.",
+                              "key": "language",
+                              "value": "en"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:59:56.000Z",
+                      "updatedAt": "2026-07-28T02:59:56.000Z",
+                      "uid": "35240-cbf6322e-e156-4f62-86d5-29fb14c801f6"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:59:56.000Z",
+                  "updatedAt": "2026-07-28T02:59:56.000Z",
+                  "uid": "35240-73c93a1f-8485-4e4f-bfb7-d4fa50389acb"
+                }
+              ],
+              "id": "487391bd-4769-49f2-ba91-665129096e54",
+              "createdAt": "2026-07-28T02:59:56.000Z",
+              "updatedAt": "2026-07-28T02:59:56.000Z",
+              "uid": "35240-487391bd-4769-49f2-ba91-665129096e54"
+            },
+            {
+              "name": "substitutes",
+              "item": [
+                {
+                  "name": "Get Ingredient Substitutes",
+                  "id": "147d008c-bd09-4c58-813d-92e310770bb6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/food/ingredients/substitutes?ingredientName=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "food",
+                        "ingredients",
+                        "substitutes"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The name of the ingredient you want to replace.",
+                          "key": "ingredientName",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Search for substitutes for a given ingredient."
+                  },
+                  "response": [
+                    {
+                      "id": "35c14483-6e15-40ee-bf79-3b0b5be6c97a",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/ingredients/substitutes?ingredientName=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "ingredients",
+                            "substitutes"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The name of the ingredient you want to replace.",
+                              "key": "ingredientName",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"ingredient\": \"<string>\",\n  \"substitutes\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"message\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T02:59:56.000Z",
+                      "updatedAt": "2026-07-28T02:59:56.000Z",
+                      "uid": "35240-35c14483-6e15-40ee-bf79-3b0b5be6c97a"
+                    },
+                    {
+                      "id": "09fee3ab-ce56-4e17-8bbb-8e019af75aec",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/ingredients/substitutes?ingredientName=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "ingredients",
+                            "substitutes"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The name of the ingredient you want to replace.",
+                              "key": "ingredientName",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:59:56.000Z",
+                      "updatedAt": "2026-07-28T02:59:56.000Z",
+                      "uid": "35240-09fee3ab-ce56-4e17-8bbb-8e019af75aec"
+                    },
+                    {
+                      "id": "88f16bb3-24d3-4a2e-81c7-e193a6a64890",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/ingredients/substitutes?ingredientName=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "ingredients",
+                            "substitutes"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The name of the ingredient you want to replace.",
+                              "key": "ingredientName",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:59:56.000Z",
+                      "updatedAt": "2026-07-28T02:59:56.000Z",
+                      "uid": "35240-88f16bb3-24d3-4a2e-81c7-e193a6a64890"
+                    },
+                    {
+                      "id": "e95c68b9-a8c7-4e36-82e3-3f0b0c645551",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/ingredients/substitutes?ingredientName=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "ingredients",
+                            "substitutes"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The name of the ingredient you want to replace.",
+                              "key": "ingredientName",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:59:56.000Z",
+                      "updatedAt": "2026-07-28T02:59:56.000Z",
+                      "uid": "35240-e95c68b9-a8c7-4e36-82e3-3f0b0c645551"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:59:56.000Z",
+                  "updatedAt": "2026-07-28T02:59:56.000Z",
+                  "uid": "35240-147d008c-bd09-4c58-813d-92e310770bb6"
+                }
+              ],
+              "id": "77faca10-80a7-4af9-854c-899e17fcf312",
+              "createdAt": "2026-07-28T02:59:56.000Z",
+              "updatedAt": "2026-07-28T02:59:56.000Z",
+              "uid": "35240-77faca10-80a7-4af9-854c-899e17fcf312"
+            },
+            {
+              "name": "map",
+              "item": [
+                {
+                  "name": "Map Ingredients to Grocery Products",
+                  "id": "1a78a7f8-3613-4404-9e73-6ccdece11790",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"ingredients\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"servings\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/food/ingredients/map",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "food",
+                        "ingredients",
+                        "map"
+                      ]
+                    },
+                    "description": "Map a set of ingredients to products you can buy in the grocery store."
+                  },
+                  "response": [
+                    {
+                      "id": "5369cc4e-9763-4ba0-a1ed-4e3d0975ecd7",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"ingredients\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"servings\": \"<number>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/food/ingredients/map",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "ingredients",
+                            "map"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"original\": \"<string>\",\n    \"originalName\": \"<string>\",\n    \"ingredientImage\": \"<string>\",\n    \"meta\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"products\": [\n      {\n        \"id\": \"<integer>\",\n        \"title\": \"<string>\",\n        \"upc\": \"<string>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"title\": \"<string>\",\n        \"upc\": \"<string>\"\n      }\n    ]\n  },\n  {\n    \"original\": \"<string>\",\n    \"originalName\": \"<string>\",\n    \"ingredientImage\": \"<string>\",\n    \"meta\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"products\": [\n      {\n        \"id\": \"<integer>\",\n        \"title\": \"<string>\",\n        \"upc\": \"<string>\"\n      },\n      {\n        \"id\": \"<integer>\",\n        \"title\": \"<string>\",\n        \"upc\": \"<string>\"\n      }\n    ]\n  }\n]",
+                      "createdAt": "2026-07-28T02:59:56.000Z",
+                      "updatedAt": "2026-07-28T02:59:56.000Z",
+                      "uid": "35240-5369cc4e-9763-4ba0-a1ed-4e3d0975ecd7"
+                    },
+                    {
+                      "id": "4b1eb67c-c660-4ed8-b450-48c3397abd42",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"ingredients\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"servings\": \"<number>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/food/ingredients/map",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "ingredients",
+                            "map"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:59:56.000Z",
+                      "updatedAt": "2026-07-28T02:59:56.000Z",
+                      "uid": "35240-4b1eb67c-c660-4ed8-b450-48c3397abd42"
+                    },
+                    {
+                      "id": "57570d32-188f-421f-b65c-1949cd4bf985",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"ingredients\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"servings\": \"<number>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/food/ingredients/map",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "ingredients",
+                            "map"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:59:56.000Z",
+                      "updatedAt": "2026-07-28T02:59:56.000Z",
+                      "uid": "35240-57570d32-188f-421f-b65c-1949cd4bf985"
+                    },
+                    {
+                      "id": "027b88a3-5219-4a14-9659-1ecce222aea1",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"ingredients\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"servings\": \"<number>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/food/ingredients/map",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "ingredients",
+                            "map"
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:59:56.000Z",
+                      "updatedAt": "2026-07-28T02:59:56.000Z",
+                      "uid": "35240-027b88a3-5219-4a14-9659-1ecce222aea1"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:59:56.000Z",
+                  "updatedAt": "2026-07-28T02:59:56.000Z",
+                  "uid": "35240-1a78a7f8-3613-4404-9e73-6ccdece11790"
+                }
+              ],
+              "id": "ba1c8c05-756e-4ccb-af14-8aa689c84cfa",
+              "createdAt": "2026-07-28T02:59:56.000Z",
+              "updatedAt": "2026-07-28T02:59:56.000Z",
+              "uid": "35240-ba1c8c05-756e-4ccb-af14-8aa689c84cfa"
+            }
+          ],
+          "id": "9ede6911-5b84-4164-8822-fb867fed9e18",
+          "createdAt": "2026-07-28T02:59:56.000Z",
+          "updatedAt": "2026-07-28T02:59:56.000Z",
+          "uid": "35240-9ede6911-5b84-4164-8822-fb867fed9e18"
+        }
+      ],
+      "id": "4383b1e4-427c-4a2b-a0e0-7ab6c22a7378",
+      "createdAt": "2026-07-28T02:59:56.000Z",
+      "updatedAt": "2026-07-28T02:59:56.000Z",
+      "uid": "35240-4383b1e4-427c-4a2b-a0e0-7ab6c22a7378"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.spoonacular.com"
+    }
+  ]
+}

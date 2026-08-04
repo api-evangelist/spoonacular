@@ -1,0 +1,1062 @@
+{
+  "info": {
+    "_postman_id": "b31c43f8-4e20-4283-9bac-0efa673812dc",
+    "name": "spoonacular Ingredients Wine API",
+    "description": "The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.\n\nSpecial diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.\n\nContact Support:\n Name: David Urbansky\n Email: mail@spoonacular.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:00:36.000Z",
+    "updatedAt": "2026-07-28T03:00:37.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b31c43f8-4e20-4283-9bac-0efa673812dc"
+  },
+  "item": [
+    {
+      "name": "food",
+      "item": [
+        {
+          "name": "wine",
+          "item": [
+            {
+              "name": "dishes",
+              "item": [
+                {
+                  "name": "Dish Pairing for Wine",
+                  "id": "95a853ed-c0c6-4612-9427-0306cf599d7f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/food/wine/dishes?wine=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "food",
+                        "wine",
+                        "dishes"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".",
+                          "key": "wine",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Find a dish that goes well with a given wine."
+                  },
+                  "response": [
+                    {
+                      "id": "b16dccfe-45dc-407f-9bbb-e7f75f9c3fc7",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/wine/dishes?wine=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "wine",
+                            "dishes"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".",
+                              "key": "wine",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"pairings\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"text\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:00:37.000Z",
+                      "updatedAt": "2026-07-28T03:00:37.000Z",
+                      "uid": "35240-b16dccfe-45dc-407f-9bbb-e7f75f9c3fc7"
+                    },
+                    {
+                      "id": "56377e27-4496-4350-9e5d-f6b4caf4b313",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/wine/dishes?wine=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "wine",
+                            "dishes"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".",
+                              "key": "wine",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:37.000Z",
+                      "updatedAt": "2026-07-28T03:00:37.000Z",
+                      "uid": "35240-56377e27-4496-4350-9e5d-f6b4caf4b313"
+                    },
+                    {
+                      "id": "360cb2d0-ec1c-46fd-b00e-718630fb0ad6",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/wine/dishes?wine=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "wine",
+                            "dishes"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".",
+                              "key": "wine",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:37.000Z",
+                      "updatedAt": "2026-07-28T03:00:37.000Z",
+                      "uid": "35240-360cb2d0-ec1c-46fd-b00e-718630fb0ad6"
+                    },
+                    {
+                      "id": "4749ccc7-ce7c-4222-be47-a4c61bbb698d",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/wine/dishes?wine=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "wine",
+                            "dishes"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".",
+                              "key": "wine",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:37.000Z",
+                      "updatedAt": "2026-07-28T03:00:37.000Z",
+                      "uid": "35240-4749ccc7-ce7c-4222-be47-a4c61bbb698d"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:00:37.000Z",
+                  "updatedAt": "2026-07-28T03:00:37.000Z",
+                  "uid": "35240-95a853ed-c0c6-4612-9427-0306cf599d7f"
+                }
+              ],
+              "id": "c3ffafd7-7883-4d4e-8b20-828435a698b4",
+              "createdAt": "2026-07-28T03:00:37.000Z",
+              "updatedAt": "2026-07-28T03:00:37.000Z",
+              "uid": "35240-c3ffafd7-7883-4d4e-8b20-828435a698b4"
+            },
+            {
+              "name": "pairing",
+              "item": [
+                {
+                  "name": "Wine Pairing",
+                  "id": "31cb6818-f56b-44d8-8bed-c6c7a4708c98",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/food/wine/pairing?food=<string>&maxPrice=<number>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "food",
+                        "wine",
+                        "pairing"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\").",
+                          "key": "food",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The maximum price for the specific wine recommendation in USD.",
+                          "key": "maxPrice",
+                          "value": "<number>"
+                        }
+                      ]
+                    },
+                    "description": "Find a wine that goes well with a food. Food can be a dish name (\"steak\"), an ingredient name (\"salmon\"), or a cuisine (\"italian\")."
+                  },
+                  "response": [
+                    {
+                      "id": "9134164c-943e-4672-876c-1621b5919e44",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/wine/pairing?food=<string>&maxPrice=<number>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "wine",
+                            "pairing"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\").",
+                              "key": "food",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The maximum price for the specific wine recommendation in USD.",
+                              "key": "maxPrice",
+                              "value": "<number>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"pairedWines\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"pairingText\": \"<string>\",\n  \"productMatches\": [\n    {\n      \"id\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"averageRating\": \"<number>\",\n      \"imageUrl\": \"<string>\",\n      \"link\": \"<string>\",\n      \"price\": \"<string>\",\n      \"ratingCount\": \"<integer>\",\n      \"score\": \"<number>\",\n      \"description\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"averageRating\": \"<number>\",\n      \"imageUrl\": \"<string>\",\n      \"link\": \"<string>\",\n      \"price\": \"<string>\",\n      \"ratingCount\": \"<integer>\",\n      \"score\": \"<number>\",\n      \"description\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:00:37.000Z",
+                      "updatedAt": "2026-07-28T03:00:37.000Z",
+                      "uid": "35240-9134164c-943e-4672-876c-1621b5919e44"
+                    },
+                    {
+                      "id": "1c6d3dbf-ad19-4590-81f6-e847ae0765b0",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/wine/pairing?food=<string>&maxPrice=<number>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "wine",
+                            "pairing"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\").",
+                              "key": "food",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The maximum price for the specific wine recommendation in USD.",
+                              "key": "maxPrice",
+                              "value": "<number>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:37.000Z",
+                      "updatedAt": "2026-07-28T03:00:37.000Z",
+                      "uid": "35240-1c6d3dbf-ad19-4590-81f6-e847ae0765b0"
+                    },
+                    {
+                      "id": "a1129c5d-5304-4195-b63a-0cdc2c11952f",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/wine/pairing?food=<string>&maxPrice=<number>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "wine",
+                            "pairing"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\").",
+                              "key": "food",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The maximum price for the specific wine recommendation in USD.",
+                              "key": "maxPrice",
+                              "value": "<number>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:37.000Z",
+                      "updatedAt": "2026-07-28T03:00:37.000Z",
+                      "uid": "35240-a1129c5d-5304-4195-b63a-0cdc2c11952f"
+                    },
+                    {
+                      "id": "260e714f-c071-4f94-ae81-d3c6525187d4",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/wine/pairing?food=<string>&maxPrice=<number>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "wine",
+                            "pairing"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\").",
+                              "key": "food",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The maximum price for the specific wine recommendation in USD.",
+                              "key": "maxPrice",
+                              "value": "<number>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:37.000Z",
+                      "updatedAt": "2026-07-28T03:00:37.000Z",
+                      "uid": "35240-260e714f-c071-4f94-ae81-d3c6525187d4"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:00:37.000Z",
+                  "updatedAt": "2026-07-28T03:00:37.000Z",
+                  "uid": "35240-31cb6818-f56b-44d8-8bed-c6c7a4708c98"
+                }
+              ],
+              "id": "75e9933a-221f-48a0-943d-630699cf751f",
+              "createdAt": "2026-07-28T03:00:37.000Z",
+              "updatedAt": "2026-07-28T03:00:37.000Z",
+              "uid": "35240-75e9933a-221f-48a0-943d-630699cf751f"
+            },
+            {
+              "name": "description",
+              "item": [
+                {
+                  "name": "Wine Description",
+                  "id": "029976fb-143b-4579-b36c-be31a5e8645c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/food/wine/description?wine=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "food",
+                        "wine",
+                        "description"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".",
+                          "key": "wine",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Get a simple description of a certain wine, e.g. \"malbec\", \"riesling\", or \"merlot\"."
+                  },
+                  "response": [
+                    {
+                      "id": "0cd37816-c2fe-4466-b52f-8fdc8582cdaa",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/wine/description?wine=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "wine",
+                            "description"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".",
+                              "key": "wine",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"wineDescription\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:00:37.000Z",
+                      "updatedAt": "2026-07-28T03:00:37.000Z",
+                      "uid": "35240-0cd37816-c2fe-4466-b52f-8fdc8582cdaa"
+                    },
+                    {
+                      "id": "cc6f541d-5a66-4e56-a9dc-2ca2a48391ea",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/wine/description?wine=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "wine",
+                            "description"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".",
+                              "key": "wine",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:37.000Z",
+                      "updatedAt": "2026-07-28T03:00:37.000Z",
+                      "uid": "35240-cc6f541d-5a66-4e56-a9dc-2ca2a48391ea"
+                    },
+                    {
+                      "id": "84a77f2a-4f05-42b0-9e13-25db35b9058c",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/wine/description?wine=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "wine",
+                            "description"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".",
+                              "key": "wine",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:37.000Z",
+                      "updatedAt": "2026-07-28T03:00:37.000Z",
+                      "uid": "35240-84a77f2a-4f05-42b0-9e13-25db35b9058c"
+                    },
+                    {
+                      "id": "fdd55e3b-0cf1-4d20-a30e-a45bd9f1f8f8",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/wine/description?wine=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "wine",
+                            "description"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\".",
+                              "key": "wine",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:37.000Z",
+                      "updatedAt": "2026-07-28T03:00:37.000Z",
+                      "uid": "35240-fdd55e3b-0cf1-4d20-a30e-a45bd9f1f8f8"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:00:37.000Z",
+                  "updatedAt": "2026-07-28T03:00:37.000Z",
+                  "uid": "35240-029976fb-143b-4579-b36c-be31a5e8645c"
+                }
+              ],
+              "id": "19e5b78f-a91b-445a-a535-1ef7cdf076cd",
+              "createdAt": "2026-07-28T03:00:37.000Z",
+              "updatedAt": "2026-07-28T03:00:37.000Z",
+              "uid": "35240-19e5b78f-a91b-445a-a535-1ef7cdf076cd"
+            },
+            {
+              "name": "recommendation",
+              "item": [
+                {
+                  "name": "Wine Recommendation",
+                  "id": "dc15b797-5636-4cf0-b604-52e6562630a4",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/food/wine/recommendation?wine=<string>&maxPrice=<number>&minRating=<number>&number=10",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "food",
+                        "wine",
+                        "recommendation"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The type of wine to get a specific product recommendation for.",
+                          "key": "wine",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The maximum price for the specific wine recommendation in USD.",
+                          "key": "maxPrice",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars.",
+                          "key": "minRating",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The number of wine recommendations expected (between 1 and 100).",
+                          "key": "number",
+                          "value": "10"
+                        }
+                      ]
+                    },
+                    "description": "Get a specific wine recommendation (concrete product) for a given wine type, e.g. \"merlot\"."
+                  },
+                  "response": [
+                    {
+                      "id": "c46ad5d2-0ef1-4300-97eb-d5c49caca8e3",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/wine/recommendation?wine=<string>&maxPrice=<number>&minRating=<number>&number=10",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "wine",
+                            "recommendation"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The type of wine to get a specific product recommendation for.",
+                              "key": "wine",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The maximum price for the specific wine recommendation in USD.",
+                              "key": "maxPrice",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars.",
+                              "key": "minRating",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The number of wine recommendations expected (between 1 and 100).",
+                              "key": "number",
+                              "value": "10"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"recommendedWines\": [\n    {\n      \"id\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"averageRating\": \"<number>\",\n      \"description\": \"<string>\",\n      \"imageUrl\": \"<string>\",\n      \"link\": \"<string>\",\n      \"price\": \"<string>\",\n      \"ratingCount\": \"<integer>\",\n      \"score\": \"<number>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"averageRating\": \"<number>\",\n      \"description\": \"<string>\",\n      \"imageUrl\": \"<string>\",\n      \"link\": \"<string>\",\n      \"price\": \"<string>\",\n      \"ratingCount\": \"<integer>\",\n      \"score\": \"<number>\"\n    }\n  ],\n  \"totalFound\": \"<integer>\"\n}",
+                      "createdAt": "2026-07-28T03:00:37.000Z",
+                      "updatedAt": "2026-07-28T03:00:37.000Z",
+                      "uid": "35240-c46ad5d2-0ef1-4300-97eb-d5c49caca8e3"
+                    },
+                    {
+                      "id": "ea077212-6e13-49c3-a8d4-5198fa656d45",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/wine/recommendation?wine=<string>&maxPrice=<number>&minRating=<number>&number=10",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "wine",
+                            "recommendation"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The type of wine to get a specific product recommendation for.",
+                              "key": "wine",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The maximum price for the specific wine recommendation in USD.",
+                              "key": "maxPrice",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars.",
+                              "key": "minRating",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The number of wine recommendations expected (between 1 and 100).",
+                              "key": "number",
+                              "value": "10"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:37.000Z",
+                      "updatedAt": "2026-07-28T03:00:37.000Z",
+                      "uid": "35240-ea077212-6e13-49c3-a8d4-5198fa656d45"
+                    },
+                    {
+                      "id": "bb046984-02c5-44be-8d28-ddc35bfe432e",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/wine/recommendation?wine=<string>&maxPrice=<number>&minRating=<number>&number=10",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "wine",
+                            "recommendation"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The type of wine to get a specific product recommendation for.",
+                              "key": "wine",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The maximum price for the specific wine recommendation in USD.",
+                              "key": "maxPrice",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars.",
+                              "key": "minRating",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The number of wine recommendations expected (between 1 and 100).",
+                              "key": "number",
+                              "value": "10"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:37.000Z",
+                      "updatedAt": "2026-07-28T03:00:37.000Z",
+                      "uid": "35240-bb046984-02c5-44be-8d28-ddc35bfe432e"
+                    },
+                    {
+                      "id": "7a6e3ae4-570e-4918-919e-9bcb05e16da7",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/wine/recommendation?wine=<string>&maxPrice=<number>&minRating=<number>&number=10",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "wine",
+                            "recommendation"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The type of wine to get a specific product recommendation for.",
+                              "key": "wine",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The maximum price for the specific wine recommendation in USD.",
+                              "key": "maxPrice",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars.",
+                              "key": "minRating",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The number of wine recommendations expected (between 1 and 100).",
+                              "key": "number",
+                              "value": "10"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:37.000Z",
+                      "updatedAt": "2026-07-28T03:00:37.000Z",
+                      "uid": "35240-7a6e3ae4-570e-4918-919e-9bcb05e16da7"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:00:37.000Z",
+                  "updatedAt": "2026-07-28T03:00:37.000Z",
+                  "uid": "35240-dc15b797-5636-4cf0-b604-52e6562630a4"
+                }
+              ],
+              "id": "68dd8a59-d613-4f07-9b86-959e8760ccf4",
+              "createdAt": "2026-07-28T03:00:37.000Z",
+              "updatedAt": "2026-07-28T03:00:37.000Z",
+              "uid": "35240-68dd8a59-d613-4f07-9b86-959e8760ccf4"
+            }
+          ],
+          "id": "bce9419f-6269-4793-9180-182895868c4b",
+          "createdAt": "2026-07-28T03:00:37.000Z",
+          "updatedAt": "2026-07-28T03:00:37.000Z",
+          "uid": "35240-bce9419f-6269-4793-9180-182895868c4b"
+        }
+      ],
+      "id": "54ac673f-1174-4e9a-8ba6-9b19685fceca",
+      "createdAt": "2026-07-28T03:00:37.000Z",
+      "updatedAt": "2026-07-28T03:00:37.000Z",
+      "uid": "35240-54ac673f-1174-4e9a-8ba6-9b19685fceca"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.spoonacular.com"
+    }
+  ]
+}

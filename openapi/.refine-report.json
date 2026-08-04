@@ -1,0 +1,26 @@
+{
+  "provider": "spoonacular",
+  "sources": [
+    "spoonacular-ingredients-api-openapi.yml",
+    "spoonacular-meal-planning-api-openapi.yml",
+    "spoonacular-menu-items-api-openapi.yml",
+    "spoonacular-misc-api-openapi.yml",
+    "spoonacular-products-api-openapi.yml",
+    "spoonacular-recipes-api-openapi.yml",
+    "spoonacular-wine-api-openapi.yml"
+  ],
+  "outputs": [
+    "spoonacular-ingredients-api-openapi.yml",
+    "spoonacular-meal-planning-api-openapi.yml",
+    "spoonacular-menu-items-api-openapi.yml",
+    "spoonacular-misc-api-openapi.yml",
+    "spoonacular-products-api-openapi.yml",
+    "spoonacular-recipes-api-openapi.yml",
+    "spoonacular-wine-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

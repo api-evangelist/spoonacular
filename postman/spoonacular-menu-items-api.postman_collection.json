@@ -1,0 +1,2615 @@
+{
+  "info": {
+    "_postman_id": "de0c76ce-7bd0-4601-8155-c44527646331",
+    "name": "spoonacular Ingredients Menu Items API",
+    "description": "The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.\n\nSpecial diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.\n\nContact Support:\n Name: David Urbansky\n Email: mail@spoonacular.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T02:59:59.000Z",
+    "updatedAt": "2026-07-28T02:59:59.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-de0c76ce-7bd0-4601-8155-c44527646331"
+  },
+  "item": [
+    {
+      "name": "food",
+      "item": [
+        {
+          "name": "menuItems",
+          "item": [
+            {
+              "name": "suggest",
+              "item": [
+                {
+                  "name": "Autocomplete Menu Item Search",
+                  "id": "48a30ae8-8ef2-4944-a75d-f7839d59ddb5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/food/menuItems/suggest?query=<string>&number=<integer>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "food",
+                        "menuItems",
+                        "suggest"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The (partial) search query.",
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The number of results to return (between 1 and 25).",
+                          "key": "number",
+                          "value": "<integer>"
+                        }
+                      ]
+                    },
+                    "description": "Generate suggestions for menu items based on a (partial) query. The matches will be found by looking in the title only."
+                  },
+                  "response": [
+                    {
+                      "id": "d4eeaf17-9d3f-4405-b2bb-5f6d0d7dcdaf",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/menuItems/suggest?query=<string>&number=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "menuItems",
+                            "suggest"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The (partial) search query.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The number of results to return (between 1 and 25).",
+                              "key": "number",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"results\": [\n    {\n      \"id\": \"<integer>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"title\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:59:59.000Z",
+                      "updatedAt": "2026-07-28T02:59:59.000Z",
+                      "uid": "35240-d4eeaf17-9d3f-4405-b2bb-5f6d0d7dcdaf"
+                    },
+                    {
+                      "id": "57fa77b6-dbc2-4eaf-803a-2ed748052c24",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/menuItems/suggest?query=<string>&number=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "menuItems",
+                            "suggest"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The (partial) search query.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The number of results to return (between 1 and 25).",
+                              "key": "number",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:59:59.000Z",
+                      "updatedAt": "2026-07-28T02:59:59.000Z",
+                      "uid": "35240-57fa77b6-dbc2-4eaf-803a-2ed748052c24"
+                    },
+                    {
+                      "id": "fe09cc25-7d12-43ee-b44f-6ed53e6968b2",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/menuItems/suggest?query=<string>&number=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "menuItems",
+                            "suggest"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The (partial) search query.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The number of results to return (between 1 and 25).",
+                              "key": "number",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:59:59.000Z",
+                      "updatedAt": "2026-07-28T02:59:59.000Z",
+                      "uid": "35240-fe09cc25-7d12-43ee-b44f-6ed53e6968b2"
+                    },
+                    {
+                      "id": "28e9dc0b-cd09-4177-9136-8a652000dde8",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/menuItems/suggest?query=<string>&number=<integer>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "menuItems",
+                            "suggest"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The (partial) search query.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The number of results to return (between 1 and 25).",
+                              "key": "number",
+                              "value": "<integer>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:59:59.000Z",
+                      "updatedAt": "2026-07-28T02:59:59.000Z",
+                      "uid": "35240-28e9dc0b-cd09-4177-9136-8a652000dde8"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:59:59.000Z",
+                  "updatedAt": "2026-07-28T02:59:59.000Z",
+                  "uid": "35240-48a30ae8-8ef2-4944-a75d-f7839d59ddb5"
+                }
+              ],
+              "id": "618d95c0-ae98-411c-9056-e57f27307f66",
+              "createdAt": "2026-07-28T02:59:59.000Z",
+              "updatedAt": "2026-07-28T02:59:59.000Z",
+              "uid": "35240-618d95c0-ae98-411c-9056-e57f27307f66"
+            },
+            {
+              "name": "search",
+              "item": [
+                {
+                  "name": "Search Menu Items",
+                  "id": "728e8a93-628e-4894-bb37-fa3f15b04c38",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/food/menuItems/search?query=<string>&minCalories=<number>&maxCalories=<number>&minCarbs=<number>&maxCarbs=<number>&minProtein=<number>&maxProtein=<number>&minFat=<number>&maxFat=<number>&addMenuItemInformation=true&offset=<integer>&number=10",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "food",
+                        "menuItems",
+                        "search"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The (natural language) search query.",
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The minimum amount of calories the menu item must have.",
+                          "key": "minCalories",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The maximum amount of calories the menu item can have.",
+                          "key": "maxCalories",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The minimum amount of carbohydrates in grams the menu item must have.",
+                          "key": "minCarbs",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The maximum amount of carbohydrates in grams the menu item can have.",
+                          "key": "maxCarbs",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The minimum amount of protein in grams the menu item must have.",
+                          "key": "minProtein",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The maximum amount of protein in grams the menu item can have.",
+                          "key": "maxProtein",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The minimum amount of fat in grams the menu item must have.",
+                          "key": "minFat",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The maximum amount of fat in grams the menu item can have.",
+                          "key": "maxFat",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "If set to true, you get more information about the menu items returned.",
+                          "key": "addMenuItemInformation",
+                          "value": "true"
+                        },
+                        {
+                          "description": "The number of results to skip (between 0 and 900).",
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The maximum number of items to return (between 1 and 100). Defaults to 10.",
+                          "key": "number",
+                          "value": "10"
+                        }
+                      ]
+                    },
+                    "description": "Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald's Big Mac or Starbucks Mocha."
+                  },
+                  "response": [
+                    {
+                      "id": "499299a5-cc8f-41ca-8c30-018c7e80170c",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/menuItems/search?query=<string>&minCalories=<number>&maxCalories=<number>&minCarbs=<number>&maxCarbs=<number>&minProtein=<number>&maxProtein=<number>&minFat=<number>&maxFat=<number>&addMenuItemInformation=true&offset=<integer>&number=10",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "menuItems",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The (natural language) search query.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The minimum amount of calories the menu item must have.",
+                              "key": "minCalories",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The maximum amount of calories the menu item can have.",
+                              "key": "maxCalories",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The minimum amount of carbohydrates in grams the menu item must have.",
+                              "key": "minCarbs",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The maximum amount of carbohydrates in grams the menu item can have.",
+                              "key": "maxCarbs",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The minimum amount of protein in grams the menu item must have.",
+                              "key": "minProtein",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The maximum amount of protein in grams the menu item can have.",
+                              "key": "maxProtein",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The minimum amount of fat in grams the menu item must have.",
+                              "key": "minFat",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The maximum amount of fat in grams the menu item can have.",
+                              "key": "maxFat",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "If set to true, you get more information about the menu items returned.",
+                              "key": "addMenuItemInformation",
+                              "value": "true"
+                            },
+                            {
+                              "description": "The number of results to skip (between 0 and 900).",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "The maximum number of items to return (between 1 and 100). Defaults to 10.",
+                              "key": "number",
+                              "value": "10"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"menuItems\": [\n    {\n      \"id\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"restaurantChain\": \"<string>\",\n      \"price\": \"<number>\",\n      \"spoonacularScore\": \"<number>\",\n      \"nutrition\": {\n        \"nutrients\": [\n          {\n            \"name\": \"<string>\",\n            \"amount\": \"<number>\",\n            \"unit\": \"<string>\",\n            \"percentOfDailyNeeds\": \"<number>\"\n          },\n          {\n            \"name\": \"<string>\",\n            \"amount\": \"<number>\",\n            \"unit\": \"<string>\",\n            \"percentOfDailyNeeds\": \"<number>\"\n          }\n        ],\n        \"caloricBreakdown\": {\n          \"percentProtein\": \"<number>\",\n          \"percentFat\": \"<number>\",\n          \"percentCarbs\": \"<number>\"\n        }\n      },\n      \"badges\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"breadcrumbs\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"generatedText\": \"<string>\",\n      \"imageType\": \"<string>\",\n      \"likes\": \"<integer>\",\n      \"servings\": {\n        \"number\": \"<number>\",\n        \"size\": \"<number>\",\n        \"unit\": \"<string>\"\n      }\n    },\n    {\n      \"id\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"restaurantChain\": \"<string>\",\n      \"price\": \"<number>\",\n      \"spoonacularScore\": \"<number>\",\n      \"nutrition\": {\n        \"nutrients\": [\n          {\n            \"name\": \"<string>\",\n            \"amount\": \"<number>\",\n            \"unit\": \"<string>\",\n            \"percentOfDailyNeeds\": \"<number>\"\n          },\n          {\n            \"name\": \"<string>\",\n            \"amount\": \"<number>\",\n            \"unit\": \"<string>\",\n            \"percentOfDailyNeeds\": \"<number>\"\n          }\n        ],\n        \"caloricBreakdown\": {\n          \"percentProtein\": \"<number>\",\n          \"percentFat\": \"<number>\",\n          \"percentCarbs\": \"<number>\"\n        }\n      },\n      \"badges\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"breadcrumbs\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"generatedText\": \"<string>\",\n      \"imageType\": \"<string>\",\n      \"likes\": \"<integer>\",\n      \"servings\": {\n        \"number\": \"<number>\",\n        \"size\": \"<number>\",\n        \"unit\": \"<string>\"\n      }\n    }\n  ],\n  \"totalMenuItems\": \"<integer>\",\n  \"type\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"number\": \"<integer>\"\n}",
+                      "createdAt": "2026-07-28T02:59:59.000Z",
+                      "updatedAt": "2026-07-28T02:59:59.000Z",
+                      "uid": "35240-499299a5-cc8f-41ca-8c30-018c7e80170c"
+                    },
+                    {
+                      "id": "2724f737-f1d2-462c-8100-ac996d73e8b1",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/menuItems/search?query=<string>&minCalories=<number>&maxCalories=<number>&minCarbs=<number>&maxCarbs=<number>&minProtein=<number>&maxProtein=<number>&minFat=<number>&maxFat=<number>&addMenuItemInformation=true&offset=<integer>&number=10",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "menuItems",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The (natural language) search query.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The minimum amount of calories the menu item must have.",
+                              "key": "minCalories",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The maximum amount of calories the menu item can have.",
+                              "key": "maxCalories",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The minimum amount of carbohydrates in grams the menu item must have.",
+                              "key": "minCarbs",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The maximum amount of carbohydrates in grams the menu item can have.",
+                              "key": "maxCarbs",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The minimum amount of protein in grams the menu item must have.",
+                              "key": "minProtein",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The maximum amount of protein in grams the menu item can have.",
+                              "key": "maxProtein",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The minimum amount of fat in grams the menu item must have.",
+                              "key": "minFat",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The maximum amount of fat in grams the menu item can have.",
+                              "key": "maxFat",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "If set to true, you get more information about the menu items returned.",
+                              "key": "addMenuItemInformation",
+                              "value": "true"
+                            },
+                            {
+                              "description": "The number of results to skip (between 0 and 900).",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "The maximum number of items to return (between 1 and 100). Defaults to 10.",
+                              "key": "number",
+                              "value": "10"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:59:59.000Z",
+                      "updatedAt": "2026-07-28T02:59:59.000Z",
+                      "uid": "35240-2724f737-f1d2-462c-8100-ac996d73e8b1"
+                    },
+                    {
+                      "id": "bc459cee-3af8-4a20-8052-0efa4017f10f",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/menuItems/search?query=<string>&minCalories=<number>&maxCalories=<number>&minCarbs=<number>&maxCarbs=<number>&minProtein=<number>&maxProtein=<number>&minFat=<number>&maxFat=<number>&addMenuItemInformation=true&offset=<integer>&number=10",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "menuItems",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The (natural language) search query.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The minimum amount of calories the menu item must have.",
+                              "key": "minCalories",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The maximum amount of calories the menu item can have.",
+                              "key": "maxCalories",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The minimum amount of carbohydrates in grams the menu item must have.",
+                              "key": "minCarbs",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The maximum amount of carbohydrates in grams the menu item can have.",
+                              "key": "maxCarbs",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The minimum amount of protein in grams the menu item must have.",
+                              "key": "minProtein",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The maximum amount of protein in grams the menu item can have.",
+                              "key": "maxProtein",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The minimum amount of fat in grams the menu item must have.",
+                              "key": "minFat",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The maximum amount of fat in grams the menu item can have.",
+                              "key": "maxFat",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "If set to true, you get more information about the menu items returned.",
+                              "key": "addMenuItemInformation",
+                              "value": "true"
+                            },
+                            {
+                              "description": "The number of results to skip (between 0 and 900).",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "The maximum number of items to return (between 1 and 100). Defaults to 10.",
+                              "key": "number",
+                              "value": "10"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:59:59.000Z",
+                      "updatedAt": "2026-07-28T02:59:59.000Z",
+                      "uid": "35240-bc459cee-3af8-4a20-8052-0efa4017f10f"
+                    },
+                    {
+                      "id": "dd0d2b96-9d17-44bb-a362-bd21f689422e",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/menuItems/search?query=<string>&minCalories=<number>&maxCalories=<number>&minCarbs=<number>&maxCarbs=<number>&minProtein=<number>&maxProtein=<number>&minFat=<number>&maxFat=<number>&addMenuItemInformation=true&offset=<integer>&number=10",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "menuItems",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The (natural language) search query.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The minimum amount of calories the menu item must have.",
+                              "key": "minCalories",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The maximum amount of calories the menu item can have.",
+                              "key": "maxCalories",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The minimum amount of carbohydrates in grams the menu item must have.",
+                              "key": "minCarbs",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The maximum amount of carbohydrates in grams the menu item can have.",
+                              "key": "maxCarbs",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The minimum amount of protein in grams the menu item must have.",
+                              "key": "minProtein",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The maximum amount of protein in grams the menu item can have.",
+                              "key": "maxProtein",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The minimum amount of fat in grams the menu item must have.",
+                              "key": "minFat",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The maximum amount of fat in grams the menu item can have.",
+                              "key": "maxFat",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "If set to true, you get more information about the menu items returned.",
+                              "key": "addMenuItemInformation",
+                              "value": "true"
+                            },
+                            {
+                              "description": "The number of results to skip (between 0 and 900).",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "The maximum number of items to return (between 1 and 100). Defaults to 10.",
+                              "key": "number",
+                              "value": "10"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:59:59.000Z",
+                      "updatedAt": "2026-07-28T02:59:59.000Z",
+                      "uid": "35240-dd0d2b96-9d17-44bb-a362-bd21f689422e"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:59:59.000Z",
+                  "updatedAt": "2026-07-28T02:59:59.000Z",
+                  "uid": "35240-728e8a93-628e-4894-bb37-fa3f15b04c38"
+                }
+              ],
+              "id": "1610fe0c-2b92-439c-89f8-8ad0a5e7be12",
+              "createdAt": "2026-07-28T02:59:59.000Z",
+              "updatedAt": "2026-07-28T02:59:59.000Z",
+              "uid": "35240-1610fe0c-2b92-439c-89f8-8ad0a5e7be12"
+            },
+            {
+              "name": "{id}",
+              "item": [
+                {
+                  "name": "nutritionWidget",
+                  "item": [
+                    {
+                      "name": "Menu Item Nutrition by ID Widget",
+                      "id": "9017799c-d61f-426a-a931-9d9c574f72fe",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "text/html"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/menuItems/:id/nutritionWidget?defaultCss=true",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "menuItems",
+                            ":id",
+                            "nutritionWidget"
+                          ],
+                          "query": [
+                            {
+                              "description": "Whether the default CSS should be added to the response.",
+                              "key": "defaultCss",
+                              "value": "true"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "a04fdada-3800-4c57-87de-b34c6eb9abb4",
+                              "key": "id",
+                              "value": "<integer>",
+                              "description": "(Required) The menu item id."
+                            }
+                          ]
+                        },
+                        "description": "Visualize a menu item's nutritional information as HTML including CSS."
+                      },
+                      "response": [
+                        {
+                          "id": "1ee0826b-fda0-4432-bd54-66a7eb72ae3a",
+                          "name": "Success",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "text/html"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/food/menuItems/:id/nutritionWidget?defaultCss=true",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "food",
+                                "menuItems",
+                                ":id",
+                                "nutritionWidget"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Whether the default CSS should be added to the response.",
+                                  "key": "defaultCss",
+                                  "value": "true"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "text/html"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "<string>",
+                          "createdAt": "2026-07-28T02:59:59.000Z",
+                          "updatedAt": "2026-07-28T02:59:59.000Z",
+                          "uid": "35240-1ee0826b-fda0-4432-bd54-66a7eb72ae3a"
+                        },
+                        {
+                          "id": "6ce00edf-cce1-49b5-8e4e-df1d93cee63d",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/food/menuItems/:id/nutritionWidget?defaultCss=true",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "food",
+                                "menuItems",
+                                ":id",
+                                "nutritionWidget"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Whether the default CSS should be added to the response.",
+                                  "key": "defaultCss",
+                                  "value": "true"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:59:59.000Z",
+                          "updatedAt": "2026-07-28T02:59:59.000Z",
+                          "uid": "35240-6ce00edf-cce1-49b5-8e4e-df1d93cee63d"
+                        },
+                        {
+                          "id": "8b0116dd-0bbc-46a6-a2d7-afd4b7df2caf",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/food/menuItems/:id/nutritionWidget?defaultCss=true",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "food",
+                                "menuItems",
+                                ":id",
+                                "nutritionWidget"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Whether the default CSS should be added to the response.",
+                                  "key": "defaultCss",
+                                  "value": "true"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:59:59.000Z",
+                          "updatedAt": "2026-07-28T02:59:59.000Z",
+                          "uid": "35240-8b0116dd-0bbc-46a6-a2d7-afd4b7df2caf"
+                        },
+                        {
+                          "id": "d4aef005-8f7d-4e83-8d43-8211794688a3",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/food/menuItems/:id/nutritionWidget?defaultCss=true",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "food",
+                                "menuItems",
+                                ":id",
+                                "nutritionWidget"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Whether the default CSS should be added to the response.",
+                                  "key": "defaultCss",
+                                  "value": "true"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:59:59.000Z",
+                          "updatedAt": "2026-07-28T02:59:59.000Z",
+                          "uid": "35240-d4aef005-8f7d-4e83-8d43-8211794688a3"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:59:59.000Z",
+                      "updatedAt": "2026-07-28T02:59:59.000Z",
+                      "uid": "35240-9017799c-d61f-426a-a931-9d9c574f72fe"
+                    }
+                  ],
+                  "id": "45f027f9-84d3-4a17-aa7f-9604e12ff63c",
+                  "createdAt": "2026-07-28T02:59:59.000Z",
+                  "updatedAt": "2026-07-28T02:59:59.000Z",
+                  "uid": "35240-45f027f9-84d3-4a17-aa7f-9604e12ff63c"
+                },
+                {
+                  "name": "nutritionWidget.png",
+                  "item": [
+                    {
+                      "name": "Menu Item Nutrition by ID Image",
+                      "id": "f038e448-65f0-46fb-ae5f-d69f8087be89",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "image/png"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/menuItems/:id/nutritionWidget.png",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "menuItems",
+                            ":id",
+                            "nutritionWidget.png"
+                          ],
+                          "variable": [
+                            {
+                              "id": "0d00022c-9b57-4ab4-aa65-4c95b167ecb5",
+                              "key": "id",
+                              "value": "<integer>",
+                              "description": "(Required) The menu item id."
+                            }
+                          ]
+                        },
+                        "description": "Visualize a menu item's nutritional information as HTML including CSS."
+                      },
+                      "response": [
+                        {
+                          "id": "da581b52-122c-405d-ae62-83785845102d",
+                          "name": "Success",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "image/png"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/food/menuItems/:id/nutritionWidget.png",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "food",
+                                "menuItems",
+                                ":id",
+                                "nutritionWidget.png"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "image/png"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "<binary>",
+                          "createdAt": "2026-07-28T02:59:59.000Z",
+                          "updatedAt": "2026-07-28T02:59:59.000Z",
+                          "uid": "35240-da581b52-122c-405d-ae62-83785845102d"
+                        },
+                        {
+                          "id": "28dc8c2e-5abc-4248-b1db-68326a14262a",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/food/menuItems/:id/nutritionWidget.png",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "food",
+                                "menuItems",
+                                ":id",
+                                "nutritionWidget.png"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:59:59.000Z",
+                          "updatedAt": "2026-07-28T02:59:59.000Z",
+                          "uid": "35240-28dc8c2e-5abc-4248-b1db-68326a14262a"
+                        },
+                        {
+                          "id": "a46eb981-82b0-4f81-af3b-b2ba84ce0034",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/food/menuItems/:id/nutritionWidget.png",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "food",
+                                "menuItems",
+                                ":id",
+                                "nutritionWidget.png"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:59:59.000Z",
+                          "updatedAt": "2026-07-28T02:59:59.000Z",
+                          "uid": "35240-a46eb981-82b0-4f81-af3b-b2ba84ce0034"
+                        },
+                        {
+                          "id": "f284eb12-e0a0-4c83-8fd1-3d5b3e64b854",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/food/menuItems/:id/nutritionWidget.png",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "food",
+                                "menuItems",
+                                ":id",
+                                "nutritionWidget.png"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:59:59.000Z",
+                          "updatedAt": "2026-07-28T02:59:59.000Z",
+                          "uid": "35240-f284eb12-e0a0-4c83-8fd1-3d5b3e64b854"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:59:59.000Z",
+                      "updatedAt": "2026-07-28T02:59:59.000Z",
+                      "uid": "35240-f038e448-65f0-46fb-ae5f-d69f8087be89"
+                    }
+                  ],
+                  "id": "131e3533-101d-409e-b171-5dcbfce0484c",
+                  "createdAt": "2026-07-28T02:59:59.000Z",
+                  "updatedAt": "2026-07-28T02:59:59.000Z",
+                  "uid": "35240-131e3533-101d-409e-b171-5dcbfce0484c"
+                },
+                {
+                  "name": "nutritionLabel",
+                  "item": [
+                    {
+                      "name": "Menu Item Nutrition Label Widget",
+                      "id": "f7f6fbb0-8c4c-4b59-9877-4070ef8fbd70",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "text/html"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/menuItems/:id/nutritionLabel?defaultCss=true&showOptionalNutrients=<boolean>&showZeroValues=<boolean>&showIngredients=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "menuItems",
+                            ":id",
+                            "nutritionLabel"
+                          ],
+                          "query": [
+                            {
+                              "description": "Whether the default CSS should be added to the response.",
+                              "key": "defaultCss",
+                              "value": "true"
+                            },
+                            {
+                              "description": "Whether to show optional nutrients.",
+                              "key": "showOptionalNutrients",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Whether to show zero values.",
+                              "key": "showZeroValues",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Whether to show a list of ingredients.",
+                              "key": "showIngredients",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "f0e83892-423d-4ce5-bae0-fb45aab20f0b",
+                              "key": "id",
+                              "value": "<integer>",
+                              "description": "(Required) The menu item id."
+                            }
+                          ]
+                        },
+                        "description": "Visualize a menu item's nutritional label information as HTML including CSS."
+                      },
+                      "response": [
+                        {
+                          "id": "1ff7b18e-72a6-4907-8c22-22dab69fab54",
+                          "name": "Success",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "text/html"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/food/menuItems/:id/nutritionLabel?defaultCss=true&showOptionalNutrients=<boolean>&showZeroValues=<boolean>&showIngredients=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "food",
+                                "menuItems",
+                                ":id",
+                                "nutritionLabel"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Whether the default CSS should be added to the response.",
+                                  "key": "defaultCss",
+                                  "value": "true"
+                                },
+                                {
+                                  "description": "Whether to show optional nutrients.",
+                                  "key": "showOptionalNutrients",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "Whether to show zero values.",
+                                  "key": "showZeroValues",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "Whether to show a list of ingredients.",
+                                  "key": "showIngredients",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "text/html"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "<string>",
+                          "createdAt": "2026-07-28T02:59:59.000Z",
+                          "updatedAt": "2026-07-28T02:59:59.000Z",
+                          "uid": "35240-1ff7b18e-72a6-4907-8c22-22dab69fab54"
+                        },
+                        {
+                          "id": "667bd7e1-ad89-49de-a62b-524d003a1244",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/food/menuItems/:id/nutritionLabel?defaultCss=true&showOptionalNutrients=<boolean>&showZeroValues=<boolean>&showIngredients=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "food",
+                                "menuItems",
+                                ":id",
+                                "nutritionLabel"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Whether the default CSS should be added to the response.",
+                                  "key": "defaultCss",
+                                  "value": "true"
+                                },
+                                {
+                                  "description": "Whether to show optional nutrients.",
+                                  "key": "showOptionalNutrients",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "Whether to show zero values.",
+                                  "key": "showZeroValues",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "Whether to show a list of ingredients.",
+                                  "key": "showIngredients",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:59:59.000Z",
+                          "updatedAt": "2026-07-28T02:59:59.000Z",
+                          "uid": "35240-667bd7e1-ad89-49de-a62b-524d003a1244"
+                        },
+                        {
+                          "id": "a65ba3c3-527d-4c5b-9803-06ba5142dbe9",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/food/menuItems/:id/nutritionLabel?defaultCss=true&showOptionalNutrients=<boolean>&showZeroValues=<boolean>&showIngredients=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "food",
+                                "menuItems",
+                                ":id",
+                                "nutritionLabel"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Whether the default CSS should be added to the response.",
+                                  "key": "defaultCss",
+                                  "value": "true"
+                                },
+                                {
+                                  "description": "Whether to show optional nutrients.",
+                                  "key": "showOptionalNutrients",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "Whether to show zero values.",
+                                  "key": "showZeroValues",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "Whether to show a list of ingredients.",
+                                  "key": "showIngredients",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:59:59.000Z",
+                          "updatedAt": "2026-07-28T02:59:59.000Z",
+                          "uid": "35240-a65ba3c3-527d-4c5b-9803-06ba5142dbe9"
+                        },
+                        {
+                          "id": "c809b60e-1114-4236-a943-a5e4d331db68",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/food/menuItems/:id/nutritionLabel?defaultCss=true&showOptionalNutrients=<boolean>&showZeroValues=<boolean>&showIngredients=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "food",
+                                "menuItems",
+                                ":id",
+                                "nutritionLabel"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Whether the default CSS should be added to the response.",
+                                  "key": "defaultCss",
+                                  "value": "true"
+                                },
+                                {
+                                  "description": "Whether to show optional nutrients.",
+                                  "key": "showOptionalNutrients",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "Whether to show zero values.",
+                                  "key": "showZeroValues",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "Whether to show a list of ingredients.",
+                                  "key": "showIngredients",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:59:59.000Z",
+                          "updatedAt": "2026-07-28T02:59:59.000Z",
+                          "uid": "35240-c809b60e-1114-4236-a943-a5e4d331db68"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:59:59.000Z",
+                      "updatedAt": "2026-07-28T02:59:59.000Z",
+                      "uid": "35240-f7f6fbb0-8c4c-4b59-9877-4070ef8fbd70"
+                    }
+                  ],
+                  "id": "25ad41d8-ea2a-4889-b1f8-e71825405b70",
+                  "createdAt": "2026-07-28T02:59:59.000Z",
+                  "updatedAt": "2026-07-28T02:59:59.000Z",
+                  "uid": "35240-25ad41d8-ea2a-4889-b1f8-e71825405b70"
+                },
+                {
+                  "name": "nutritionLabel.png",
+                  "item": [
+                    {
+                      "name": "Menu Item Nutrition Label Image",
+                      "id": "14397629-4fe6-46f7-a974-38bfa5147695",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "image/png"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/menuItems/:id/nutritionLabel.png?showOptionalNutrients=<boolean>&showZeroValues=<boolean>&showIngredients=<boolean>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "menuItems",
+                            ":id",
+                            "nutritionLabel.png"
+                          ],
+                          "query": [
+                            {
+                              "description": "Whether to show optional nutrients.",
+                              "key": "showOptionalNutrients",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Whether to show zero values.",
+                              "key": "showZeroValues",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "Whether to show a list of ingredients.",
+                              "key": "showIngredients",
+                              "value": "<boolean>"
+                            }
+                          ],
+                          "variable": [
+                            {
+                              "id": "ac5791f0-c254-4e85-9d16-debcfd6d1a75",
+                              "key": "id",
+                              "value": "<integer>",
+                              "description": "(Required) The menu item id."
+                            }
+                          ]
+                        },
+                        "description": "Visualize a menu item's nutritional label information as an image."
+                      },
+                      "response": [
+                        {
+                          "id": "ce0b62af-177b-436d-a7e8-2ddc1b8ba854",
+                          "name": "Success",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "image/png"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/food/menuItems/:id/nutritionLabel.png?showOptionalNutrients=<boolean>&showZeroValues=<boolean>&showIngredients=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "food",
+                                "menuItems",
+                                ":id",
+                                "nutritionLabel.png"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Whether to show optional nutrients.",
+                                  "key": "showOptionalNutrients",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "Whether to show zero values.",
+                                  "key": "showZeroValues",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "Whether to show a list of ingredients.",
+                                  "key": "showIngredients",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "image/png"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "<binary>",
+                          "createdAt": "2026-07-28T02:59:59.000Z",
+                          "updatedAt": "2026-07-28T02:59:59.000Z",
+                          "uid": "35240-ce0b62af-177b-436d-a7e8-2ddc1b8ba854"
+                        },
+                        {
+                          "id": "7f34a8b9-36b3-4697-9403-a0d49d19c0fc",
+                          "name": "Unauthorized",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/food/menuItems/:id/nutritionLabel.png?showOptionalNutrients=<boolean>&showZeroValues=<boolean>&showIngredients=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "food",
+                                "menuItems",
+                                ":id",
+                                "nutritionLabel.png"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Whether to show optional nutrients.",
+                                  "key": "showOptionalNutrients",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "Whether to show zero values.",
+                                  "key": "showZeroValues",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "Whether to show a list of ingredients.",
+                                  "key": "showIngredients",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Unauthorized",
+                          "code": 401,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:59:59.000Z",
+                          "updatedAt": "2026-07-28T02:59:59.000Z",
+                          "uid": "35240-7f34a8b9-36b3-4697-9403-a0d49d19c0fc"
+                        },
+                        {
+                          "id": "a48111e2-3c7a-494c-9707-298a15e50dd4",
+                          "name": "Forbidden",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/food/menuItems/:id/nutritionLabel.png?showOptionalNutrients=<boolean>&showZeroValues=<boolean>&showIngredients=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "food",
+                                "menuItems",
+                                ":id",
+                                "nutritionLabel.png"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Whether to show optional nutrients.",
+                                  "key": "showOptionalNutrients",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "Whether to show zero values.",
+                                  "key": "showZeroValues",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "Whether to show a list of ingredients.",
+                                  "key": "showIngredients",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Forbidden",
+                          "code": 403,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:59:59.000Z",
+                          "updatedAt": "2026-07-28T02:59:59.000Z",
+                          "uid": "35240-a48111e2-3c7a-494c-9707-298a15e50dd4"
+                        },
+                        {
+                          "id": "0823300d-a88c-4055-a363-6bcc062213a9",
+                          "name": "Not Found",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "x-api-key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/food/menuItems/:id/nutritionLabel.png?showOptionalNutrients=<boolean>&showZeroValues=<boolean>&showIngredients=<boolean>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "food",
+                                "menuItems",
+                                ":id",
+                                "nutritionLabel.png"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Whether to show optional nutrients.",
+                                  "key": "showOptionalNutrients",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "Whether to show zero values.",
+                                  "key": "showZeroValues",
+                                  "value": "<boolean>"
+                                },
+                                {
+                                  "description": "Whether to show a list of ingredients.",
+                                  "key": "showIngredients",
+                                  "value": "<boolean>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "Not Found",
+                          "code": 404,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-07-28T02:59:59.000Z",
+                          "updatedAt": "2026-07-28T02:59:59.000Z",
+                          "uid": "35240-0823300d-a88c-4055-a363-6bcc062213a9"
+                        }
+                      ],
+                      "createdAt": "2026-07-28T02:59:59.000Z",
+                      "updatedAt": "2026-07-28T02:59:59.000Z",
+                      "uid": "35240-14397629-4fe6-46f7-a974-38bfa5147695"
+                    }
+                  ],
+                  "id": "79b626f4-4c64-438b-bffd-ef5a86d30edb",
+                  "createdAt": "2026-07-28T02:59:59.000Z",
+                  "updatedAt": "2026-07-28T02:59:59.000Z",
+                  "uid": "35240-79b626f4-4c64-438b-bffd-ef5a86d30edb"
+                },
+                {
+                  "name": "Get Menu Item Information",
+                  "id": "a3078c39-8494-4327-ad80-5a08d13118ba",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/food/menuItems/:id",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "food",
+                        "menuItems",
+                        ":id"
+                      ],
+                      "variable": [
+                        {
+                          "id": "7151489f-7331-4596-b456-e072fdb85153",
+                          "key": "id",
+                          "value": "<integer>",
+                          "description": "(Required) The menu item id."
+                        }
+                      ]
+                    },
+                    "description": "Use a menu item id to get all available information about a menu item, such as nutrition."
+                  },
+                  "response": [
+                    {
+                      "id": "ab104229-13a6-4b09-abf5-f38fd1119e32",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/menuItems/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "menuItems",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"id\": \"<integer>\",\n  \"title\": \"<string>\",\n  \"restaurantChain\": \"<string>\",\n  \"price\": \"<number>\",\n  \"spoonacularScore\": \"<number>\",\n  \"nutrition\": {\n    \"nutrients\": [\n      {\n        \"name\": \"<string>\",\n        \"amount\": \"<number>\",\n        \"unit\": \"<string>\",\n        \"percentOfDailyNeeds\": \"<number>\"\n      },\n      {\n        \"name\": \"<string>\",\n        \"amount\": \"<number>\",\n        \"unit\": \"<string>\",\n        \"percentOfDailyNeeds\": \"<number>\"\n      }\n    ],\n    \"caloricBreakdown\": {\n      \"percentProtein\": \"<number>\",\n      \"percentFat\": \"<number>\",\n      \"percentCarbs\": \"<number>\"\n    }\n  },\n  \"badges\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"breadcrumbs\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"generatedText\": \"<string>\",\n  \"imageType\": \"<string>\",\n  \"likes\": \"<integer>\",\n  \"servings\": {\n    \"number\": \"<number>\",\n    \"size\": \"<number>\",\n    \"unit\": \"<string>\"\n  }\n}",
+                      "createdAt": "2026-07-28T02:59:59.000Z",
+                      "updatedAt": "2026-07-28T02:59:59.000Z",
+                      "uid": "35240-ab104229-13a6-4b09-abf5-f38fd1119e32"
+                    },
+                    {
+                      "id": "a4265b75-2ffe-45f6-84de-1390ee7e4f1b",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/menuItems/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "menuItems",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:59:59.000Z",
+                      "updatedAt": "2026-07-28T02:59:59.000Z",
+                      "uid": "35240-a4265b75-2ffe-45f6-84de-1390ee7e4f1b"
+                    },
+                    {
+                      "id": "47c0d696-6ee6-4849-ad6d-8825fd0fcf13",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/menuItems/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "menuItems",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:59:59.000Z",
+                      "updatedAt": "2026-07-28T02:59:59.000Z",
+                      "uid": "35240-47c0d696-6ee6-4849-ad6d-8825fd0fcf13"
+                    },
+                    {
+                      "id": "b4a41991-1b72-448c-8979-7d82edbb869d",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/menuItems/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "menuItems",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "key": "id"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:59:59.000Z",
+                      "updatedAt": "2026-07-28T02:59:59.000Z",
+                      "uid": "35240-b4a41991-1b72-448c-8979-7d82edbb869d"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:59:59.000Z",
+                  "updatedAt": "2026-07-28T02:59:59.000Z",
+                  "uid": "35240-a3078c39-8494-4327-ad80-5a08d13118ba"
+                }
+              ],
+              "id": "0ac8b460-7c48-4970-b435-7c12bae045ee",
+              "createdAt": "2026-07-28T02:59:59.000Z",
+              "updatedAt": "2026-07-28T02:59:59.000Z",
+              "uid": "35240-0ac8b460-7c48-4970-b435-7c12bae045ee"
+            }
+          ],
+          "id": "0409a712-50f6-485a-b40b-d4ec26dd2342",
+          "createdAt": "2026-07-28T02:59:59.000Z",
+          "updatedAt": "2026-07-28T02:59:59.000Z",
+          "uid": "35240-0409a712-50f6-485a-b40b-d4ec26dd2342"
+        },
+        {
+          "name": "restaurants",
+          "item": [
+            {
+              "name": "search",
+              "item": [
+                {
+                  "name": "Search Restaurants",
+                  "id": "b095b597-d686-4ed1-bf14-37940631ab53",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/food/restaurants/search?query=<string>&lat=<number>&lng=<number>&distance=<number>&budget=<number>&cuisine=<string>&min-rating=<number>&is-open=<boolean>&sort=<string>&page=<number>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "food",
+                        "restaurants",
+                        "search"
+                      ],
+                      "query": [
+                        {
+                          "description": "The search query.",
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The latitude of the user's location.",
+                          "key": "lat",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The longitude of the user's location.\".",
+                          "key": "lng",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The distance around the location in miles.",
+                          "key": "distance",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The user's budget for a meal in USD.",
+                          "key": "budget",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The cuisine of the restaurant.",
+                          "key": "cuisine",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The minimum rating of the restaurant between 0 and 5.",
+                          "key": "min-rating",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "Whether the restaurant must be open at the time of search.",
+                          "key": "is-open",
+                          "value": "<boolean>"
+                        },
+                        {
+                          "description": "How to sort the results, one of the following 'cheapest', 'fastest', 'rating', 'distance' or the default 'relevance'.",
+                          "key": "sort",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The page number of results.",
+                          "key": "page",
+                          "value": "<number>"
+                        }
+                      ]
+                    },
+                    "description": "Search through thousands of restaurants (in North America) by location, cuisine, budget, and more."
+                  },
+                  "response": [
+                    {
+                      "id": "0e27cdeb-1d05-490b-9207-a99d084aaa08",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/restaurants/search?query=<string>&lat=<number>&lng=<number>&distance=<number>&budget=<number>&cuisine=<string>&min-rating=<number>&is-open=<boolean>&sort=<string>&page=<number>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "restaurants",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "description": "The search query.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The latitude of the user's location.",
+                              "key": "lat",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The longitude of the user's location.\".",
+                              "key": "lng",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The distance around the location in miles.",
+                              "key": "distance",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The user's budget for a meal in USD.",
+                              "key": "budget",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The cuisine of the restaurant.",
+                              "key": "cuisine",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The minimum rating of the restaurant between 0 and 5.",
+                              "key": "min-rating",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "Whether the restaurant must be open at the time of search.",
+                              "key": "is-open",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "How to sort the results, one of the following 'cheapest', 'fastest', 'rating', 'distance' or the default 'relevance'.",
+                              "key": "sort",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The page number of results.",
+                              "key": "page",
+                              "value": "<number>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"restaurants\": [\n    {\n      \"_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"phone_number\": \"<integer>\",\n      \"address\": {\n        \"street_addr\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zipcode\": \"<string>\",\n        \"country\": \"<string>\",\n        \"lat\": \"<number>\",\n        \"lon\": \"<number>\",\n        \"street_addr_2\": \"<string>\",\n        \"latitude\": \"<number>\",\n        \"longitude\": \"<number>\"\n      },\n      \"type\": \"<string>\",\n      \"description\": \"<string>\",\n      \"local_hours\": {\n        \"operational\": {\n          \"Monday\": \"<string>\",\n          \"Tuesday\": \"<string>\",\n          \"Wednesday\": \"<string>\",\n          \"Thursday\": \"<string>\",\n          \"Friday\": \"<string>\",\n          \"Saturday\": \"<string>\",\n          \"Sunday\": \"<string>\"\n        },\n        \"delivery\": {\n          \"Monday\": \"<string>\",\n          \"Tuesday\": \"<string>\",\n          \"Wednesday\": \"<string>\",\n          \"Thursday\": \"<string>\",\n          \"Friday\": \"<string>\",\n          \"Saturday\": \"<string>\",\n          \"Sunday\": \"<string>\"\n        },\n        \"pickup\": {\n          \"Monday\": \"<string>\",\n          \"Tuesday\": \"<string>\",\n          \"Wednesday\": \"<string>\",\n          \"Thursday\": \"<string>\",\n          \"Friday\": \"<string>\",\n          \"Saturday\": \"<string>\",\n          \"Sunday\": \"<string>\"\n        },\n        \"dine_in\": {\n          \"Monday\": \"<string>\",\n          \"Tuesday\": \"<string>\",\n          \"Wednesday\": \"<string>\",\n          \"Thursday\": \"<string>\",\n          \"Friday\": \"<string>\",\n          \"Saturday\": \"<string>\",\n          \"Sunday\": \"<string>\"\n        }\n      },\n      \"cuisines\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"food_photos\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"logo_photos\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"store_photos\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"dollar_signs\": \"<integer>\",\n      \"pickup_enabled\": \"<boolean>\",\n      \"delivery_enabled\": \"<boolean>\",\n      \"is_open\": \"<boolean>\",\n      \"offers_first_party_delivery\": \"<boolean>\",\n      \"offers_third_party_delivery\": \"<boolean>\",\n      \"miles\": \"<number>\",\n      \"weighted_rating_value\": \"<number>\",\n      \"aggregated_rating_count\": \"<integer>\"\n    },\n    {\n      \"_id\": \"<string>\",\n      \"name\": \"<string>\",\n      \"phone_number\": \"<integer>\",\n      \"address\": {\n        \"street_addr\": \"<string>\",\n        \"city\": \"<string>\",\n        \"state\": \"<string>\",\n        \"zipcode\": \"<string>\",\n        \"country\": \"<string>\",\n        \"lat\": \"<number>\",\n        \"lon\": \"<number>\",\n        \"street_addr_2\": \"<string>\",\n        \"latitude\": \"<number>\",\n        \"longitude\": \"<number>\"\n      },\n      \"type\": \"<string>\",\n      \"description\": \"<string>\",\n      \"local_hours\": {\n        \"operational\": {\n          \"Monday\": \"<string>\",\n          \"Tuesday\": \"<string>\",\n          \"Wednesday\": \"<string>\",\n          \"Thursday\": \"<string>\",\n          \"Friday\": \"<string>\",\n          \"Saturday\": \"<string>\",\n          \"Sunday\": \"<string>\"\n        },\n        \"delivery\": {\n          \"Monday\": \"<string>\",\n          \"Tuesday\": \"<string>\",\n          \"Wednesday\": \"<string>\",\n          \"Thursday\": \"<string>\",\n          \"Friday\": \"<string>\",\n          \"Saturday\": \"<string>\",\n          \"Sunday\": \"<string>\"\n        },\n        \"pickup\": {\n          \"Monday\": \"<string>\",\n          \"Tuesday\": \"<string>\",\n          \"Wednesday\": \"<string>\",\n          \"Thursday\": \"<string>\",\n          \"Friday\": \"<string>\",\n          \"Saturday\": \"<string>\",\n          \"Sunday\": \"<string>\"\n        },\n        \"dine_in\": {\n          \"Monday\": \"<string>\",\n          \"Tuesday\": \"<string>\",\n          \"Wednesday\": \"<string>\",\n          \"Thursday\": \"<string>\",\n          \"Friday\": \"<string>\",\n          \"Saturday\": \"<string>\",\n          \"Sunday\": \"<string>\"\n        }\n      },\n      \"cuisines\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"food_photos\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"logo_photos\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"store_photos\": [\n        \"<string>\",\n        \"<string>\"\n      ],\n      \"dollar_signs\": \"<integer>\",\n      \"pickup_enabled\": \"<boolean>\",\n      \"delivery_enabled\": \"<boolean>\",\n      \"is_open\": \"<boolean>\",\n      \"offers_first_party_delivery\": \"<boolean>\",\n      \"offers_third_party_delivery\": \"<boolean>\",\n      \"miles\": \"<number>\",\n      \"weighted_rating_value\": \"<number>\",\n      \"aggregated_rating_count\": \"<integer>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T02:59:59.000Z",
+                      "updatedAt": "2026-07-28T02:59:59.000Z",
+                      "uid": "35240-0e27cdeb-1d05-490b-9207-a99d084aaa08"
+                    },
+                    {
+                      "id": "2267d11d-7fee-45c9-b713-d96ae87fe2dc",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/restaurants/search?query=<string>&lat=<number>&lng=<number>&distance=<number>&budget=<number>&cuisine=<string>&min-rating=<number>&is-open=<boolean>&sort=<string>&page=<number>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "restaurants",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "description": "The search query.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The latitude of the user's location.",
+                              "key": "lat",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The longitude of the user's location.\".",
+                              "key": "lng",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The distance around the location in miles.",
+                              "key": "distance",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The user's budget for a meal in USD.",
+                              "key": "budget",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The cuisine of the restaurant.",
+                              "key": "cuisine",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The minimum rating of the restaurant between 0 and 5.",
+                              "key": "min-rating",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "Whether the restaurant must be open at the time of search.",
+                              "key": "is-open",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "How to sort the results, one of the following 'cheapest', 'fastest', 'rating', 'distance' or the default 'relevance'.",
+                              "key": "sort",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The page number of results.",
+                              "key": "page",
+                              "value": "<number>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:59:59.000Z",
+                      "updatedAt": "2026-07-28T02:59:59.000Z",
+                      "uid": "35240-2267d11d-7fee-45c9-b713-d96ae87fe2dc"
+                    },
+                    {
+                      "id": "d5cdbabd-f604-4e81-addb-e43c6cf98c9d",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/restaurants/search?query=<string>&lat=<number>&lng=<number>&distance=<number>&budget=<number>&cuisine=<string>&min-rating=<number>&is-open=<boolean>&sort=<string>&page=<number>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "restaurants",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "description": "The search query.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The latitude of the user's location.",
+                              "key": "lat",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The longitude of the user's location.\".",
+                              "key": "lng",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The distance around the location in miles.",
+                              "key": "distance",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The user's budget for a meal in USD.",
+                              "key": "budget",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The cuisine of the restaurant.",
+                              "key": "cuisine",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The minimum rating of the restaurant between 0 and 5.",
+                              "key": "min-rating",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "Whether the restaurant must be open at the time of search.",
+                              "key": "is-open",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "How to sort the results, one of the following 'cheapest', 'fastest', 'rating', 'distance' or the default 'relevance'.",
+                              "key": "sort",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The page number of results.",
+                              "key": "page",
+                              "value": "<number>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:59:59.000Z",
+                      "updatedAt": "2026-07-28T02:59:59.000Z",
+                      "uid": "35240-d5cdbabd-f604-4e81-addb-e43c6cf98c9d"
+                    },
+                    {
+                      "id": "6c78c863-ae75-4048-a81c-848a76f24286",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/restaurants/search?query=<string>&lat=<number>&lng=<number>&distance=<number>&budget=<number>&cuisine=<string>&min-rating=<number>&is-open=<boolean>&sort=<string>&page=<number>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "restaurants",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "description": "The search query.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The latitude of the user's location.",
+                              "key": "lat",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The longitude of the user's location.\".",
+                              "key": "lng",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The distance around the location in miles.",
+                              "key": "distance",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The user's budget for a meal in USD.",
+                              "key": "budget",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The cuisine of the restaurant.",
+                              "key": "cuisine",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The minimum rating of the restaurant between 0 and 5.",
+                              "key": "min-rating",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "Whether the restaurant must be open at the time of search.",
+                              "key": "is-open",
+                              "value": "<boolean>"
+                            },
+                            {
+                              "description": "How to sort the results, one of the following 'cheapest', 'fastest', 'rating', 'distance' or the default 'relevance'.",
+                              "key": "sort",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The page number of results.",
+                              "key": "page",
+                              "value": "<number>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T02:59:59.000Z",
+                      "updatedAt": "2026-07-28T02:59:59.000Z",
+                      "uid": "35240-6c78c863-ae75-4048-a81c-848a76f24286"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T02:59:59.000Z",
+                  "updatedAt": "2026-07-28T02:59:59.000Z",
+                  "uid": "35240-b095b597-d686-4ed1-bf14-37940631ab53"
+                }
+              ],
+              "id": "bbb26ad8-b937-4803-9c19-328812906281",
+              "createdAt": "2026-07-28T02:59:59.000Z",
+              "updatedAt": "2026-07-28T02:59:59.000Z",
+              "uid": "35240-bbb26ad8-b937-4803-9c19-328812906281"
+            }
+          ],
+          "id": "c49a1c0c-b6f2-4558-8a4f-4e3c606a276e",
+          "createdAt": "2026-07-28T02:59:59.000Z",
+          "updatedAt": "2026-07-28T02:59:59.000Z",
+          "uid": "35240-c49a1c0c-b6f2-4558-8a4f-4e3c606a276e"
+        }
+      ],
+      "id": "ccec0951-83bd-48b3-9cae-762bbd6475cd",
+      "createdAt": "2026-07-28T02:59:59.000Z",
+      "updatedAt": "2026-07-28T02:59:59.000Z",
+      "uid": "35240-ccec0951-83bd-48b3-9cae-762bbd6475cd"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.spoonacular.com"
+    }
+  ]
+}

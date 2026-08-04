@@ -1,0 +1,2964 @@
+{
+  "info": {
+    "_postman_id": "f6d506a7-8e94-4d23-918b-9b983da67417",
+    "name": "spoonacular Ingredients Misc API",
+    "description": "The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.\n\nSpecial diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.\n\nContact Support:\n Name: David Urbansky\n Email: mail@spoonacular.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T03:00:00.000Z",
+    "updatedAt": "2026-07-28T03:00:01.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-f6d506a7-8e94-4d23-918b-9b983da67417"
+  },
+  "item": [
+    {
+      "name": "food",
+      "item": [
+        {
+          "name": "customFoods",
+          "item": [
+            {
+              "name": "search",
+              "item": [
+                {
+                  "name": "Search Custom Foods",
+                  "id": "57332027-f3d8-4394-b925-4135440439c7",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/food/customFoods/search?query=<string>&username=<string>&hash=<string>&offset=<integer>&number=10",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "food",
+                        "customFoods",
+                        "search"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The (natural language) search query.",
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The username.",
+                          "key": "username",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "(Required) The private hash for the username.",
+                          "key": "hash",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The number of results to skip (between 0 and 900).",
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The maximum number of items to return (between 1 and 100). Defaults to 10.",
+                          "key": "number",
+                          "value": "10"
+                        }
+                      ]
+                    },
+                    "description": "Search custom foods in a user's account."
+                  },
+                  "response": [
+                    {
+                      "id": "5b44ff9a-79c8-4ef1-974d-0e92cde493f4",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/customFoods/search?query=<string>&username=<string>&hash=<string>&offset=<integer>&number=10",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "customFoods",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The (natural language) search query.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The username.",
+                              "key": "username",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The private hash for the username.",
+                              "key": "hash",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The number of results to skip (between 0 and 900).",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "The maximum number of items to return (between 1 and 100). Defaults to 10.",
+                              "key": "number",
+                              "value": "10"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"customFoods\": [\n    {\n      \"id\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"servings\": \"<number>\",\n      \"imageUrl\": \"<string>\",\n      \"price\": \"<number>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"servings\": \"<number>\",\n      \"imageUrl\": \"<string>\",\n      \"price\": \"<number>\"\n    }\n  ],\n  \"type\": \"<string>\",\n  \"offset\": \"<integer>\",\n  \"number\": \"<integer>\"\n}",
+                      "createdAt": "2026-07-28T03:00:01.000Z",
+                      "updatedAt": "2026-07-28T03:00:01.000Z",
+                      "uid": "35240-5b44ff9a-79c8-4ef1-974d-0e92cde493f4"
+                    },
+                    {
+                      "id": "73b11513-8b13-4e72-be29-4c0d65fa30d3",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/customFoods/search?query=<string>&username=<string>&hash=<string>&offset=<integer>&number=10",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "customFoods",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The (natural language) search query.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The username.",
+                              "key": "username",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The private hash for the username.",
+                              "key": "hash",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The number of results to skip (between 0 and 900).",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "The maximum number of items to return (between 1 and 100). Defaults to 10.",
+                              "key": "number",
+                              "value": "10"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:01.000Z",
+                      "updatedAt": "2026-07-28T03:00:01.000Z",
+                      "uid": "35240-73b11513-8b13-4e72-be29-4c0d65fa30d3"
+                    },
+                    {
+                      "id": "f858ae51-cd18-4068-a818-cba41657ec81",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/customFoods/search?query=<string>&username=<string>&hash=<string>&offset=<integer>&number=10",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "customFoods",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The (natural language) search query.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The username.",
+                              "key": "username",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The private hash for the username.",
+                              "key": "hash",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The number of results to skip (between 0 and 900).",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "The maximum number of items to return (between 1 and 100). Defaults to 10.",
+                              "key": "number",
+                              "value": "10"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:01.000Z",
+                      "updatedAt": "2026-07-28T03:00:01.000Z",
+                      "uid": "35240-f858ae51-cd18-4068-a818-cba41657ec81"
+                    },
+                    {
+                      "id": "dda0e171-4c21-483a-9ee3-6b16e69b050d",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/customFoods/search?query=<string>&username=<string>&hash=<string>&offset=<integer>&number=10",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "customFoods",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The (natural language) search query.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The username.",
+                              "key": "username",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "(Required) The private hash for the username.",
+                              "key": "hash",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The number of results to skip (between 0 and 900).",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "The maximum number of items to return (between 1 and 100). Defaults to 10.",
+                              "key": "number",
+                              "value": "10"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:01.000Z",
+                      "updatedAt": "2026-07-28T03:00:01.000Z",
+                      "uid": "35240-dda0e171-4c21-483a-9ee3-6b16e69b050d"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:00:01.000Z",
+                  "updatedAt": "2026-07-28T03:00:01.000Z",
+                  "uid": "35240-57332027-f3d8-4394-b925-4135440439c7"
+                }
+              ],
+              "id": "89b28e9c-f7b1-42eb-ae23-38ba3996a5d2",
+              "createdAt": "2026-07-28T03:00:01.000Z",
+              "updatedAt": "2026-07-28T03:00:01.000Z",
+              "uid": "35240-89b28e9c-f7b1-42eb-ae23-38ba3996a5d2"
+            }
+          ],
+          "id": "50a6823e-8a49-4f4e-9920-d925552e1d0e",
+          "createdAt": "2026-07-28T03:00:01.000Z",
+          "updatedAt": "2026-07-28T03:00:01.000Z",
+          "uid": "35240-50a6823e-8a49-4f4e-9920-d925552e1d0e"
+        },
+        {
+          "name": "images",
+          "item": [
+            {
+              "name": "classify",
+              "item": [
+                {
+                  "name": "Image Classification by URL",
+                  "id": "7ffeb2cc-ee44-4abe-9f46-33fec494841a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/food/images/classify?imageUrl=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "food",
+                        "images",
+                        "classify"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The URL of the image to be classified.",
+                          "key": "imageUrl",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Classify a food image."
+                  },
+                  "response": [
+                    {
+                      "id": "ce90c927-c469-4939-a27e-049bafad3321",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/images/classify?imageUrl=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "images",
+                            "classify"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The URL of the image to be classified.",
+                              "key": "imageUrl",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"category\": \"<string>\",\n  \"probability\": \"<number>\"\n}",
+                      "createdAt": "2026-07-28T03:00:01.000Z",
+                      "updatedAt": "2026-07-28T03:00:01.000Z",
+                      "uid": "35240-ce90c927-c469-4939-a27e-049bafad3321"
+                    },
+                    {
+                      "id": "118bd904-193f-4f76-b045-1eaeb47b9a40",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/images/classify?imageUrl=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "images",
+                            "classify"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The URL of the image to be classified.",
+                              "key": "imageUrl",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:01.000Z",
+                      "updatedAt": "2026-07-28T03:00:01.000Z",
+                      "uid": "35240-118bd904-193f-4f76-b045-1eaeb47b9a40"
+                    },
+                    {
+                      "id": "f5edb9a8-03a4-4708-8739-6da846a8e2f9",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/images/classify?imageUrl=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "images",
+                            "classify"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The URL of the image to be classified.",
+                              "key": "imageUrl",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:01.000Z",
+                      "updatedAt": "2026-07-28T03:00:01.000Z",
+                      "uid": "35240-f5edb9a8-03a4-4708-8739-6da846a8e2f9"
+                    },
+                    {
+                      "id": "764c033c-b864-4250-8ca7-c5191068ca0f",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/images/classify?imageUrl=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "images",
+                            "classify"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The URL of the image to be classified.",
+                              "key": "imageUrl",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:01.000Z",
+                      "updatedAt": "2026-07-28T03:00:01.000Z",
+                      "uid": "35240-764c033c-b864-4250-8ca7-c5191068ca0f"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:00:01.000Z",
+                  "updatedAt": "2026-07-28T03:00:01.000Z",
+                  "uid": "35240-7ffeb2cc-ee44-4abe-9f46-33fec494841a"
+                }
+              ],
+              "id": "83376a5b-3d4b-4860-bfd1-fc8ef5e78e58",
+              "createdAt": "2026-07-28T03:00:01.000Z",
+              "updatedAt": "2026-07-28T03:00:01.000Z",
+              "uid": "35240-83376a5b-3d4b-4860-bfd1-fc8ef5e78e58"
+            },
+            {
+              "name": "analyze",
+              "item": [
+                {
+                  "name": "Image Analysis by URL",
+                  "id": "ccfcd203-0e99-4883-bbe1-fdb234dd3f8d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/food/images/analyze?imageUrl=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "food",
+                        "images",
+                        "analyze"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The URL of the image to be analyzed.",
+                          "key": "imageUrl",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes."
+                  },
+                  "response": [
+                    {
+                      "id": "2913dee4-ec2a-44c1-8938-d1283a3b29a0",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/images/analyze?imageUrl=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "images",
+                            "analyze"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The URL of the image to be analyzed.",
+                              "key": "imageUrl",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"nutrition\": {\n    \"recipesUsed\": \"<integer>\",\n    \"calories\": {\n      \"value\": \"<number>\",\n      \"unit\": \"<string>\",\n      \"confidenceRange95Percent\": {\n        \"min\": \"<number>\",\n        \"max\": \"<number>\"\n      },\n      \"standardDeviation\": \"<number>\"\n    },\n    \"fat\": {\n      \"value\": \"<number>\",\n      \"unit\": \"<string>\",\n      \"confidenceRange95Percent\": {\n        \"min\": \"<number>\",\n        \"max\": \"<number>\"\n      },\n      \"standardDeviation\": \"<number>\"\n    },\n    \"protein\": {\n      \"value\": \"<number>\",\n      \"unit\": \"<string>\",\n      \"confidenceRange95Percent\": {\n        \"min\": \"<number>\",\n        \"max\": \"<number>\"\n      },\n      \"standardDeviation\": \"<number>\"\n    },\n    \"carbs\": {\n      \"value\": \"<number>\",\n      \"unit\": \"<string>\",\n      \"confidenceRange95Percent\": {\n        \"min\": \"<number>\",\n        \"max\": \"<number>\"\n      },\n      \"standardDeviation\": \"<number>\"\n    }\n  },\n  \"category\": {\n    \"name\": \"<string>\",\n    \"probability\": \"<number>\"\n  },\n  \"recipes\": [\n    {\n      \"id\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"imageType\": \"<string>\",\n      \"url\": \"<string>\"\n    },\n    {\n      \"id\": \"<integer>\",\n      \"title\": \"<string>\",\n      \"imageType\": \"<string>\",\n      \"url\": \"<string>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:00:01.000Z",
+                      "updatedAt": "2026-07-28T03:00:01.000Z",
+                      "uid": "35240-2913dee4-ec2a-44c1-8938-d1283a3b29a0"
+                    },
+                    {
+                      "id": "4ca70151-6a09-4bb4-a5eb-b7303a29d72d",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/images/analyze?imageUrl=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "images",
+                            "analyze"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The URL of the image to be analyzed.",
+                              "key": "imageUrl",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:01.000Z",
+                      "updatedAt": "2026-07-28T03:00:01.000Z",
+                      "uid": "35240-4ca70151-6a09-4bb4-a5eb-b7303a29d72d"
+                    },
+                    {
+                      "id": "0c0db3e5-85ef-4b77-bf59-2bf31f6b3d81",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/images/analyze?imageUrl=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "images",
+                            "analyze"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The URL of the image to be analyzed.",
+                              "key": "imageUrl",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:01.000Z",
+                      "updatedAt": "2026-07-28T03:00:01.000Z",
+                      "uid": "35240-0c0db3e5-85ef-4b77-bf59-2bf31f6b3d81"
+                    },
+                    {
+                      "id": "7ee393cc-4191-434b-abfd-a07bb054f7f3",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/images/analyze?imageUrl=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "images",
+                            "analyze"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The URL of the image to be analyzed.",
+                              "key": "imageUrl",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:01.000Z",
+                      "updatedAt": "2026-07-28T03:00:01.000Z",
+                      "uid": "35240-7ee393cc-4191-434b-abfd-a07bb054f7f3"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:00:01.000Z",
+                  "updatedAt": "2026-07-28T03:00:01.000Z",
+                  "uid": "35240-ccfcd203-0e99-4883-bbe1-fdb234dd3f8d"
+                }
+              ],
+              "id": "21b018d5-5ec7-4209-86fa-0036e8486075",
+              "createdAt": "2026-07-28T03:00:01.000Z",
+              "updatedAt": "2026-07-28T03:00:01.000Z",
+              "uid": "35240-21b018d5-5ec7-4209-86fa-0036e8486075"
+            }
+          ],
+          "id": "d612e9c7-952f-4370-8b40-66983cf53771",
+          "createdAt": "2026-07-28T03:00:01.000Z",
+          "updatedAt": "2026-07-28T03:00:01.000Z",
+          "uid": "35240-d612e9c7-952f-4370-8b40-66983cf53771"
+        },
+        {
+          "name": "detect",
+          "item": [
+            {
+              "name": "Detect Food in Text",
+              "id": "fd0260e3-e9b2-4126-97b3-1094c8ca0cb7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) ",
+                      "key": "text",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/food/detect",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "food",
+                    "detect"
+                  ]
+                },
+                "description": "Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds."
+              },
+              "response": [
+                {
+                  "id": "768b8d90-fa8a-4f78-8a5f-69ee92ae588b",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) ",
+                          "key": "text",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/food/detect",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "food",
+                        "detect"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"annotations\": [\n    {\n      \"annotation\": \"<string>\",\n      \"image\": \"<string>\",\n      \"tag\": \"<string>\"\n    },\n    {\n      \"annotation\": \"<string>\",\n      \"image\": \"<string>\",\n      \"tag\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:00:01.000Z",
+                  "updatedAt": "2026-07-28T03:00:01.000Z",
+                  "uid": "35240-768b8d90-fa8a-4f78-8a5f-69ee92ae588b"
+                },
+                {
+                  "id": "3143be1e-2f65-4559-b83f-0feae9bb18dd",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) ",
+                          "key": "text",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/food/detect",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "food",
+                        "detect"
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:00:01.000Z",
+                  "updatedAt": "2026-07-28T03:00:01.000Z",
+                  "uid": "35240-3143be1e-2f65-4559-b83f-0feae9bb18dd"
+                },
+                {
+                  "id": "4f76ad37-5c21-4fb7-84ad-68e35a1dd997",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) ",
+                          "key": "text",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/food/detect",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "food",
+                        "detect"
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:00:01.000Z",
+                  "updatedAt": "2026-07-28T03:00:01.000Z",
+                  "uid": "35240-4f76ad37-5c21-4fb7-84ad-68e35a1dd997"
+                },
+                {
+                  "id": "7f65f4b8-1133-40da-a594-1b37242debb7",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/x-www-form-urlencoded"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "urlencoded",
+                      "urlencoded": [
+                        {
+                          "description": "(Required) ",
+                          "key": "text",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/food/detect",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "food",
+                        "detect"
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:00:01.000Z",
+                  "updatedAt": "2026-07-28T03:00:01.000Z",
+                  "uid": "35240-7f65f4b8-1133-40da-a594-1b37242debb7"
+                }
+              ],
+              "createdAt": "2026-07-28T03:00:01.000Z",
+              "updatedAt": "2026-07-28T03:00:01.000Z",
+              "uid": "35240-fd0260e3-e9b2-4126-97b3-1094c8ca0cb7"
+            }
+          ],
+          "id": "dd4d6f1a-5f90-4454-996d-704fdbc698a8",
+          "createdAt": "2026-07-28T03:00:01.000Z",
+          "updatedAt": "2026-07-28T03:00:01.000Z",
+          "uid": "35240-dd4d6f1a-5f90-4454-996d-704fdbc698a8"
+        },
+        {
+          "name": "site",
+          "item": [
+            {
+              "name": "search",
+              "item": [
+                {
+                  "name": "Search Site Content",
+                  "id": "819b2a15-4b78-4807-bf94-59eb86965076",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/food/site/search?query=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "food",
+                        "site",
+                        "search"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content.",
+                          "key": "query",
+                          "value": "<string>"
+                        }
+                      ]
+                    },
+                    "description": "Search spoonacular's site content. You'll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries."
+                  },
+                  "response": [
+                    {
+                      "id": "3fc780b1-3a05-44a0-8fae-5b7238880c22",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/site/search?query=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "site",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content.",
+                              "key": "query",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"Articles\": [\n    {\n      \"name\": \"<string>\",\n      \"image\": \"<string>\",\n      \"link\": \"<string>\",\n      \"type\": \"<string>\",\n      \"kvtable\": \"<string>\",\n      \"content\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"relevance\": \"<number>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"image\": \"<string>\",\n      \"link\": \"<string>\",\n      \"type\": \"<string>\",\n      \"kvtable\": \"<string>\",\n      \"content\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"relevance\": \"<number>\"\n    }\n  ],\n  \"Grocery Products\": [\n    {\n      \"name\": \"<string>\",\n      \"image\": \"<string>\",\n      \"link\": \"<string>\",\n      \"type\": \"<string>\",\n      \"kvtable\": \"<string>\",\n      \"content\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"relevance\": \"<number>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"image\": \"<string>\",\n      \"link\": \"<string>\",\n      \"type\": \"<string>\",\n      \"kvtable\": \"<string>\",\n      \"content\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"relevance\": \"<number>\"\n    }\n  ],\n  \"Menu Items\": [\n    {\n      \"name\": \"<string>\",\n      \"image\": \"<string>\",\n      \"link\": \"<string>\",\n      \"type\": \"<string>\",\n      \"kvtable\": \"<string>\",\n      \"content\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"relevance\": \"<number>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"image\": \"<string>\",\n      \"link\": \"<string>\",\n      \"type\": \"<string>\",\n      \"kvtable\": \"<string>\",\n      \"content\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"relevance\": \"<number>\"\n    }\n  ],\n  \"Recipes\": [\n    {\n      \"name\": \"<string>\",\n      \"image\": \"<string>\",\n      \"link\": \"<string>\",\n      \"type\": \"<string>\",\n      \"kvtable\": \"<string>\",\n      \"content\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"relevance\": \"<number>\"\n    },\n    {\n      \"name\": \"<string>\",\n      \"image\": \"<string>\",\n      \"link\": \"<string>\",\n      \"type\": \"<string>\",\n      \"kvtable\": \"<string>\",\n      \"content\": \"<string>\",\n      \"id\": \"<integer>\",\n      \"relevance\": \"<number>\"\n    }\n  ]\n}",
+                      "createdAt": "2026-07-28T03:00:01.000Z",
+                      "updatedAt": "2026-07-28T03:00:01.000Z",
+                      "uid": "35240-3fc780b1-3a05-44a0-8fae-5b7238880c22"
+                    },
+                    {
+                      "id": "7f64615f-a58a-483d-af0d-59b34a28f13f",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/site/search?query=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "site",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content.",
+                              "key": "query",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:01.000Z",
+                      "updatedAt": "2026-07-28T03:00:01.000Z",
+                      "uid": "35240-7f64615f-a58a-483d-af0d-59b34a28f13f"
+                    },
+                    {
+                      "id": "276de54f-f8df-42e0-b918-0df95f38eb67",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/site/search?query=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "site",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content.",
+                              "key": "query",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:01.000Z",
+                      "updatedAt": "2026-07-28T03:00:01.000Z",
+                      "uid": "35240-276de54f-f8df-42e0-b918-0df95f38eb67"
+                    },
+                    {
+                      "id": "edb8402f-7c53-4e64-aa5a-d2edf0cd84fe",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/site/search?query=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "site",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content.",
+                              "key": "query",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:01.000Z",
+                      "updatedAt": "2026-07-28T03:00:01.000Z",
+                      "uid": "35240-edb8402f-7c53-4e64-aa5a-d2edf0cd84fe"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:00:01.000Z",
+                  "updatedAt": "2026-07-28T03:00:01.000Z",
+                  "uid": "35240-819b2a15-4b78-4807-bf94-59eb86965076"
+                }
+              ],
+              "id": "c61a3176-c5b6-460c-8efa-61a06744d2e0",
+              "createdAt": "2026-07-28T03:00:01.000Z",
+              "updatedAt": "2026-07-28T03:00:01.000Z",
+              "uid": "35240-c61a3176-c5b6-460c-8efa-61a06744d2e0"
+            }
+          ],
+          "id": "efe2f4af-4a2f-4233-b9c1-3712495c4afa",
+          "createdAt": "2026-07-28T03:00:01.000Z",
+          "updatedAt": "2026-07-28T03:00:01.000Z",
+          "uid": "35240-efe2f4af-4a2f-4233-b9c1-3712495c4afa"
+        },
+        {
+          "name": "search",
+          "item": [
+            {
+              "name": "Search All Food",
+              "id": "f02a0c22-8669-457c-8a30-e09915361ba6",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/food/search?query=<string>&offset=<integer>&number=10",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "food",
+                    "search"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The search query.",
+                      "key": "query",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The number of results to skip (between 0 and 900).",
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "The maximum number of items to return (between 1 and 100). Defaults to 10.",
+                      "key": "number",
+                      "value": "10"
+                    }
+                  ]
+                },
+                "description": "Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos."
+              },
+              "response": [
+                {
+                  "id": "1e86624f-485c-4496-b335-d15fa4ba4758",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/food/search?query=<string>&offset=<integer>&number=10",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "food",
+                        "search"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The search query.",
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The number of results to skip (between 0 and 900).",
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The maximum number of items to return (between 1 and 100). Defaults to 10.",
+                          "key": "number",
+                          "value": "10"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"query\": \"<string>\",\n  \"totalResults\": \"<integer>\",\n  \"limit\": \"<integer>\",\n  \"offset\": \"<integer>\",\n  \"searchResults\": [\n    {\n      \"name\": \"<string>\",\n      \"totalResults\": \"<integer>\",\n      \"results\": [\n        {\n          \"name\": \"<string>\",\n          \"image\": \"<string>\",\n          \"link\": \"<string>\",\n          \"type\": \"<string>\",\n          \"kvtable\": \"<string>\",\n          \"content\": \"<string>\",\n          \"id\": \"<integer>\",\n          \"relevance\": \"<number>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"image\": \"<string>\",\n          \"link\": \"<string>\",\n          \"type\": \"<string>\",\n          \"kvtable\": \"<string>\",\n          \"content\": \"<string>\",\n          \"id\": \"<integer>\",\n          \"relevance\": \"<number>\"\n        }\n      ]\n    },\n    {\n      \"name\": \"<string>\",\n      \"totalResults\": \"<integer>\",\n      \"results\": [\n        {\n          \"name\": \"<string>\",\n          \"image\": \"<string>\",\n          \"link\": \"<string>\",\n          \"type\": \"<string>\",\n          \"kvtable\": \"<string>\",\n          \"content\": \"<string>\",\n          \"id\": \"<integer>\",\n          \"relevance\": \"<number>\"\n        },\n        {\n          \"name\": \"<string>\",\n          \"image\": \"<string>\",\n          \"link\": \"<string>\",\n          \"type\": \"<string>\",\n          \"kvtable\": \"<string>\",\n          \"content\": \"<string>\",\n          \"id\": \"<integer>\",\n          \"relevance\": \"<number>\"\n        }\n      ]\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:00:01.000Z",
+                  "updatedAt": "2026-07-28T03:00:01.000Z",
+                  "uid": "35240-1e86624f-485c-4496-b335-d15fa4ba4758"
+                },
+                {
+                  "id": "21692c83-b030-46e7-b42b-fba81ee44672",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/food/search?query=<string>&offset=<integer>&number=10",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "food",
+                        "search"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The search query.",
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The number of results to skip (between 0 and 900).",
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The maximum number of items to return (between 1 and 100). Defaults to 10.",
+                          "key": "number",
+                          "value": "10"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:00:01.000Z",
+                  "updatedAt": "2026-07-28T03:00:01.000Z",
+                  "uid": "35240-21692c83-b030-46e7-b42b-fba81ee44672"
+                },
+                {
+                  "id": "52ed598e-6c18-4b7a-b3c4-336e7aa0110a",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/food/search?query=<string>&offset=<integer>&number=10",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "food",
+                        "search"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The search query.",
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The number of results to skip (between 0 and 900).",
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The maximum number of items to return (between 1 and 100). Defaults to 10.",
+                          "key": "number",
+                          "value": "10"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:00:01.000Z",
+                  "updatedAt": "2026-07-28T03:00:01.000Z",
+                  "uid": "35240-52ed598e-6c18-4b7a-b3c4-336e7aa0110a"
+                },
+                {
+                  "id": "8d46a0a2-786d-4cfd-a363-26b11dcc46ac",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/food/search?query=<string>&offset=<integer>&number=10",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "food",
+                        "search"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The search query.",
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The number of results to skip (between 0 and 900).",
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The maximum number of items to return (between 1 and 100). Defaults to 10.",
+                          "key": "number",
+                          "value": "10"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:00:01.000Z",
+                  "updatedAt": "2026-07-28T03:00:01.000Z",
+                  "uid": "35240-8d46a0a2-786d-4cfd-a363-26b11dcc46ac"
+                }
+              ],
+              "createdAt": "2026-07-28T03:00:01.000Z",
+              "updatedAt": "2026-07-28T03:00:01.000Z",
+              "uid": "35240-f02a0c22-8669-457c-8a30-e09915361ba6"
+            }
+          ],
+          "id": "da5f7ab8-14c0-46e9-b9b8-f1b75168de43",
+          "createdAt": "2026-07-28T03:00:01.000Z",
+          "updatedAt": "2026-07-28T03:00:01.000Z",
+          "uid": "35240-da5f7ab8-14c0-46e9-b9b8-f1b75168de43"
+        },
+        {
+          "name": "videos",
+          "item": [
+            {
+              "name": "search",
+              "item": [
+                {
+                  "name": "Search Food Videos",
+                  "id": "57285783-177a-4d88-85e4-86897e3ba721",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/food/videos/search?query=<string>&type=<string>&cuisine=<string>&diet=<string>&includeIngredients=<string>&excludeIngredients=<string>&minLength=<number>&maxLength=<number>&offset=<integer>&number=10",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "food",
+                        "videos",
+                        "search"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The (natural language) search query.",
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The type of the recipes. See a full list of supported meal types.",
+                          "key": "type",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines.",
+                          "key": "cuisine",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The diet for which the recipes must be suitable. See a full list of supported diets.",
+                          "key": "diet",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A comma-separated list of ingredients that the recipes should contain.",
+                          "key": "includeIngredients",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "A comma-separated list of ingredients or ingredient types that the recipes must not contain.",
+                          "key": "excludeIngredients",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Minimum video length in seconds.",
+                          "key": "minLength",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "Maximum video length in seconds.",
+                          "key": "maxLength",
+                          "value": "<number>"
+                        },
+                        {
+                          "description": "The number of results to skip (between 0 and 900).",
+                          "key": "offset",
+                          "value": "<integer>"
+                        },
+                        {
+                          "description": "The maximum number of items to return (between 1 and 100). Defaults to 10.",
+                          "key": "number",
+                          "value": "10"
+                        }
+                      ]
+                    },
+                    "description": "Find recipe and other food related videos."
+                  },
+                  "response": [
+                    {
+                      "id": "32f16d73-9287-405e-916f-b677d0ab9a13",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/videos/search?query=<string>&type=<string>&cuisine=<string>&diet=<string>&includeIngredients=<string>&excludeIngredients=<string>&minLength=<number>&maxLength=<number>&offset=<integer>&number=10",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "videos",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The (natural language) search query.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The type of the recipes. See a full list of supported meal types.",
+                              "key": "type",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines.",
+                              "key": "cuisine",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The diet for which the recipes must be suitable. See a full list of supported diets.",
+                              "key": "diet",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "A comma-separated list of ingredients that the recipes should contain.",
+                              "key": "includeIngredients",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "A comma-separated list of ingredients or ingredient types that the recipes must not contain.",
+                              "key": "excludeIngredients",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Minimum video length in seconds.",
+                              "key": "minLength",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "Maximum video length in seconds.",
+                              "key": "maxLength",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The number of results to skip (between 0 and 900).",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "The maximum number of items to return (between 1 and 100). Defaults to 10.",
+                              "key": "number",
+                              "value": "10"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"videos\": [\n    {\n      \"title\": \"<string>\",\n      \"length\": \"<integer>\",\n      \"rating\": \"<number>\",\n      \"shortTitle\": \"<string>\",\n      \"thumbnail\": \"<string>\",\n      \"views\": \"<integer>\",\n      \"youTubeId\": \"<string>\"\n    },\n    {\n      \"title\": \"<string>\",\n      \"length\": \"<integer>\",\n      \"rating\": \"<number>\",\n      \"shortTitle\": \"<string>\",\n      \"thumbnail\": \"<string>\",\n      \"views\": \"<integer>\",\n      \"youTubeId\": \"<string>\"\n    }\n  ],\n  \"totalResults\": \"<integer>\"\n}",
+                      "createdAt": "2026-07-28T03:00:01.000Z",
+                      "updatedAt": "2026-07-28T03:00:01.000Z",
+                      "uid": "35240-32f16d73-9287-405e-916f-b677d0ab9a13"
+                    },
+                    {
+                      "id": "1e89da8d-5557-45f1-8c80-287dcd06eca3",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/videos/search?query=<string>&type=<string>&cuisine=<string>&diet=<string>&includeIngredients=<string>&excludeIngredients=<string>&minLength=<number>&maxLength=<number>&offset=<integer>&number=10",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "videos",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The (natural language) search query.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The type of the recipes. See a full list of supported meal types.",
+                              "key": "type",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines.",
+                              "key": "cuisine",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The diet for which the recipes must be suitable. See a full list of supported diets.",
+                              "key": "diet",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "A comma-separated list of ingredients that the recipes should contain.",
+                              "key": "includeIngredients",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "A comma-separated list of ingredients or ingredient types that the recipes must not contain.",
+                              "key": "excludeIngredients",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Minimum video length in seconds.",
+                              "key": "minLength",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "Maximum video length in seconds.",
+                              "key": "maxLength",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The number of results to skip (between 0 and 900).",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "The maximum number of items to return (between 1 and 100). Defaults to 10.",
+                              "key": "number",
+                              "value": "10"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:01.000Z",
+                      "updatedAt": "2026-07-28T03:00:01.000Z",
+                      "uid": "35240-1e89da8d-5557-45f1-8c80-287dcd06eca3"
+                    },
+                    {
+                      "id": "84605a45-2b20-4f48-9718-47dfc27a230e",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/videos/search?query=<string>&type=<string>&cuisine=<string>&diet=<string>&includeIngredients=<string>&excludeIngredients=<string>&minLength=<number>&maxLength=<number>&offset=<integer>&number=10",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "videos",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The (natural language) search query.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The type of the recipes. See a full list of supported meal types.",
+                              "key": "type",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines.",
+                              "key": "cuisine",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The diet for which the recipes must be suitable. See a full list of supported diets.",
+                              "key": "diet",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "A comma-separated list of ingredients that the recipes should contain.",
+                              "key": "includeIngredients",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "A comma-separated list of ingredients or ingredient types that the recipes must not contain.",
+                              "key": "excludeIngredients",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Minimum video length in seconds.",
+                              "key": "minLength",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "Maximum video length in seconds.",
+                              "key": "maxLength",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The number of results to skip (between 0 and 900).",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "The maximum number of items to return (between 1 and 100). Defaults to 10.",
+                              "key": "number",
+                              "value": "10"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:01.000Z",
+                      "updatedAt": "2026-07-28T03:00:01.000Z",
+                      "uid": "35240-84605a45-2b20-4f48-9718-47dfc27a230e"
+                    },
+                    {
+                      "id": "dd74b4d6-c74a-4517-8b07-5582df2deaa5",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/videos/search?query=<string>&type=<string>&cuisine=<string>&diet=<string>&includeIngredients=<string>&excludeIngredients=<string>&minLength=<number>&maxLength=<number>&offset=<integer>&number=10",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "videos",
+                            "search"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) The (natural language) search query.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The type of the recipes. See a full list of supported meal types.",
+                              "key": "type",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines.",
+                              "key": "cuisine",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The diet for which the recipes must be suitable. See a full list of supported diets.",
+                              "key": "diet",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "A comma-separated list of ingredients that the recipes should contain.",
+                              "key": "includeIngredients",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "A comma-separated list of ingredients or ingredient types that the recipes must not contain.",
+                              "key": "excludeIngredients",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Minimum video length in seconds.",
+                              "key": "minLength",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "Maximum video length in seconds.",
+                              "key": "maxLength",
+                              "value": "<number>"
+                            },
+                            {
+                              "description": "The number of results to skip (between 0 and 900).",
+                              "key": "offset",
+                              "value": "<integer>"
+                            },
+                            {
+                              "description": "The maximum number of items to return (between 1 and 100). Defaults to 10.",
+                              "key": "number",
+                              "value": "10"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:01.000Z",
+                      "updatedAt": "2026-07-28T03:00:01.000Z",
+                      "uid": "35240-dd74b4d6-c74a-4517-8b07-5582df2deaa5"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:00:01.000Z",
+                  "updatedAt": "2026-07-28T03:00:01.000Z",
+                  "uid": "35240-57285783-177a-4d88-85e4-86897e3ba721"
+                }
+              ],
+              "id": "a3ce7155-da61-4350-b680-e8a1c2441249",
+              "createdAt": "2026-07-28T03:00:01.000Z",
+              "updatedAt": "2026-07-28T03:00:01.000Z",
+              "uid": "35240-a3ce7155-da61-4350-b680-e8a1c2441249"
+            }
+          ],
+          "id": "46c7c211-cc8f-471d-811a-3f8c6544dbfd",
+          "createdAt": "2026-07-28T03:00:01.000Z",
+          "updatedAt": "2026-07-28T03:00:01.000Z",
+          "uid": "35240-46c7c211-cc8f-471d-811a-3f8c6544dbfd"
+        },
+        {
+          "name": "jokes",
+          "item": [
+            {
+              "name": "random",
+              "item": [
+                {
+                  "name": "Random Food Joke",
+                  "id": "f08c43f9-99ac-4fde-91e6-9de215b1ec86",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/food/jokes/random",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "food",
+                        "jokes",
+                        "random"
+                      ]
+                    },
+                    "description": "Get a random joke that is related to food. Caution: this is an endpoint for adults!"
+                  },
+                  "response": [
+                    {
+                      "id": "ed8aeb50-ac24-4244-829d-9017eafae39f",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/jokes/random",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "jokes",
+                            "random"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"text\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:00:01.000Z",
+                      "updatedAt": "2026-07-28T03:00:01.000Z",
+                      "uid": "35240-ed8aeb50-ac24-4244-829d-9017eafae39f"
+                    },
+                    {
+                      "id": "6569f34a-d3e7-41a7-bc0e-e85032c6ab46",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/jokes/random",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "jokes",
+                            "random"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:01.000Z",
+                      "updatedAt": "2026-07-28T03:00:01.000Z",
+                      "uid": "35240-6569f34a-d3e7-41a7-bc0e-e85032c6ab46"
+                    },
+                    {
+                      "id": "4aac9c5c-2cd1-4148-af6b-5aee51fa01c9",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/jokes/random",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "jokes",
+                            "random"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:01.000Z",
+                      "updatedAt": "2026-07-28T03:00:01.000Z",
+                      "uid": "35240-4aac9c5c-2cd1-4148-af6b-5aee51fa01c9"
+                    },
+                    {
+                      "id": "32315aaf-f63e-4724-845e-8b21b57ed9b1",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/jokes/random",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "jokes",
+                            "random"
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:01.000Z",
+                      "updatedAt": "2026-07-28T03:00:01.000Z",
+                      "uid": "35240-32315aaf-f63e-4724-845e-8b21b57ed9b1"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:00:01.000Z",
+                  "updatedAt": "2026-07-28T03:00:01.000Z",
+                  "uid": "35240-f08c43f9-99ac-4fde-91e6-9de215b1ec86"
+                }
+              ],
+              "id": "4ce531ed-ecc1-4ecb-b3b9-342d0b2656c0",
+              "createdAt": "2026-07-28T03:00:01.000Z",
+              "updatedAt": "2026-07-28T03:00:01.000Z",
+              "uid": "35240-4ce531ed-ecc1-4ecb-b3b9-342d0b2656c0"
+            }
+          ],
+          "id": "1fd8193c-5bee-4d6e-a2d9-79572f3fbd59",
+          "createdAt": "2026-07-28T03:00:01.000Z",
+          "updatedAt": "2026-07-28T03:00:01.000Z",
+          "uid": "35240-1fd8193c-5bee-4d6e-a2d9-79572f3fbd59"
+        },
+        {
+          "name": "trivia",
+          "item": [
+            {
+              "name": "random",
+              "item": [
+                {
+                  "name": "Random Food Trivia",
+                  "id": "d4465929-5673-45c7-a5ab-b5d87410c879",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/food/trivia/random",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "food",
+                        "trivia",
+                        "random"
+                      ]
+                    },
+                    "description": "Returns random food trivia."
+                  },
+                  "response": [
+                    {
+                      "id": "ca975e9c-5006-4678-bd40-2e416daaffa7",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/trivia/random",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "trivia",
+                            "random"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"text\": \"<string>\"\n}",
+                      "createdAt": "2026-07-28T03:00:01.000Z",
+                      "updatedAt": "2026-07-28T03:00:01.000Z",
+                      "uid": "35240-ca975e9c-5006-4678-bd40-2e416daaffa7"
+                    },
+                    {
+                      "id": "a94fc191-adfe-40ce-82bb-5a484684fe62",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/trivia/random",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "trivia",
+                            "random"
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:01.000Z",
+                      "updatedAt": "2026-07-28T03:00:01.000Z",
+                      "uid": "35240-a94fc191-adfe-40ce-82bb-5a484684fe62"
+                    },
+                    {
+                      "id": "f6538261-c4e2-405f-a463-9f03160b7b54",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/trivia/random",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "trivia",
+                            "random"
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:01.000Z",
+                      "updatedAt": "2026-07-28T03:00:01.000Z",
+                      "uid": "35240-f6538261-c4e2-405f-a463-9f03160b7b54"
+                    },
+                    {
+                      "id": "7d53efca-17dd-4524-bdda-0b002a00c1bd",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/trivia/random",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "trivia",
+                            "random"
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:01.000Z",
+                      "updatedAt": "2026-07-28T03:00:01.000Z",
+                      "uid": "35240-7d53efca-17dd-4524-bdda-0b002a00c1bd"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:00:01.000Z",
+                  "updatedAt": "2026-07-28T03:00:01.000Z",
+                  "uid": "35240-d4465929-5673-45c7-a5ab-b5d87410c879"
+                }
+              ],
+              "id": "44db5308-f349-4352-9b21-5a1d7dbee13e",
+              "createdAt": "2026-07-28T03:00:01.000Z",
+              "updatedAt": "2026-07-28T03:00:01.000Z",
+              "uid": "35240-44db5308-f349-4352-9b21-5a1d7dbee13e"
+            }
+          ],
+          "id": "9690b397-bd91-47fc-971d-6152a1077a14",
+          "createdAt": "2026-07-28T03:00:01.000Z",
+          "updatedAt": "2026-07-28T03:00:01.000Z",
+          "uid": "35240-9690b397-bd91-47fc-971d-6152a1077a14"
+        },
+        {
+          "name": "converse",
+          "item": [
+            {
+              "name": "suggest",
+              "item": [
+                {
+                  "name": "Conversation Suggests",
+                  "id": "60df03e6-fdc6-4218-bf52-b21f493f67ee",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/food/converse/suggest?query=<string>&number=<number>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "food",
+                        "converse",
+                        "suggest"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) A (partial) query from the user. The endpoint will return if it matches topics it can talk about.",
+                          "key": "query",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "The number of suggestions to return (between 1 and 25).",
+                          "key": "number",
+                          "value": "<number>"
+                        }
+                      ]
+                    },
+                    "description": "This endpoint returns suggestions for things the user can say or ask the chatbot."
+                  },
+                  "response": [
+                    {
+                      "id": "b449333f-dbd0-45ef-b5dd-8fe32209d4be",
+                      "name": "Success",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/converse/suggest?query=<string>&number=<number>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "converse",
+                            "suggest"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) A (partial) query from the user. The endpoint will return if it matches topics it can talk about.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The number of suggestions to return (between 1 and 25).",
+                              "key": "number",
+                              "value": "<number>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"suggests\": {\n    \"_\": [\n      {\n        \"name\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\"\n      }\n    ]\n  },\n  \"words\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                      "createdAt": "2026-07-28T03:00:01.000Z",
+                      "updatedAt": "2026-07-28T03:00:01.000Z",
+                      "uid": "35240-b449333f-dbd0-45ef-b5dd-8fe32209d4be"
+                    },
+                    {
+                      "id": "dc58bb3a-5dde-48b7-9002-e079e2488906",
+                      "name": "Unauthorized",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/converse/suggest?query=<string>&number=<number>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "converse",
+                            "suggest"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) A (partial) query from the user. The endpoint will return if it matches topics it can talk about.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The number of suggestions to return (between 1 and 25).",
+                              "key": "number",
+                              "value": "<number>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Unauthorized",
+                      "code": 401,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:01.000Z",
+                      "updatedAt": "2026-07-28T03:00:01.000Z",
+                      "uid": "35240-dc58bb3a-5dde-48b7-9002-e079e2488906"
+                    },
+                    {
+                      "id": "c501d001-316d-4094-93d6-fa6a8782f6ef",
+                      "name": "Forbidden",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/converse/suggest?query=<string>&number=<number>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "converse",
+                            "suggest"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) A (partial) query from the user. The endpoint will return if it matches topics it can talk about.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The number of suggestions to return (between 1 and 25).",
+                              "key": "number",
+                              "value": "<number>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Forbidden",
+                      "code": 403,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:01.000Z",
+                      "updatedAt": "2026-07-28T03:00:01.000Z",
+                      "uid": "35240-c501d001-316d-4094-93d6-fa6a8782f6ef"
+                    },
+                    {
+                      "id": "435bde69-523e-4bbb-9d4f-b33cfbff8ceb",
+                      "name": "Not Found",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "x-api-key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/food/converse/suggest?query=<string>&number=<number>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "food",
+                            "converse",
+                            "suggest"
+                          ],
+                          "query": [
+                            {
+                              "description": "(Required) A (partial) query from the user. The endpoint will return if it matches topics it can talk about.",
+                              "key": "query",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "The number of suggestions to return (between 1 and 25).",
+                              "key": "number",
+                              "value": "<number>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "Not Found",
+                      "code": 404,
+                      "_postman_previewlanguage": "text",
+                      "header": [],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": null,
+                      "createdAt": "2026-07-28T03:00:01.000Z",
+                      "updatedAt": "2026-07-28T03:00:01.000Z",
+                      "uid": "35240-435bde69-523e-4bbb-9d4f-b33cfbff8ceb"
+                    }
+                  ],
+                  "createdAt": "2026-07-28T03:00:01.000Z",
+                  "updatedAt": "2026-07-28T03:00:01.000Z",
+                  "uid": "35240-60df03e6-fdc6-4218-bf52-b21f493f67ee"
+                }
+              ],
+              "id": "45160cd3-a4fd-464a-954f-a2b62f7168f1",
+              "createdAt": "2026-07-28T03:00:01.000Z",
+              "updatedAt": "2026-07-28T03:00:01.000Z",
+              "uid": "35240-45160cd3-a4fd-464a-954f-a2b62f7168f1"
+            },
+            {
+              "name": "Talk to Chatbot",
+              "id": "facbc763-2fd1-438e-87b6-24220e6d4e0a",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/food/converse?text=<string>&contextId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "food",
+                    "converse"
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The request / question / answer from the user to the chatbot.",
+                      "key": "text",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation.",
+                      "key": "contextId",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "description": "This endpoint can be used to have a conversation about food with the spoonacular chatbot. Use the \"Get Conversation Suggests\" endpoint to show your user what he or she can say."
+              },
+              "response": [
+                {
+                  "id": "8f41158c-2eb5-44ae-9807-7ec8578992d5",
+                  "name": "Success",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/food/converse?text=<string>&contextId=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "food",
+                        "converse"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The request / question / answer from the user to the chatbot.",
+                          "key": "text",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation.",
+                          "key": "contextId",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"answerText\": \"<string>\",\n  \"media\": [\n    {\n      \"title\": \"<string>\",\n      \"image\": \"<string>\",\n      \"link\": \"<string>\"\n    },\n    {\n      \"title\": \"<string>\",\n      \"image\": \"<string>\",\n      \"link\": \"<string>\"\n    }\n  ]\n}",
+                  "createdAt": "2026-07-28T03:00:01.000Z",
+                  "updatedAt": "2026-07-28T03:00:01.000Z",
+                  "uid": "35240-8f41158c-2eb5-44ae-9807-7ec8578992d5"
+                },
+                {
+                  "id": "9dfe6667-582c-4a45-8a45-629561a9d8af",
+                  "name": "Unauthorized",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/food/converse?text=<string>&contextId=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "food",
+                        "converse"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The request / question / answer from the user to the chatbot.",
+                          "key": "text",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation.",
+                          "key": "contextId",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:00:01.000Z",
+                  "updatedAt": "2026-07-28T03:00:01.000Z",
+                  "uid": "35240-9dfe6667-582c-4a45-8a45-629561a9d8af"
+                },
+                {
+                  "id": "dd9121a8-bfcf-4297-9a79-60d5acc2e101",
+                  "name": "Forbidden",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/food/converse?text=<string>&contextId=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "food",
+                        "converse"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The request / question / answer from the user to the chatbot.",
+                          "key": "text",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation.",
+                          "key": "contextId",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Forbidden",
+                  "code": 403,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:00:01.000Z",
+                  "updatedAt": "2026-07-28T03:00:01.000Z",
+                  "uid": "35240-dd9121a8-bfcf-4297-9a79-60d5acc2e101"
+                },
+                {
+                  "id": "7220df70-efc5-4ffc-ae3d-7cf2a48cb98e",
+                  "name": "Not Found",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "description": "Added as a part of security scheme: apikey",
+                        "key": "x-api-key",
+                        "value": "<API Key>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/food/converse?text=<string>&contextId=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "food",
+                        "converse"
+                      ],
+                      "query": [
+                        {
+                          "description": "(Required) The request / question / answer from the user to the chatbot.",
+                          "key": "text",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation.",
+                          "key": "contextId",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "text",
+                  "header": [],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": null,
+                  "createdAt": "2026-07-28T03:00:01.000Z",
+                  "updatedAt": "2026-07-28T03:00:01.000Z",
+                  "uid": "35240-7220df70-efc5-4ffc-ae3d-7cf2a48cb98e"
+                }
+              ],
+              "createdAt": "2026-07-28T03:00:01.000Z",
+              "updatedAt": "2026-07-28T03:00:01.000Z",
+              "uid": "35240-facbc763-2fd1-438e-87b6-24220e6d4e0a"
+            }
+          ],
+          "id": "0fd0010f-28ff-4e71-bd4e-0f53a3fa8029",
+          "createdAt": "2026-07-28T03:00:01.000Z",
+          "updatedAt": "2026-07-28T03:00:01.000Z",
+          "uid": "35240-0fd0010f-28ff-4e71-bd4e-0f53a3fa8029"
+        }
+      ],
+      "id": "c0cf18e0-183f-45f5-8493-ddfd4910a6c2",
+      "createdAt": "2026-07-28T03:00:01.000Z",
+      "updatedAt": "2026-07-28T03:00:01.000Z",
+      "uid": "35240-c0cf18e0-183f-45f5-8493-ddfd4910a6c2"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://api.spoonacular.com"
+    }
+  ]
+}
