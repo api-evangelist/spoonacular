@@ -357,6 +357,9 @@ apis:
   - type: JSONSchema
     url: json-schema/spoonacular-taste-information-schema.json
 common:
+  - type: License
+    name: MIT
+    url: https://github.com/ddsky/spoonacular-api-clients/blob/master/LICENSE
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/spoonacular/overview
   - type: AgenticAccess
