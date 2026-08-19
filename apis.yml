@@ -19,7 +19,7 @@ description: >-
   800,000+ food products, and 100,000+ menu items, plus nutrition analysis, meal planning, wine pairing, and food
   classification. Authentication is via an API key sent in the x-api-key header.
 url: https://spoonacular.com/food-api
-specificationVersion: '0.20'
+specificationVersion: '0.23'
 created: '2026-05-28'
 modified: '2026-06-03'
 x-source: public-apis/public-apis
