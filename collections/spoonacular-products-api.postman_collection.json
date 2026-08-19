@@ -1,0 +1,3272 @@
+{
+  "item": [
+    {
+      "id": "7d6f9412-62fd-4add-9e51-c0e34b841484",
+      "name": "Products",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "2b6216a0-61bc-4662-b4ee-4b07f42127c2",
+          "name": "Search Grocery Products",
+          "request": {
+            "name": "Search Grocery Products",
+            "description": {
+              "content": "Search packaged food products, such as frozen pizza or Greek yogurt.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "food",
+                "products",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "(Required) The (natural language) search query."
+                },
+                {
+                  "disabled": false,
+                  "key": "minCalories",
+                  "value": "<number>",
+                  "description": "The minimum amount of calories the product must have."
+                },
+                {
+                  "disabled": false,
+                  "key": "maxCalories",
+                  "value": "<number>",
+                  "description": "The maximum amount of calories the product can have."
+                },
+                {
+                  "disabled": false,
+                  "key": "minCarbs",
+                  "value": "<number>",
+                  "description": "The minimum amount of carbohydrates in grams the product must have."
+                },
+                {
+                  "disabled": false,
+                  "key": "maxCarbs",
+                  "value": "<number>",
+                  "description": "The maximum amount of carbohydrates in grams the product can have."
+                },
+                {
+                  "disabled": false,
+                  "key": "minProtein",
+                  "value": "<number>",
+                  "description": "The minimum amount of protein in grams the product must have."
+                },
+                {
+                  "disabled": false,
+                  "key": "maxProtein",
+                  "value": "<number>",
+                  "description": "The maximum amount of protein in grams the product can have."
+                },
+                {
+                  "disabled": false,
+                  "key": "minFat",
+                  "value": "<number>",
+                  "description": "The minimum amount of fat in grams the product must have."
+                },
+                {
+                  "disabled": false,
+                  "key": "maxFat",
+                  "value": "<number>",
+                  "description": "The maximum amount of fat in grams the product can have."
+                },
+                {
+                  "disabled": false,
+                  "key": "addProductInformation",
+                  "value": "<boolean>",
+                  "description": "If set to true, you get more information about the products returned."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The number of results to skip (between 0 and 900)."
+                },
+                {
+                  "disabled": false,
+                  "key": "number",
+                  "value": "10",
+                  "description": "The maximum number of items to return (between 1 and 100). Defaults to 10."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8a00a7a3-f0e5-4a8e-afa4-ca3c2b9ec7d0",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "burger"
+                    },
+                    {
+                      "key": "minCalories",
+                      "value": "50"
+                    },
+                    {
+                      "key": "maxCalories",
+                      "value": "800"
+                    },
+                    {
+                      "key": "minCarbs",
+                      "value": "10"
+                    },
+                    {
+                      "key": "maxCarbs",
+                      "value": "100"
+                    },
+                    {
+                      "key": "minProtein",
+                      "value": "10"
+                    },
+                    {
+                      "key": "maxProtein",
+                      "value": "100"
+                    },
+                    {
+                      "key": "minFat",
+                      "value": "1"
+                    },
+                    {
+                      "key": "maxFat",
+                      "value": "100"
+                    },
+                    {
+                      "key": "addProductInformation",
+                      "value": "true"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "number",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"products\": [\n    {\n      \"id\": 192386,\n      \"title\": \"Pizza Buddy: Frozen Pizza Dough, 16 Oz\",\n      \"imageType\": \"jpg\"\n    },\n    {\n      \"id\": 27693,\n      \"title\": \"Uno Pizza\",\n      \"imageType\": \"jpg\"\n    }\n  ],\n  \"totalProducts\": 1258,\n  \"type\": \"product\",\n  \"offset\": 0,\n  \"number\": 2\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "480348b7-6878-455f-b138-536f23f83b03",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "burger"
+                    },
+                    {
+                      "key": "minCalories",
+                      "value": "50"
+                    },
+                    {
+                      "key": "maxCalories",
+                      "value": "800"
+                    },
+                    {
+                      "key": "minCarbs",
+                      "value": "10"
+                    },
+                    {
+                      "key": "maxCarbs",
+                      "value": "100"
+                    },
+                    {
+                      "key": "minProtein",
+                      "value": "10"
+                    },
+                    {
+                      "key": "maxProtein",
+                      "value": "100"
+                    },
+                    {
+                      "key": "minFat",
+                      "value": "1"
+                    },
+                    {
+                      "key": "maxFat",
+                      "value": "100"
+                    },
+                    {
+                      "key": "addProductInformation",
+                      "value": "true"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "number",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8dcf2d6c-c265-4810-af27-f33778071840",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "burger"
+                    },
+                    {
+                      "key": "minCalories",
+                      "value": "50"
+                    },
+                    {
+                      "key": "maxCalories",
+                      "value": "800"
+                    },
+                    {
+                      "key": "minCarbs",
+                      "value": "10"
+                    },
+                    {
+                      "key": "maxCarbs",
+                      "value": "100"
+                    },
+                    {
+                      "key": "minProtein",
+                      "value": "10"
+                    },
+                    {
+                      "key": "maxProtein",
+                      "value": "100"
+                    },
+                    {
+                      "key": "minFat",
+                      "value": "1"
+                    },
+                    {
+                      "key": "maxFat",
+                      "value": "100"
+                    },
+                    {
+                      "key": "addProductInformation",
+                      "value": "true"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "number",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "33d61417-1fb1-4560-8ffa-e42c43840908",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "burger"
+                    },
+                    {
+                      "key": "minCalories",
+                      "value": "50"
+                    },
+                    {
+                      "key": "maxCalories",
+                      "value": "800"
+                    },
+                    {
+                      "key": "minCarbs",
+                      "value": "10"
+                    },
+                    {
+                      "key": "maxCarbs",
+                      "value": "100"
+                    },
+                    {
+                      "key": "minProtein",
+                      "value": "10"
+                    },
+                    {
+                      "key": "maxProtein",
+                      "value": "100"
+                    },
+                    {
+                      "key": "minFat",
+                      "value": "1"
+                    },
+                    {
+                      "key": "maxFat",
+                      "value": "100"
+                    },
+                    {
+                      "key": "addProductInformation",
+                      "value": "true"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "number",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ff39d302-ce97-41f3-99cd-2e635c62262f",
+          "name": "Search Grocery Products by UPC",
+          "request": {
+            "name": "Search Grocery Products by UPC",
+            "description": {
+              "content": "Get information about a packaged food using its UPC.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "food",
+                "products",
+                "upc",
+                ":upc"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "upc",
+                  "description": "(Required) The product's UPC."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "3249c90b-2f20-4102-a0d1-ca53640d7d5e",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    "upc",
+                    ":upc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "upc",
+                      "description": "(Required) The product's UPC."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 30004,\n  \"title\": \"Swan Flour\",\n  \"badges\": [\n    \"egg_free\",\n    \"wheat_free\",\n    \"grain_free\",\n    \"peanut_free\",\n    \"primal\",\n    \"vegetarian\",\n    \"nut_free\",\n    \"vegan\",\n    \"pescetarian\",\n    \"dairy_free\",\n    \"paleo\",\n    \"gluten_free\"\n  ],\n  \"importantBadges\": [\n    \"gluten_free\",\n    \"paleo\",\n    \"primal\",\n    \"wheat_free\",\n    \"grain_free\"\n  ],\n  \"breadcrumbs\": [\n    \"flour\"\n  ],\n  \"generatedText\": \"Swan Flour: This product is an awesome fit if you are searching for a healthy flour. This product has 1 ingredient (in our experience: the fewer ingredients, the better!) This product contains no ingredients that some research suggests you should avoid. One serving of this product provides 30 calories, 0g grams of fat, 0g grams of protein, and 8g grams of carbs.\",\n  \"imageType\": \"jpg\",\n  \"ingredientCount\": 1,\n  \"ingredientList\": \"Potato Starch\",\n  \"ingredients\": [\n    {\n      \"description\": null,\n      \"name\": \"\",\n      \"safety_level\": null\n    },\n    {\n      \"description\": null,\n      \"name\": \"starch\",\n      \"safety_level\": null\n    },\n    {\n      \"description\": null,\n      \"name\": \"potato starch\",\n      \"safety_level\": null\n    }\n  ],\n  \"likes\": 0,\n  \"nutrition\": {\n    \"nutrients\": [\n      {\n        \"name\": \"Fat\",\n        \"amount\": 0,\n        \"unit\": \"g\",\n        \"percentOfDailyNeeds\": 0\n      },\n      {\n        \"name\": \"Protein\",\n        \"amount\": 0,\n        \"unit\": \"g\",\n        \"percentOfDailyNeeds\": 0\n      },\n      {\n        \"name\": \"Calories\",\n        \"amount\": 30,\n        \"unit\": \"cal\",\n        \"percentOfDailyNeeds\": 10\n      },\n      {\n        \"name\": \"Carbohydrates\",\n        \"amount\": 8,\n        \"unit\": \"g\",\n        \"percentOfDailyNeeds\": 9.45\n      }\n    ],\n    \"caloricBreakdown\": {\n      \"percentProtein\": 22.22,\n      \"percentFat\": 20,\n      \"percentCarbs\": 57.78\n    }\n  },\n  \"price\": 0,\n  \"servings\": {\n    \"number\": 34,\n    \"size\": 1,\n    \"unit\": \"tbsp\"\n  },\n  \"spoonacularScore\": 99\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "11a7489e-8d4e-4eec-a10b-6ee3fe310469",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    "upc",
+                    ":upc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "upc",
+                      "description": "(Required) The product's UPC."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d4a7ba6e-542a-4f6a-a15f-decdbb27be97",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    "upc",
+                    ":upc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "upc",
+                      "description": "(Required) The product's UPC."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "73e82f66-8692-4729-89b2-98a3b44d58ea",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    "upc",
+                    ":upc"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "upc",
+                      "description": "(Required) The product's UPC."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e4bb91f5-7aad-4686-b0ae-9107036d7183",
+          "name": "Get Product Information",
+          "request": {
+            "name": "Get Product Information",
+            "description": {
+              "content": "Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "food",
+                "products",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The id of the packaged food."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e8159114-2ebe-443b-8a1f-cf72ae6c55e0",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The id of the packaged food."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"breadcrumbs\": [\n    \"bars\"\n  ],\n  \"category\": \"bars\",\n  \"usdaCode\": null,\n  \"id\": 22347,\n  \"title\": \"SNICKERS Minis Size Chocolate Candy Bars Variety Mix 10.5-oz. Bag\",\n  \"price\": 324,\n  \"likes\": 0,\n  \"badges\": [\n    \"msg_free\",\n    \"no_artificial_colors\",\n    \"no_artificial_flavors\",\n    \"no_artificial_ingredients\",\n    \"gluten_free\"\n  ],\n  \"importantBadges\": [\n    \"no_artificial_flavors\",\n    \"no_artificial_colors\",\n    \"no_artificial_ingredients\",\n    \"gluten_free\",\n    \"msg_free\"\n  ],\n  \"nutrition\": {\n    \"nutrients\": [\n      {\n        \"name\": \"Alcohol\",\n        \"amount\": 0,\n        \"unit\": \"g\",\n        \"percentOfDailyNeeds\": 100\n      },\n      {\n        \"name\": \"Caffeine\",\n        \"amount\": 0,\n        \"unit\": \"mg\",\n        \"percentOfDailyNeeds\": 0\n      },\n      {\n        \"name\": \"Net Carbohydrates\",\n        \"amount\": 24,\n        \"unit\": \"g\",\n        \"percentOfDailyNeeds\": 8.73\n      }\n    ],\n    \"caloricBreakdown\": {\n      \"percentProtein\": 4.44,\n      \"percentFat\": 40,\n      \"percentCarbs\": 55.56\n    },\n    \"calories\": 180,\n    \"fat\": \"8g\",\n    \"protein\": \"2g\",\n    \"carbs\": \"25g\"\n  },\n  \"servings\": {\n    \"number\": 1,\n    \"size\": 4,\n    \"unit\": \"pieces\",\n    \"raw\": \"4.0 pieces (38 g)\"\n  },\n  \"spoonacularScore\": 0,\n  \"aisle\": null,\n  \"description\": \"SnickersÂ® brand almond bar.What&#39;s inside... per minis piece.Calories 45, 2% DV.Total fat 2g, 3% DV.Sat fat 1g, 5% DV.Sugars 5g.Sodium 20mg, 1% DV.GDA&#39;s are based on a 2,000 calorie diet.To learn more visit www.marshealthyliving.com.*No DV defined.SnickersÂ® brand.What&#39;s inside... per minis piece.Calories 45, 2% DV.Total fat 2g, 3% DV.Sat fat 1g, 5% DV.Sugars 5g.Sodium 20mg, 1% DV.GDA&#39;s are based on a 2,000 calorie diet.To learn more visit www.marshealthyliving.com.*No DV defined.SnickersÂ® brand peanut butter squared bars.What&#39;s inside... per minis piece.Calories 50, 3% DV.Total fat 2.5g, 4% DV.Sat fat 1g, 5% DV.Sugars 4g.Sodium 30mg, 1% DV.GDA&#39;s are based on a 2,000 calorie diet.To learn more visit www.marshealthyliving.com.*No DV defined.snickers.com.Please save the unused product and wrapper.Mars Real ChocolateÂ®.We value your questions or comments. Call 1-800-551-0702 or visit us at www.snickers.com.Visit us at www.snickers.com.Â®/TM trademarks.Â©Mars, Incorporated.\",\n  \"image\": \"https://img.spoonacular.com/products/22347-312x231.jpeg\",\n  \"imageType\": \"jpeg\",\n  \"images\": [\n    \"https://img.spoonacular.com/products/22347-90x90.jpeg\",\n    \"https://img.spoonacular.com/products/22347-312x231.jpeg\",\n    \"https://img.spoonacular.com/products/22347-636x393.jpeg\"\n  ],\n  \"generatedText\": null,\n  \"upc\": \"040000421610\",\n  \"brand\": \"Snickers\",\n  \"ingredients\": [\n    {\n      \"name\": \"artificial flavor.snickersâ® brand\",\n      \"safety_level\": null,\n      \"description\": null\n    },\n    {\n      \"name\": \"cocoa butter\",\n      \"safety_level\": \"high\",\n      \"description\": null\n    },\n    {\n      \"name\": \"soy lecithin\",\n      \"safety_level\": \"high\",\n      \"description\": \"Soy lecithin is <a href=\\\"http://farrp.unl.edu/resources/gi-fas/opinion-and-summaries/soy-lecithin\\\">not a concern</a> for most people allergic to soy.\"\n    }\n  ],\n  \"ingredientCount\": 32,\n  \"ingredientList\": \"Snickers Brand Almond Bar: Milk Chocolate (Sugar, Cocoa Butter, Chocolate, Skim Milk, Lactose, Milkfat, Soy Lecithin, Artificial Flavor), Corn Syrup, Almonds, Sugar, Milkfat, Skim Milk, Less than 2% - Lactose, Salt, Hydrogenated Palm Kernel Oil and/or Palm Oil, Egg Whites, Chocolate, Artificial Flavor. Snickers Brand: Milk Chocolate (Sugar, Cocoa Butter, Chocolate, Skim Milk, Lactose, Milkfat, Soy Lecithin, Artificial Flavor), Peanuts, Corn Syrup, Sugar, Milkfat, Skim Milk, Partially Hydrogenated Soybean Oil, Lactose, Salt, Egg Whites, Chocolate, Artificial Flavor. Snickers Brand Peanut Butter Squared Bars: Milk Chocolate (Sugar, Cocoa Butter, Chocolate, Skim Milk, Lactose, Milkfat, Soy Lecithin, Artificial Flavor), Peanut Butter (Peanuts, Partially Hydrogenated Soybean Oil), Peanuts, Sugar, Corn Syrup, Vegetable Oil (Hydrogenated Palm Kernel Oil, Palm Oil, Rapeseed Oil and Cottonseed Oil and/or Partially Hydrogenated Palm Kernel Oil), Lactose, Corn Syrup Solids, Invert Sugar, Less than 2% - Glycerin, Dextrose, Skim Milk, Salt, Calcium Carbonate, Partially Hydrogenated Soybean Oil, Egg Whites, Artificial Flavor, TBHQ to Maintain Freshness\",\n  \"credits\": {\n    \"text\": \"openfoodfacts.org under (ODbL) v1.0\",\n    \"link\": \"https://opendatacommons.org/licenses/odbl/1-0/\",\n    \"image\": \"openfoodfacts.org under CC BY-SA 3.0 DEED\",\n    \"imageLink\": \"https://creativecommons.org/licenses/by-sa/3.0/deed.en\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "711a11e1-aaba-418d-a721-8a26940fd10e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The id of the packaged food."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "fccf7b4d-eea6-4f3d-8ca0-5e0722857f30",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The id of the packaged food."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9f933df8-0755-4a45-928e-2c588c9fa34c",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The id of the packaged food."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5cfa7168-d988-4a10-ab32-7f6676820b1a",
+          "name": "Get Comparable Products",
+          "request": {
+            "name": "Get Comparable Products",
+            "description": {
+              "content": "Find comparable products to the given one.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "food",
+                "products",
+                "upc",
+                ":upc",
+                "comparable"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "upc",
+                  "description": "(Required) The UPC of the product for which you want to find comparable products."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d85ca90a-35bf-40d8-91ab-3dfc6a691837",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    "upc",
+                    ":upc",
+                    "comparable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "upc",
+                      "description": "(Required) The UPC of the product for which you want to find comparable products."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"comparableProducts\": {\n    \"calories\": [],\n    \"likes\": [],\n    \"price\": [],\n    \"protein\": [\n      {\n        \"difference\": 3,\n        \"id\": 11797,\n        \"image\": \"https://webknox.com/productImages/11797.jpg\",\n        \"title\": \"Casa Visco Capers\"\n      },\n      {\n        \"difference\": 1,\n        \"id\": 90962,\n        \"image\": \"https://webknox.com/productImages/90962.jpg\",\n        \"title\": \"Colavita Capers\"\n      },\n      {\n        \"difference\": 1,\n        \"id\": 88139,\n        \"image\": \"https://webknox.com/productImages/88139.jpg\",\n        \"title\": \"Mezzetta Capers\"\n      },\n      {\n        \"difference\": 1,\n        \"id\": 152832,\n        \"image\": \"https://webknox.com/productImages/152832.jpg\",\n        \"title\": \"Victoria Imported Capers\"\n      }\n    ],\n    \"spoonacular_score\": [\n      {\n        \"difference\": 7,\n        \"id\": 125354,\n        \"image\": \"https://webknox.com/productImages/125354.jpg\",\n        \"title\": \"DeLallo Capers\"\n      },\n      {\n        \"difference\": 7,\n        \"id\": 118361,\n        \"image\": \"https://webknox.com/productImages/118361.jpg\",\n        \"title\": \"Haddon House Non Pareil Capers\"\n      },\n      {\n        \"difference\": 7,\n        \"id\": 113686,\n        \"image\": \"https://webknox.com/productImages/113686.jpg\",\n        \"title\": \"Dell Alpe Capers\"\n      },\n      {\n        \"difference\": 7,\n        \"id\": 112078,\n        \"image\": \"https://webknox.com/productImages/112078.jpg\",\n        \"title\": \"Paesana Imported Capers\"\n      }\n    ],\n    \"sugar\": []\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5b1b8f6e-517a-4ce1-93bd-a194294330f8",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    "upc",
+                    ":upc",
+                    "comparable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "upc",
+                      "description": "(Required) The UPC of the product for which you want to find comparable products."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "50d984f5-586f-4d94-9796-787dc506537e",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    "upc",
+                    ":upc",
+                    "comparable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "upc",
+                      "description": "(Required) The UPC of the product for which you want to find comparable products."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bc6bb102-9495-4ac4-a85c-d209069af32c",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    "upc",
+                    ":upc",
+                    "comparable"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "upc",
+                      "description": "(Required) The UPC of the product for which you want to find comparable products."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a415b198-a804-4385-8ada-05c95d1dd6cd",
+          "name": "Autocomplete Product Search",
+          "request": {
+            "name": "Autocomplete Product Search",
+            "description": {
+              "content": "Generate suggestions for grocery products based on a (partial) query. The matches will be found by looking in the title only.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "food",
+                "products",
+                "suggest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "(Required) The (partial) search query."
+                },
+                {
+                  "disabled": false,
+                  "key": "number",
+                  "value": "<integer>",
+                  "description": "The number of results to return (between 1 and 25)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5c6520c0-5e29-44cd-ae59-656e96b49b92",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    "suggest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "chicke"
+                    },
+                    {
+                      "key": "number",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"results\": [\n    {\n      \"id\": 208698,\n      \"title\": \"buddig premium deli chicken breast - rotisserie flavored\"\n    },\n    {\n      \"id\": 41291,\n      \"title\": \"tyson all natural chicken breasts tenderloins\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "9ec20995-e5d1-4901-b5cf-af95202f1783",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    "suggest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "chicke"
+                    },
+                    {
+                      "key": "number",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "13290df8-c134-4a6f-adcd-1964e57a38b9",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    "suggest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "chicke"
+                    },
+                    {
+                      "key": "number",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e826742c-2cc4-45e9-99f8-9cac9c0c315d",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    "suggest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "chicke"
+                    },
+                    {
+                      "key": "number",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ee45b16f-71cd-4a56-8c12-1081ff68e741",
+          "name": "Product Nutrition by ID Widget",
+          "request": {
+            "name": "Product Nutrition by ID Widget",
+            "description": {
+              "content": "Visualize a product's nutritional information as HTML including CSS.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "food",
+                "products",
+                ":id",
+                "nutritionWidget"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "defaultCss",
+                  "value": "true",
+                  "description": "Whether the default CSS should be added to the response."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The id of the product."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "814503cb-3a10-4bd3-9056-0ac2d34fb808",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    ":id",
+                    "nutritionWidget"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "defaultCss",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The id of the product."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/html"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d27e14cb-fd61-4a3a-a2d5-862e1765e4bf",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    ":id",
+                    "nutritionWidget"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "defaultCss",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The id of the product."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "46e2a9cf-de88-4226-8d06-6ba4f994ab11",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    ":id",
+                    "nutritionWidget"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "defaultCss",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The id of the product."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "138a83ab-13ea-40ae-aae3-b6e4f4f95fd7",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    ":id",
+                    "nutritionWidget"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "defaultCss",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The id of the product."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "e4e3e2bb-f791-41a6-b9ba-2d40066195c4",
+          "name": "Product Nutrition by ID Image",
+          "request": {
+            "name": "Product Nutrition by ID Image",
+            "description": {
+              "content": "Visualize a product's nutritional information as an image.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "food",
+                "products",
+                ":id",
+                "nutritionWidget.png"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The id of the product."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "image/png"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "08ca63bd-9782-4938-a227-b3d6055b5865",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    ":id",
+                    "nutritionWidget.png"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The id of the product."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "image/png"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "image/png"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "547349ff-e078-4952-a4c9-d136ec3e308a",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    ":id",
+                    "nutritionWidget.png"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The id of the product."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4c72ac4e-024e-4841-847d-a8116bc042aa",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    ":id",
+                    "nutritionWidget.png"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The id of the product."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9e3cdfc7-c94e-474e-8fe0-b81f56b32e5d",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    ":id",
+                    "nutritionWidget.png"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The id of the product."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eafdb7a7-1598-4158-9920-bdd21105a718",
+          "name": "Product Nutrition Label Widget",
+          "request": {
+            "name": "Product Nutrition Label Widget",
+            "description": {
+              "content": "Get a product's nutrition label as an HTML widget.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "food",
+                "products",
+                ":id",
+                "nutritionLabel"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "defaultCss",
+                  "value": "true",
+                  "description": "Whether the default CSS should be added to the response."
+                },
+                {
+                  "disabled": false,
+                  "key": "showOptionalNutrients",
+                  "value": "<boolean>",
+                  "description": "Whether to show optional nutrients."
+                },
+                {
+                  "disabled": false,
+                  "key": "showZeroValues",
+                  "value": "<boolean>",
+                  "description": "Whether to show zero values."
+                },
+                {
+                  "disabled": false,
+                  "key": "showIngredients",
+                  "value": "<boolean>",
+                  "description": "Whether to show a list of ingredients."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The product id."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "text/html"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "672d3a9a-049a-4778-8732-4d9694788d6e",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    ":id",
+                    "nutritionLabel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "defaultCss",
+                      "value": "false"
+                    },
+                    {
+                      "key": "showOptionalNutrients",
+                      "value": "false"
+                    },
+                    {
+                      "key": "showZeroValues",
+                      "value": "false"
+                    },
+                    {
+                      "key": "showIngredients",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The product id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/html"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/html"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c3a2d3b1-3219-464a-931f-9eddf5778887",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    ":id",
+                    "nutritionLabel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "defaultCss",
+                      "value": "false"
+                    },
+                    {
+                      "key": "showOptionalNutrients",
+                      "value": "false"
+                    },
+                    {
+                      "key": "showZeroValues",
+                      "value": "false"
+                    },
+                    {
+                      "key": "showIngredients",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The product id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "31dd4212-a4aa-401e-be7f-a8c46a29ba8f",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    ":id",
+                    "nutritionLabel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "defaultCss",
+                      "value": "false"
+                    },
+                    {
+                      "key": "showOptionalNutrients",
+                      "value": "false"
+                    },
+                    {
+                      "key": "showZeroValues",
+                      "value": "false"
+                    },
+                    {
+                      "key": "showIngredients",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The product id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "093766e0-ab20-4100-80e8-3bf0e07c86b6",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    ":id",
+                    "nutritionLabel"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "defaultCss",
+                      "value": "false"
+                    },
+                    {
+                      "key": "showOptionalNutrients",
+                      "value": "false"
+                    },
+                    {
+                      "key": "showZeroValues",
+                      "value": "false"
+                    },
+                    {
+                      "key": "showIngredients",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The product id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "44b382e7-3ac8-49de-808e-f9a8e45e2e37",
+          "name": "Product Nutrition Label Image",
+          "request": {
+            "name": "Product Nutrition Label Image",
+            "description": {
+              "content": "Get a product's nutrition label as an image.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "food",
+                "products",
+                ":id",
+                "nutritionLabel.png"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "showOptionalNutrients",
+                  "value": "<boolean>",
+                  "description": "Whether to show optional nutrients."
+                },
+                {
+                  "disabled": false,
+                  "key": "showZeroValues",
+                  "value": "<boolean>",
+                  "description": "Whether to show zero values."
+                },
+                {
+                  "disabled": false,
+                  "key": "showIngredients",
+                  "value": "<boolean>",
+                  "description": "Whether to show a list of ingredients."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The product id."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "image/png"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0d270bfb-85bb-4e46-bcf5-30a822c72a65",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    ":id",
+                    "nutritionLabel.png"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "showOptionalNutrients",
+                      "value": "false"
+                    },
+                    {
+                      "key": "showZeroValues",
+                      "value": "false"
+                    },
+                    {
+                      "key": "showIngredients",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The product id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "image/png"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "image/png"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "14aa6ea2-4a02-400b-b7f9-dbf8b72ad73d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    ":id",
+                    "nutritionLabel.png"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "showOptionalNutrients",
+                      "value": "false"
+                    },
+                    {
+                      "key": "showZeroValues",
+                      "value": "false"
+                    },
+                    {
+                      "key": "showIngredients",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The product id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f165d938-8db3-414e-9420-bb653b7eccf2",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    ":id",
+                    "nutritionLabel.png"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "showOptionalNutrients",
+                      "value": "false"
+                    },
+                    {
+                      "key": "showZeroValues",
+                      "value": "false"
+                    },
+                    {
+                      "key": "showIngredients",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The product id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e91138da-a31a-46c4-bbed-2e1d3e722aa2",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    ":id",
+                    "nutritionLabel.png"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "showOptionalNutrients",
+                      "value": "false"
+                    },
+                    {
+                      "key": "showZeroValues",
+                      "value": "false"
+                    },
+                    {
+                      "key": "showIngredients",
+                      "value": "false"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The product id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0de26c49-07bf-4528-b71a-5bb61836bb26",
+          "name": "Classify Grocery Product",
+          "request": {
+            "name": "Classify Grocery Product",
+            "description": {
+              "content": "This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "food",
+                "products",
+                "classify"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>",
+                  "description": "The display name of the returned category, supported is en_US (for American English) and en_GB (for British English)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"<string>\",\n  \"upc\": \"<string>\",\n  \"plu_code\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cde8b7e1-06c4-4f70-863a-2773e7ac1d85",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    "classify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "locale",
+                      "value": "en_US"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Kroger Vitamin A & D Reduced Fat 2% Milk\",\n  \"upc\": \"\",\n  \"plu_code\": \"\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"cleanTitle\": \"Kroger Vitamin A & D Reduced Fat 2% Milk\",\n  \"image\": \"https://spoonacular.com/cdn/ingredients_100x100/milk.png\",\n  \"category\": \"2 percent milk\",\n  \"breadcrumbs\": [\n    \"2 percent milk\",\n    \"milk\",\n    \"drink\",\n    \"ingredient\"\n  ],\n  \"usdaCode\": 1174\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d9b7a665-4094-416e-9928-3dfd42620841",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    "classify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "locale",
+                      "value": "en_US"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Kroger Vitamin A & D Reduced Fat 2% Milk\",\n  \"upc\": \"\",\n  \"plu_code\": \"\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "81c98842-66a3-4c40-9c9f-1caaf9d79b39",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    "classify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "locale",
+                      "value": "en_US"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Kroger Vitamin A & D Reduced Fat 2% Milk\",\n  \"upc\": \"\",\n  \"plu_code\": \"\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f91cf9ad-011c-431d-8793-f4ff441a6e4f",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    "classify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "locale",
+                      "value": "en_US"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"title\": \"Kroger Vitamin A & D Reduced Fat 2% Milk\",\n  \"upc\": \"\",\n  \"plu_code\": \"\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bb0c88fa-9ad3-4e6a-80b6-e2c973409c4f",
+          "name": "Classify Grocery Product Bulk",
+          "request": {
+            "name": "Classify Grocery Product Bulk",
+            "description": {
+              "content": "Provide a set of product jsons, get back classified products.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "food",
+                "products",
+                "classifyBatch"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "locale",
+                  "value": "<string>",
+                  "description": "The display name of the returned category, supported is en_US (for American English) and en_GB (for British English)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  {\n    \"title\": \"<string>\",\n    \"upc\": \"<string>\",\n    \"plu_code\": \"<string>\"\n  },\n  {\n    \"title\": \"<string>\",\n    \"upc\": \"<string>\",\n    \"plu_code\": \"<string>\"\n  }\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c835dcb9-a764-4504-a268-3028c26a4eba",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    "classifyBatch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "locale",
+                      "value": "en_US"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"title\": \"Kroger Vitamin A & D Reduced Fat 2% Milk\",\n    \"upc\": \"\",\n    \"plu_code\": \"\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"cleanTitle\": \"Kroger Vitamin A & D Reduced Fat 2% Milk\",\n    \"image\": \"https://spoonacular.com/cdn/ingredients_100x100/milk.png\",\n    \"category\": \"2 percent milk\",\n    \"breadcrumbs\": [\n      \"2 percent milk\",\n      \"milk\",\n      \"drink\",\n      \"ingredient\"\n    ],\n    \"usdaCode\": 1174\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8df3acf9-0d67-4280-9bb4-02d8ea5f9ec2",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    "classifyBatch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "locale",
+                      "value": "en_US"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"title\": \"Kroger Vitamin A & D Reduced Fat 2% Milk\",\n    \"upc\": \"\",\n    \"plu_code\": \"\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "277fd389-6087-454e-bc1e-cb0f0a3453b8",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    "classifyBatch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "locale",
+                      "value": "en_US"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"title\": \"Kroger Vitamin A & D Reduced Fat 2% Milk\",\n    \"upc\": \"\",\n    \"plu_code\": \"\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8f37da41-708a-49e0-9db7-49ad7627c632",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "products",
+                    "classifyBatch"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "locale",
+                      "value": "en_US"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  {\n    \"title\": \"Kroger Vitamin A & D Reduced Fat 2% Milk\",\n    \"upc\": \"\",\n    \"plu_code\": \"\"\n  }\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.spoonacular.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "078ffdf5-2261-4a45-88d5-7159e6bde069",
+    "name": "spoonacular Ingredients Products API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.\n\nSpecial diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.\n\nContact Support:\n Name: David Urbansky\n Email: mail@spoonacular.com",
+      "type": "text/plain"
+    }
+  }
+}

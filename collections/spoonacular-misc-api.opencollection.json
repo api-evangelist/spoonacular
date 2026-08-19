@@ -1,0 +1,322 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "spoonacular Ingredients Misc API",
+    "version": "2.0.2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Misc",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Custom Foods",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/customFoods/search",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "The (natural language) search query."
+              },
+              {
+                "name": "username",
+                "value": "dsky",
+                "type": "query",
+                "description": "The username."
+              },
+              {
+                "name": "hash",
+                "value": "4b5v4398573406",
+                "type": "query",
+                "description": "The private hash for the username."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The number of results to skip (between 0 and 900)."
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of items to return (between 1 and 100). Defaults to 10."
+              }
+            ]
+          },
+          "docs": "Search custom foods in a user's account."
+        },
+        {
+          "info": {
+            "name": "Image Classification by URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/images/classify",
+            "params": [
+              {
+                "name": "imageUrl",
+                "value": "https://spoonacular.com/recipeImages/635350-240x150.jpg",
+                "type": "query",
+                "description": "The URL of the image to be classified."
+              }
+            ]
+          },
+          "docs": "Classify a food image."
+        },
+        {
+          "info": {
+            "name": "Image Analysis by URL",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/images/analyze",
+            "params": [
+              {
+                "name": "imageUrl",
+                "value": "https://spoonacular.com/recipeImages/635350-240x150.jpg",
+                "type": "query",
+                "description": "The URL of the image to be analyzed."
+              }
+            ]
+          },
+          "docs": "Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes."
+        },
+        {
+          "info": {
+            "name": "Detect Food in Text",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spoonacular.com/food/detect",
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "text",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds."
+        },
+        {
+          "info": {
+            "name": "Search Site Content",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/site/search",
+            "params": [
+              {
+                "name": "query",
+                "value": "past",
+                "type": "query",
+                "description": "The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content."
+              }
+            ]
+          },
+          "docs": "Search spoonacular's site content. You'll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries."
+        },
+        {
+          "info": {
+            "name": "Search All Food",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/search",
+            "params": [
+              {
+                "name": "query",
+                "value": "apple",
+                "type": "query",
+                "description": "The search query."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The number of results to skip (between 0 and 900)."
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of items to return (between 1 and 100). Defaults to 10."
+              }
+            ]
+          },
+          "docs": "Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos."
+        },
+        {
+          "info": {
+            "name": "Search Food Videos",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/videos/search",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "The (natural language) search query."
+              },
+              {
+                "name": "type",
+                "value": "main course",
+                "type": "query",
+                "description": "The type of the recipes. See a full list of supported meal types."
+              },
+              {
+                "name": "cuisine",
+                "value": "italian",
+                "type": "query",
+                "description": "The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines."
+              },
+              {
+                "name": "diet",
+                "value": "vegetarian",
+                "type": "query",
+                "description": "The diet for which the recipes must be suitable. See a full list of supported diets."
+              },
+              {
+                "name": "includeIngredients",
+                "value": "tomato,cheese",
+                "type": "query",
+                "description": "A comma-separated list of ingredients that the recipes should contain."
+              },
+              {
+                "name": "excludeIngredients",
+                "value": "eggs",
+                "type": "query",
+                "description": "A comma-separated list of ingredients or ingredient types that the recipes must not contain."
+              },
+              {
+                "name": "minLength",
+                "value": "0",
+                "type": "query",
+                "description": "Minimum video length in seconds."
+              },
+              {
+                "name": "maxLength",
+                "value": "999",
+                "type": "query",
+                "description": "Maximum video length in seconds."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The number of results to skip (between 0 and 900)."
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of items to return (between 1 and 100). Defaults to 10."
+              }
+            ]
+          },
+          "docs": "Find recipe and other food related videos."
+        },
+        {
+          "info": {
+            "name": "Random Food Joke",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/jokes/random"
+          },
+          "docs": "Get a random joke that is related to food. Caution: this is an endpoint for adults!"
+        },
+        {
+          "info": {
+            "name": "Random Food Trivia",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/trivia/random"
+          },
+          "docs": "Returns random food trivia."
+        },
+        {
+          "info": {
+            "name": "Talk to Chatbot",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/converse",
+            "params": [
+              {
+                "name": "text",
+                "value": "donut recipes",
+                "type": "query",
+                "description": "The request / question / answer from the user to the chatbot."
+              },
+              {
+                "name": "contextId",
+                "value": "342938",
+                "type": "query",
+                "description": "An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation."
+              }
+            ]
+          },
+          "docs": "This endpoint can be used to have a conversation about food with the spoonacular chatbot. Use the \"Get Conversation Suggests\" endpoint to show your user what he or she can say."
+        },
+        {
+          "info": {
+            "name": "Conversation Suggests",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/converse/suggest",
+            "params": [
+              {
+                "name": "query",
+                "value": "tell",
+                "type": "query",
+                "description": "A (partial) query from the user. The endpoint will return if it matches topics it can talk about."
+              },
+              {
+                "name": "number",
+                "value": "5",
+                "type": "query",
+                "description": "The number of suggestions to return (between 1 and 25)."
+              }
+            ]
+          },
+          "docs": "This endpoint returns suggestions for things the user can say or ask the chatbot."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,126 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "spoonacular Ingredients Wine API",
+    "version": "2.0.2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Wine",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Dish Pairing for Wine",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/wine/dishes",
+            "params": [
+              {
+                "name": "wine",
+                "value": "malbec",
+                "type": "query",
+                "description": "The type of wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\"."
+              }
+            ]
+          },
+          "docs": "Find a dish that goes well with a given wine."
+        },
+        {
+          "info": {
+            "name": "Wine Pairing",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/wine/pairing",
+            "params": [
+              {
+                "name": "food",
+                "value": "steak",
+                "type": "query",
+                "description": "The food to get a pairing for. This can be a dish (\"steak\"), an ingredient (\"salmon\"), or a cuisine (\"italian\")."
+              },
+              {
+                "name": "maxPrice",
+                "value": "50",
+                "type": "query",
+                "description": "The maximum price for the specific wine recommendation in USD."
+              }
+            ]
+          },
+          "docs": "Find a wine that goes well with a food. Food can be a dish name (\"steak\"), an ingredient name (\"salmon\"), or a cuisine (\"italian\")."
+        },
+        {
+          "info": {
+            "name": "Wine Description",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/wine/description",
+            "params": [
+              {
+                "name": "wine",
+                "value": "merlot",
+                "type": "query",
+                "description": "The name of the wine that should be paired, e.g. \"merlot\", \"riesling\", or \"malbec\"."
+              }
+            ]
+          },
+          "docs": "Get a simple description of a certain wine, e.g. \"malbec\", \"riesling\", or \"merlot\"."
+        },
+        {
+          "info": {
+            "name": "Wine Recommendation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/wine/recommendation",
+            "params": [
+              {
+                "name": "wine",
+                "value": "merlot",
+                "type": "query",
+                "description": "The type of wine to get a specific product recommendation for."
+              },
+              {
+                "name": "maxPrice",
+                "value": "50",
+                "type": "query",
+                "description": "The maximum price for the specific wine recommendation in USD."
+              },
+              {
+                "name": "minRating",
+                "value": "0.7",
+                "type": "query",
+                "description": "The minimum rating of the recommended wine between 0 and 1. For example, 0.8 equals 4 out of 5 stars."
+              },
+              {
+                "name": "number",
+                "value": "3",
+                "type": "query",
+                "description": "The number of wine recommendations expected (between 1 and 100)."
+              }
+            ]
+          },
+          "docs": "Get a specific wine recommendation (concrete product) for a given wine type, e.g. \"merlot\"."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

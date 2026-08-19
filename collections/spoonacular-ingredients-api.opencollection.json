@@ -1,0 +1,366 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "spoonacular Ingredients API",
+    "version": "2.0.2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Ingredients",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Ingredients by ID Image",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/recipes/:id/ingredientWidget.png",
+            "params": [
+              {
+                "name": "id",
+                "value": "1082038",
+                "type": "path",
+                "description": "The recipe id."
+              },
+              {
+                "name": "measure",
+                "value": "metric",
+                "type": "query",
+                "description": "Whether the the measures should be 'us' or 'metric'."
+              }
+            ]
+          },
+          "docs": "Visualize a recipe's ingredient list."
+        },
+        {
+          "info": {
+            "name": "Ingredients Widget",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spoonacular.com/recipes/visualizeIngredients",
+            "params": [
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "The language of the input. Either 'en' or 'de'."
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "ingredientList",
+                  "value": ""
+                },
+                {
+                  "name": "servings",
+                  "value": ""
+                },
+                {
+                  "name": "measure",
+                  "value": ""
+                },
+                {
+                  "name": "view",
+                  "value": ""
+                },
+                {
+                  "name": "defaultCss",
+                  "value": ""
+                },
+                {
+                  "name": "showBacklink",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "docs": "Visualize ingredients of a recipe. You can play around with that endpoint!"
+        },
+        {
+          "info": {
+            "name": "Get Ingredient Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/ingredients/:id/information",
+            "params": [
+              {
+                "name": "id",
+                "value": "9266",
+                "type": "path",
+                "description": "The ingredient id."
+              },
+              {
+                "name": "amount",
+                "value": "150",
+                "type": "query",
+                "description": "The amount of this ingredient."
+              },
+              {
+                "name": "unit",
+                "value": "grams",
+                "type": "query",
+                "description": "The unit for the given amount."
+              }
+            ]
+          },
+          "docs": "Use an ingredient id to get all available information about an ingredient, such as its image and supermarket aisle."
+        },
+        {
+          "info": {
+            "name": "Compute Ingredient Amount",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/ingredients/:id/amount",
+            "params": [
+              {
+                "name": "id",
+                "value": "9266",
+                "type": "path",
+                "description": "The id of the ingredient you want the amount for."
+              },
+              {
+                "name": "nutrient",
+                "value": "protein",
+                "type": "query",
+                "description": "The target nutrient. See a list of supported nutrients."
+              },
+              {
+                "name": "target",
+                "value": "2",
+                "type": "query",
+                "description": "The target number of the given nutrient."
+              },
+              {
+                "name": "unit",
+                "value": "oz",
+                "type": "query",
+                "description": "The target unit."
+              }
+            ]
+          },
+          "docs": "Compute the amount you need of a certain ingredient for a certain nutritional goal. For example, how much pineapple do you have to eat to get 10 grams of protein?"
+        },
+        {
+          "info": {
+            "name": "Autocomplete Ingredient Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/ingredients/autocomplete",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "The (natural language) search query."
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of items to return (between 1 and 100). Defaults to 10."
+              },
+              {
+                "name": "metaInformation",
+                "value": "false",
+                "type": "query",
+                "description": "Whether to return more meta information about the ingredients."
+              },
+              {
+                "name": "intolerances",
+                "value": "egg",
+                "type": "query",
+                "description": "A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances."
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "The language of the input. Either 'en' or 'de'."
+              }
+            ]
+          },
+          "docs": "Autocomplete the entry of an ingredient."
+        },
+        {
+          "info": {
+            "name": "Ingredient Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/ingredients/search",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "The (natural language) search query."
+              },
+              {
+                "name": "addChildren",
+                "value": "true",
+                "type": "query",
+                "description": "Whether to add children of found foods."
+              },
+              {
+                "name": "minProteinPercent",
+                "value": "10",
+                "type": "query",
+                "description": "The minimum percentage of protein the food must have (between 0 and 100)."
+              },
+              {
+                "name": "maxProteinPercent",
+                "value": "90",
+                "type": "query",
+                "description": "The maximum percentage of protein the food can have (between 0 and 100)."
+              },
+              {
+                "name": "minFatPercent",
+                "value": "10",
+                "type": "query",
+                "description": "The minimum percentage of fat the food must have (between 0 and 100)."
+              },
+              {
+                "name": "maxFatPercent",
+                "value": "90",
+                "type": "query",
+                "description": "The maximum percentage of fat the food can have (between 0 and 100)."
+              },
+              {
+                "name": "minCarbsPercent",
+                "value": "10",
+                "type": "query",
+                "description": "The minimum percentage of carbs the food must have (between 0 and 100)."
+              },
+              {
+                "name": "maxCarbsPercent",
+                "value": "90",
+                "type": "query",
+                "description": "The maximum percentage of carbs the food can have (between 0 and 100)."
+              },
+              {
+                "name": "metaInformation",
+                "value": "false",
+                "type": "query",
+                "description": "Whether to return more meta information about the ingredients."
+              },
+              {
+                "name": "intolerances",
+                "value": "egg",
+                "type": "query",
+                "description": "A comma-separated list of intolerances. All recipes returned must not contain ingredients that are not suitable for people with the intolerances entered. See a full list of supported intolerances."
+              },
+              {
+                "name": "sort",
+                "value": "calories",
+                "type": "query",
+                "description": "The strategy to sort recipes by. See a full list of supported sorting options."
+              },
+              {
+                "name": "sortDirection",
+                "value": "asc",
+                "type": "query",
+                "description": "The direction in which to sort. Must be either 'asc' (ascending) or 'desc' (descending)."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The number of results to skip (between 0 and 900)."
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of items to return (between 1 and 100). Defaults to 10."
+              },
+              {
+                "name": "language",
+                "value": "",
+                "type": "query",
+                "description": "The language of the input. Either 'en' or 'de'."
+              }
+            ]
+          },
+          "docs": "Search for simple whole foods (e.g. fruits, vegetables, nuts, grains, meat, fish, dairy etc.)."
+        },
+        {
+          "info": {
+            "name": "Get Ingredient Substitutes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/ingredients/substitutes",
+            "params": [
+              {
+                "name": "ingredientName",
+                "value": "butter",
+                "type": "query",
+                "description": "The name of the ingredient you want to replace."
+              }
+            ]
+          },
+          "docs": "Search for substitutes for a given ingredient."
+        },
+        {
+          "info": {
+            "name": "Get Ingredient Substitutes by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/ingredients/:id/substitutes",
+            "params": [
+              {
+                "name": "id",
+                "value": "1001",
+                "type": "path",
+                "description": "The id of the ingredient you want substitutes for."
+              }
+            ]
+          },
+          "docs": "Search for substitutes for a given ingredient."
+        },
+        {
+          "info": {
+            "name": "Map Ingredients to Grocery Products",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spoonacular.com/food/ingredients/map",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Map a set of ingredients to products you can buy in the grocery store."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

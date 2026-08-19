@@ -1,0 +1,4271 @@
+{
+  "item": [
+    {
+      "id": "32fe2a2f-b8f4-40fd-9eb4-f7c257c59c9b",
+      "name": "Meal Planning",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dca3e21a-9205-4756-a8b5-149595734d16",
+          "name": "Generate Meal Plan",
+          "request": {
+            "name": "Generate Meal Plan",
+            "description": {
+              "content": "Generate a meal plan with three meals per day (breakfast, lunch, and dinner).",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mealplanner",
+                "generate"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "timeFrame",
+                  "value": "<string>",
+                  "description": "Either for one \"day\" or an entire \"week\"."
+                },
+                {
+                  "disabled": false,
+                  "key": "targetCalories",
+                  "value": "<number>",
+                  "description": "What is the caloric target for one day? The meal plan generator will try to get as close as possible to that goal."
+                },
+                {
+                  "disabled": false,
+                  "key": "diet",
+                  "value": "<string>",
+                  "description": "Enter a diet that the meal plan has to adhere to. See a full list of supported diets."
+                },
+                {
+                  "disabled": false,
+                  "key": "exclude",
+                  "value": "<string>",
+                  "description": "A comma-separated list of allergens or ingredients that must be excluded."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "73660d7b-2ac8-46aa-8bf1-7fe565061347",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "timeFrame",
+                      "value": "day"
+                    },
+                    {
+                      "key": "targetCalories",
+                      "value": "2000"
+                    },
+                    {
+                      "key": "diet",
+                      "value": "vegetarian"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "shellfish, olives"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"meals\": [\n    {\n      \"id\": 655219,\n      \"title\": \"Peanut Butter And Chocolate Oatmeal\",\n      \"imageType\": \"jpg\",\n      \"readyInMinutes\": 45,\n      \"servings\": 1,\n      \"sourceUrl\": \"https://spoonacular.com/recipes/peanut-butter-and-chocolate-oatmeal-655219\"\n    },\n    {\n      \"id\": 649931,\n      \"title\": \"Lentil Salad With Vegetables\",\n      \"imageType\": \"jpg\",\n      \"readyInMinutes\": 45,\n      \"servings\": 4,\n      \"sourceUrl\": \"https://spoonacular.com/recipes/lentil-salad-with-vegetables-649931\"\n    },\n    {\n      \"id\": 632854,\n      \"title\": \"Asian Noodles\",\n      \"imageType\": \"jpg\",\n      \"readyInMinutes\": 45,\n      \"servings\": 4,\n      \"sourceUrl\": \"https://spoonacular.com/recipes/asian-noodles-632854\"\n    }\n  ],\n  \"nutrients\": {\n    \"calories\": 1735.81,\n    \"carbohydrates\": 235.17,\n    \"fat\": 69.22,\n    \"protein\": 55.43\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "8612ed20-4b74-4aa2-b59f-3a3cf6713a8c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "timeFrame",
+                      "value": "day"
+                    },
+                    {
+                      "key": "targetCalories",
+                      "value": "2000"
+                    },
+                    {
+                      "key": "diet",
+                      "value": "vegetarian"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "shellfish, olives"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f9d01eb7-c8f4-4b2e-bf45-9fddefea584e",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "timeFrame",
+                      "value": "day"
+                    },
+                    {
+                      "key": "targetCalories",
+                      "value": "2000"
+                    },
+                    {
+                      "key": "diet",
+                      "value": "vegetarian"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "shellfish, olives"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1faed1c6-e4f1-459f-87cc-1bb81d7c9e7a",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    "generate"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "timeFrame",
+                      "value": "day"
+                    },
+                    {
+                      "key": "targetCalories",
+                      "value": "2000"
+                    },
+                    {
+                      "key": "diet",
+                      "value": "vegetarian"
+                    },
+                    {
+                      "key": "exclude",
+                      "value": "shellfish, olives"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "98afe210-d7ae-4d25-a4a4-f15314e32748",
+          "name": "Get Meal Plan Week",
+          "request": {
+            "name": "Get Meal Plan Week",
+            "description": {
+              "content": "Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user's hash that can be found in his/her account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mealplanner",
+                ":username",
+                "week",
+                ":start_date"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "hash",
+                  "value": "<string>",
+                  "description": "(Required) The private hash for the username."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) The username."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "start_date",
+                  "description": "(Required) The start date of the meal planned week in the format yyyy-mm-dd."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4684f7e8-46bb-4886-a10c-4ff5154ec991",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "week",
+                    ":start_date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "start_date",
+                      "description": "(Required) The start date of the meal planned week in the format yyyy-mm-dd."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"days\": [\n    {\n      \"nutritionSummary\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 310,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 16\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 25,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 38\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 1,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 0\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 20,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 40\n          }\n        ]\n      },\n      \"nutritionSummaryBreakfast\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 0,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 0\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 0,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 0\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 0,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 0\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 0,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 0\n          }\n        ]\n      },\n      \"nutritionSummaryLunch\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 310,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 16\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 25,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 38\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 1,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 0\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 20,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 40\n          }\n        ]\n      },\n      \"nutritionSummaryDinner\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 0,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 0\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 0,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 0\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 0,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 0\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 0,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 0\n          }\n        ]\n      },\n      \"date\": 1589155200,\n      \"day\": \"Monday\",\n      \"items\": [\n        {\n          \"id\": 1976489,\n          \"slot\": 1,\n          \"position\": 1,\n          \"type\": \"RECIPE\",\n          \"value\": {\n            \"servings\": 2,\n            \"id\": 1023004,\n            \"title\": \"Foolproof Meatloaf\",\n            \"imageType\": \"\"\n          }\n        },\n        {\n          \"id\": 1976490,\n          \"slot\": 2,\n          \"position\": 2,\n          \"type\": \"CUSTOM_FOOD\",\n          \"value\": {\n            \"servings\": 1,\n            \"id\": 345,\n            \"title\": \"Denn's Lamb Bratwurst - 1/2 Pkg\",\n            \"image\": \"https://spoonacular.com/cdn/ingredients_100x100/bratwurst.jpg\",\n            \"imageType\": \"jpg\"\n          }\n        }\n      ]\n    },\n    {\n      \"nutritionSummary\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 200,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 10\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 1,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 1\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 52,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 17\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 2,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 4\n          }\n        ]\n      },\n      \"nutritionSummaryBreakfast\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 200,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 10\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 1,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 1\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 52,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 17\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 2,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 4\n          }\n        ]\n      },\n      \"nutritionSummaryLunch\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 0,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 0\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 0,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 0\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 0,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 0\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 0,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 0\n          }\n        ]\n      },\n      \"nutritionSummaryDinner\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 0,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 0\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 0,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 0\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 0,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 0\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 0,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 0\n          }\n        ]\n      },\n      \"date\": 1589241600,\n      \"day\": \"Tuesday\",\n      \"items\": [\n        {\n          \"id\": 1976491,\n          \"slot\": 1,\n          \"position\": 3,\n          \"type\": \"INGREDIENTS\",\n          \"value\": {\n            \"id\": 877,\n            \"name\": \"\",\n            \"title\": \"apple and banana\",\n            \"servings\": 1,\n            \"imageType\": \"jpg\",\n            \"ingredients\": [\n              {\n                \"name\": \"apple\",\n                \"unit\": \"\",\n                \"amount\": \"1\",\n                \"image\": \"https://spoonacular.com/cdn/ingredients_100x100/apple.jpg\"\n              },\n              {\n                \"name\": \"banana\",\n                \"unit\": \"\",\n                \"amount\": \"1\",\n                \"image\": \"https://spoonacular.com/cdn/ingredients_100x100/bananas.jpg\"\n              }\n            ]\n          }\n        }\n      ]\n    },\n    {\n      \"nutritionSummary\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 180,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 9\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 6,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 9\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 22,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 7\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 10,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 20\n          }\n        ]\n      },\n      \"nutritionSummaryBreakfast\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 180,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 9\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 6,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 9\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 22,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 7\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 10,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 20\n          }\n        ]\n      },\n      \"nutritionSummaryLunch\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 0,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 0\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 0,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 0\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 0,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 0\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 0,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 0\n          }\n        ]\n      },\n      \"nutritionSummaryDinner\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 0,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 0\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 0,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 0\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 0,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 0\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 0,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 0\n          }\n        ]\n      },\n      \"date\": 1589328000,\n      \"day\": \"Wednesday\",\n      \"items\": [\n        {\n          \"id\": 1976492,\n          \"slot\": 1,\n          \"position\": 4,\n          \"type\": \"MENU_ITEM\",\n          \"value\": {\n            \"servings\": 1,\n            \"id\": 378557,\n            \"title\": \"BBQ Steak Pizza, 9\",\n            \"image\": \"https://images.spoonacular.com/file/wximages/378557-312x231.png\",\n            \"imageType\": \"png\"\n          }\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4d091014-8384-459e-a5ad-326a1f780242",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "week",
+                    ":start_date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "start_date",
+                      "description": "(Required) The start date of the meal planned week in the format yyyy-mm-dd."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d6e36ff5-31fd-4c2a-9f1b-57565145342c",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "week",
+                    ":start_date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "start_date",
+                      "description": "(Required) The start date of the meal planned week in the format yyyy-mm-dd."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "cb8c1c6f-0e42-4c97-8552-9625447e2158",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "week",
+                    ":start_date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "start_date",
+                      "description": "(Required) The start date of the meal planned week in the format yyyy-mm-dd."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ea2601a8-d68c-420c-8f76-dbf9a5cf97fe",
+          "name": "Clear Meal Plan Day",
+          "request": {
+            "name": "Clear Meal Plan Day",
+            "description": {
+              "content": "Delete all planned items from the user's meal plan for a specific day.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mealplanner",
+                ":username",
+                "day",
+                ":date"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "hash",
+                  "value": "<string>",
+                  "description": "(Required) The private hash for the username."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) The username."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "date",
+                  "description": "(Required) The date in the format yyyy-mm-dd."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "757ed5ac-3653-4826-a1ed-03c43af8c719",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "day",
+                    ":date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "date",
+                      "description": "(Required) The date in the format yyyy-mm-dd."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "38da8417-5a0d-49c3-9c81-68889605c5e0",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "day",
+                    ":date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "date",
+                      "description": "(Required) The date in the format yyyy-mm-dd."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c4a1d392-d0eb-49ca-b1fc-592480a3a9d1",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "day",
+                    ":date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "date",
+                      "description": "(Required) The date in the format yyyy-mm-dd."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ab01475c-284a-47f7-ae28-65e7c173a991",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "day",
+                    ":date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "date",
+                      "description": "(Required) The date in the format yyyy-mm-dd."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "53d26aed-128f-4243-82ad-9c335a304175",
+          "name": "Add to Meal Plan",
+          "request": {
+            "name": "Add to Meal Plan",
+            "description": {
+              "content": "Add an item to the user's meal plan.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mealplanner",
+                ":username",
+                "items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "hash",
+                  "value": "<string>",
+                  "description": "(Required) The private hash for the username."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) The username."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"date\": \"<number>\",\n  \"slot\": \"<integer>\",\n  \"position\": \"<integer>\",\n  \"type\": \"<string>\",\n  \"value\": {\n    \"ingredients\": [\n      {\n        \"name\": \"<string>\"\n      },\n      {\n        \"name\": \"<string>\"\n      }\n    ]\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "56f0b759-f573-4c98-9344-2eafe9a9aaa0",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"date\": 1589500800,\n  \"slot\": 1,\n  \"position\": 0,\n  \"type\": \"INGREDIENTS\",\n  \"value\": {\n    \"ingredients\": [\n      {\n        \"name\": \"1 banana\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"date\": 1589500800,\n  \"slot\": 1,\n  \"position\": 0,\n  \"type\": \"INGREDIENTS\",\n  \"value\": {\n    \"ingredients\": [\n      {\n        \"name\": \"1 banana\"\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bb2fe3e3-243a-43b8-9096-82076a2b6a3f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"date\": 1589500800,\n  \"slot\": 1,\n  \"position\": 0,\n  \"type\": \"INGREDIENTS\",\n  \"value\": {\n    \"ingredients\": [\n      {\n        \"name\": \"1 banana\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "04c6c492-eaa9-4f27-998b-53e63a34ffc5",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"date\": 1589500800,\n  \"slot\": 1,\n  \"position\": 0,\n  \"type\": \"INGREDIENTS\",\n  \"value\": {\n    \"ingredients\": [\n      {\n        \"name\": \"1 banana\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9cf9bba0-d641-4729-a82a-f1204fabab10",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"date\": 1589500800,\n  \"slot\": 1,\n  \"position\": 0,\n  \"type\": \"INGREDIENTS\",\n  \"value\": {\n    \"ingredients\": [\n      {\n        \"name\": \"1 banana\"\n      }\n    ]\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ce6dff5f-f6f7-4cb4-89bd-5abb1b597da9",
+          "name": "Delete from Meal Plan",
+          "request": {
+            "name": "Delete from Meal Plan",
+            "description": {
+              "content": "Delete an item from the user's meal plan.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mealplanner",
+                ":username",
+                "items",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "hash",
+                  "value": "<string>",
+                  "description": "(Required) The private hash for the username."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) The username."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The shopping list item id."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b3187d6c-02bb-4f50-9046-48371dbbaa44",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The shopping list item id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "00a7bc57-fc0a-4ad7-a564-116a5047625b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The shopping list item id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7b2737b0-6b7a-40bd-83fe-c43d32169f70",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The shopping list item id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ad2600b1-0915-4019-bebe-5ccfd4f3f136",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The shopping list item id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3907e051-5d4e-42c4-833c-d26ce5e91420",
+          "name": "Get Meal Plan Templates",
+          "request": {
+            "name": "Get Meal Plan Templates",
+            "description": {
+              "content": "Get meal plan templates from user or public ones.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mealplanner",
+                ":username",
+                "templates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "hash",
+                  "value": "<string>",
+                  "description": "(Required) The private hash for the username."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) The username."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5cba41d6-b3f2-4529-b3df-9c369ef4939b",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"templates\": [\n    {\n      \"id\": 37,\n      \"name\": \"Busy Work Week\"\n    },\n    {\n      \"id\": 480,\n      \"name\": \"Keto Meal Plan\"\n    },\n    {\n      \"id\": 120,\n      \"name\": \"Not-So-Strict Paleo Meal Plan\"\n    },\n    {\n      \"id\": 451,\n      \"name\": \"Week 1 Meal Plan\"\n    },\n    {\n      \"id\": 581,\n      \"name\": \"Whole30 Meal Plan\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a394d353-4dc6-4f8e-8d85-a2785a37ab1c",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f656e801-77a3-403d-a7b3-6e32c36c49b9",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8e2dab3d-eea1-449d-b197-dfb2e94ddbb4",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "45e2685a-9811-452a-a410-c03199b3942c",
+          "name": "Add Meal Plan Template",
+          "request": {
+            "name": "Add Meal Plan Template",
+            "description": {
+              "content": "Add a meal plan template for a user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mealplanner",
+                ":username",
+                "templates"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "hash",
+                  "value": "<string>",
+                  "description": "(Required) The private hash for the username."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) The username."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7f966f7c-33b9-480a-8d25-b79fb7c19740",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "4b5v4398573406"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"name\": \"My new meal plan template\",\n  \"items\": [\n    {\n      \"day\": 1,\n      \"slot\": 1,\n      \"position\": 0,\n      \"type\": \"RECIPE\",\n      \"value\": {\n        \"id\": 296213,\n        \"servings\": 2,\n        \"title\": \"Spinach Salad with Roasted Vegetables and Spiced Chickpea\",\n        \"imageType\": \"jpg\"\n      }\n    },\n    {\n      \"day\": 2,\n      \"slot\": 1,\n      \"position\": 0,\n      \"type\": \"PRODUCT\",\n      \"value\": {\n        \"id\": 183433,\n        \"servings\": 1,\n        \"title\": \"Ahold Lasagna with Meat Sauce\",\n        \"imageType\": \"jpg\"\n      }\n    },\n    {\n      \"day\": 3,\n      \"slot\": 1,\n      \"position\": 0,\n      \"type\": \"MENU_ITEM\",\n      \"value\": {\n        \"id\": 378557,\n        \"servings\": 1,\n        \"title\": \"Pizza 73 BBQ Steak Pizza, 9\",\n        \"imageType\": \"png\"\n      }\n    },\n    {\n      \"day\": 4,\n      \"slot\": 1,\n      \"position\": 0,\n      \"type\": \"CUSTOM_FOOD\",\n      \"value\": {\n        \"id\": 348,\n        \"servings\": 1,\n        \"title\": \"Aldi Spicy Cashews - 30g\",\n        \"image\": \"https://spoonacular.com/cdn/ingredients_100x100/cashews.jpg\"\n      }\n    },\n    {\n      \"day\": 5,\n      \"slot\": 1,\n      \"position\": 0,\n      \"type\": \"INGREDIENTS\",\n      \"value\": {\n        \"ingredients\": [\n          {\n            \"name\": \"1 banana\"\n          },\n          {\n            \"name\": \"coffee\",\n            \"unit\": \"cup\",\n            \"amount\": \"1\",\n            \"image\": \"https://spoonacular.com/cdn/ingredients_100x100/brewed-coffee.jpg\"\n          }\n        ]\n      }\n    }\n  ],\n  \"publishAsPublic\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "dc9b5814-b897-4cff-8b95-61a39e374748",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "4b5v4398573406"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "466da526-3d88-48e7-8f95-6ffdbaa5829c",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "4b5v4398573406"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ae3069a1-d65a-438e-bacc-5c747d077835",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "templates"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "4b5v4398573406"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "45585a23-a8b9-4eeb-8372-23386d3c410a",
+          "name": "Get Meal Plan Template",
+          "request": {
+            "name": "Get Meal Plan Template",
+            "description": {
+              "content": "Get information about a meal plan template.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mealplanner",
+                ":username",
+                "templates",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "hash",
+                  "value": "<string>",
+                  "description": "(Required) The private hash for the username."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) The username."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The shopping list item id."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9fc3ccca-2dbd-486c-abd5-a19818a60365",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The shopping list item id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"id\": 128,\n  \"name\": \"1500 Calorie Meal Plan\",\n  \"days\": [\n    {\n      \"nutritionSummary\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 1293,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 65\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 65,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 100\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 102,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 34\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 83,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 166\n          }\n        ]\n      },\n      \"nutritionSummaryBreakfast\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 132,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 7\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 3,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 4\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 25,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 8\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 3,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 5\n          }\n        ]\n      },\n      \"nutritionSummaryLunch\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 455,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 23\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 34,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 52\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 1,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 0\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 35,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 70\n          }\n        ]\n      },\n      \"nutritionSummaryDinner\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 706,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 35\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 29,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 45\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 76,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 25\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 46,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 91\n          }\n        ]\n      },\n      \"day\": \"1\",\n      \"items\": [\n        {\n          \"id\": 2403,\n          \"slot\": 1,\n          \"position\": 0,\n          \"type\": \"RECIPE\",\n          \"value\": {\n            \"id\": 630657,\n            \"title\": \"Double Chocolate Protein Cookies\",\n            \"imageType\": \"jpg\"\n          }\n        },\n        {\n          \"id\": 2404,\n          \"slot\": 1,\n          \"position\": 0,\n          \"type\": \"INGREDIENTS\",\n          \"value\": {\n            \"id\": 785,\n            \"name\": \"\",\n            \"title\": \"orange\",\n            \"servings\": \"1\",\n            \"imageType\": \"jpg\",\n            \"ingredients\": [\n              {\n                \"name\": \"orange\",\n                \"image\": \"https://spoonacular.com/cdn/ingredients_100x100/orange.jpg\",\n                \"amount\": 1,\n                \"unit\": \"\"\n              }\n            ]\n          }\n        },\n        {\n          \"id\": 2405,\n          \"slot\": 2,\n          \"position\": 0,\n          \"type\": \"RECIPE\",\n          \"value\": {\n            \"id\": 296213,\n            \"title\": \"Spinach Salad with Roasted Vegetables and Spiced Chickpea\",\n            \"imageType\": \"jpg\"\n          }\n        },\n        {\n          \"id\": 2406,\n          \"slot\": 3,\n          \"position\": 0,\n          \"type\": \"RECIPE\",\n          \"value\": {\n            \"id\": 237677,\n            \"title\": \"Chicken Parmesan with Spaghetti\",\n            \"imageType\": \"jpg\"\n          }\n        },\n        {\n          \"id\": 2407,\n          \"slot\": 3,\n          \"position\": 0,\n          \"type\": \"INGREDIENTS\",\n          \"value\": {\n            \"id\": 787,\n            \"title\": \"broccoli\",\n            \"name\": \"\",\n            \"servings\": \"1\",\n            \"imageType\": \"jpg\",\n            \"ingredients\": [\n              {\n                \"name\": \"broccoli\",\n                \"image\": \"https://spoonacular.com/cdn/ingredients_100x100/broccoli.jpg\",\n                \"amount\": 1,\n                \"unit\": \"cup\"\n              }\n            ]\n          }\n        },\n        {\n          \"id\": 2408,\n          \"slot\": 3,\n          \"position\": 0,\n          \"type\": \"PRODUCT\",\n          \"value\": {\n            \"id\": 146191,\n            \"title\": \"Lindt Dark Chocolate\",\n            \"imageType\": \"jpg\"\n          }\n        }\n      ]\n    },\n    {\n      \"nutritionSummary\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 1386,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 69\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 66,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 102\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 162,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 54\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 48,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 96\n          }\n        ]\n      },\n      \"nutritionSummaryBreakfast\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 239,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 12\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 11,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 17\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 34,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 11\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 5,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 9\n          }\n        ]\n      },\n      \"nutritionSummaryLunch\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 732,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 37\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 33,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 51\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 91,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 30\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 22,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 44\n          }\n        ]\n      },\n      \"nutritionSummaryDinner\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 414,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 21\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 22,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 33\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 37,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 12\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 21,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 43\n          }\n        ]\n      },\n      \"day\": \"2\",\n      \"items\": [\n        {\n          \"id\": 2409,\n          \"slot\": 1,\n          \"position\": 0,\n          \"type\": \"PRODUCT\",\n          \"value\": {\n            \"id\": 101999,\n            \"title\": \"Greek Gods Yogurt\",\n            \"imageType\": \"jpg\"\n          }\n        },\n        {\n          \"id\": 2410,\n          \"slot\": 1,\n          \"position\": 0,\n          \"type\": \"INGREDIENTS\",\n          \"value\": {\n            \"id\": 457,\n            \"name\": \"\",\n            \"title\": \"berries\",\n            \"servings\": \"1\",\n            \"imageType\": \"jpg\",\n            \"ingredients\": [\n              {\n                \"name\": \"berries\",\n                \"image\": \"https://spoonacular.com/cdn/ingredients_100x100/berries-mixed.jpg\",\n                \"amount\": 1,\n                \"unit\": \"cup\"\n              }\n            ]\n          }\n        },\n        {\n          \"id\": 2411,\n          \"slot\": 2,\n          \"position\": 0,\n          \"type\": \"RECIPE\",\n          \"value\": {\n            \"id\": 516377,\n            \"title\": \"Southwest Quinoa Salad\",\n            \"imageType\": \"jpg\"\n          }\n        },\n        {\n          \"id\": 2412,\n          \"slot\": 3,\n          \"position\": 0,\n          \"type\": \"RECIPE\",\n          \"value\": {\n            \"id\": 247683,\n            \"title\": \"Pesto Caprese Omelette\",\n            \"imageType\": \"jpg\"\n          }\n        },\n        {\n          \"id\": 2413,\n          \"slot\": 3,\n          \"position\": 0,\n          \"type\": \"RECIPE\",\n          \"value\": {\n            \"id\": 484337,\n            \"title\": \"One Ingredient Banana Ice Cream\",\n            \"imageType\": \"jpg\"\n          }\n        }\n      ]\n    },\n    {\n      \"nutritionSummary\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 1589,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 79\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 77,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 118\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 158,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 53\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 84,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 168\n          }\n        ]\n      },\n      \"nutritionSummaryBreakfast\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 472,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 24\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 14,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 21\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 62,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 21\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 27,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 54\n          }\n        ]\n      },\n      \"nutritionSummaryLunch\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 568,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 28\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 45,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 69\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 31,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 10\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 18,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 36\n          }\n        ]\n      },\n      \"nutritionSummaryDinner\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 549,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 27\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 18,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 27\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 65,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 22\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 39,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 78\n          }\n        ]\n      },\n      \"day\": \"3\",\n      \"items\": [\n        {\n          \"id\": 2414,\n          \"slot\": 1,\n          \"position\": 0,\n          \"type\": \"RECIPE\",\n          \"value\": {\n            \"id\": 157259,\n            \"title\": \"Cocoa Protein Pancakes\",\n            \"imageType\": \"jpg\"\n          }\n        },\n        {\n          \"id\": 2415,\n          \"slot\": 1,\n          \"position\": 0,\n          \"type\": \"INGREDIENTS\",\n          \"value\": {\n            \"id\": 878,\n            \"name\": \"\",\n            \"title\": \"orange\",\n            \"servings\": \"1\",\n            \"imageType\": \"jpg\",\n            \"ingredients\": [\n              {\n                \"name\": \"orange\",\n                \"image\": \"https://spoonacular.com/cdn/ingredients_100x100/orange.jpg\",\n                \"amount\": 1,\n                \"unit\": \"\"\n              }\n            ]\n          }\n        },\n        {\n          \"id\": 2416,\n          \"slot\": 2,\n          \"position\": 0,\n          \"type\": \"RECIPE\",\n          \"value\": {\n            \"id\": 535856,\n            \"title\": \"BLT Chopped Salad\",\n            \"imageType\": \"jpg\"\n          }\n        },\n        {\n          \"id\": 2417,\n          \"slot\": 2,\n          \"position\": 0,\n          \"type\": \"PRODUCT\",\n          \"value\": {\n            \"id\": 71144,\n            \"title\": \"Kind Plus Fruit & Nut Bar - Almond Walnut Macadamia with Peanuts Plus Protein\",\n            \"imageType\": \"jpg\"\n          }\n        },\n        {\n          \"id\": 2418,\n          \"slot\": 3,\n          \"position\": 0,\n          \"type\": \"RECIPE\",\n          \"value\": {\n            \"id\": 519197,\n            \"title\": \"Zesty Sriracha Shrimp and Quinoa\",\n            \"imageType\": \"png\"\n          }\n        },\n        {\n          \"id\": 2419,\n          \"slot\": 3,\n          \"position\": 0,\n          \"type\": \"PRODUCT\",\n          \"value\": {\n            \"id\": 163427,\n            \"title\": \"Green Giant Valley Fresh Steamers - Select Sugar Snap Peas\",\n            \"imageType\": \"jpg\"\n          }\n        },\n        {\n          \"id\": 2420,\n          \"slot\": 3,\n          \"position\": 0,\n          \"type\": \"PRODUCT\",\n          \"value\": {\n            \"id\": 146191,\n            \"title\": \"Lindt Dark Chocolate\",\n            \"imageType\": \"jpg\"\n          }\n        }\n      ]\n    },\n    {\n      \"nutritionSummary\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 1343,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 67\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 70,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 108\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 123,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 41\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 61,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 122\n          }\n        ]\n      },\n      \"nutritionSummaryBreakfast\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 239,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 12\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 11,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 17\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 34,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 11\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 5,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 9\n          }\n        ]\n      },\n      \"nutritionSummaryLunch\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 406,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 20\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 17,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 26\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 56,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 19\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 10,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 21\n          }\n        ]\n      },\n      \"nutritionSummaryDinner\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 698,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 35\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 43,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 66\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 34,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 11\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 46,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 92\n          }\n        ]\n      },\n      \"day\": \"4\",\n      \"items\": [\n        {\n          \"id\": 2421,\n          \"slot\": 1,\n          \"position\": 0,\n          \"type\": \"PRODUCT\",\n          \"value\": {\n            \"id\": 101999,\n            \"title\": \"Greek Gods Yogurt\",\n            \"imageType\": \"jpg\"\n          }\n        },\n        {\n          \"id\": 2422,\n          \"slot\": 1,\n          \"position\": 0,\n          \"type\": \"INGREDIENTS\",\n          \"value\": {\n            \"id\": 877,\n            \"name\": \"\",\n            \"title\": \"berries\",\n            \"servings\": \"1\",\n            \"imageType\": \"jpg\",\n            \"ingredients\": [\n              {\n                \"name\": \"berries\",\n                \"image\": \"https://spoonacular.com/cdn/ingredients_100x100/berries-mixed.jpg\",\n                \"amount\": 1,\n                \"unit\": \"cup\"\n              }\n            ]\n          }\n        },\n        {\n          \"id\": 2423,\n          \"slot\": 2,\n          \"position\": 0,\n          \"type\": \"RECIPE\",\n          \"value\": {\n            \"id\": 535563,\n            \"title\": \"Black Bean Quinoa Salad\",\n            \"imageType\": \"jpg\"\n          }\n        },\n        {\n          \"id\": 2424,\n          \"slot\": 3,\n          \"position\": 0,\n          \"type\": \"RECIPE\",\n          \"value\": {\n            \"id\": 622598,\n            \"title\": \"Pittata - Pizza Frittata\",\n            \"imageType\": \"jpg\"\n          }\n        },\n        {\n          \"id\": 2425,\n          \"slot\": 3,\n          \"position\": 0,\n          \"type\": \"RECIPE\",\n          \"value\": {\n            \"id\": 484337,\n            \"title\": \"One Ingredient Banana Ice Cream\",\n            \"imageType\": \"jpg\"\n          }\n        }\n      ]\n    },\n    {\n      \"nutritionSummary\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 1247,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 62\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 61,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 95\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 103,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 34\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 78,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 156\n          }\n        ]\n      },\n      \"nutritionSummaryBreakfast\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 295,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 15\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 12,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 19\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 42,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 14\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 11,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 23\n          }\n        ]\n      },\n      \"nutritionSummaryLunch\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 455,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 23\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 34,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 52\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 1,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 0\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 35,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 70\n          }\n        ]\n      },\n      \"nutritionSummaryDinner\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 497,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 25\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 15,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 24\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 60,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 20\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 32,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 63\n          }\n        ]\n      },\n      \"day\": \"5\",\n      \"items\": [\n        {\n          \"id\": 2426,\n          \"slot\": 1,\n          \"position\": 0,\n          \"type\": \"PRODUCT\",\n          \"value\": {\n            \"id\": 71144,\n            \"title\": \"Kind Plus Fruit & Nut Bar - Almond Walnut Macadamia with Peanuts Plus Protein\",\n            \"imageType\": \"jpg\"\n          }\n        },\n        {\n          \"id\": 2427,\n          \"slot\": 1,\n          \"position\": 0,\n          \"type\": \"INGREDIENTS\",\n          \"value\": {\n            \"id\": 877,\n            \"name\": \"\",\n            \"title\": \"banana\",\n            \"servings\": \"1\",\n            \"imageType\": \"jpg\",\n            \"ingredients\": [\n              {\n                \"name\": \"banana\",\n                \"image\": \"https://spoonacular.com/cdn/ingredients_100x100/bananas.jpg\",\n                \"amount\": 1,\n                \"unit\": \"\"\n              }\n            ]\n          }\n        },\n        {\n          \"id\": 2428,\n          \"slot\": 2,\n          \"position\": 0,\n          \"type\": \"RECIPE\",\n          \"value\": {\n            \"id\": 296213,\n            \"title\": \"Spinach Salad with Roasted Vegetables and Spiced Chickpea\",\n            \"imageType\": \"jpg\"\n          }\n        },\n        {\n          \"id\": 2429,\n          \"slot\": 3,\n          \"position\": 0,\n          \"type\": \"RECIPE\",\n          \"value\": {\n            \"id\": 497301,\n            \"title\": \"Shrimp Scampi\",\n            \"imageType\": \"jpg\"\n          }\n        },\n        {\n          \"id\": 2430,\n          \"slot\": 3,\n          \"position\": 0,\n          \"type\": \"RECIPE\",\n          \"value\": {\n            \"id\": 581021,\n            \"title\": \"Black Bean Brownies: Fudgy Fun\",\n            \"imageType\": \"jpg\"\n          }\n        }\n      ]\n    },\n    {\n      \"nutritionSummary\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 1683,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 84\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 68,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 105\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 139,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 46\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 106,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 212\n          }\n        ]\n      },\n      \"nutritionSummaryBreakfast\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 490,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 24\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 15,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 23\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 65,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 22\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 26,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 53\n          }\n        ]\n      },\n      \"nutritionSummaryLunch\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 378,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 19\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 33,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 51\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 16,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 5\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 8,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 16\n          }\n        ]\n      },\n      \"nutritionSummaryDinner\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 816,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 41\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 21,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 32\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 58,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 19\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 72,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 144\n          }\n        ]\n      },\n      \"day\": \"6\",\n      \"items\": [\n        {\n          \"id\": 2431,\n          \"slot\": 1,\n          \"position\": 0,\n          \"type\": \"RECIPE\",\n          \"value\": {\n            \"id\": 157259,\n            \"title\": \"Cocoa Protein Pancakes\",\n            \"imageType\": \"jpg\"\n          }\n        },\n        {\n          \"id\": 2432,\n          \"slot\": 1,\n          \"position\": 0,\n          \"type\": \"INGREDIENTS\",\n          \"value\": {\n            \"id\": 877,\n            \"name\": \"\",\n            \"title\": \"berries\",\n            \"servings\": \"1\",\n            \"imageType\": \"jpg\",\n            \"ingredients\": [\n              {\n                \"name\": \"berries\",\n                \"image\": \"https://spoonacular.com/cdn/ingredients_100x100/berries-mixed.jpg\",\n                \"amount\": 1,\n                \"unit\": \"cup\"\n              }\n            ]\n          }\n        },\n        {\n          \"id\": 2433,\n          \"slot\": 2,\n          \"position\": 0,\n          \"type\": \"RECIPE\",\n          \"value\": {\n            \"id\": 535856,\n            \"title\": \"BLT Chopped Salad\",\n            \"imageType\": \"jpg\"\n          }\n        },\n        {\n          \"id\": 2434,\n          \"slot\": 3,\n          \"position\": 0,\n          \"type\": \"RECIPE\",\n          \"value\": {\n            \"id\": 149425,\n            \"title\": \"Herb and Cheddar Cordon Bleu\",\n            \"imageType\": \"jpg\"\n          }\n        },\n        {\n          \"id\": 2435,\n          \"slot\": 3,\n          \"position\": 0,\n          \"type\": \"INGREDIENTS\",\n          \"value\": {\n            \"id\": 877,\n            \"name\": \"\",\n            \"title\": \"sprouts\",\n            \"servings\": \"1\",\n            \"imageType\": \"jpg\",\n            \"ingredients\": [\n              {\n                \"name\": \"brussels sprouts\",\n                \"image\": \"https://spoonacular.com/cdn/ingredients_100x100/brussels-sprouts.jpg\",\n                \"amount\": 1,\n                \"unit\": \"cup\"\n              }\n            ]\n          }\n        },\n        {\n          \"id\": 2436,\n          \"slot\": 3,\n          \"position\": 0,\n          \"type\": \"INGREDIENTS\",\n          \"value\": {\n            \"id\": 877,\n            \"name\": \"\",\n            \"title\": \"wine\",\n            \"servings\": \"1\",\n            \"imageType\": \"jpg\",\n            \"ingredients\": [\n              {\n                \"name\": \"wine\",\n                \"image\": \"https://spoonacular.com/cdn/ingredients_100x100/white-wine.jpg\",\n                \"amount\": 5,\n                \"unit\": \"ounces\"\n              }\n            ]\n          }\n        }\n      ]\n    },\n    {\n      \"nutritionSummary\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 1442,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 72\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 69,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 106\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 147,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 49\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 73,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 147\n          }\n        ]\n      },\n      \"nutritionSummaryBreakfast\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 444,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 22\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 12,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 19\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 51,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 17\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 38,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 76\n          }\n        ]\n      },\n      \"nutritionSummaryLunch\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 406,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 20\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 17,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 26\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 56,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 19\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 10,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 21\n          }\n        ]\n      },\n      \"nutritionSummaryDinner\": {\n        \"nutrients\": [\n          {\n            \"name\": \"Calories\",\n            \"amount\": 593,\n            \"unit\": \"cal\",\n            \"percentDailyNeeds\": 30\n          },\n          {\n            \"name\": \"Fat\",\n            \"amount\": 40,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 62\n          },\n          {\n            \"name\": \"Carbohydrates\",\n            \"amount\": 41,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 14\n          },\n          {\n            \"name\": \"Protein\",\n            \"amount\": 25,\n            \"unit\": \"g\",\n            \"percentDailyNeeds\": 50\n          }\n        ]\n      },\n      \"day\": \"7\",\n      \"items\": [\n        {\n          \"id\": 2437,\n          \"slot\": 1,\n          \"position\": 0,\n          \"type\": \"RECIPE\",\n          \"value\": {\n            \"id\": 619085,\n            \"title\": \"Protein Packed Healthy French Toast with Chocolate and Peanut Butter {Super Simple, Whole Wheat}\",\n            \"imageType\": \"jpg\"\n          }\n        },\n        {\n          \"id\": 2438,\n          \"slot\": 1,\n          \"position\": 0,\n          \"type\": \"INGREDIENTS\",\n          \"value\": {\n            \"id\": 877,\n            \"name\": \"\",\n            \"title\": \"orange\",\n            \"servings\": \"1\",\n            \"imageType\": \"jpg\",\n            \"ingredients\": [\n              {\n                \"name\": \"orange\",\n                \"image\": \"https://spoonacular.com/cdn/ingredients_100x100/orange.jpg\",\n                \"amount\": 1,\n                \"unit\": \"\"\n              }\n            ]\n          }\n        },\n        {\n          \"id\": 2439,\n          \"slot\": 2,\n          \"position\": 0,\n          \"type\": \"RECIPE\",\n          \"value\": {\n            \"id\": 535563,\n            \"title\": \"Black Bean Quinoa Salad\",\n            \"imageType\": \"jpg\"\n          }\n        },\n        {\n          \"id\": 2440,\n          \"slot\": 3,\n          \"position\": 0,\n          \"type\": \"RECIPE\",\n          \"value\": {\n            \"id\": 590570,\n            \"title\": \"Asian Beef Lettuce Wraps\",\n            \"imageType\": \"jpg\"\n          }\n        },\n        {\n          \"id\": 2441,\n          \"slot\": 3,\n          \"position\": 0,\n          \"type\": \"PRODUCT\",\n          \"value\": {\n            \"id\": 146191,\n            \"title\": \"Lindt Dark Chocolate\",\n            \"imageType\": \"jpg\"\n          }\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1056a46c-5579-45cc-823a-bc1111fee5ef",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The shopping list item id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ee2ba919-7f9e-4ef5-9c97-90c67b8772b7",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The shopping list item id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5f0a34c5-49be-4017-8093-799c6fae3607",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The shopping list item id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "44dc6c6f-e6cc-453a-b5c5-c66ee685d4a9",
+          "name": "Delete Meal Plan Template",
+          "request": {
+            "name": "Delete Meal Plan Template",
+            "description": {
+              "content": "Delete a meal plan template for a user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mealplanner",
+                ":username",
+                "templates",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "hash",
+                  "value": "<string>",
+                  "description": "(Required) The private hash for the username."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) The username."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The shopping list item id."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f2cc3996-4876-4ea7-8693-6f179331a2d1",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "4b5v4398573406"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The shopping list item id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "7ca54ae9-0a79-4514-a91f-7005b38c22e8",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "4b5v4398573406"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The shopping list item id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1e3139ac-56f3-40c9-9e05-84d772a83aa1",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "4b5v4398573406"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The shopping list item id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7eb6046f-8426-41cc-aae7-9141c6059c14",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "templates",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "4b5v4398573406"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The shopping list item id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8ff7a8d1-86ed-4d98-92f7-923fd1814d98",
+          "name": "Get Shopping List",
+          "request": {
+            "name": "Get Shopping List",
+            "description": {
+              "content": "Get the current shopping list for the given user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mealplanner",
+                ":username",
+                "shopping-list"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "hash",
+                  "value": "<string>",
+                  "description": "(Required) The private hash for the username."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) The username."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c48a590d-d105-4273-9080-6aa8c748eee3",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "shopping-list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"aisles\": [\n    {\n      \"aisle\": \"Baking\",\n      \"items\": [\n        {\n          \"id\": 115388,\n          \"name\": \"baking powder\",\n          \"measures\": {\n            \"original\": {\n              \"amount\": 1,\n              \"unit\": \"package\"\n            },\n            \"metric\": {\n              \"amount\": 1,\n              \"unit\": \"pkg\"\n            },\n            \"us\": {\n              \"amount\": 1,\n              \"unit\": \"pkg\"\n            }\n          },\n          \"pantryItem\": false,\n          \"aisle\": \"Baking\",\n          \"cost\": 0.71,\n          \"ingredientId\": 18369\n        }\n      ]\n    }\n  ],\n  \"cost\": 1.43,\n  \"startDate\": 1588291200,\n  \"endDate\": 1588896000\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f62d1625-bddf-41b8-a264-2ad421990885",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "shopping-list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d42671e5-350b-4768-907d-eb0101641544",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "shopping-list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "8626ca87-26df-4513-bde1-48fb6be8c3d7",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "shopping-list"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "153a9fed-cbd6-4f34-b8d4-dbc35c4d58d8",
+          "name": "Generate Shopping List",
+          "request": {
+            "name": "Generate Shopping List",
+            "description": {
+              "content": "Generate the shopping list for a user from the meal planner in a given time frame.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mealplanner",
+                ":username",
+                "shopping-list",
+                ":start_date",
+                ":end_date"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "hash",
+                  "value": "<string>",
+                  "description": "(Required) The private hash for the username."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) The username."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "start_date",
+                  "description": "(Required) The start date in the format yyyy-mm-dd."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "end_date",
+                  "description": "(Required) The end date in the format yyyy-mm-dd."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0e0370c3-786a-4044-9745-e71bdfdc8aca",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "shopping-list",
+                    ":start_date",
+                    ":end_date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "start_date",
+                      "description": "(Required) The start date in the format yyyy-mm-dd."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "end_date",
+                      "description": "(Required) The end date in the format yyyy-mm-dd."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"aisles\": [\n    {\n      \"aisle\": \"Baking\",\n      \"items\": [\n        {\n          \"id\": 115388,\n          \"name\": \"baking powder\",\n          \"measures\": {\n            \"original\": {\n              \"amount\": 1,\n              \"unit\": \"package\"\n            },\n            \"metric\": {\n              \"amount\": 1,\n              \"unit\": \"pkg\"\n            },\n            \"us\": {\n              \"amount\": 1,\n              \"unit\": \"pkg\"\n            }\n          },\n          \"pantryItem\": false,\n          \"aisle\": \"Baking\",\n          \"cost\": 0.71,\n          \"ingredientId\": 18369\n        }\n      ]\n    }\n  ],\n  \"cost\": 0.71,\n  \"startDate\": 1588291200,\n  \"endDate\": 1588896000\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "44dc3ccd-0f3a-434d-9805-1d7311b6ffe4",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "shopping-list",
+                    ":start_date",
+                    ":end_date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "start_date",
+                      "description": "(Required) The start date in the format yyyy-mm-dd."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "end_date",
+                      "description": "(Required) The end date in the format yyyy-mm-dd."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b7a5d944-c27b-4fe0-92fd-664d6c972f11",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "shopping-list",
+                    ":start_date",
+                    ":end_date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "start_date",
+                      "description": "(Required) The start date in the format yyyy-mm-dd."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "end_date",
+                      "description": "(Required) The end date in the format yyyy-mm-dd."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c90c2f28-a089-46c4-881f-efb1b9c169aa",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "shopping-list",
+                    ":start_date",
+                    ":end_date"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "start_date",
+                      "description": "(Required) The start date in the format yyyy-mm-dd."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "end_date",
+                      "description": "(Required) The end date in the format yyyy-mm-dd."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0c68a5ea-0d52-4a89-b741-a699606e5fc8",
+          "name": "Connect User",
+          "request": {
+            "name": "Connect User",
+            "description": {
+              "content": "In order to call user-specific endpoints, you need to connect your app's users to spoonacular users.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "users",
+                "connect"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"<string>\",\n  \"firstName\": \"<string>\",\n  \"lastName\": \"<string>\",\n  \"email\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6efbb844-a28c-4aca-bdd9-f954a37e9a04",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "connect"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"your user's name\",\n  \"firstName\": \"your user's first name\",\n  \"lastName\": \"your user's last name\",\n  \"email\": \"your user's email\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"username\": \"api_123_user\",\n  \"hash\": \"q572587bq2405724q05\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a4428c8f-949c-4d93-ab7f-d7656fa8a81d",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "connect"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"your user's name\",\n  \"firstName\": \"your user's first name\",\n  \"lastName\": \"your user's last name\",\n  \"email\": \"your user's email\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "1221802d-3012-4fa7-a6a3-426a5714ee4e",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "connect"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"your user's name\",\n  \"firstName\": \"your user's first name\",\n  \"lastName\": \"your user's last name\",\n  \"email\": \"your user's email\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b8e37911-bcb4-4b40-8e99-2625bc5df064",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "users",
+                    "connect"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"username\": \"your user's name\",\n  \"firstName\": \"your user's first name\",\n  \"lastName\": \"your user's last name\",\n  \"email\": \"your user's email\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "02d39b77-ecba-4b2b-b84d-cb300aaf7907",
+          "name": "Add to Shopping List",
+          "request": {
+            "name": "Add to Shopping List",
+            "description": {
+              "content": "Add an item to the current shopping list of a user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mealplanner",
+                ":username",
+                "shopping-list",
+                "items"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "hash",
+                  "value": "<string>",
+                  "description": "(Required) The private hash for the username."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) The username."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"item\": \"<string>\",\n  \"aisle\": \"<string>\",\n  \"parse\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c73a8385-7c9a-4199-a27c-72eccbc4c8a2",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "shopping-list",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"item\": \"1 package baking powder\",\n  \"aisle\": \"Baking\",\n  \"parse\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"aisles\": [\n    {\n      \"aisle\": \"Baking\",\n      \"items\": [\n        {\n          \"id\": 115388,\n          \"name\": \"baking powder\",\n          \"measures\": {\n            \"original\": {\n              \"amount\": 1,\n              \"unit\": \"package\"\n            },\n            \"metric\": {\n              \"amount\": 1,\n              \"unit\": \"pkg\"\n            },\n            \"us\": {\n              \"amount\": 1,\n              \"unit\": \"pkg\"\n            }\n          },\n          \"pantryItem\": false,\n          \"aisle\": \"Baking\",\n          \"cost\": 0.71,\n          \"ingredientId\": 18369\n        }\n      ]\n    }\n  ],\n  \"cost\": 0.71,\n  \"startDate\": 1588291200,\n  \"endDate\": 1588896000\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4b0b35e3-2806-4dfb-b918-310e08e4c011",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "shopping-list",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"item\": \"1 package baking powder\",\n  \"aisle\": \"Baking\",\n  \"parse\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "99f07702-660a-4239-967d-8302b7d5f198",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "shopping-list",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"item\": \"1 package baking powder\",\n  \"aisle\": \"Baking\",\n  \"parse\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3daaebb6-e04d-4c2d-97a8-7c67b82ba02a",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "shopping-list",
+                    "items"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"item\": \"1 package baking powder\",\n  \"aisle\": \"Baking\",\n  \"parse\": true\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "80395c39-685a-4302-aa51-d93d02056723",
+          "name": "Delete from Shopping List",
+          "request": {
+            "name": "Delete from Shopping List",
+            "description": {
+              "content": "Delete an item from the current shopping list of the user.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "mealplanner",
+                ":username",
+                "shopping-list",
+                "items",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "hash",
+                  "value": "<string>",
+                  "description": "(Required) The private hash for the username."
+                }
+              ],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "username",
+                  "description": "(Required) The username."
+                },
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<integer>",
+                  "key": "id",
+                  "description": "(Required) The shopping list item id."
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0548c115-03be-4102-aafc-1abf40f53dd8",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "shopping-list",
+                    "items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The shopping list item id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "08d23079-ac70-46aa-9ad3-ff856ebf229f",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "shopping-list",
+                    "items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The shopping list item id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "77134a1f-7637-41b9-ac38-5d09345c0a58",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "shopping-list",
+                    "items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The shopping list item id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "703523b8-7fb3-4075-bbde-1cf58a63455b",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "mealplanner",
+                    ":username",
+                    "shopping-list",
+                    "items",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "hash",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "username",
+                      "description": "(Required) The username."
+                    },
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<integer>",
+                      "key": "id",
+                      "description": "(Required) The shopping list item id."
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.spoonacular.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "31b1d935-aba5-43bc-800b-ef8ae15cdd41",
+    "name": "spoonacular Ingredients Meal Planning API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.\n\nSpecial diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.\n\nContact Support:\n Name: David Urbansky\n Email: mail@spoonacular.com",
+      "type": "text/plain"
+    }
+  }
+}

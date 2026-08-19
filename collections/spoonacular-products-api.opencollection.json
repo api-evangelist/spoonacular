@@ -1,0 +1,363 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "spoonacular Ingredients Products API",
+    "version": "2.0.2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Products",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search Grocery Products",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/products/search",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "The (natural language) search query."
+              },
+              {
+                "name": "minCalories",
+                "value": "50",
+                "type": "query",
+                "description": "The minimum amount of calories the product must have."
+              },
+              {
+                "name": "maxCalories",
+                "value": "800",
+                "type": "query",
+                "description": "The maximum amount of calories the product can have."
+              },
+              {
+                "name": "minCarbs",
+                "value": "10",
+                "type": "query",
+                "description": "The minimum amount of carbohydrates in grams the product must have."
+              },
+              {
+                "name": "maxCarbs",
+                "value": "100",
+                "type": "query",
+                "description": "The maximum amount of carbohydrates in grams the product can have."
+              },
+              {
+                "name": "minProtein",
+                "value": "10",
+                "type": "query",
+                "description": "The minimum amount of protein in grams the product must have."
+              },
+              {
+                "name": "maxProtein",
+                "value": "100",
+                "type": "query",
+                "description": "The maximum amount of protein in grams the product can have."
+              },
+              {
+                "name": "minFat",
+                "value": "1",
+                "type": "query",
+                "description": "The minimum amount of fat in grams the product must have."
+              },
+              {
+                "name": "maxFat",
+                "value": "100",
+                "type": "query",
+                "description": "The maximum amount of fat in grams the product can have."
+              },
+              {
+                "name": "addProductInformation",
+                "value": "true",
+                "type": "query",
+                "description": "If set to true, you get more information about the products returned."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The number of results to skip (between 0 and 900)."
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of items to return (between 1 and 100). Defaults to 10."
+              }
+            ]
+          },
+          "docs": "Search packaged food products, such as frozen pizza or Greek yogurt."
+        },
+        {
+          "info": {
+            "name": "Search Grocery Products by UPC",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/products/upc/:upc",
+            "params": [
+              {
+                "name": "upc",
+                "value": "041631000564",
+                "type": "path",
+                "description": "The product's UPC."
+              }
+            ]
+          },
+          "docs": "Get information about a packaged food using its UPC."
+        },
+        {
+          "info": {
+            "name": "Get Product Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/products/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "22347",
+                "type": "path",
+                "description": "The id of the packaged food."
+              }
+            ]
+          },
+          "docs": "Use a product id to get full information about a product, such as ingredients, nutrition, etc. The nutritional information is per serving."
+        },
+        {
+          "info": {
+            "name": "Get Comparable Products",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/products/upc/:upc/comparable",
+            "params": [
+              {
+                "name": "upc",
+                "value": "33698816271",
+                "type": "path",
+                "description": "The UPC of the product for which you want to find comparable products."
+              }
+            ]
+          },
+          "docs": "Find comparable products to the given one."
+        },
+        {
+          "info": {
+            "name": "Autocomplete Product Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/products/suggest",
+            "params": [
+              {
+                "name": "query",
+                "value": "chicke",
+                "type": "query",
+                "description": "The (partial) search query."
+              },
+              {
+                "name": "number",
+                "value": "10",
+                "type": "query",
+                "description": "The number of results to return (between 1 and 25)."
+              }
+            ]
+          },
+          "docs": "Generate suggestions for grocery products based on a (partial) query. The matches will be found by looking in the title only."
+        },
+        {
+          "info": {
+            "name": "Product Nutrition by ID Widget",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/products/:id/nutritionWidget",
+            "params": [
+              {
+                "name": "id",
+                "value": "7657",
+                "type": "path",
+                "description": "The id of the product."
+              },
+              {
+                "name": "defaultCss",
+                "value": "",
+                "type": "query",
+                "description": "Whether the default CSS should be added to the response."
+              }
+            ]
+          },
+          "docs": "Visualize a product's nutritional information as HTML including CSS."
+        },
+        {
+          "info": {
+            "name": "Product Nutrition by ID Image",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/products/:id/nutritionWidget.png",
+            "params": [
+              {
+                "name": "id",
+                "value": "7657",
+                "type": "path",
+                "description": "The id of the product."
+              }
+            ]
+          },
+          "docs": "Visualize a product's nutritional information as an image."
+        },
+        {
+          "info": {
+            "name": "Product Nutrition Label Widget",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/products/:id/nutritionLabel",
+            "params": [
+              {
+                "name": "id",
+                "value": "22347",
+                "type": "path",
+                "description": "The product id."
+              },
+              {
+                "name": "defaultCss",
+                "value": "",
+                "type": "query",
+                "description": "Whether the default CSS should be added to the response."
+              },
+              {
+                "name": "showOptionalNutrients",
+                "value": "false",
+                "type": "query",
+                "description": "Whether to show optional nutrients."
+              },
+              {
+                "name": "showZeroValues",
+                "value": "false",
+                "type": "query",
+                "description": "Whether to show zero values."
+              },
+              {
+                "name": "showIngredients",
+                "value": "false",
+                "type": "query",
+                "description": "Whether to show a list of ingredients."
+              }
+            ]
+          },
+          "docs": "Get a product's nutrition label as an HTML widget."
+        },
+        {
+          "info": {
+            "name": "Product Nutrition Label Image",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/products/:id/nutritionLabel.png",
+            "params": [
+              {
+                "name": "id",
+                "value": "22347",
+                "type": "path",
+                "description": "The product id."
+              },
+              {
+                "name": "showOptionalNutrients",
+                "value": "false",
+                "type": "query",
+                "description": "Whether to show optional nutrients."
+              },
+              {
+                "name": "showZeroValues",
+                "value": "false",
+                "type": "query",
+                "description": "Whether to show zero values."
+              },
+              {
+                "name": "showIngredients",
+                "value": "false",
+                "type": "query",
+                "description": "Whether to show a list of ingredients."
+              }
+            ]
+          },
+          "docs": "Get a product's nutrition label as an image."
+        },
+        {
+          "info": {
+            "name": "Classify Grocery Product",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spoonacular.com/food/products/classify",
+            "params": [
+              {
+                "name": "locale",
+                "value": "en_US",
+                "type": "query",
+                "description": "The display name of the returned category, supported is en_US (for American English) and en_GB (for British English)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "This endpoint allows you to match a packaged food to a basic category, e.g. a specific brand of milk to the category milk."
+        },
+        {
+          "info": {
+            "name": "Classify Grocery Product Bulk",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spoonacular.com/food/products/classifyBatch",
+            "params": [
+              {
+                "name": "locale",
+                "value": "en_US",
+                "type": "query",
+                "description": "The display name of the returned category, supported is en_US (for American English) and en_GB (for British English)."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Provide a set of product jsons, get back classified products."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

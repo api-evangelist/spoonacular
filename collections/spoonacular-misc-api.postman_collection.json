@@ -1,0 +1,2946 @@
+{
+  "item": [
+    {
+      "id": "d099bca7-ebd5-4b5e-b78e-3cc6d89db7cb",
+      "name": "Misc",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4ecf2d2f-24ae-41a9-b5b5-9a8bbb4058ba",
+          "name": "Search Custom Foods",
+          "request": {
+            "name": "Search Custom Foods",
+            "description": {
+              "content": "Search custom foods in a user's account.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "food",
+                "customFoods",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "(Required) The (natural language) search query."
+                },
+                {
+                  "disabled": false,
+                  "key": "username",
+                  "value": "<string>",
+                  "description": "(Required) The username."
+                },
+                {
+                  "disabled": false,
+                  "key": "hash",
+                  "value": "<string>",
+                  "description": "(Required) The private hash for the username."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The number of results to skip (between 0 and 900)."
+                },
+                {
+                  "disabled": false,
+                  "key": "number",
+                  "value": "10",
+                  "description": "The maximum number of items to return (between 1 and 100). Defaults to 10."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7218bf9b-5075-4a3a-bb01-82e6c754d60a",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "customFoods",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "burger"
+                    },
+                    {
+                      "key": "username",
+                      "value": "dsky"
+                    },
+                    {
+                      "key": "hash",
+                      "value": "4b5v4398573406"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "number",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"customFoods\": [\n    {\n      \"id\": 15,\n      \"title\": \"Max Cafe Curry Bratwurst\",\n      \"servings\": 1,\n      \"imageUrl\": \"https://spoonacular.com/cdn/ingredients_100x100/bratwurst.jpg\",\n      \"price\": 6.9\n    }\n  ],\n  \"type\": \"customFood\",\n  \"offset\": 0,\n  \"number\": 10\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0bc60e9f-104e-4242-854c-5c94f502186b",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "customFoods",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "burger"
+                    },
+                    {
+                      "key": "username",
+                      "value": "dsky"
+                    },
+                    {
+                      "key": "hash",
+                      "value": "4b5v4398573406"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "number",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3c006383-1582-4b84-aff4-f08def526316",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "customFoods",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "burger"
+                    },
+                    {
+                      "key": "username",
+                      "value": "dsky"
+                    },
+                    {
+                      "key": "hash",
+                      "value": "4b5v4398573406"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "number",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d219ff7a-2e18-4c8d-bbc3-815258bfa116",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "customFoods",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "burger"
+                    },
+                    {
+                      "key": "username",
+                      "value": "dsky"
+                    },
+                    {
+                      "key": "hash",
+                      "value": "4b5v4398573406"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "number",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d67e0fe1-63ca-4526-bde4-9c1d366706b1",
+          "name": "Image Classification by URL",
+          "request": {
+            "name": "Image Classification by URL",
+            "description": {
+              "content": "Classify a food image.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "food",
+                "images",
+                "classify"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "imageUrl",
+                  "value": "<string>",
+                  "description": "(Required) The URL of the image to be classified."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9fa90f28-b22a-43a7-9493-6d1b9af3482f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "images",
+                    "classify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "imageUrl",
+                      "value": "https://spoonacular.com/recipeImages/635350-240x150.jpg"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"category\": \"burger\",\n  \"probability\": 0.91354\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "1db9a009-11aa-4532-9443-7da3c96386a8",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "images",
+                    "classify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "imageUrl",
+                      "value": "https://spoonacular.com/recipeImages/635350-240x150.jpg"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "450a9edd-85c2-4c53-860d-99ee993c3ee5",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "images",
+                    "classify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "imageUrl",
+                      "value": "https://spoonacular.com/recipeImages/635350-240x150.jpg"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "381180f2-1e4a-485b-bb88-462480cad6aa",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "images",
+                    "classify"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "imageUrl",
+                      "value": "https://spoonacular.com/recipeImages/635350-240x150.jpg"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2dcc1012-4b08-476d-bcd4-6c24578b3ec5",
+          "name": "Image Analysis by URL",
+          "request": {
+            "name": "Image Analysis by URL",
+            "description": {
+              "content": "Analyze a food image. The API tries to classify the image, guess the nutrition, and find a matching recipes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "food",
+                "images",
+                "analyze"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "imageUrl",
+                  "value": "<string>",
+                  "description": "(Required) The URL of the image to be analyzed."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c898c7e1-ff02-480d-a44d-a68e8d2fbb9f",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "images",
+                    "analyze"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "imageUrl",
+                      "value": "https://spoonacular.com/recipeImages/635350-240x150.jpg"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"nutrition\": {\n    \"recipesUsed\": 25,\n    \"calories\": {\n      \"value\": 508,\n      \"unit\": \"calories\",\n      \"confidenceRange95Percent\": {\n        \"min\": 428.97,\n        \"max\": 571.98\n      },\n      \"standardDeviation\": 182.4\n    },\n    \"fat\": {\n      \"value\": 21,\n      \"unit\": \"g\",\n      \"confidenceRange95Percent\": {\n        \"min\": 21.29,\n        \"max\": 32.95\n      },\n      \"standardDeviation\": 14.88\n    },\n    \"protein\": {\n      \"value\": 29,\n      \"unit\": \"g\",\n      \"confidenceRange95Percent\": {\n        \"min\": 22.58,\n        \"max\": 33.7\n      },\n      \"standardDeviation\": 14.19\n    },\n    \"carbs\": {\n      \"value\": 40,\n      \"unit\": \"g\",\n      \"confidenceRange95Percent\": {\n        \"min\": 29.74,\n        \"max\": 44.96\n      },\n      \"standardDeviation\": 19.42\n    }\n  },\n  \"category\": {\n    \"name\": \"burger\",\n    \"probability\": 0.9998999999999999\n  },\n  \"recipes\": [\n    {\n      \"id\": 477749,\n      \"title\": \"Burger Club: Award-Winning Logan County Burger Patty Melt\",\n      \"imageType\": \"jpg\",\n      \"url\": \"http://www.barbarabakes.com/2010/05/burger-club-award-winning-logan-county/\"\n    },\n    {\n      \"id\": 493632,\n      \"title\": \"New York Burger Week: Pretzel Burger with Beer Cheese\",\n      \"imageType\": \"jpg\",\n      \"url\": \"http://www.foodrepublic.com/2013/09/23/new-york-burger-week-pretzel-burger-beer-cheese\"\n    },\n    {\n      \"id\": 23359,\n      \"title\": \"Beef Burger Recipe (elvis Burger With Salad & Gherkin)\",\n      \"imageType\": \"jpg\",\n      \"url\": \"http://www.jamieoliver.com/recipes/beef-recipes/elvis-burger-with-pickled-gherkin\"\n    },\n    {\n      \"id\": 149115,\n      \"title\": \"Surf N' Turf Burger (Grilled Burger with Lobster and Bacon)\",\n      \"imageType\": \"jpg\",\n      \"url\": \"http://www.seriouseats.com/recipes/2013/06/lobster-bacon-burger-recipe.html\"\n    },\n    {\n      \"id\": 861442,\n      \"title\": \"Istanbul-Style Wet Burger (Islak Burger)\",\n      \"imageType\": \"jpg\",\n      \"url\": \"http://www.epicurious.com/recipes/food/views/istanbul-style-wet-burger-islak-burger?mbid=nl_02272017_Daily_CTN_PM+(1)\"\n    },\n    {\n      \"id\": 600423,\n      \"title\": \"Rajma Burger (Red Kidney Beans Burger)\",\n      \"imageType\": \"jpg\",\n      \"url\": \"http://www.spiceupthecurry.com/rajma-burger-red-kidney-beans-burger/\"\n    },\n    {\n      \"id\": 493634,\n      \"title\": \"Chicago Burger Week: The Chicago Deep Dish Pizza Burger\",\n      \"imageType\": \"jpg\",\n      \"url\": \"http://www.foodrepublic.com/2013/09/30/chicago-burger-week-chicago-deep-dish-pizza-burger\"\n    },\n    {\n      \"id\": 487346,\n      \"title\": \"aloo tikki burger , north indian style aloo tikki burger\",\n      \"imageType\": \"jpg\",\n      \"url\": \"http://www.vegrecipesofindia.com/aloo-tikki-burger/\"\n    },\n    {\n      \"id\": 607330,\n      \"title\": \"Aloo Tikki Burger | How to make aloo tikki burger at home\",\n      \"imageType\": \"jpg\",\n      \"url\": \"http://www.spiceupthecurry.com/aloo-tikki-burger-recipe/\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "2bfa639d-364f-4f7b-8b07-4ce58d15f30e",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "images",
+                    "analyze"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "imageUrl",
+                      "value": "https://spoonacular.com/recipeImages/635350-240x150.jpg"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4d12b54b-ecae-4eea-845e-ab72e4fa4a4a",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "images",
+                    "analyze"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "imageUrl",
+                      "value": "https://spoonacular.com/recipeImages/635350-240x150.jpg"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7774b680-812d-4daa-9f45-f511d8edb032",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "images",
+                    "analyze"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "imageUrl",
+                      "value": "https://spoonacular.com/recipeImages/635350-240x150.jpg"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ac2d8118-7c2d-4006-a155-62c695ed6e3d",
+          "name": "Detect Food in Text",
+          "request": {
+            "name": "Detect Food in Text",
+            "description": {
+              "content": "Take any text and find all mentions of food contained within it. This task is also called Named Entity Recognition (NER). In this case, the entities are foods. Either dishes, such as pizza or cheeseburger, or ingredients, such as cucumber or almonds.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "food",
+                "detect"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "text",
+                  "value": "<string>",
+                  "description": "(Required) "
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "930d2e53-bd32-41af-ba48-7fc9abcf0193",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "detect"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "text",
+                      "value": "I like to eat delicious tacos. The only thing better is a cheeseburger with cheddar. But then again, pizza with pepperoni, mushrooms, and tomatoes is so good too!"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"annotations\": [\n    {\n      \"annotation\": \"cheeseburger\",\n      \"image\": \"https://spoonacular.com/menuItemImages/cheeseburger.jpg\",\n      \"tag\": \"dish\"\n    },\n    {\n      \"annotation\": \"mushrooms\",\n      \"image\": \"https://spoonacular.com/cdn/ingredients_100x100/mushrooms.png\",\n      \"tag\": \"ingredient\"\n    },\n    {\n      \"annotation\": \"pepperoni\",\n      \"image\": \"https://spoonacular.com/cdn/ingredients_100x100/pepperoni.png\",\n      \"tag\": \"ingredient\"\n    },\n    {\n      \"annotation\": \"tomatoes\",\n      \"image\": \"https://spoonacular.com/cdn/ingredients_100x100/tomato.png\",\n      \"tag\": \"ingredient\"\n    },\n    {\n      \"annotation\": \"cheddar\",\n      \"image\": \"https://spoonacular.com/cdn/ingredients_100x100/cheddar-cheese.png\",\n      \"tag\": \"ingredient\"\n    },\n    {\n      \"annotation\": \"tacos\",\n      \"image\": \"https://spoonacular.com/menuItemImages/taco-isolated.jpg\",\n      \"tag\": \"dish\"\n    },\n    {\n      \"annotation\": \"pizza\",\n      \"image\": \"https://spoonacular.com/menuItemImages/cheese-pizza.png\",\n      \"tag\": \"dish\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "a85c4dc0-3fe7-4a8e-b730-aca8a33c52ac",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "detect"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "text",
+                      "value": "I like to eat delicious tacos. The only thing better is a cheeseburger with cheddar. But then again, pizza with pepperoni, mushrooms, and tomatoes is so good too!"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "b91608d4-8862-42a3-9897-97ab4863c272",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "detect"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "text",
+                      "value": "I like to eat delicious tacos. The only thing better is a cheeseburger with cheddar. But then again, pizza with pepperoni, mushrooms, and tomatoes is so good too!"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "57a0a0db-c392-45e6-b2ee-3701be357284",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "detect"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ",
+                        "type": "text/plain"
+                      },
+                      "key": "text",
+                      "value": "I like to eat delicious tacos. The only thing better is a cheeseburger with cheddar. But then again, pizza with pepperoni, mushrooms, and tomatoes is so good too!"
+                    }
+                  ]
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9ebd6287-a265-48b3-af7d-0587572758fb",
+          "name": "Search Site Content",
+          "request": {
+            "name": "Search Site Content",
+            "description": {
+              "content": "Search spoonacular's site content. You'll be able to find everything that you could also find using the search suggestions on spoonacular.com. This is a suggest API so you can send partial strings as queries.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "food",
+                "site",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "(Required) The query to search for. You can also use partial queries such as \"spagh\" to already find spaghetti recipes, articles, grocery products, and other content."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "5861b611-549d-40ff-bbbb-cb10afa01bf9",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "site",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "past"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"Articles\": [\n    {\n      \"dataPoints\": [],\n      \"image\": \"https://spoonacular.com/application/frontend/images/academy/vietnamese-cuisine.jpg\",\n      \"link\": \"https://spoonacular.com/academy/vietnamese\",\n      \"name\": \"Traditional Vietnamese Recipes\"\n    },\n    {\n      \"dataPoints\": [],\n      \"image\": \"https://spoonacular.com/application/frontend/images/academy/thai-cuisine.jpg\",\n      \"link\": \"https://spoonacular.com/academy/thai\",\n      \"name\": \"Authentic Thai Recipes\"\n    },\n    {\n      \"dataPoints\": [],\n      \"image\": \"https://spoonacular.com/application/frontend/images/academy/korean-food.jpg\",\n      \"link\": \"https://spoonacular.com/academy/korean\",\n      \"name\": \"Typical Korean Recipes\"\n    }\n  ],\n  \"Grocery Products\": [\n    {\n      \"dataPoints\": [\n        {\n          \"key\": \"Calories\",\n          \"value\": \"30 Calories\"\n        },\n        {\n          \"key\": \"Protein\",\n          \"value\": \"2g Protein\"\n        },\n        {\n          \"key\": \"Fat\",\n          \"value\": \"0.0g Total Fat\"\n        },\n        {\n          \"key\": \"Carbs\",\n          \"value\": \"6g Carbs\"\n        }\n      ],\n      \"image\": \"https://spoonacular.com/productImages/218909-312x231.jpg\",\n      \"link\": \"https://spoonacular.com/products/vine-ripe-tomato-paste-218909\",\n      \"name\": \"Vine-ripe Tomato Paste\"\n    },\n    {\n      \"dataPoints\": [\n        {\n          \"key\": \"Calories\",\n          \"value\": \"30 Calories\"\n        },\n        {\n          \"key\": \"Protein\",\n          \"value\": \"2g Protein\"\n        },\n        {\n          \"key\": \"Fat\",\n          \"value\": \"0.0g Total Fat\"\n        },\n        {\n          \"key\": \"Carbs\",\n          \"value\": \"6g Carbs\"\n        }\n      ],\n      \"image\": \"https://spoonacular.com/productImages/178883-312x231.jpg\",\n      \"link\": \"https://spoonacular.com/products/contadina-tomato-paste-178883\",\n      \"name\": \"Contadina Tomato Paste\"\n    },\n    {\n      \"dataPoints\": [\n        {\n          \"key\": \"Calories\",\n          \"value\": \"30 Calories\"\n        },\n        {\n          \"key\": \"Protein\",\n          \"value\": \"2g Protein\"\n        },\n        {\n          \"key\": \"Fat\",\n          \"value\": \"0.0g Total Fat\"\n        },\n        {\n          \"key\": \"Carbs\",\n          \"value\": \"6g Carbs\"\n        }\n      ],\n      \"image\": \"https://spoonacular.com/productImages/137031-312x231.jpg\",\n      \"link\": \"https://spoonacular.com/products/cento-tomato-paste-137031\",\n      \"name\": \"Cento Tomato Paste\"\n    }\n  ],\n  \"Menu Items\": [\n    {\n      \"dataPoints\": [\n        {\n          \"key\": \"Calories\",\n          \"value\": \"230 Calories\"\n        },\n        {\n          \"key\": \"Protein\",\n          \"value\": \"1g Protein\"\n        },\n        {\n          \"key\": \"Fat\",\n          \"value\": \"15g Total Fat\"\n        },\n        {\n          \"key\": \"Carbs\",\n          \"value\": \"23g Carbs\"\n        }\n      ],\n      \"image\": \"https://spoonacular.com/menuItemImages/stir-fry.jpg\",\n      \"link\": \"https://spoonacular.com/menu-items/thai-express-stir-fry-chilli-paste-401670\",\n      \"name\": \"Thai Express Stir-Fry, Chilli Paste\"\n    }\n  ],\n  \"Recipes\": [\n    {\n      \"dataPoints\": [\n        {\n          \"key\": \"Cost\",\n          \"value\": \"$10.51 per serving\"\n        },\n        {\n          \"key\": \"Calories\",\n          \"value\": \"400 Calories\"\n        },\n        {\n          \"key\": \"Protein\",\n          \"value\": \"9g Protein\"\n        },\n        {\n          \"key\": \"Fat\",\n          \"value\": \"32g Total Fat\"\n        },\n        {\n          \"key\": \"Carbs\",\n          \"value\": \"26g Carbs\"\n        }\n      ],\n      \"image\": \"https://webknox.com/recipeImages/224844-556x370.jpg\",\n      \"link\": \"https://spoonacular.com/recipes/chermoula-paste-224844\",\n      \"name\": \"Chermoula Paste\"\n    },\n    {\n      \"dataPoints\": [\n        {\n          \"key\": \"Cost\",\n          \"value\": \"$8.37 per serving\"\n        },\n        {\n          \"key\": \"Calories\",\n          \"value\": \"3560 Calories\"\n        },\n        {\n          \"key\": \"Protein\",\n          \"value\": \"119g Protein\"\n        },\n        {\n          \"key\": \"Fat\",\n          \"value\": \"319g Total Fat\"\n        },\n        {\n          \"key\": \"Carbs\",\n          \"value\": \"54g Carbs\"\n        }\n      ],\n      \"image\": \"https://webknox.com/recipeImages/146847-556x370.jpg\",\n      \"link\": \"https://spoonacular.com/recipes/lulu-paste-146847\",\n      \"name\": \"Lulu Paste\"\n    },\n    {\n      \"dataPoints\": [\n        {\n          \"key\": \"Cost\",\n          \"value\": \"$6.68 per serving\"\n        },\n        {\n          \"key\": \"Calories\",\n          \"value\": \"990 Calories\"\n        },\n        {\n          \"key\": \"Protein\",\n          \"value\": \"53g Protein\"\n        },\n        {\n          \"key\": \"Fat\",\n          \"value\": \"86g Total Fat\"\n        },\n        {\n          \"key\": \"Carbs\",\n          \"value\": \"0.82g Carbs\"\n        }\n      ],\n      \"image\": \"https://webknox.com/recipeImages/84670-556x370.jpg\",\n      \"link\": \"https://spoonacular.com/recipes/steak-paste-84670\",\n      \"name\": \"Steak Paste\"\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "4fcb0c80-d021-4316-aa52-ff101ff83f31",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "site",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "past"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ffb10324-8952-495e-a50b-34c07cf1d5cb",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "site",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "past"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "321ac226-4944-475b-a3a7-b1565395f29b",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "site",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "past"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "01d12467-f3a4-4d84-a890-14fb1bd0f640",
+          "name": "Search All Food",
+          "request": {
+            "name": "Search All Food",
+            "description": {
+              "content": "Search all food content with one call. That includes recipes, grocery products, menu items, simple foods (ingredients), and food videos.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "food",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "(Required) The search query."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The number of results to skip (between 0 and 900)."
+                },
+                {
+                  "disabled": false,
+                  "key": "number",
+                  "value": "10",
+                  "description": "The maximum number of items to return (between 1 and 100). Defaults to 10."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "ce8ec440-40df-4b23-a33a-ca729b9dd48c",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "apple"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "number",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"query\": \"apple\",\n  \"totalResults\": 5826,\n  \"limit\": 2,\n  \"offset\": 0,\n  \"searchResults\": [\n    {\n      \"name\": \"Recipes\",\n      \"totalResults\": 167,\n      \"results\": [\n        {\n          \"id\": \"632485\",\n          \"name\": \"Apple Cake\",\n          \"image\": \"https://spoonacular.com/recipeImages/632485-312x231.jpg\",\n          \"link\": \"https://spoonacular.com/recipes/apple-cake-632485\",\n          \"type\": \"HTML\",\n          \"relevance\": 10000,\n          \"content\": \"Apple Cake might be just the dessert you are searching for...\"\n        },\n        {\n          \"id\": \"632522\",\n          \"name\": \"Apple Crumble\",\n          \"image\": \"https://spoonacular.com/recipeImages/632522-312x231.jpg\",\n          \"link\": \"https://spoonacular.com/recipes/apple-crumble-632522\",\n          \"type\": \"HTML\",\n          \"relevance\": 9999,\n          \"content\": \"Apple Crumble might be just the dessert you are searching for...\"\n        }\n      ]\n    },\n    {\n      \"name\": \"Products\",\n      \"totalResults\": 3219,\n      \"results\": [\n        {\n          \"id\": \"5487\",\n          \"name\": \"Pleasant Valley Apple Wine\",\n          \"content\": null,\n          \"image\": \"https://spoonacular.com/productImages/469604-312x231.jpg\",\n          \"link\": \"https://spoonacular.com/products/pleasant-valley-apple-wine-469604\",\n          \"type\": \"HTML\",\n          \"relevance\": 10000\n        },\n        {\n          \"id\": \"428573\",\n          \"name\": \"NV Georgetown Vineyards Apple Wine\",\n          \"content\": null,\n          \"image\": \"https://spoonacular.com/productImages/428573-312x231.jpg\",\n          \"link\": \"https://spoonacular.com/products/nv-georgetown-vineyards-apple-wine-428573\",\n          \"type\": \"HTML\",\n          \"relevance\": 9999\n        }\n      ]\n    },\n    {\n      \"name\": \"Menu Items\",\n      \"totalResults\": 2410,\n      \"results\": [\n        {\n          \"id\": \"334550\",\n          \"name\": \"Old Chicago Applewood Spiced BBQ Chicken Pizza, Chicago Thick, 12 Inch (Slice)\",\n          \"image\": null,\n          \"link\": \"https://spoonacular.com/menu-items/old-chicago-applewood-spiced-bbq-chicken-pizza-chicago-thick-12-inch--334550\",\n          \"type\": \"HTML\",\n          \"content\": null,\n          \"relevance\": 10000\n        },\n        {\n          \"id\": \"422013\",\n          \"name\": \"Huddle House Apple Cobbler a la mode\",\n          \"image\": null,\n          \"link\": \"https://spoonacular.com/menu-items/huddle-house-apple-cobbler-a-la-mode-422013\",\n          \"type\": \"HTML\",\n          \"content\": null,\n          \"relevance\": 9999\n        }\n      ]\n    },\n    {\n      \"name\": \"Articles\",\n      \"totalResults\": 28,\n      \"results\": [\n        {\n          \"id\": \"578\",\n          \"name\": \"Apples\",\n          \"image\": \"https://spoonacular.com/cdn/ingredients_100x100/braeburn-apples.jpg\",\n          \"link\": \"https://spoonacular.com/academy/apples\",\n          \"type\": \"HTML\",\n          \"content\": null,\n          \"relevance\": 90.46\n        },\n        {\n          \"id\": \"252\",\n          \"name\": \"Vinegar\",\n          \"image\": \"https://spoonacular.com/cdn/ingredients_100x100/red-wine-vinegar.jpg\",\n          \"link\": \"https://spoonacular.com/academy/vinegar\",\n          \"type\": \"HTML\",\n          \"content\": null,\n          \"relevance\": 23.8\n        }\n      ]\n    },\n    {\n      \"name\": \"Videos\",\n      \"totalResults\": 2,\n      \"results\": [\n        {\n          \"id\": \"G0HENy59YkE\",\n          \"name\": \"Pineapple Bundt Cake\",\n          \"image\": \"https://i.ytimg.com/vi/G0HENy59YkE/hqdefault.jpg\",\n          \"link\": \"https://www.youtube.com/watch?v=G0HENy59YkE\",\n          \"type\": \"YOUTUBE_VIDEO\",\n          \"relevance\": 10000,\n          \"content\": \"FULL RECIPE HERE: https://tatyanaseverydayfood.com/recipe-items/pineapple-bundt-cake/...\"\n        },\n        {\n          \"id\": \"xEENgO5Z5To\",\n          \"name\": \"Pineapple Shrimp Tacos\",\n          \"image\": \"https://i.ytimg.com/vi/xEENgO5Z5To/mqdefault.jpg\",\n          \"link\": null,\n          \"type\": \"YOUTUBE_VIDEO\",\n          \"relevance\": 9999,\n          \"content\": \"RECIPE: Below in description.\\nThese Pineapple Shrimp Tacos cook in 5 minutes and assembly is a breeze...\"\n        }\n      ]\n    },\n    {\n      \"name\": \"Simple Foods\",\n      \"totalResults\": 2,\n      \"results\": [\n        {\n          \"id\": \"78541\",\n          \"name\": \"apple\",\n          \"image\": \"apple.jpg\",\n          \"type\": \"HTML\",\n          \"content\": null,\n          \"link\": null,\n          \"relevance\": 10000\n        },\n        {\n          \"id\": \"8782\",\n          \"name\": \"applesauce\",\n          \"image\": \"applesauce.png\",\n          \"type\": \"HTML\",\n          \"content\": null,\n          \"link\": null,\n          \"relevance\": 9999\n        }\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "f7e51c30-91b2-4c94-be40-97340b7eeefc",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "apple"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "number",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "9d7c7af2-0cfe-4312-9017-b914e51a9de4",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "apple"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "number",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "aaf192cf-bef5-4ba3-8249-858adc033bef",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "apple"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "number",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c0fa1d59-54a7-422f-805d-fe9a50b3ea9d",
+          "name": "Search Food Videos",
+          "request": {
+            "name": "Search Food Videos",
+            "description": {
+              "content": "Find recipe and other food related videos.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "food",
+                "videos",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "(Required) The (natural language) search query."
+                },
+                {
+                  "disabled": false,
+                  "key": "type",
+                  "value": "<string>",
+                  "description": "The type of the recipes. See a full list of supported meal types."
+                },
+                {
+                  "disabled": false,
+                  "key": "cuisine",
+                  "value": "<string>",
+                  "description": "The cuisine(s) of the recipes. One or more, comma separated. See a full list of supported cuisines."
+                },
+                {
+                  "disabled": false,
+                  "key": "diet",
+                  "value": "<string>",
+                  "description": "The diet for which the recipes must be suitable. See a full list of supported diets."
+                },
+                {
+                  "disabled": false,
+                  "key": "includeIngredients",
+                  "value": "<string>",
+                  "description": "A comma-separated list of ingredients that the recipes should contain."
+                },
+                {
+                  "disabled": false,
+                  "key": "excludeIngredients",
+                  "value": "<string>",
+                  "description": "A comma-separated list of ingredients or ingredient types that the recipes must not contain."
+                },
+                {
+                  "disabled": false,
+                  "key": "minLength",
+                  "value": "<number>",
+                  "description": "Minimum video length in seconds."
+                },
+                {
+                  "disabled": false,
+                  "key": "maxLength",
+                  "value": "<number>",
+                  "description": "Maximum video length in seconds."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "<integer>",
+                  "description": "The number of results to skip (between 0 and 900)."
+                },
+                {
+                  "disabled": false,
+                  "key": "number",
+                  "value": "10",
+                  "description": "The maximum number of items to return (between 1 and 100). Defaults to 10."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2ed513e0-4aba-4580-a33b-0e1bfa05eac7",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "videos",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "burger"
+                    },
+                    {
+                      "key": "type",
+                      "value": "main course"
+                    },
+                    {
+                      "key": "cuisine",
+                      "value": "italian"
+                    },
+                    {
+                      "key": "diet",
+                      "value": "vegetarian"
+                    },
+                    {
+                      "key": "includeIngredients",
+                      "value": "tomato,cheese"
+                    },
+                    {
+                      "key": "excludeIngredients",
+                      "value": "eggs"
+                    },
+                    {
+                      "key": "minLength",
+                      "value": "0"
+                    },
+                    {
+                      "key": "maxLength",
+                      "value": "999"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "number",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"videos\": [\n    {\n      \"title\": \"8 One-Pot Pastas\",\n      \"length\": 370,\n      \"rating\": 0.985984219269103,\n      \"shortTitle\": \"8 One-Pot Pastas\",\n      \"thumbnail\": \"https://i.ytimg.com/vi/YTZGPCCB2FU/mqdefault.jpg\",\n      \"views\": 550467,\n      \"youTubeId\": \"YTZGPCCB2FU\"\n    },\n    {\n      \"title\": \"Macaroni salad - pasta salad recipes - healthy recipe channel - quick tasty recipe - cooking channel\",\n      \"length\": 333,\n      \"rating\": 1,\n      \"shortTitle\": \"Macaroni salad\",\n      \"thumbnail\": \"https://i.ytimg.com/vi/81bn4p8H3Kg/mqdefault.jpg\",\n      \"views\": 307,\n      \"youTubeId\": \"81bn4p8H3Kg\"\n    }\n  ],\n  \"totalResults\": 172\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d240ddd2-96fd-47da-a80d-cfa1823cfec5",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "videos",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "burger"
+                    },
+                    {
+                      "key": "type",
+                      "value": "main course"
+                    },
+                    {
+                      "key": "cuisine",
+                      "value": "italian"
+                    },
+                    {
+                      "key": "diet",
+                      "value": "vegetarian"
+                    },
+                    {
+                      "key": "includeIngredients",
+                      "value": "tomato,cheese"
+                    },
+                    {
+                      "key": "excludeIngredients",
+                      "value": "eggs"
+                    },
+                    {
+                      "key": "minLength",
+                      "value": "0"
+                    },
+                    {
+                      "key": "maxLength",
+                      "value": "999"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "number",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "c4862c84-e869-44a8-92d4-7cb989e93d85",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "videos",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "burger"
+                    },
+                    {
+                      "key": "type",
+                      "value": "main course"
+                    },
+                    {
+                      "key": "cuisine",
+                      "value": "italian"
+                    },
+                    {
+                      "key": "diet",
+                      "value": "vegetarian"
+                    },
+                    {
+                      "key": "includeIngredients",
+                      "value": "tomato,cheese"
+                    },
+                    {
+                      "key": "excludeIngredients",
+                      "value": "eggs"
+                    },
+                    {
+                      "key": "minLength",
+                      "value": "0"
+                    },
+                    {
+                      "key": "maxLength",
+                      "value": "999"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "number",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bc5e4c35-742d-4145-9e4c-0697e276ca4b",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "videos",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "burger"
+                    },
+                    {
+                      "key": "type",
+                      "value": "main course"
+                    },
+                    {
+                      "key": "cuisine",
+                      "value": "italian"
+                    },
+                    {
+                      "key": "diet",
+                      "value": "vegetarian"
+                    },
+                    {
+                      "key": "includeIngredients",
+                      "value": "tomato,cheese"
+                    },
+                    {
+                      "key": "excludeIngredients",
+                      "value": "eggs"
+                    },
+                    {
+                      "key": "minLength",
+                      "value": "0"
+                    },
+                    {
+                      "key": "maxLength",
+                      "value": "999"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "number",
+                      "value": "10"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4e83ee0d-0823-4e17-9f99-49719802cdf4",
+          "name": "Random Food Joke",
+          "request": {
+            "name": "Random Food Joke",
+            "description": {
+              "content": "Get a random joke that is related to food. Caution: this is an endpoint for adults!",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "food",
+                "jokes",
+                "random"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "369674c2-f953-4287-a0ae-d3f36a2d23e5",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "jokes",
+                    "random"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"Any salad can be a Caesar salad if you stab it enough.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "df27f757-cf7b-4af1-8999-c908fc7d9365",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "jokes",
+                    "random"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bfc08d84-092a-401e-8cf3-56d2ba28c9cd",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "jokes",
+                    "random"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "e6005258-eda3-42cc-acad-ba824357eba3",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "jokes",
+                    "random"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f12537c2-b349-491f-9fa7-89c4808256a2",
+          "name": "Random Food Trivia",
+          "request": {
+            "name": "Random Food Trivia",
+            "description": {
+              "content": "Returns random food trivia.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "food",
+                "trivia",
+                "random"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9614e2c3-5629-4c14-8847-04b50465f165",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "trivia",
+                    "random"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"text\": \"The red food-coloring carmine used in Skittles and other candies is made from boiled cochineal bugs, a type of beetle.\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "cbd08517-5c63-43dc-9833-241692fb2767",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "trivia",
+                    "random"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a3443aa4-c583-4a96-931e-7059d74fdcb7",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "trivia",
+                    "random"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a10eda9a-91cc-49e4-9ebb-ce2ada1b21e7",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "trivia",
+                    "random"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d858f6f9-e01b-4d70-affa-afb55594081a",
+          "name": "Talk to Chatbot",
+          "request": {
+            "name": "Talk to Chatbot",
+            "description": {
+              "content": "This endpoint can be used to have a conversation about food with the spoonacular chatbot. Use the \"Get Conversation Suggests\" endpoint to show your user what he or she can say.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "food",
+                "converse"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "text",
+                  "value": "<string>",
+                  "description": "(Required) The request / question / answer from the user to the chatbot."
+                },
+                {
+                  "disabled": false,
+                  "key": "contextId",
+                  "value": "<string>",
+                  "description": "An arbitrary globally unique id for your conversation. The conversation can contain states so you should pass your context id if you want the bot to be able to remember the conversation."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2d83f275-21c4-41f0-9989-eba6bc48055e",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "converse"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "text",
+                      "value": "donut recipes"
+                    },
+                    {
+                      "key": "contextId",
+                      "value": "342938"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"answerText\": \"Baby, if you were a fruit you'd be a fineapple.\",\n  \"media\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "0b8a683d-0de9-4736-9406-33553d4d5cb1",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "converse"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "text",
+                      "value": "donut recipes"
+                    },
+                    {
+                      "key": "contextId",
+                      "value": "342938"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ec7b6f97-3339-4efc-847c-59288ecc0f2f",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "converse"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "text",
+                      "value": "donut recipes"
+                    },
+                    {
+                      "key": "contextId",
+                      "value": "342938"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2f63ba47-07e2-4862-905b-dcc5f4c31cb0",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "converse"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "text",
+                      "value": "donut recipes"
+                    },
+                    {
+                      "key": "contextId",
+                      "value": "342938"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9665dd28-8256-4bc9-9797-71ceb7b1d9e3",
+          "name": "Conversation Suggests",
+          "request": {
+            "name": "Conversation Suggests",
+            "description": {
+              "content": "This endpoint returns suggestions for things the user can say or ask the chatbot.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "food",
+                "converse",
+                "suggest"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "query",
+                  "value": "<string>",
+                  "description": "(Required) A (partial) query from the user. The endpoint will return if it matches topics it can talk about."
+                },
+                {
+                  "disabled": false,
+                  "key": "number",
+                  "value": "<number>",
+                  "description": "The number of suggestions to return (between 1 and 25)."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "65db73b5-8970-4b6f-affe-5399e4f1316c",
+              "name": "Success",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "converse",
+                    "suggest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "tell"
+                    },
+                    {
+                      "key": "number",
+                      "value": "5"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"suggests\": {\n    \"_\": [\n      {\n        \"name\": \"Tell me something funny\"\n      },\n      {\n        \"name\": \"Tell me a food fact\"\n      },\n      {\n        \"name\": \"Tell me a joke\"\n      },\n      {\n        \"name\": \"Tell me food trivia\"\n      },\n      {\n        \"name\": \"Tell me a fact about food\"\n      }\n    ]\n  },\n  \"words\": []\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5db89557-8750-445a-b7ca-5b6e6e169316",
+              "name": "Unauthorized",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "converse",
+                    "suggest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "tell"
+                    },
+                    {
+                      "key": "number",
+                      "value": "5"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "814e6360-5f6a-4a5b-a9a7-14010bf57dc0",
+              "name": "Forbidden",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "converse",
+                    "suggest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "tell"
+                    },
+                    {
+                      "key": "number",
+                      "value": "5"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "70e732ab-a6cb-48db-b6a0-68a571d53343",
+              "name": "Not Found",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "food",
+                    "converse",
+                    "suggest"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "query",
+                      "value": "tell"
+                    },
+                    {
+                      "key": "number",
+                      "value": "5"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "x-api-key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.spoonacular.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "x-api-key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a4a2719b-0d7f-4763-8e01-d355552810dd",
+    "name": "spoonacular Ingredients Misc API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as \"gluten free brownies without sugar\" or \"low fat vegan cupcakes.\" You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what's in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.\n\nSpecial diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.\n\nContact Support:\n Name: David Urbansky\n Email: mail@spoonacular.com",
+      "type": "text/plain"
+    }
+  }
+}

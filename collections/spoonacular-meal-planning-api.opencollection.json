@@ -1,0 +1,434 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "spoonacular Ingredients Meal Planning API",
+    "version": "2.0.2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Meal Planning",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Generate Meal Plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/mealplanner/generate",
+            "params": [
+              {
+                "name": "timeFrame",
+                "value": "day",
+                "type": "query",
+                "description": "Either for one \"day\" or an entire \"week\"."
+              },
+              {
+                "name": "targetCalories",
+                "value": "2000",
+                "type": "query",
+                "description": "What is the caloric target for one day? The meal plan generator will try to get as close as possible to that goal."
+              },
+              {
+                "name": "diet",
+                "value": "vegetarian",
+                "type": "query",
+                "description": "Enter a diet that the meal plan has to adhere to. See a full list of supported diets."
+              },
+              {
+                "name": "exclude",
+                "value": "shellfish, olives",
+                "type": "query",
+                "description": "A comma-separated list of allergens or ingredients that must be excluded."
+              }
+            ]
+          },
+          "docs": "Generate a meal plan with three meals per day (breakfast, lunch, and dinner)."
+        },
+        {
+          "info": {
+            "name": "Get Meal Plan Week",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/mealplanner/:username/week/:start_date",
+            "params": [
+              {
+                "name": "username",
+                "value": "dsky",
+                "type": "path",
+                "description": "The username."
+              },
+              {
+                "name": "start_date",
+                "value": "2020-06-01",
+                "type": "path",
+                "description": "The start date of the meal planned week in the format yyyy-mm-dd."
+              },
+              {
+                "name": "hash",
+                "value": "",
+                "type": "query",
+                "description": "The private hash for the username."
+              }
+            ]
+          },
+          "docs": "Retrieve a meal planned week for the given user. The username must be a spoonacular user and the hash must the the user's hash that can be found in his/her account."
+        },
+        {
+          "info": {
+            "name": "Clear Meal Plan Day",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.spoonacular.com/mealplanner/:username/day/:date",
+            "params": [
+              {
+                "name": "username",
+                "value": "dsky",
+                "type": "path",
+                "description": "The username."
+              },
+              {
+                "name": "date",
+                "value": "2020-06-01",
+                "type": "path",
+                "description": "The date in the format yyyy-mm-dd."
+              },
+              {
+                "name": "hash",
+                "value": "",
+                "type": "query",
+                "description": "The private hash for the username."
+              }
+            ]
+          },
+          "docs": "Delete all planned items from the user's meal plan for a specific day."
+        },
+        {
+          "info": {
+            "name": "Add to Meal Plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spoonacular.com/mealplanner/:username/items",
+            "params": [
+              {
+                "name": "username",
+                "value": "dsky",
+                "type": "path",
+                "description": "The username."
+              },
+              {
+                "name": "hash",
+                "value": "",
+                "type": "query",
+                "description": "The private hash for the username."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add an item to the user's meal plan."
+        },
+        {
+          "info": {
+            "name": "Delete from Meal Plan",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.spoonacular.com/mealplanner/:username/items/:id",
+            "params": [
+              {
+                "name": "username",
+                "value": "dsky",
+                "type": "path",
+                "description": "The username."
+              },
+              {
+                "name": "id",
+                "value": "15678",
+                "type": "path",
+                "description": "The shopping list item id."
+              },
+              {
+                "name": "hash",
+                "value": "",
+                "type": "query",
+                "description": "The private hash for the username."
+              }
+            ]
+          },
+          "docs": "Delete an item from the user's meal plan."
+        },
+        {
+          "info": {
+            "name": "Get Meal Plan Templates",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/mealplanner/:username/templates",
+            "params": [
+              {
+                "name": "username",
+                "value": "dsky",
+                "type": "path",
+                "description": "The username."
+              },
+              {
+                "name": "hash",
+                "value": "",
+                "type": "query",
+                "description": "The private hash for the username."
+              }
+            ]
+          },
+          "docs": "Get meal plan templates from user or public ones."
+        },
+        {
+          "info": {
+            "name": "Add Meal Plan Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spoonacular.com/mealplanner/:username/templates",
+            "params": [
+              {
+                "name": "username",
+                "value": "dsky",
+                "type": "path",
+                "description": "The username."
+              },
+              {
+                "name": "hash",
+                "value": "4b5v4398573406",
+                "type": "query",
+                "description": "The private hash for the username."
+              }
+            ]
+          },
+          "docs": "Add a meal plan template for a user."
+        },
+        {
+          "info": {
+            "name": "Get Meal Plan Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/mealplanner/:username/templates/:id",
+            "params": [
+              {
+                "name": "username",
+                "value": "dsky",
+                "type": "path",
+                "description": "The username."
+              },
+              {
+                "name": "id",
+                "value": "15678",
+                "type": "path",
+                "description": "The shopping list item id."
+              },
+              {
+                "name": "hash",
+                "value": "",
+                "type": "query",
+                "description": "The private hash for the username."
+              }
+            ]
+          },
+          "docs": "Get information about a meal plan template."
+        },
+        {
+          "info": {
+            "name": "Delete Meal Plan Template",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.spoonacular.com/mealplanner/:username/templates/:id",
+            "params": [
+              {
+                "name": "username",
+                "value": "dsky",
+                "type": "path",
+                "description": "The username."
+              },
+              {
+                "name": "id",
+                "value": "15678",
+                "type": "path",
+                "description": "The shopping list item id."
+              },
+              {
+                "name": "hash",
+                "value": "4b5v4398573406",
+                "type": "query",
+                "description": "The private hash for the username."
+              }
+            ]
+          },
+          "docs": "Delete a meal plan template for a user."
+        },
+        {
+          "info": {
+            "name": "Get Shopping List",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/mealplanner/:username/shopping-list",
+            "params": [
+              {
+                "name": "username",
+                "value": "dsky",
+                "type": "path",
+                "description": "The username."
+              },
+              {
+                "name": "hash",
+                "value": "",
+                "type": "query",
+                "description": "The private hash for the username."
+              }
+            ]
+          },
+          "docs": "Get the current shopping list for the given user."
+        },
+        {
+          "info": {
+            "name": "Generate Shopping List",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spoonacular.com/mealplanner/:username/shopping-list/:start_date/:end_date",
+            "params": [
+              {
+                "name": "username",
+                "value": "dsky",
+                "type": "path",
+                "description": "The username."
+              },
+              {
+                "name": "start_date",
+                "value": "2020-06-01",
+                "type": "path",
+                "description": "The start date in the format yyyy-mm-dd."
+              },
+              {
+                "name": "end_date",
+                "value": "2020-06-07",
+                "type": "path",
+                "description": "The end date in the format yyyy-mm-dd."
+              },
+              {
+                "name": "hash",
+                "value": "",
+                "type": "query",
+                "description": "The private hash for the username."
+              }
+            ]
+          },
+          "docs": "Generate the shopping list for a user from the meal planner in a given time frame."
+        },
+        {
+          "info": {
+            "name": "Connect User",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spoonacular.com/users/connect",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "In order to call user-specific endpoints, you need to connect your app's users to spoonacular users."
+        },
+        {
+          "info": {
+            "name": "Add to Shopping List",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.spoonacular.com/mealplanner/:username/shopping-list/items",
+            "params": [
+              {
+                "name": "username",
+                "value": "dsky",
+                "type": "path",
+                "description": "The username."
+              },
+              {
+                "name": "hash",
+                "value": "",
+                "type": "query",
+                "description": "The private hash for the username."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Add an item to the current shopping list of a user."
+        },
+        {
+          "info": {
+            "name": "Delete from Shopping List",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.spoonacular.com/mealplanner/:username/shopping-list/items/:id",
+            "params": [
+              {
+                "name": "username",
+                "value": "dsky",
+                "type": "path",
+                "description": "The username."
+              },
+              {
+                "name": "id",
+                "value": "15678",
+                "type": "path",
+                "description": "The shopping list item id."
+              },
+              {
+                "name": "hash",
+                "value": "",
+                "type": "query",
+                "description": "The private hash for the username."
+              }
+            ]
+          },
+          "docs": "Delete an item from the current shopping list of the user."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

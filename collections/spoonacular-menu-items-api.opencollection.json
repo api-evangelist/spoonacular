@@ -1,0 +1,352 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "spoonacular Ingredients Menu Items API",
+    "version": "2.0.2"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "x-api-key",
+      "value": "{{x-api-key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Menu Items",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Autocomplete Menu Item Search",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/menuItems/suggest",
+            "params": [
+              {
+                "name": "query",
+                "value": "chicke",
+                "type": "query",
+                "description": "The (partial) search query."
+              },
+              {
+                "name": "number",
+                "value": "10",
+                "type": "query",
+                "description": "The number of results to return (between 1 and 25)."
+              }
+            ]
+          },
+          "docs": "Generate suggestions for menu items based on a (partial) query. The matches will be found by looking in the title only."
+        },
+        {
+          "info": {
+            "name": "Search Menu Items",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/menuItems/search",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "The (natural language) search query."
+              },
+              {
+                "name": "minCalories",
+                "value": "50",
+                "type": "query",
+                "description": "The minimum amount of calories the menu item must have."
+              },
+              {
+                "name": "maxCalories",
+                "value": "800",
+                "type": "query",
+                "description": "The maximum amount of calories the menu item can have."
+              },
+              {
+                "name": "minCarbs",
+                "value": "10",
+                "type": "query",
+                "description": "The minimum amount of carbohydrates in grams the menu item must have."
+              },
+              {
+                "name": "maxCarbs",
+                "value": "100",
+                "type": "query",
+                "description": "The maximum amount of carbohydrates in grams the menu item can have."
+              },
+              {
+                "name": "minProtein",
+                "value": "10",
+                "type": "query",
+                "description": "The minimum amount of protein in grams the menu item must have."
+              },
+              {
+                "name": "maxProtein",
+                "value": "100",
+                "type": "query",
+                "description": "The maximum amount of protein in grams the menu item can have."
+              },
+              {
+                "name": "minFat",
+                "value": "1",
+                "type": "query",
+                "description": "The minimum amount of fat in grams the menu item must have."
+              },
+              {
+                "name": "maxFat",
+                "value": "100",
+                "type": "query",
+                "description": "The maximum amount of fat in grams the menu item can have."
+              },
+              {
+                "name": "addMenuItemInformation",
+                "value": "true",
+                "type": "query",
+                "description": "If set to true, you get more information about the menu items returned."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "The number of results to skip (between 0 and 900)."
+              },
+              {
+                "name": "number",
+                "value": "",
+                "type": "query",
+                "description": "The maximum number of items to return (between 1 and 100). Defaults to 10."
+              }
+            ]
+          },
+          "docs": "Search over 115,000 menu items from over 800 fast food and chain restaurants. For example, McDonald's Big Mac or Starbucks Mocha."
+        },
+        {
+          "info": {
+            "name": "Get Menu Item Information",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/menuItems/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "424571",
+                "type": "path",
+                "description": "The menu item id."
+              }
+            ]
+          },
+          "docs": "Use a menu item id to get all available information about a menu item, such as nutrition."
+        },
+        {
+          "info": {
+            "name": "Menu Item Nutrition by ID Widget",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/menuItems/:id/nutritionWidget",
+            "params": [
+              {
+                "name": "id",
+                "value": "1003464",
+                "type": "path",
+                "description": "The menu item id."
+              },
+              {
+                "name": "defaultCss",
+                "value": "",
+                "type": "query",
+                "description": "Whether the default CSS should be added to the response."
+              }
+            ]
+          },
+          "docs": "Visualize a menu item's nutritional information as HTML including CSS."
+        },
+        {
+          "info": {
+            "name": "Menu Item Nutrition by ID Image",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/menuItems/:id/nutritionWidget.png",
+            "params": [
+              {
+                "name": "id",
+                "value": "424571",
+                "type": "path",
+                "description": "The menu item id."
+              }
+            ]
+          },
+          "docs": "Visualize a menu item's nutritional information as HTML including CSS."
+        },
+        {
+          "info": {
+            "name": "Menu Item Nutrition Label Widget",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/menuItems/:id/nutritionLabel",
+            "params": [
+              {
+                "name": "id",
+                "value": "342313",
+                "type": "path",
+                "description": "The menu item id."
+              },
+              {
+                "name": "defaultCss",
+                "value": "",
+                "type": "query",
+                "description": "Whether the default CSS should be added to the response."
+              },
+              {
+                "name": "showOptionalNutrients",
+                "value": "false",
+                "type": "query",
+                "description": "Whether to show optional nutrients."
+              },
+              {
+                "name": "showZeroValues",
+                "value": "false",
+                "type": "query",
+                "description": "Whether to show zero values."
+              },
+              {
+                "name": "showIngredients",
+                "value": "false",
+                "type": "query",
+                "description": "Whether to show a list of ingredients."
+              }
+            ]
+          },
+          "docs": "Visualize a menu item's nutritional label information as HTML including CSS."
+        },
+        {
+          "info": {
+            "name": "Menu Item Nutrition Label Image",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/menuItems/:id/nutritionLabel.png",
+            "params": [
+              {
+                "name": "id",
+                "value": "342313",
+                "type": "path",
+                "description": "The menu item id."
+              },
+              {
+                "name": "showOptionalNutrients",
+                "value": "false",
+                "type": "query",
+                "description": "Whether to show optional nutrients."
+              },
+              {
+                "name": "showZeroValues",
+                "value": "false",
+                "type": "query",
+                "description": "Whether to show zero values."
+              },
+              {
+                "name": "showIngredients",
+                "value": "false",
+                "type": "query",
+                "description": "Whether to show a list of ingredients."
+              }
+            ]
+          },
+          "docs": "Visualize a menu item's nutritional label information as an image."
+        },
+        {
+          "info": {
+            "name": "Search Restaurants",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.spoonacular.com/food/restaurants/search",
+            "params": [
+              {
+                "name": "query",
+                "value": "beach cafe",
+                "type": "query",
+                "description": "The search query."
+              },
+              {
+                "name": "lat",
+                "value": "37.7786357",
+                "type": "query",
+                "description": "The latitude of the user's location."
+              },
+              {
+                "name": "lng",
+                "value": "-122.3918135",
+                "type": "query",
+                "description": "The longitude of the user's location.\"."
+              },
+              {
+                "name": "distance",
+                "value": "2",
+                "type": "query",
+                "description": "The distance around the location in miles."
+              },
+              {
+                "name": "budget",
+                "value": "20",
+                "type": "query",
+                "description": "The user's budget for a meal in USD."
+              },
+              {
+                "name": "cuisine",
+                "value": "italian",
+                "type": "query",
+                "description": "The cuisine of the restaurant."
+              },
+              {
+                "name": "min-rating",
+                "value": "4.4",
+                "type": "query",
+                "description": "The minimum rating of the restaurant between 0 and 5."
+              },
+              {
+                "name": "is-open",
+                "value": "true",
+                "type": "query",
+                "description": "Whether the restaurant must be open at the time of search."
+              },
+              {
+                "name": "sort",
+                "value": "distance",
+                "type": "query",
+                "description": "How to sort the results, one of the following 'cheapest', 'fastest', 'rating', 'distance' or the default 'relevance'."
+              },
+              {
+                "name": "page",
+                "value": "0",
+                "type": "query",
+                "description": "The page number of results."
+              }
+            ]
+          },
+          "docs": "Search through thousands of restaurants (in North America) by location, cuisine, budget, and more."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
