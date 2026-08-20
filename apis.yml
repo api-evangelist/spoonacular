@@ -177,7 +177,8 @@ apis:
   description: The Misc API from Spoonacular — 11 operation(s) for misc.
   humanURL: https://spoonacular.com/food-api
   baseURL: https://api.spoonacular.com
-  tags:
+  tags: []
+  tags_raw:
   - Misc
   properties:
   - type: OpenAPI
@@ -224,6 +225,8 @@ apis:
   humanURL: https://spoonacular.com/food-api
   baseURL: https://api.spoonacular.com
   tags:
+  - Product
+  tags_raw:
   - Products
   properties:
   - type: OpenAPI
