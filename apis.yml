@@ -1,4 +1,18 @@
 aid: spoonacular
+deliveryModel:
+  model: open-core
+  license: MIT
+  open_source: true
+  commercial: true
+  callable_host: true
+  label: Open core · an OSS project plus a commercial hosted product
+  confidence: high
+  source:
+  - license
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: freemium
   onboarding: self-serve
@@ -360,6 +374,8 @@ apis:
   - type: JSONSchema
     url: json-schema/spoonacular-taste-information-schema.json
 common:
+  - type: IssueTracker
+    url: https://github.com/ddsky/spoonacular-api-clients/issues
   - type: License
     name: MIT
     url: https://github.com/ddsky/spoonacular-api-clients/blob/master/LICENSE
