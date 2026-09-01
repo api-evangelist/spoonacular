@@ -146,6 +146,8 @@ apis:
   humanURL: https://spoonacular.com/food-api
   baseURL: https://api.spoonacular.com
   tags:
+  - menu-items
+  tags_raw:
   - Menu Items
   properties:
   - type: OpenAPI
