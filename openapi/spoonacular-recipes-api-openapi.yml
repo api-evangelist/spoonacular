@@ -1,10 +1,7 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: spoonacular Ingredients Recipes API
-  description: 'The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as "gluten free brownies without sugar" or "low fat vegan cupcakes." You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what''s in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.
-
-
-    Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.'
+  title: spoonacular Recipes API
+  description: The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants.
   contact:
     name: David Urbansky
     email: mail@spoonacular.com
@@ -1424,7 +1421,7 @@ paths:
         description: Read entire docs
         url: https://spoonacular.com/food-api/docs#Search-Recipes-by-Ingredients
       summary: Search Recipes by Ingredients
-      description: "\nEver wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).\n        "
+      description: Ever wondered what recipes you can cook with the ingredients you have in your fridge or pantry? This endpoint lets you find recipes that either maximize the usage of ingredients you have at hand (pre shopping) or minimize the ingredients that you don't currently have (post shopping).
       operationId: searchRecipesByIngredients
       deprecated: false
       tags:
@@ -6705,15 +6702,15 @@ paths:
         dispatcher: FALLBACK
 components:
   parameters:
-    includeTaste:
-      name: includeTaste
+    defaultCss:
+      name: defaultCss
       in: query
       required: false
       schema:
         type: boolean
+        default: true
         example: false
-        default: false
-      description: Whether taste data should be added to correctly parsed ingredients.
+      description: Whether the default CSS should be added to the response.
     includeNutrition:
       name: includeNutrition
       in: query
@@ -6733,6 +6730,29 @@ components:
         - de
         example: en
       description: The language of the input. Either 'en' or 'de'.
+    query:
+      name: query
+      in: query
+      required: true
+      schema:
+        type: string
+        example: burger
+      description: The (natural language) search query.
+    ingredients:
+      name: ingredients
+      in: query
+      required: true
+      schema:
+        type: string
+        example: carrots,tomatoes
+      description: A comma-separated list of ingredients that the recipes should contain.
+    tags:
+      name: tags
+      in: query
+      required: false
+      schema:
+        type: string
+      description: The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
     number:
       name: number
       in: query
@@ -6744,55 +6764,15 @@ components:
         default: 10
         example: 10
       description: The maximum number of items to return (between 1 and 100). Defaults to 10.
-    rgb:
-      name: rgb
-      in: query
-      required: false
-      schema:
-        type: string
-        example: 75,192,192
-      description: Red, green, blue values for the chart color.
-    query:
-      name: query
-      in: query
-      required: true
-      schema:
-        type: string
-        example: burger
-      description: The (natural language) search query.
-    defaultCss:
-      name: defaultCss
+    includeTaste:
+      name: includeTaste
       in: query
       required: false
       schema:
         type: boolean
-        default: true
         example: false
-      description: Whether the default CSS should be added to the response.
-    ignorePantry:
-      name: ignorePantry
-      in: query
-      required: false
-      schema:
-        type: boolean
         default: false
-        example: false
-      description: Whether to ignore typical pantry items, such as water, salt, flour, etc.
-    tags:
-      name: tags
-      in: query
-      required: false
-      schema:
-        type: string
-      description: The tags (can be diets, meal types, cuisines, or intolerances) that the recipe must have.
-    ingredients:
-      name: ingredients
-      in: query
-      required: true
-      schema:
-        type: string
-        example: carrots,tomatoes
-      description: A comma-separated list of ingredients that the recipes should contain.
+      description: Whether taste data should be added to correctly parsed ingredients.
     offset:
       name: offset
       in: query
@@ -6802,332 +6782,24 @@ components:
         minimum: 0
         maximum: 900
       description: The number of results to skip (between 0 and 900).
+    ignorePantry:
+      name: ignorePantry
+      in: query
+      required: false
+      schema:
+        type: boolean
+        default: false
+        example: false
+      description: Whether to ignore typical pantry items, such as water, salt, flour, etc.
+    rgb:
+      name: rgb
+      in: query
+      required: false
+      schema:
+        type: string
+        example: 75,192,192
+      description: Red, green, blue values for the chart color.
   schemas:
-    IngredientInformation:
-      description: ''
-      type: object
-      properties:
-        id:
-          type: integer
-          example: 716429
-        original:
-          type: string
-          minLength: 1
-          example: example
-        originalName:
-          type: string
-          minLength: 1
-          example: Spaghetti
-        name:
-          type: string
-          minLength: 1
-          example: Spaghetti
-        amount:
-          type: number
-          example: 1
-        unit:
-          type: string
-          example: metric
-        unitShort:
-          type: string
-          example: metric
-        unitLong:
-          type: string
-          example: metric
-        possibleUnits:
-          type: array
-          items:
-            type: string
-        estimatedCost:
-          type: object
-          required:
-          - value
-          - unit
-          properties:
-            value:
-              type: number
-              example: 1.0
-            unit:
-              type: string
-              minLength: 1
-              example: metric
-        consistency:
-          type: string
-          minLength: 1
-          example: example
-        shoppingListUnits:
-          type: array
-          items:
-            type: string
-        aisle:
-          type: string
-          minLength: 1
-          example: example
-        image:
-          type: string
-          minLength: 1
-          example: example
-        meta:
-          type: array
-          items:
-            type: string
-        nutrition:
-          type: object
-          required:
-          - nutrients
-          - properties
-          - caloricBreakdown
-          - weightPerServing
-          properties:
-            nutrients:
-              type: array
-              uniqueItems: true
-              minItems: 0
-              items:
-                type: object
-                properties:
-                  name:
-                    type: string
-                    minLength: 1
-                  amount:
-                    type: number
-                  unit:
-                    type: string
-                    minLength: 1
-                  percentOfDailyNeeds:
-                    type: number
-                required:
-                - name
-                - amount
-                - unit
-                - percentOfDailyNeeds
-            properties:
-              type: array
-              uniqueItems: true
-              minItems: 0
-              items:
-                type: object
-                properties:
-                  name:
-                    type: string
-                    minLength: 1
-                  amount:
-                    type: number
-                  unit:
-                    type: string
-                required:
-                - name
-                - amount
-                - unit
-            caloricBreakdown:
-              type: object
-              required:
-              - percentProtein
-              - percentFat
-              - percentCarbs
-              properties:
-                percentProtein:
-                  type: number
-                  example: 1.0
-                percentFat:
-                  type: number
-                  example: 1.0
-                percentCarbs:
-                  type: number
-                  example: 1.0
-            weightPerServing:
-              type: object
-              required:
-              - amount
-              - unit
-              properties:
-                amount:
-                  type: number
-                  example: 1
-                unit:
-                  type: string
-                  minLength: 1
-                  example: metric
-        categoryPath:
-          type: array
-          items:
-            type: string
-      required:
-      - id
-      - original
-      - originalName
-      - name
-      - amount
-      - unit
-      - unitShort
-      - unitLong
-      - possibleUnits
-      - estimatedCost
-      - consistency
-      - aisle
-      - image
-      - meta
-      example:
-        id: 9266
-        original: pineapples
-        originalName: pineapples
-        name: pineapples
-        amount: 1
-        unit: ''
-        unitShort: ''
-        unitLong: ''
-        possibleUnits:
-        - piece
-        - slice
-        - fruit
-        - g
-        - oz
-        - cup
-        - serving
-        estimatedCost:
-          value: 299
-          unit: US Cents
-        consistency: solid
-        shoppingListUnits:
-        - pieces
-        aisle: Produce
-        image: pineapple.jpg
-        meta: []
-        nutrition:
-          nutrients:
-          - name: Calories
-            amount: 452.5
-            unit: cal
-            percentOfDailyNeeds: 22.63
-          - name: Fat
-            amount: 1.09
-            unit: g
-            percentOfDailyNeeds: 1.67
-          - name: Saturated Fat
-            amount: 0.08
-            unit: g
-            percentOfDailyNeeds: 0.51
-          - name: Carbohydrates
-            amount: 118.74
-            unit: g
-            percentOfDailyNeeds: 39.58
-          - name: Net Carbohydrates
-            amount: 106.07
-            unit: g
-            percentOfDailyNeeds: 38.57
-          - name: Sugar
-            amount: 89.14
-            unit: g
-            percentOfDailyNeeds: 99.05
-          - name: Cholesterol
-            amount: 0
-            unit: mg
-            percentOfDailyNeeds: 0
-          - name: Sodium
-            amount: 9.05
-            unit: mg
-            percentOfDailyNeeds: 0.39
-          - name: Protein
-            amount: 4.89
-            unit: g
-            percentOfDailyNeeds: 9.77
-          - name: Vitamin C
-            amount: 432.59
-            unit: mg
-            percentOfDailyNeeds: 524.35
-          - name: Manganese
-            amount: 8.39
-            unit: mg
-            percentOfDailyNeeds: 419.47
-          - name: Fiber
-            amount: 12.67
-            unit: g
-            percentOfDailyNeeds: 50.68
-          - name: Vitamin B6
-            amount: 1.01
-            unit: mg
-            percentOfDailyNeeds: 50.68
-          - name: Copper
-            amount: 1
-            unit: mg
-            percentOfDailyNeeds: 49.78
-          - name: Vitamin B1
-            amount: 0.72
-            unit: mg
-            percentOfDailyNeeds: 47.66
-          - name: Folate
-            amount: 162.9
-            unit: µg
-            percentOfDailyNeeds: 40.73
-          - name: Potassium
-            amount: 986.45
-            unit: mg
-            percentOfDailyNeeds: 28.18
-          - name: Magnesium
-            amount: 108.6
-            unit: mg
-            percentOfDailyNeeds: 27.15
-          - name: Vitamin B3
-            amount: 4.53
-            unit: mg
-            percentOfDailyNeeds: 22.63
-          - name: Vitamin B5
-            amount: 1.93
-            unit: mg
-            percentOfDailyNeeds: 19.28
-          - name: Vitamin B2
-            amount: 0.29
-            unit: mg
-            percentOfDailyNeeds: 17.04
-          - name: Iron
-            amount: 2.62
-            unit: mg
-            percentOfDailyNeeds: 14.58
-          - name: Calcium
-            amount: 117.65
-            unit: mg
-            percentOfDailyNeeds: 11.77
-          - name: Vitamin A
-            amount: 524.9
-            unit: IU
-            percentOfDailyNeeds: 10.5
-          - name: Zinc
-            amount: 1.09
-            unit: mg
-            percentOfDailyNeeds: 7.24
-          - name: Phosphorus
-            amount: 72.4
-            unit: mg
-            percentOfDailyNeeds: 7.24
-          - name: Vitamin K
-            amount: 6.34
-            unit: µg
-            percentOfDailyNeeds: 6.03
-          - name: Selenium
-            amount: 0.91
-            unit: µg
-            percentOfDailyNeeds: 1.29
-          - name: Vitamin E
-            amount: 0.18
-            unit: mg
-            percentOfDailyNeeds: 1.21
-          properties:
-          - name: Glycemic Index
-            amount: 58.67
-            unit: ''
-          - name: Glycemic Load
-            amount: 62.23
-            unit: ''
-          caloricBreakdown:
-            percentProtein: 3.88
-            percentFat: 1.94
-            percentCarbs: 94.18
-          weightPerServing:
-            amount: 905
-            unit: g
-        categoryPath:
-        - tropical fruit
-        - fruit
     TasteInformation:
       description: ''
       type: object
@@ -7181,8 +6853,9 @@ components:
           minLength: 1
           example: example
         image:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: example
         imageType:
           type: string
@@ -7195,12 +6868,14 @@ components:
           type: integer
           example: 1
         preparationMinutes:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
           example: 1
         cookingMinutes:
-          type: integer
-          nullable: true
+          type:
+          - integer
+          - 'null'
           example: 1
         license:
           type: string
@@ -7259,8 +6934,9 @@ components:
           type: boolean
           example: false
         instructions:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: example
         lowFodmap:
           type: boolean
@@ -7742,6 +7418,331 @@ components:
             ratingCount: 1
             score: 0.55
             link: https://www.amazon.com/2015-Buddha-Kat-Winery-Chardonnay/dp/B00OSAVVM4?tag=spoonacular-20
+    IngredientInformation:
+      description: ''
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 716429
+        original:
+          type: string
+          minLength: 1
+          example: example
+        originalName:
+          type: string
+          minLength: 1
+          example: Spaghetti
+        name:
+          type: string
+          minLength: 1
+          example: Spaghetti
+        amount:
+          type: number
+          example: 1
+        unit:
+          type: string
+          example: metric
+        unitShort:
+          type: string
+          example: metric
+        unitLong:
+          type: string
+          example: metric
+        possibleUnits:
+          type: array
+          items:
+            type: string
+        estimatedCost:
+          type: object
+          required:
+          - value
+          - unit
+          properties:
+            value:
+              type: number
+              example: 1.0
+            unit:
+              type: string
+              minLength: 1
+              example: metric
+        consistency:
+          type: string
+          minLength: 1
+          example: example
+        shoppingListUnits:
+          type: array
+          items:
+            type: string
+        aisle:
+          type: string
+          minLength: 1
+          example: example
+        image:
+          type: string
+          minLength: 1
+          example: example
+        meta:
+          type: array
+          items:
+            type: string
+        nutrition:
+          type: object
+          required:
+          - nutrients
+          - properties
+          - caloricBreakdown
+          - weightPerServing
+          properties:
+            nutrients:
+              type: array
+              uniqueItems: true
+              minItems: 0
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    minLength: 1
+                  amount:
+                    type: number
+                  unit:
+                    type: string
+                    minLength: 1
+                  percentOfDailyNeeds:
+                    type: number
+                required:
+                - name
+                - amount
+                - unit
+                - percentOfDailyNeeds
+            properties:
+              type: array
+              uniqueItems: true
+              minItems: 0
+              items:
+                type: object
+                properties:
+                  name:
+                    type: string
+                    minLength: 1
+                  amount:
+                    type: number
+                  unit:
+                    type: string
+                required:
+                - name
+                - amount
+                - unit
+            caloricBreakdown:
+              type: object
+              required:
+              - percentProtein
+              - percentFat
+              - percentCarbs
+              properties:
+                percentProtein:
+                  type: number
+                  example: 1.0
+                percentFat:
+                  type: number
+                  example: 1.0
+                percentCarbs:
+                  type: number
+                  example: 1.0
+            weightPerServing:
+              type: object
+              required:
+              - amount
+              - unit
+              properties:
+                amount:
+                  type: number
+                  example: 1
+                unit:
+                  type: string
+                  minLength: 1
+                  example: metric
+        categoryPath:
+          type: array
+          items:
+            type: string
+      required:
+      - id
+      - original
+      - originalName
+      - name
+      - amount
+      - unit
+      - unitShort
+      - unitLong
+      - possibleUnits
+      - estimatedCost
+      - consistency
+      - aisle
+      - image
+      - meta
+      example:
+        id: 9266
+        original: pineapples
+        originalName: pineapples
+        name: pineapples
+        amount: 1
+        unit: ''
+        unitShort: ''
+        unitLong: ''
+        possibleUnits:
+        - piece
+        - slice
+        - fruit
+        - g
+        - oz
+        - cup
+        - serving
+        estimatedCost:
+          value: 299
+          unit: US Cents
+        consistency: solid
+        shoppingListUnits:
+        - pieces
+        aisle: Produce
+        image: pineapple.jpg
+        meta: []
+        nutrition:
+          nutrients:
+          - name: Calories
+            amount: 452.5
+            unit: cal
+            percentOfDailyNeeds: 22.63
+          - name: Fat
+            amount: 1.09
+            unit: g
+            percentOfDailyNeeds: 1.67
+          - name: Saturated Fat
+            amount: 0.08
+            unit: g
+            percentOfDailyNeeds: 0.51
+          - name: Carbohydrates
+            amount: 118.74
+            unit: g
+            percentOfDailyNeeds: 39.58
+          - name: Net Carbohydrates
+            amount: 106.07
+            unit: g
+            percentOfDailyNeeds: 38.57
+          - name: Sugar
+            amount: 89.14
+            unit: g
+            percentOfDailyNeeds: 99.05
+          - name: Cholesterol
+            amount: 0
+            unit: mg
+            percentOfDailyNeeds: 0
+          - name: Sodium
+            amount: 9.05
+            unit: mg
+            percentOfDailyNeeds: 0.39
+          - name: Protein
+            amount: 4.89
+            unit: g
+            percentOfDailyNeeds: 9.77
+          - name: Vitamin C
+            amount: 432.59
+            unit: mg
+            percentOfDailyNeeds: 524.35
+          - name: Manganese
+            amount: 8.39
+            unit: mg
+            percentOfDailyNeeds: 419.47
+          - name: Fiber
+            amount: 12.67
+            unit: g
+            percentOfDailyNeeds: 50.68
+          - name: Vitamin B6
+            amount: 1.01
+            unit: mg
+            percentOfDailyNeeds: 50.68
+          - name: Copper
+            amount: 1
+            unit: mg
+            percentOfDailyNeeds: 49.78
+          - name: Vitamin B1
+            amount: 0.72
+            unit: mg
+            percentOfDailyNeeds: 47.66
+          - name: Folate
+            amount: 162.9
+            unit: µg
+            percentOfDailyNeeds: 40.73
+          - name: Potassium
+            amount: 986.45
+            unit: mg
+            percentOfDailyNeeds: 28.18
+          - name: Magnesium
+            amount: 108.6
+            unit: mg
+            percentOfDailyNeeds: 27.15
+          - name: Vitamin B3
+            amount: 4.53
+            unit: mg
+            percentOfDailyNeeds: 22.63
+          - name: Vitamin B5
+            amount: 1.93
+            unit: mg
+            percentOfDailyNeeds: 19.28
+          - name: Vitamin B2
+            amount: 0.29
+            unit: mg
+            percentOfDailyNeeds: 17.04
+          - name: Iron
+            amount: 2.62
+            unit: mg
+            percentOfDailyNeeds: 14.58
+          - name: Calcium
+            amount: 117.65
+            unit: mg
+            percentOfDailyNeeds: 11.77
+          - name: Vitamin A
+            amount: 524.9
+            unit: IU
+            percentOfDailyNeeds: 10.5
+          - name: Zinc
+            amount: 1.09
+            unit: mg
+            percentOfDailyNeeds: 7.24
+          - name: Phosphorus
+            amount: 72.4
+            unit: mg
+            percentOfDailyNeeds: 7.24
+          - name: Vitamin K
+            amount: 6.34
+            unit: µg
+            percentOfDailyNeeds: 6.03
+          - name: Selenium
+            amount: 0.91
+            unit: µg
+            percentOfDailyNeeds: 1.29
+          - name: Vitamin E
+            amount: 0.18
+            unit: mg
+            percentOfDailyNeeds: 1.21
+          properties:
+          - name: Glycemic Index
+            amount: 58.67
+            unit: ''
+          - name: Glycemic Load
+            amount: 62.23
+            unit: ''
+          caloricBreakdown:
+            percentProtein: 3.88
+            percentFat: 1.94
+            percentCarbs: 94.18
+          weightPerServing:
+            amount: 905
+            unit: g
+        categoryPath:
+        - tropical fruit
+        - fruit
   securitySchemes:
     apiKeyScheme:
       type: apiKey

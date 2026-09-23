@@ -1,10 +1,7 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  title: spoonacular Ingredients Products API
-  description: 'The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants. Our food ontology and semantic recipe search engine makes it possible to search for recipes using natural language queries, such as "gluten free brownies without sugar" or "low fat vegan cupcakes." You can automatically calculate the nutritional information for any recipe, analyze recipe costs, visualize ingredient lists, find recipes for what''s in your fridge, find recipes based on special diets, nutritional requirements, or favorite ingredients, classify recipes into types and cuisines, convert ingredient amounts, or even compute an entire meal plan. With our powerful API, you can create many kinds of food and especially nutrition apps.
-
-
-    Special diets/dietary requirements currently available include: vegan, vegetarian, pescetarian, gluten free, grain free, dairy free, high protein, whole 30, low sodium, low carb, Paleo, ketogenic, FODMAP, and Primal.'
+  title: spoonacular Products API
+  description: The spoonacular Nutrition, Recipe, and Food API allows you to access over thousands of recipes, thousands of ingredients, 800,000 food products, over 100,000 menu items, and restaurants.
   contact:
     name: David Urbansky
     email: mail@spoonacular.com
@@ -301,8 +298,9 @@ paths:
                     items:
                       type: string
                   generatedText:
-                    type: string
-                    nullable: true
+                    type:
+                    - string
+                    - 'null'
                   imageType:
                     type: string
                   ingredientCount:
@@ -1239,7 +1237,65 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  parameters:
+    defaultCss:
+      name: defaultCss
+      in: query
+      required: false
+      schema:
+        type: boolean
+        default: true
+        example: false
+      description: Whether the default CSS should be added to the response.
+    query:
+      name: query
+      in: query
+      required: true
+      schema:
+        type: string
+        example: burger
+      description: The (natural language) search query.
+    number:
+      name: number
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 10
+        example: 10
+      description: The maximum number of items to return (between 1 and 100). Defaults to 10.
+    offset:
+      name: offset
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+        maximum: 900
+      description: The number of results to skip (between 0 and 900).
   schemas:
+    IngredientBasics:
+      type: object
+      properties:
+        description:
+          type:
+          - string
+          - 'null'
+          example: example
+        name:
+          type: string
+          example: Spaghetti
+        safety_level:
+          type:
+          - string
+          - 'null'
+          example: example
+      required:
+      - name
+      - description
+      - safety_level
     ComparableProduct:
       type: object
       properties:
@@ -1262,24 +1318,6 @@ components:
       - id
       - image
       - title
-    IngredientBasics:
-      type: object
-      properties:
-        description:
-          type: string
-          nullable: true
-          example: example
-        name:
-          type: string
-          example: Spaghetti
-        safety_level:
-          type: string
-          nullable: true
-          example: example
-      required:
-      - name
-      - description
-      - safety_level
     ProductInformation:
       description: ''
       type: object
@@ -1292,12 +1330,14 @@ components:
           minLength: 1
           example: example
         upc:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: example
         usdaCode:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: example
         breadcrumbs:
           type: array
@@ -1319,8 +1359,9 @@ components:
           type: integer
           example: 1
         generatedText:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: example
         ingredientList:
           type: string
@@ -1336,8 +1377,9 @@ components:
           type: number
           example: 1.0
         aisle:
-          type: string
-          nullable: true
+          type:
+          - string
+          - 'null'
           example: example
         credits:
           type: object
@@ -1514,44 +1556,6 @@ components:
           link: https://opendatacommons.org/licenses/odbl/1-0/
           image: openfoodfacts.org under CC BY-SA 3.0 DEED
           imageLink: https://creativecommons.org/licenses/by-sa/3.0/deed.en
-  parameters:
-    query:
-      name: query
-      in: query
-      required: true
-      schema:
-        type: string
-        example: burger
-      description: The (natural language) search query.
-    number:
-      name: number
-      in: query
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 100
-        default: 10
-        example: 10
-      description: The maximum number of items to return (between 1 and 100). Defaults to 10.
-    defaultCss:
-      name: defaultCss
-      in: query
-      required: false
-      schema:
-        type: boolean
-        default: true
-        example: false
-      description: Whether the default CSS should be added to the response.
-    offset:
-      name: offset
-      in: query
-      required: false
-      schema:
-        type: integer
-        minimum: 0
-        maximum: 900
-      description: The number of results to skip (between 0 and 900).
   securitySchemes:
     apiKeyScheme:
       type: apiKey

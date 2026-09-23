@@ -1,13 +1,7 @@
 {
   "provider": "spoonacular",
   "sources": [
-    "spoonacular-ingredients-api-openapi.yml",
-    "spoonacular-meal-planning-api-openapi.yml",
-    "spoonacular-menu-items-api-openapi.yml",
-    "spoonacular-misc-api-openapi.yml",
-    "spoonacular-products-api-openapi.yml",
-    "spoonacular-recipes-api-openapi.yml",
-    "spoonacular-wine-api-openapi.yml"
+    "_original/spoonacular-openapi.yml"
   ],
   "outputs": [
     "spoonacular-ingredients-api-openapi.yml",
@@ -21,6 +15,18 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "spoonacular-openapi.yml: upgraded openapi 3.0.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "spoonacular-ingredients-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "spoonacular-meal-planning-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "spoonacular-menu-items-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "spoonacular-misc-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "spoonacular-products-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "spoonacular-recipes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "spoonacular-wine-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
