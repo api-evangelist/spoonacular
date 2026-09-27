@@ -1126,17 +1126,6 @@ paths:
         dispatcher: FALLBACK
 components:
   parameters:
-    language:
-      name: language
-      in: query
-      required: false
-      schema:
-        type: string
-        enum:
-        - en
-        - de
-        example: en
-      description: The language of the input. Either 'en' or 'de'.
     query:
       name: query
       in: query
@@ -1165,6 +1154,17 @@ components:
         minimum: 0
         maximum: 900
       description: The number of results to skip (between 0 and 900).
+    language:
+      name: language
+      in: query
+      required: false
+      schema:
+        type: string
+        enum:
+        - en
+        - de
+        example: en
+      description: The language of the input. Either 'en' or 'de'.
   schemas:
     IngredientInformation:
       description: ''

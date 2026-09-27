@@ -42,11 +42,19 @@ x-tier: 3
 x-tier-reason: bulk-registered-from-public-apis
 tags:
   - Restaurant
+  - Food and Beverage
+  - Recipes
+  - Nutrition
+  - Meal Planning
+  - Public APIs
+tags_raw:
+  - Restaurant
   - Food And Drink
   - Recipes
   - Nutrition
   - Meal Planning
   - Public APIs
+  - Food and Beverage
 apis:
 - aid: spoonacular:spoonacular-ingredients-api
   name: Spoonacular Ingredients API

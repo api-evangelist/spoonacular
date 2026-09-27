@@ -1004,15 +1004,6 @@ paths:
         dispatcher: FALLBACK
 components:
   parameters:
-    defaultCss:
-      name: defaultCss
-      in: query
-      required: false
-      schema:
-        type: boolean
-        default: true
-        example: false
-      description: Whether the default CSS should be added to the response.
     query:
       name: query
       in: query
@@ -1032,6 +1023,15 @@ components:
         default: 10
         example: 10
       description: The maximum number of items to return (between 1 and 100). Defaults to 10.
+    defaultCss:
+      name: defaultCss
+      in: query
+      required: false
+      schema:
+        type: boolean
+        default: true
+        example: false
+      description: Whether the default CSS should be added to the response.
     offset:
       name: offset
       in: query
