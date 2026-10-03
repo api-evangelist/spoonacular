@@ -1237,6 +1237,44 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  parameters:
+    offset:
+      name: offset
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+        maximum: 900
+      description: The number of results to skip (between 0 and 900).
+    defaultCss:
+      name: defaultCss
+      in: query
+      required: false
+      schema:
+        type: boolean
+        default: true
+        example: false
+      description: Whether the default CSS should be added to the response.
+    query:
+      name: query
+      in: query
+      required: true
+      schema:
+        type: string
+        example: burger
+      description: The (natural language) search query.
+    number:
+      name: number
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 10
+        example: 10
+      description: The maximum number of items to return (between 1 and 100). Defaults to 10.
   schemas:
     ComparableProduct:
       type: object
@@ -1260,6 +1298,26 @@ components:
       - id
       - image
       - title
+    IngredientBasics:
+      type: object
+      properties:
+        description:
+          type:
+          - string
+          - 'null'
+          example: example
+        name:
+          type: string
+          example: Spaghetti
+        safety_level:
+          type:
+          - string
+          - 'null'
+          example: example
+      required:
+      - name
+      - description
+      - safety_level
     ProductInformation:
       description: ''
       type: object
@@ -1498,64 +1556,6 @@ components:
           link: https://opendatacommons.org/licenses/odbl/1-0/
           image: openfoodfacts.org under CC BY-SA 3.0 DEED
           imageLink: https://creativecommons.org/licenses/by-sa/3.0/deed.en
-    IngredientBasics:
-      type: object
-      properties:
-        description:
-          type:
-          - string
-          - 'null'
-          example: example
-        name:
-          type: string
-          example: Spaghetti
-        safety_level:
-          type:
-          - string
-          - 'null'
-          example: example
-      required:
-      - name
-      - description
-      - safety_level
-  parameters:
-    query:
-      name: query
-      in: query
-      required: true
-      schema:
-        type: string
-        example: burger
-      description: The (natural language) search query.
-    number:
-      name: number
-      in: query
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 100
-        default: 10
-        example: 10
-      description: The maximum number of items to return (between 1 and 100). Defaults to 10.
-    defaultCss:
-      name: defaultCss
-      in: query
-      required: false
-      schema:
-        type: boolean
-        default: true
-        example: false
-      description: Whether the default CSS should be added to the response.
-    offset:
-      name: offset
-      in: query
-      required: false
-      schema:
-        type: integer
-        minimum: 0
-        maximum: 900
-      description: The number of results to skip (between 0 and 900).
   securitySchemes:
     apiKeyScheme:
       type: apiKey
