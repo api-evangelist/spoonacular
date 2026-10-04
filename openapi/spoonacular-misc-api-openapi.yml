@@ -1374,6 +1374,23 @@ paths:
         dispatcher: FALLBACK
 components:
   parameters:
+    query:
+      name: query
+      in: query
+      required: true
+      schema:
+        type: string
+        example: burger
+      description: The (natural language) search query.
+    offset:
+      name: offset
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+        maximum: 900
+      description: The number of results to skip (between 0 and 900).
     number:
       name: number
       in: query
@@ -1385,23 +1402,6 @@ components:
         default: 10
         example: 10
       description: The maximum number of items to return (between 1 and 100). Defaults to 10.
-    offset:
-      name: offset
-      in: query
-      required: false
-      schema:
-        type: integer
-        minimum: 0
-        maximum: 900
-      description: The number of results to skip (between 0 and 900).
-    query:
-      name: query
-      in: query
-      required: true
-      schema:
-        type: string
-        example: burger
-      description: The (natural language) search query.
   schemas:
     SearchResult:
       description: ''

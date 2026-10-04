@@ -1003,44 +1003,6 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  parameters:
-    offset:
-      name: offset
-      in: query
-      required: false
-      schema:
-        type: integer
-        minimum: 0
-        maximum: 900
-      description: The number of results to skip (between 0 and 900).
-    defaultCss:
-      name: defaultCss
-      in: query
-      required: false
-      schema:
-        type: boolean
-        default: true
-        example: false
-      description: Whether the default CSS should be added to the response.
-    query:
-      name: query
-      in: query
-      required: true
-      schema:
-        type: string
-        example: burger
-      description: The (natural language) search query.
-    number:
-      name: number
-      in: query
-      required: false
-      schema:
-        type: integer
-        minimum: 1
-        maximum: 100
-        default: 10
-        example: 10
-      description: The maximum number of items to return (between 1 and 100). Defaults to 10.
   schemas:
     MenuItem:
       description: ''
@@ -1198,6 +1160,44 @@ components:
           unit: oz
         price: 2.35
         spoonacularScore: 12.5
+  parameters:
+    query:
+      name: query
+      in: query
+      required: true
+      schema:
+        type: string
+        example: burger
+      description: The (natural language) search query.
+    defaultCss:
+      name: defaultCss
+      in: query
+      required: false
+      schema:
+        type: boolean
+        default: true
+        example: false
+      description: Whether the default CSS should be added to the response.
+    number:
+      name: number
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 1
+        maximum: 100
+        default: 10
+        example: 10
+      description: The maximum number of items to return (between 1 and 100). Defaults to 10.
+    offset:
+      name: offset
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+        maximum: 900
+      description: The number of results to skip (between 0 and 900).
   securitySchemes:
     apiKeyScheme:
       type: apiKey
