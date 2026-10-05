@@ -1,0 +1,12 @@
+{
+ "url": "https://spoonacular.com/application/frontend/downloads/spoonacular-openapi-3.json",
+ "requested_url": "https://spoonacular.com/application/frontend/downloads/spoonacular-openapi-3.json",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 1168010,
+ "sha256": "bc2fbe4e8981ce284881d7223b3a523cc358918cbbb9793d836aac5c5c1890ea",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 0.96), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
