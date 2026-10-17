@@ -1460,17 +1460,6 @@ components:
         type: string
         example: burger
       description: The (natural language) search query.
-    language:
-      name: language
-      in: query
-      required: false
-      schema:
-        type: string
-        enum:
-        - en
-        - de
-        example: en
-      description: The language of the input. Either 'en' or 'de'.
     number:
       name: number
       in: query
@@ -1482,6 +1471,17 @@ components:
         default: 10
         example: 10
       description: The maximum number of items to return (between 1 and 100). Defaults to 10.
+    language:
+      name: language
+      in: query
+      required: false
+      schema:
+        type: string
+        enum:
+        - en
+        - de
+        example: en
+      description: The language of the input. Either 'en' or 'de'.
     offset:
       name: offset
       in: query

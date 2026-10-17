@@ -1161,14 +1161,6 @@ components:
         price: 2.35
         spoonacularScore: 12.5
   parameters:
-    query:
-      name: query
-      in: query
-      required: true
-      schema:
-        type: string
-        example: burger
-      description: The (natural language) search query.
     defaultCss:
       name: defaultCss
       in: query
@@ -1178,6 +1170,14 @@ components:
         default: true
         example: false
       description: Whether the default CSS should be added to the response.
+    query:
+      name: query
+      in: query
+      required: true
+      schema:
+        type: string
+        example: burger
+      description: The (natural language) search query.
     number:
       name: number
       in: query

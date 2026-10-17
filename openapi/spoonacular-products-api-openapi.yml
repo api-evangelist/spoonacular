@@ -1238,14 +1238,6 @@ paths:
         dispatcher: FALLBACK
 components:
   parameters:
-    query:
-      name: query
-      in: query
-      required: true
-      schema:
-        type: string
-        example: burger
-      description: The (natural language) search query.
     defaultCss:
       name: defaultCss
       in: query
@@ -1255,6 +1247,14 @@ components:
         default: true
         example: false
       description: Whether the default CSS should be added to the response.
+    query:
+      name: query
+      in: query
+      required: true
+      schema:
+        type: string
+        example: burger
+      description: The (natural language) search query.
     number:
       name: number
       in: query
@@ -1276,6 +1276,28 @@ components:
         maximum: 900
       description: The number of results to skip (between 0 and 900).
   schemas:
+    ComparableProduct:
+      type: object
+      properties:
+        difference:
+          type: number
+          example: 1.0
+        id:
+          type: integer
+          example: 716429
+        image:
+          type: string
+          minLength: 1
+          example: example
+        title:
+          type: string
+          minLength: 1
+          example: example
+      required:
+      - difference
+      - id
+      - image
+      - title
     ProductInformation:
       description: ''
       type: object
@@ -1514,28 +1536,6 @@ components:
           link: https://opendatacommons.org/licenses/odbl/1-0/
           image: openfoodfacts.org under CC BY-SA 3.0 DEED
           imageLink: https://creativecommons.org/licenses/by-sa/3.0/deed.en
-    ComparableProduct:
-      type: object
-      properties:
-        difference:
-          type: number
-          example: 1.0
-        id:
-          type: integer
-          example: 716429
-        image:
-          type: string
-          minLength: 1
-          example: example
-        title:
-          type: string
-          minLength: 1
-          example: example
-      required:
-      - difference
-      - id
-      - image
-      - title
     IngredientBasics:
       type: object
       properties:
