@@ -7751,3 +7751,9 @@ components:
 externalDocs:
   description: The official documentation.
   url: https://spoonacular.com/food-api/docs
+x-provenance:
+  method: harvested
+  publisher: Spoonacular
+  source: https://spoonacular.com/application/frontend/downloads/spoonacular-openapi-3.json
+  note: split by refine-openapis from the provider's own published document, verified by fetch (openapi/_original/*.fetch.json);
+    stamped by stamp-openapi-provenance.py (roadmap#793)
