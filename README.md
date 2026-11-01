@@ -1,4 +1,4 @@
-# Spoonacular (spoonacular)
+# Spoonacular
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,88 +66,195 @@
 
 The Spoonacular Recipe and Food API provides programmatic access to thousands of recipes, thousands of ingredients, 800,000+ food products, and 100,000+ menu items, plus nutrition analysis, meal planning, wine pairing, and food classification. Authentication is via an API key sent in the x-api-key header.
 
-**APIs.json:** [https://spoonacular.com/food-api](https://spoonacular.com/food-api)
+**Areas:** Restaurant · Food and Beverage · Recipes · Nutrition · Meal Planning · Public APIs
 
-## Tags
+## Spoonacular on APIs.io
 
-- Restaurant
-- Food And Drink
-- Recipes
-- Nutrition
-- Meal Planning
-- Public APIs
+Everything profiled for Spoonacular is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/spoonacular/](https://apis.io/providers/spoonacular/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (7)
 
-- **Created:** 2026-05-28
-- **Modified:** 2026-06-03
+- [Spoonacular Ingredients API](https://apis.io/apis/spoonacular/spoonacular-ingredients-api/) — The Ingredients API from Spoonacular — 9 operation(s) for ingredients.
+- [Spoonacular Meal Planning API](https://apis.io/apis/spoonacular/spoonacular-meal-planning-api/) — The Meal Planning API from Spoonacular — 12 operation(s) for meal planning.
+- [Spoonacular Menu Items API](https://apis.io/apis/spoonacular/spoonacular-menu-items-api/) — The Menu Items API from Spoonacular — 8 operation(s) for menu items.
+- [Spoonacular Misc API](https://apis.io/apis/spoonacular/spoonacular-misc-api/) — The Misc API from Spoonacular — 11 operation(s) for misc.
+- [Spoonacular Products API](https://apis.io/apis/spoonacular/spoonacular-products-api/) — The Products API from Spoonacular — 11 operation(s) for products.
+- [Spoonacular Recipes API](https://apis.io/apis/spoonacular/spoonacular-recipes-api/) — The Recipes API from Spoonacular — 42 operation(s) for recipes.
+- [Spoonacular Wine API](https://apis.io/apis/spoonacular/spoonacular-wine-api/) — The Wine API from Spoonacular — 4 operation(s) for wine.
 
-## APIs
+### Published properties
 
-### Spoonacular
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-The Spoonacular Recipe and Food API — recipes, ingredients, grocery products, menu items, meal planning, wine pairing, and food classification across 97 endpoints. OpenAPI 3 sourced from the official ddsky client generator spec. API key auth via the x-api-key header.
+#### Agentic access (1)
 
-- **Human URL:** [https://spoonacular.com/food-api](https://spoonacular.com/food-api)
-- **Base URL:** `https://api.spoonacular.com`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Spoonacular Agentic Access](https://apis.io/agentic-access/spoonacular/spoonacular-agentic-access/)
 
-- Food And Drink
-- Recipes
-- Nutrition
-- Meal Planning
+#### JSON Schema (8)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://spoonacular.com/food-api/docs)
-- [API Reference](https://spoonacular.com/food-api/docs)
-- [OpenAPI](openapi/spoonacular-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/spoonacular.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/spoonacular.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [Authentication](https://spoonacular.com/food-api/docs#Authentication)
-- [Quickstart](https://spoonacular.com/food-api/docs#Getting-Started)
-- [SDK](https://github.com/ddsky/spoonacular-api-clients/tree/master/python)
-- [SDK](https://github.com/ddsky/spoonacular-api-clients/tree/master/javascript)
-- [SDK](https://github.com/ddsky/spoonacular-api-clients/tree/master/java)
-- [SDK](https://github.com/ddsky/spoonacular-api-clients/tree/master/php)
-- [SDK](https://github.com/ddsky/spoonacular-api-clients/tree/master/ruby)
-- [SDK](https://github.com/ddsky/spoonacular-api-clients/tree/master/go)
-- [JSON Schema](json-schema/spoonacular-recipe-information-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/spoonacular-search-result-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/spoonacular-ingredient-information-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/spoonacular-product-information-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/spoonacular-menu-item-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/spoonacular-comparable-product-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/spoonacular-ingredient-basics-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON Schema](json-schema/spoonacular-taste-information-schema.json) — [JSON Schema](https://json-schema.org/specification)
+- [ComparableProduct](https://apis.io/schemas/spoonacular/spoonacular-comparable-product/)
+- [IngredientBasics](https://apis.io/schemas/spoonacular/spoonacular-ingredient-basics/)
+- [IngredientInformation](https://apis.io/schemas/spoonacular/spoonacular-ingredient-information/)
+- [MenuItem](https://apis.io/schemas/spoonacular/spoonacular-menu-item/)
+- [ProductInformation](https://apis.io/schemas/spoonacular/spoonacular-product-information/)
+- [RecipeInformation](https://apis.io/schemas/spoonacular/spoonacular-recipe-information/)
+- [SearchResult](https://apis.io/schemas/spoonacular/spoonacular-search-result/)
+- [TasteInformation](https://apis.io/schemas/spoonacular/spoonacular-taste-information/)
 
-## Common Properties
+#### JSON Structure (8)
+
+Data models expressed in JSON Structure.
+
+- [Spoonacular Comparable Product Structure](https://apis.io/json-structure/spoonacular/spoonacular-comparable-product-structure/)
+- [Spoonacular Ingredient Basics Structure](https://apis.io/json-structure/spoonacular/spoonacular-ingredient-basics-structure/)
+- [Spoonacular Ingredient Information Structure](https://apis.io/json-structure/spoonacular/spoonacular-ingredient-information-structure/)
+- [Spoonacular Menu Item Structure](https://apis.io/json-structure/spoonacular/spoonacular-menu-item-structure/)
+- [Spoonacular Product Information Structure](https://apis.io/json-structure/spoonacular/spoonacular-product-information-structure/)
+- [Spoonacular Recipe Information Structure](https://apis.io/json-structure/spoonacular/spoonacular-recipe-information-structure/)
+- [Spoonacular Search Result Structure](https://apis.io/json-structure/spoonacular/spoonacular-search-result-structure/)
+- [Spoonacular Taste Information Structure](https://apis.io/json-structure/spoonacular/spoonacular-taste-information-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Spoonacular Context](https://apis.io/jsonld/spoonacular/spoonacular-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Spoonacular Vocabulary](https://apis.io/vocabularies/spoonacular/spoonacular-vocabulary/)
+
+#### Examples (8)
+
+Example requests and responses.
+
+- [Spoonacular Comparable Product Example](https://apis.io/examples/spoonacular/spoonacular-comparable-product-example/)
+- [Spoonacular Ingredient Basics Example](https://apis.io/examples/spoonacular/spoonacular-ingredient-basics-example/)
+- [Spoonacular Ingredient Information Example](https://apis.io/examples/spoonacular/spoonacular-ingredient-information-example/)
+- [Spoonacular Menu Item Example](https://apis.io/examples/spoonacular/spoonacular-menu-item-example/)
+- [Spoonacular Product Information Example](https://apis.io/examples/spoonacular/spoonacular-product-information-example/)
+- [Spoonacular Recipe Information Example](https://apis.io/examples/spoonacular/spoonacular-recipe-information-example/)
+- [Spoonacular Search Result Example](https://apis.io/examples/spoonacular/spoonacular-search-result-example/)
+- [Spoonacular Taste Information Example](https://apis.io/examples/spoonacular/spoonacular-taste-information-example/)
+
+#### Collections (15)
+
+Postman and Open Collection request collections.
+
+- [spoonacular API](https://apis.io/collections/spoonacular/open-spoonacular/)
+- [spoonacular Ingredients API](https://apis.io/collections/spoonacular/open-spoonacular-ingredients-api/)
+- [spoonacular Ingredients Meal Planning API](https://apis.io/collections/spoonacular/open-spoonacular-meal-planning-api/)
+- [spoonacular Ingredients Menu Items API](https://apis.io/collections/spoonacular/open-spoonacular-menu-items-api/)
+- [spoonacular Ingredients Misc API](https://apis.io/collections/spoonacular/open-spoonacular-misc-api/)
+- [spoonacular Ingredients Products API](https://apis.io/collections/spoonacular/open-spoonacular-products-api/)
+- [spoonacular Ingredients Recipes API](https://apis.io/collections/spoonacular/open-spoonacular-recipes-api/)
+- [spoonacular Ingredients Wine API](https://apis.io/collections/spoonacular/open-spoonacular-wine-api/)
+- [spoonacular Ingredients API](https://apis.io/collections/spoonacular/postman-spoonacular-ingredients-api/)
+- [spoonacular Ingredients Meal Planning API](https://apis.io/collections/spoonacular/postman-spoonacular-meal-planning-api/)
+- [spoonacular Ingredients Menu Items API](https://apis.io/collections/spoonacular/postman-spoonacular-menu-items-api/)
+- [spoonacular Ingredients Misc API](https://apis.io/collections/spoonacular/postman-spoonacular-misc-api/)
+- [spoonacular Ingredients Products API](https://apis.io/collections/spoonacular/postman-spoonacular-products-api/)
+- [spoonacular Ingredients Recipes API](https://apis.io/collections/spoonacular/postman-spoonacular-recipes-api/)
+- [spoonacular Ingredients Wine API](https://apis.io/collections/spoonacular/postman-spoonacular-wine-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Spoonacular — jsonschema rules](https://apis.io/rules/spoonacular/spoonacular-jsonschema-spectral-rules/)
+- [Spoonacular API Rules](https://apis.io/rules/spoonacular/spoonacular-spectral-rules/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Spoonacular Authentication](https://apis.io/security/spoonacular/spoonacular-authentication/)
+- [Spoonacular Domain Security](https://apis.io/security/spoonacular/spoonacular-domain-security/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Spoonacular Plans Pricing](https://apis.io/plans/spoonacular/spoonacular-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Spoonacular Rate Limits](https://apis.io/rate-limits/spoonacular/spoonacular-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Spoonacular Finops](https://apis.io/finops/spoonacular/spoonacular-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://spoonacular.com/food-api)
-- [Developer Portal](https://spoonacular.com/food-api)
-- [Console](https://spoonacular.com/food-api/console)
-- [Sign Up](https://spoonacular.com/food-api/console#Dashboard)
 - [Pricing](https://spoonacular.com/food-api/pricing)
-- [SDK](https://spoonacular.com/food-api/sdk)
-- [GitHub Organization](https://github.com/ddsky)
-- [GitHub Repository](https://github.com/ddsky/spoonacular-api-clients)
-- [Tutorials](https://github.com/ddsky/spoonacular-api-tutorials)
-- [Code Examples](https://github.com/ddsky/spoonacular-widgets)
-- [Tools](https://github.com/ddsky/spoonacular-mcp)
-- [Tools](https://www.npmjs.com/package/spoonacular-mcp)
-- [Public APIs Listing](https://github.com/public-apis/public-apis)
-- [Spectral Rules](rules/spoonacular-spectral-rules.yml)
-- [Vocabulary](vocabulary/spoonacular-vocabulary.yaml)
-- [JSON-LD](json-ld/spoonacular-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Plans](plans/spoonacular-plans-pricing.yml)
-- [Rate Limits](rate-limits/spoonacular-rate-limits.yml)
-- [Fin Ops](finops/spoonacular-finops.yml)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
+- [Blog](https://spoonacular.com/blog/feed/)
+- [GitHub](https://github.com/ddsky)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 45.4** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 69.0 |
+| Contract governance | 27.3 |
+| Operational transparency | 10.5 |
+| Developer ergonomics | 77.4 |
+| Access clarity | 31.6 |
+
+**Agent readiness 21.7** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | — |
+| Operation Distinctiveness | — |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/spoonacular/](https://apis.io/providers/spoonacular/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Spoonacular: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/spoonacular/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
